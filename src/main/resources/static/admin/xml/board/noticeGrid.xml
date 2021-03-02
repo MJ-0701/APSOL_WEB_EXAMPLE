@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="code" width='40' align='center' type='ro' sort='na'></column>
+		
+		<column id="categoryName" width='90' align='center' type='ro'
+			sort='server'>구 분</column>
+		
+		<column id="title" width='350' align='left' type='ro'
+			sort='server'>제 목</column>
+
+		<column id="registeredDate" width='100' align='center' type='ro'
+			sort='server'>작성일시</column>
+			
+		<column id="writerName" width='100' align='left' type='ro'
+			sort='na'>작성자</column>
+			
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

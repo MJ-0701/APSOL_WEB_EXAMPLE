@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='70' align='center' type='ro' sort='na' color=''>일</column>
+		<column id="orderDate" width='100' align='right' type='ron' format="0,000" sort='na' color=''>페이지뷰</column>				
+		<column id="productName" width='100' align='right'  type='ron' format="0,000" sort='na' color=''>방문자수</column>
+ 		 
+		<column id="unitPrice" width='100' align='right' type='ron' format="0,000" sort='na' color=''>가입자수</column>		
+		<column id="discount" width='100' align='right' type='ron' format="0,000" sort='na' color=''>탈퇴자수</column>
+						
+		<beforeInit> 
+			<!-- <call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<!-- <param>50</param> -->
+			</call> 
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

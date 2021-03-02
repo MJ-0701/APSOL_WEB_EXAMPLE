@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="slipDate" width='80' align='center' type='ro' sort='server'>일 자</column>
+		<column id="kind" width='70' align='center' type='ro' sort='server'>구 분</column>
+		<column id="slipKindName" width='60' align='center' type='ro' sort='server'>업 무</column>
+		<column id="remarks" width='250' align='left' type='ro' sort='server'>적 요</column>
+		<column id="managerName" width='80' align='center' type='ro' sort='server'>기안자</column>
+		<column id="customerName" width='120' align='left' type='ro' sort='server'>거래처</column>		
+		<column id="accountName" width='80' align='center' type='ro' sort='server'>업무 계정</column>
+		<column id="bookName" width='80' align='center' type='ro' sort='server'>장부 계정</column>
+		<column id="total" width='90' align='right' type='ron' sort='server'>금액</column>
+		<column id="docName" width='90' align='center' type='ron' sort='server'>증 빙</column>
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

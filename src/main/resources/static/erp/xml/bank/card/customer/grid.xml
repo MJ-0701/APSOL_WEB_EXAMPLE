@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>순 번
+		</column>
+		<column id="name" width='120' align='center' type='ro'
+			sort='na'>가맹점
+		</column>
+		<column id="businessNumber" width='100' align='center' type='ro' sort='na'>#cspan
+		</column>
+
+		<column id="auth" width='100' align='right' type='ron' format="0,000"
+			sort='na'>승인금액</column>
+
+		<column id="bill" width='100' align='right' type='ron' format="0,000"
+			sort='na'>청구금액</column>
+
+		<column id="deposit" width='100' align='right' type='ron' format="0,000"
+			sort='na'>입금금액</column>
+			
+		<column id="fee" width='100' align='right' type='ron' format="0,000"
+			sort='na'>합계 수수료</column> 
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,상 호,사업자번호,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" name="work" />
+	<item type="hidden" value="" label="수신자" name="receivers" />
+	<item type="hidden" value="" label="수신자" name="customer" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+					<item type="calendar" value="" label="예정 일자" name="planDate" />
+				</item>
+
+				<item type="block" blockOffset="0" offsetLeft="80" offsetTop="0">
+					<item type="select" label="시" name="planHour" inputWidth="60" position="label-right"
+						labelWidth="10">
+						<option value="" text="-" />
+						<option value="00" text="0" />
+						<option value="01" text="1" />
+						<option value="02" text="2" />
+						<option value="03" text="3" />
+						<option value="04" text="4" />
+						<option value="05" text="5" />
+						<option value="06" text="6" />
+						<option value="07" text="7" />
+						<option value="08" text="8" />
+						<option value="09" text="9" />
+						<option value="10" text="10" />
+						<option value="11" text="11" />
+						<option value="12" text="12" />
+						<option value="13" text="13" />
+						<option value="14" text="14" />
+						<option value="15" text="15" />
+						<option value="16" text="16" />
+						<option value="17" text="17" />
+						<option value="18" text="18" />
+						<option value="19" text="19" />
+						<option value="20" text="20" />
+						<option value="21" text="21" />
+						<option value="22" text="22" />
+						<option value="23" text="23" />
+					</item>
+					<item type="newcolumn" />
+					<item type="select" label="분" name="planMin" inputWidth="60" position="label-right" offsetLeft="10"
+						labelWidth="10">
+						<option value="" text="-" />
+						<option value="00" text="00" />
+						<option value="15" text="15" />
+						<option value="30" text="30" />
+						<option value="45" text="45" />
+						
+					</item>
+				</item> 
+
+			</item>
+			<item type="newcolumn" />
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="수신자" name="receiverNames"
+						required="true" inputWidth="113" readonly="true" className="form_readonly" />
+					<item type="newcolumn" />
+					<item type="button" value="..." name="btnReceiver" required="true"
+						width="40" />
+				</item>
+				<item type="input" value="" label="가맹점" name="customerName" />
+				<item type="input" value="" label="사업자번호" name="customerBusinessNumber" />
+			</item>
+			<!-- <item type="block" blockOffset="0" offsetLeft="0" offsetTop="0"> 
+				<item type="editor" label="내 용" name="content" inputWidth="390" inputHeight="250" 
+				rows="8" value="" /> </item> -->
+		</item>
+	</item>
+
+</items>
+

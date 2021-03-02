@@ -1,0 +1,42 @@
+
+    .box_request {width:100%; height:auto; }
+    .box_request2 {width:1200px; height:100%; padding:0 10px; margin:20px auto; }
+    .box_request .main_title {width:100%; height:60px; line-height:60px; border-bottom:2px solid #333; font-size:21px; 
+    	font-weight:bold; }
+
+    /* 정보 */
+    .box_tb {width:70%; margin:40px auto 0 auto; border-top:1px solid #333; border-bottom:1px solid #333; }
+    .tb_info {width:100%; border-collapse:collapse; }
+    .tb_info td {height:40px; line-height:30px; font-size:14px; padding:5px 15px; box-sizing:border-box; }
+    .tb_info tr {border-bottom:1px solid #ccc; }
+    .tb_info td:nth-child(1) {width:150px; background:#f3f3f3; text-align:center; font-weight:bold; }
+    .tb_info .rid {line-height:40px; padding:0 15px; }
+    .tb_info .bt_qrcode {padding:5px 10px; margin-left:10px; border:1px solid #c2c2c2; border-radius:3px; font-size:11px; 
+    	cursor:pointer; }
+    .tb_info .bt_qrcode:hover {background-color: gray; color:white;}
+    .tb_info .bt_pickup {height:25px !important; float:right; padding:0px 10px; margin-left:10px; border:1px solid #c2c2c2; border-radius:3px; font-size:11px; 
+    	cursor:pointer; margin-top:2px;}
+    .tb_info .bt_pickup:hover {background-color: gray; color:white;}
+    
+
+    /* 완료 이미지 */
+    .box_request .img {height:150px; line-height:150px; margin-top:50px; text-align:center; }
+    .box_request .img img {vertical-align:middle; }
+    .box_request .title {min-height:50px; line-height:50px; margin:20px 0; font-size:30px; text-align:center; }
+    .msgAccount {text-align:center; font-size:16px; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .box_request2 {width:100%; }
+      .box_tb {width:95%; }
+      .tb_info td {padding:0 10px; font-size:11px; }
+      .tb_info td:nth-child(1) {width:70px; }
+      .box_request .title {font-size:20px; }
+    }
+
+    /* 버튼 */    
+    .box_bt {width:330px; height:60px; line-height:35px; margin:50px auto 100px auto; }
+    .box_bt .bt {width:100px; height:35px; float:left; background:#0E3B64; color:white; cursor:pointer; 
+    	text-align:center; }
+    .box_bt .bt2 {background:#616161; margin:0 15px;}
+    .box_bt .bt3 {float:right;}

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>순 번
+		</column>
+		<column id="accountNumber" width='120' align='center' type='ro' sort='na'>계좌번호
+		</column>  
+		
+		<column id="withdraw" width='100' align='right' type='ron' sort='na' format="0,000">출금액
+		</column>
+		
+		<column id="deposit" width='100' align='right' type='ron' sort='na' format="0,000">입금액
+		</column>  
+		
+		<column id="balance" width='100' align='right' type='ron' sort='na' format="0,000">잔 액
+		</column>  
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

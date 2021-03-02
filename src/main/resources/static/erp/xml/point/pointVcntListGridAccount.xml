@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="registeredDate" width='130' align='center' type='ro' sort='str' color=''>입금 신청시간</column>
+		<column id="status" width='70' align='center' type='ro' sort='str' color=''  >입금 상태</column>
+		<column id="amount" width='80' align='right' type='ro' sort='str' color=''  >입금 금액</column>
+		<column id="name" width='80' align='left' type='ro' sort='str' color=''  >입금자명</column>
+		<column id="bank" width='80' align='left' type='ro' sort='str' color=''  >입금 은행</column>
+		<column id="expiredDate" width='130' align='center' type='ro' sort='str' color=''  >입금 만료시간</column>	
+		<!-- <column id="cnt" width='80' align='center' type='ro' sort='str' color=''>건수</column> -->	
+	</head>
+</rows>

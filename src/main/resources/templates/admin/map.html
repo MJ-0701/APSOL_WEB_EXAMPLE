@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Object-based init</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css" th:href="@{/vendor/dhtmlx/codebase/dhtmlx.css?v=vank3323222212}" />
+<link rel="stylesheet" type="text/css" th:href="@{/admin/common.css}" />
+
+<script th:src="@{/vendor/dhtmlx/codebase/dhtmlx.js}"></script>
+<script th:src="@{/vendor/jquery/jquery-1.11.1.min.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/jquery.form.min.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/json2/json2.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/admin/js/common.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+
+<script th:src="@{/js/proj4.js}"></script>
+
+<script th:src="@{/erp/js/popup/dataPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formProductPopup.js}"></script>
+
+<script th:src="@{/erp/js/popup/grid/cellPopup.js}"></script>
+<script th:src="@{/erp/js/popup/grid/productCell.js}"></script>
+
+
+
+<script th:src="@{/erp/js/data/dataGrid.js}"></script>
+<script th:src="@{/erp/js/data/dateRangeGrid.js}"></script>
+<script th:src="@{/erp/js/data/dataForm.js}"></script>
+
+
+
+<script th:src="@{/admin/js/product/eventGrid.js}"></script>
+<script th:src="@{/admin/js/product/productGrid.js}"></script>
+<script th:src="@{/admin/js/product/productForm.js}"></script>
+
+
+<script th:src="@{/admin/js/product/productItem.js}"></script>
+
+<script th:src="@{/admin/js/imageItem/imageItem.js}"></script>
+<script th:src="@{/admin/js/imageItem/imageItemForm.js}"></script>
+
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+	function initMap() {
+	}
+	/*]]>*/
+</script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry&amp;sensor=false&amp;key=AIzaSyAkJ8fFEGfkEBbjc7NNDhLNMkel0n0aW5I&amp;callback=initMap"></script>
+<script async="async" defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js?spiderfier_callback=mapLibReadyHandler"></script>
+
+<style>
+.validate_magenta .dhxform_label, .validate_magenta .dhxform_select {
+	color: magenta !important;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs {
+	background-color: #ED878A;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tab {
+	background-color: #2589ce;
+	border-left: 2px solid #ED878A;
+	border-right: 2px solid #ED878A;
+}
+</style>
+
+<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+
+	var imageUrl = /*[[@{/vendor/dhtmlx/codebase/imgs/}]]*/"../../../codebase/imgs/";
+
+	var grid;
+	var tabbar;
+
+	var days = 30;
+
+	var gridMap = {};
+	var markers = [];
+	var infowindows = [];
+	var map;
+	var layout;
+
+	function calculus(end_ymd) {
+		
+		if( end_ymd== null )
+			return new Date();
+
+		var yyyy = end_ymd.substring(0, 4);
+		var mm = end_ymd.substring(4, 6);
+		var dd = end_ymd.substring(6);
+		return new Date(yyyy, mm - 1, dd, 23, 59, 59);
+
+	}
+
+	// 위경도좌표 얻기
+	function getLatLng(coordiX, coordiY) {
+		if (!coordiX || !coordiY)
+			return [ 127.09304875538659, 37.60626176888083 ];
+
+		var utm = "+proj=tmerc +lat_0=38 +lon_0=127.5 +k=0.9996 +x_0=1000000 +y_0=2000000 +ellps=GRS80 +units=m +no_defs";
+		var wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
+		return proj4(utm, wgs84, [ coordiX, coordiY ]);
+	}
+
+	function initMarkers(data) {
+		for (var i = 0; i < markers.length; i++) {
+			markers[i].setMap(null);
+		}
+		markers = [];
+		infowindows = [];
+
+		var infowindow = new google.maps.InfoWindow();
+		var oms = new OverlappingMarkerSpiderfier(map, {
+			markersWontMove : true,
+			markersWontHide : true,
+			keepSpiderfied : true,
+			circleSpiralSwitchover : 40
+		});
+
+		oms.addListener('click', function(marker, event) {
+			infowindow.setContent(marker.desc);
+			infowindow.open(map, marker);
+
+		});
+		oms.addListener('spiderfy', function(markers) {
+			infowindow.close();
+		});
+
+		if (window.addEventListener)
+			window.addEventListener("load", oms, false);
+		else if (window.attachEvent)
+			window.attachEvent("onload", oms);
+		else
+			window.onload = oms;
+
+		markers = data
+				.map(function(dat, i) {
+					
+					
+					var req = dat.data;
+
+					var iconUrl = "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|47C83E|000000";
+
+					var today = new Date();
+
+					if (req.state == 'NON_EXHAUSTED') {
+						iconUrl = "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|A6A6A6|000000";
+					}
+					else{
+					 	 if(today < calculus(req.exhaust.mapDate1)){ 
+					 		 // 여유
+					 		iconUrl = "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|47C83E|000000"
+					  }else if(today < calculus(req.exhaust.mapDate2)){
+						  // 임박
+						  iconUrl = "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FFE400|000000"
+					  }else if(calculus(req.exhaust.mapDate2) < today < calculus(req.exhaust.mapDate3) || calculus(req.exhaust.mapDate3) < today){
+						  // 초과
+						  iconUrl = "https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FF0000|000000"
+					  } 
+					}
+
+					var coordi = getLatLng(req.exhaust.posX, req.exhaust.posY);
+					var marker = new google.maps.Marker({
+						position : {
+							lat : coordi[1],
+							lng : coordi[0]
+						},
+						icon : {
+							url : iconUrl
+						},
+						id : req.code
+					});
+
+					var content = '<div id="content" onclick="event.preventDefault();">'
+							+ '<div id="siteNotice"><b style="padding-top:5px; font-size:15px; ">'
+							+ req.item.name
+							+ '('
+							+ req.item.standard
+							+ ') | '
+							+ req.qty
+							+ '개</b></div>'
+							+ '<div id="bodyContent" style="width:100%; text-align:left; height:">'
+							+ req.exhaust.dong
+							+ ' '
+							+ req.exhaust.address
+							+ ' '
+							+ req.exhaust.addressDetail
+							+ '<br/>배출 일자 : '
+							+ req.exhaust.exhaustDate
+							+ '<br/>민원인 성함 : '
+							+ req.exhaust.name + '</div>' + '</div>';
+
+					marker.desc = content;
+
+					oms.addMarker(marker);
+					return marker;
+				});
+	}
+
+	function doOnLoad() {
+
+		layout = new dhtmlXLayoutObject({
+			parent : document.body,
+			pattern : "1C"
+		});
+
+		var grid = new ReportGrid();
+		grid.initToolbar(layout.cells("a"), {
+			iconsPath :  "../img/18/",
+			xml : "xml/requestReport/mapToolbar.xml",
+		});
+		
+		layout = layout.cells("a").attachLayout('2U');
+		
+		layout.cells("a").hideHeader();
+		layout.cells("b").hideHeader();
+		layout.cells("b").setWidth(700);
+		layout.cells("b").setText("매장 등록");
+		
+		grid.addProgressCell('a', layout.cells("a"));
+		grid.addProgressCell('b', layout.cells("b"));
+		
+		grid.initGrid( layout.cells("b"), {
+			imageUrl : imageUrl,
+			xml : "xml/requestReport/mapGrid.xml",
+		});
+
+		grid.setOnRowSelect(function(id, ind) {
+			var coodi = getLatLng(grid.getData('posX', id), grid.getData('posY', id));
+			map.setCenter(new google.maps.LatLng(coodi[1], coodi[0]));
+			
+			for(var i=0; i < markers.length;++i){
+				if ( markers[i].id == id ){					
+					infowindow.setContent(markers[i].desc);
+					infowindow.open(map, markers[i]);
+					
+					break;
+				}
+			}
+
+		});
+
+		grid.setOnAfterLoaded(function() { 
+		    
+		    console.log('loaded'); 
+
+		});
+		
+		
+		grid.setOnFilterStartEventListeners(function(_grid, indexes, values) { 
+		    
+		    console.log('filter');
+		    
+		    grid.filterParams = getFilterParamMap(_grid, indexes, values);
+		    
+		    $.get('map/data', grid.getParams(), function(data) {
+                console.log(data);
+                initMarkers(data);
+            });
+
+        });
+		
+
+		// var GMaps = layout.cells("a").attachMap(); // applies default parameters 
+		// or
+		var coodi = getLatLng(961643.98651383, 1955466.0983266835);
+		var mapParams = {
+			center : new google.maps.LatLng(coodi[1], coodi[0]), // new google.maps.LatLng(40.719837, -73.992348),
+			mapTypeControl : false,
+			streetViewControl : false,
+			zoom : 14,
+			mapTypeId : google.maps.MapTypeId.ROADMAP
+		};
+
+		map = layout.cells("a").attachMap(mapParams);
+
+		// map
+
+		markerIng = {
+			url : 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+			size : new google.maps.Size(32, 32),
+			origin : new google.maps.Point(0, 0),
+			anchor : new google.maps.Point(0, 32)
+		};
+		markerDone = {
+			url : '/img/markerDone.png',
+			size : new google.maps.Size(32, 32),
+			origin : new google.maps.Point(0, 0),
+			anchor : new google.maps.Point(0, 32)
+		};
+		markerCancel = {
+			url : '/img/markerCancel.png',
+			size : new google.maps.Size(32, 32),
+			origin : new google.maps.Point(0, 0),
+			anchor : new google.maps.Point(0, 32)
+		};
+
+		var infowindow = new google.maps.InfoWindow();
+
+		var oms = new OverlappingMarkerSpiderfier(map, {
+			markersWontMove : true,
+			markersWontHide : true,
+			keepSpiderfied : true,
+			circleSpiralSwitchover : 40
+		});
+
+		oms.addListener('click', function(marker, event) {
+			infowindow.setContent(marker.desc);
+			infowindow.open(map, marker);
+
+		});
+		oms.addListener('spiderfy', function(markers) {
+			infowindow.close();
+		});
+
+	}
+
+	function ReportGrid(config) {
+		DateRangeGrid.call(this);
+
+		this.setUrlPrefix('map');
+
+		this.setSelectFilterData('onlineKind', [ 'Online', 'Offline' ]);
+		this.dateRange = 30;
+
+	}
+	ReportGrid.prototype = Object.create(DateRangeGrid.prototype);
+	ReportGrid.prototype.constructor = ReportGrid;
+	
+	ReportGrid.prototype.onInitedToolbar = function(toolbar) {
+	    DataGrid.prototype.onInitedToolbar.call(this, toolbar);
+
+	    if (this.enableDateRange) {
+	        var me = this;
+
+	        this.calendar = buildToolbarDateRange(toolbar, 'from', 'to', function(
+	                from, to) {
+	            // 달력내용이 변하면 호출
+	            me.reload();
+	        });
+
+	        this.calendar.setLastDay(this.dateRange);
+
+	        setupDateRangeBtns(toolbar, this.calendar);
+	    }
+
+	};
+
+	ReportGrid.prototype.init = function(container, config) {
+
+		this.initToolbar(container, {
+			iconsPath : config.iconsPath,
+			xml : "xml/requestReport/mapToolbar.xml",
+		});
+
+		this.initGrid(container, {
+			imageUrl : config.imageUrl,
+			xml : "xml/requestReport/mapGrid.xml",
+		} );
+
+	};
+
+	ReportGrid.prototype.onInitedGrid = function(grid) {
+		DateRangeGrid.prototype.onInitedGrid.call(this, grid);  
+	};
+
+	ReportGrid.prototype.onAfterLoadRow = function(result) {
+		DateRangeGrid.prototype.onAfterLoadRow.call(this, result);
+	}
+
+	/*]]>*/
+</script>
+</head>
+<body onload="doOnLoad();"></body>
+</html>

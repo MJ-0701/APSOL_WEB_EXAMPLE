@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		
+		<column id="kind" width='80' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			구분
+			<option value="QK0001">1.급 여</option>
+			<option value="QK0002">2.급여,상여</option>
+			<option value="QK0003">3.특별 상여</option>
+		</column>
+		<column id="employeeName" width='90' align='center' type='ed' sort='str' color=''>사 원</column>
+		<column id="departmentName" width='75' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="positionName" width='70' align='left' type='ro' sort='str' color=''>#cspan</column>	
+		<column id="email" width='70' align='left' type='ed' sort='str' color=''>#cspan</column>
+		
+		
+		<column id="amountTax" width='70' align='right' type='ron' sort='int' color='' format="0,000">급 여</column>
+		<column id="amountNoTax" width='70' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+		<column id="amount" width='70' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+			
+		<column id="drawback" width='70' align='right' type='ron' sort='int' color='' format="0,000">공제합계</column>
+		<column id="total" width='90' align='right' type='ron' sort='int' color='' format="0,000">실지급액</column>		
+		
+		<column id="bankName" width='70' align='left' type='ed' sort='str' color=''>계좌 정보</column>
+		<column id="accountNumber" width='100' align='left' type='ed' sort='str' color=''>#cspan</column>
+		<column id="accountOwner" width='70' align='left' type='ed' sort='str' color=''>#cspan</column>
+		
+		<column id="payday" width='100' align='center' type='dhxCalendarA' sort='str' color=''>지급 일자</column>
+		<column id="memo" width='150' align='left' type='ed' sort='int' color=''>비 고</column>
+						
+		<column id="uuid" width='90' align='left' type='ro' sort='str' color=''>전 표</column>
+								
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,사원명,부서명,직 위,이메일,과 세,비과세,지급합계,#rspan,#rspan,은 행,계 좌,예금주,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#numeric_filter,#numeric_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

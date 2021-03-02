@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+
+		<column id="uuid" width='100' align='center' type='ro' sort='na'>계정과목</column>
+		<column id="name" width='190' align='left' type='ed' sort='na'>#cspan</column>
+		<column id="parentAccount" width='100' align='center' type='ro' sort='na'>표준계정</column>
+		<column id="parentAccountName" width='170' align='left' type='ed' sort='na'>#cspan</column>
+		
+		<column id="typeName" width='100' align='center' type='ro' sort='na'>#cspan</column>
+		<column id="kindName" width='100' align='center' type='ro' sort='na'>#cspan</column>
+			
+		<column id="userKindName" width='100' align='center' type='ro' sort='na'>사용구분</column>
+		<column id="hidden" width='70' align='center' type='ch' sort='server'>숨김 여부</column>
+		<beforeInit>
+			<call command="attachHeader">
+				<param>코 드,과목명,코 드,과목명,계정 구분,과목 구분,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#select_filter,#select_filter,#select_filter</param>
+			</call>
+
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

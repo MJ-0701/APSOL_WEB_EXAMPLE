@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnRefresh" type="button" text="새로고침" img="redo.gif"  imgdis="redo_dis.gif">
+	</item>
+</toolbar>

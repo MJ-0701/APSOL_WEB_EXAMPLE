@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Object-based init</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/dhtmlx/codebase/dhtmlx.css?v=vank3323222212}" />
+<link rel="stylesheet" type="text/css" th:href="@{/admin/common.css}" />
+
+<script th:src="@{/vendor/dhtmlx/codebase/dhtmlx.js}"></script>
+<script th:src="@{/vendor/jquery/jquery-1.11.1.min.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/jquery.form.min.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/json2/json2.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/admin/js/common.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+
+<script th:src="@{/erp/js/popup/dataPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formProductPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formPublicAddressPopup.js}"></script>
+
+<script th:src="@{/erp/js/popup/grid/cellPopup.js}"></script>
+<script th:src="@{/erp/js/popup/grid/productCell.js}"></script>
+
+<script th:src="@{/erp/js/dialog/dialog.js}"></script>
+
+<script th:src="@{/erp/js/data/dataGrid.js}"></script>
+<script th:src="@{/erp/js/data/dateRangeGrid.js}"></script>
+<script th:src="@{/erp/js/data/dataForm.js}"></script>
+
+
+
+<script th:src="@{/admin/js/product/eventGrid.js}"></script>
+<script th:src="@{/admin/js/product/productGrid.js}"></script>
+<script th:src="@{/admin/js/product/productForm.js}"></script>
+
+
+<script th:src="@{/admin/js/product/productItem.js}"></script>
+
+<script th:src="@{/admin/js/imageItem/imageItem.js}"></script>
+<script th:src="@{/admin/js/imageItem/imageItemForm.js}"></script>
+
+
+<script th:src="@{/admin/js/product/productSelectorDialog.js}"></script>
+<script th:src="@{/admin/js/product/productSelector.js}"></script>
+
+<script
+	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<style>
+.validate_magenta .dhxform_label, .validate_magenta .dhxform_select {
+	color: magenta !important;
+}
+</style>
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+
+    var imageUrl = /*[[@{/vendor/dhtmlx/codebase/imgs/}]]*/"../../../codebase/imgs/";
+
+    var grid;
+    var tabbar;
+
+    var days = 7;
+    var taxRate = 10;
+    var scale = 0;
+    var round = ROUND_ROUND;
+
+    var gridMap = {};
+    
+    var lastSelRowId = ''; 
+    var requestGrid;
+
+    function CancelForm() {
+        DataForm.call(this);
+
+        this.setUpdateUrl('requestTemp/cancel');
+        var me = this;
+        this.id = 0;
+        this.lastFocus = undefined;
+    }
+
+    CancelForm.prototype = Object.create(DataForm.prototype);
+    CancelForm.prototype.constructor = CancelForm;
+
+    CancelForm.prototype.init = function(container) {
+        this.initToolbar(container, {
+            iconsPath : "../img/18/",
+            xml : 'xml/requestCancel/formToolbar.xml',
+        });
+
+        this.initForm(container, {
+            xml : 'xml/requestCancel/form.xml',
+        });
+    }
+
+    CancelForm.prototype.onInitedForm = function(form) {
+    };
+
+    CancelForm.prototype.onClickFormButton = function(name) {
+        DataForm.prototype.onClickFormButton.call(this, name);
+    }
+
+    CancelForm.prototype.onBeforeUpdate = function(json) {
+        DataForm.prototype.onBeforeUpdate.call(this, json);
+        json.id = this.id;
+        return true;
+    };
+
+    function CancelFormDialog(x, y) {
+        FormDialog.call(this, "cancelFormDialog", "배출 취소", 300, 200, x, y);
+        this.form = new CancelForm();
+
+        var me = this;
+        this.form.setOnSuccessedUpdateEvent(function() {
+            me.close();
+            
+            requestGrid.loadRecords(function(){
+                requestGrid.selectRowById(lastSelRowId);
+            });
+        });
+
+    };
+
+    CancelFormDialog.prototype = Object.create(FormDialog.prototype);
+    CancelFormDialog.prototype.constructor = CancelFormDialog;
+
+    CancelFormDialog.prototype.onInitedForm = function(form) {
+        FormDialog.prototype.onInitedForm.call(this, form);
+    };
+
+    var cancelDlg = new CancelFormDialog();
+
+    function StateForm() {
+        DataForm.call(this);
+
+        this.setUpdateUrl('requestTemp/state');
+        var me = this;
+        this.id = 0;
+        this.lastFocus = undefined;
+    }
+
+    StateForm.prototype = Object.create(DataForm.prototype);
+    StateForm.prototype.constructor = StateForm;
+
+    StateForm.prototype.init = function(container) {
+        this.initToolbar(container, {
+            iconsPath : "../img/18/",
+            xml : 'xml/requestState/formToolbar.xml',
+        });
+
+        this.initForm(container, {
+            xml : 'xml/requestState/form.xml',
+        });
+    }
+
+    StateForm.prototype.onInitedForm = function(form) {
+    };
+
+    StateForm.prototype.onClickFormButton = function(name) {
+        DataForm.prototype.onClickFormButton.call(this, name);
+    }
+
+    StateForm.prototype.onBeforeUpdate = function(json) {
+        DataForm.prototype.onBeforeUpdate.call(this, json);
+        json.id = this.id;
+        return true;
+    };
+
+    function StateFormDialog(x, y) {
+        FormDialog.call(this, "stateFormDialog", "상태 변경", 300, 200, x, y);
+        this.form = new StateForm();
+
+        var me = this;
+        this.form.setOnSuccessedUpdateEvent(function() {
+            me.close();
+            
+            requestGrid.loadRecords(function(){
+                requestGrid.selectRowById(lastSelRowId);
+            });
+        });
+
+    };
+
+    StateFormDialog.prototype = Object.create(FormDialog.prototype);
+    StateFormDialog.prototype.constructor = StateFormDialog;
+
+    StateFormDialog.prototype.onInitedForm = function(form) {
+        FormDialog.prototype.onInitedForm.call(this, form);
+    };
+
+    var stateDlg = new StateFormDialog();
+    
+   
+    
+    function doOnLoad() {
+
+        var layout = new dhtmlXLayoutObject({
+            parent : document.body,
+            pattern : "2U"
+        });
+
+        layout.cells("a").hideHeader();
+        layout.cells("b").setWidth(520);
+        layout.cells("b").setText("매장 등록");
+
+        tabbar = layout.cells('b').attachTabbar({
+            tabs : [ {
+                id : "a1",
+                text : "신청 정보",
+                active : true
+            }, ]
+        });
+
+        var grid = new RequestGrid();
+        requestGrid = grid;
+        grid.addProgressCell('a', layout.cells("a"));
+        grid.init(layout.cells('a'), {
+            iconsPath : "../img/18/",
+            imageUrl : imageUrl
+        });
+
+        grid.setOnClickToolbarButton(function(id) {
+
+            if (id == 'btnRequest') {
+
+                requestDlg.open(true);
+                requestDlg.show(true);
+
+            }
+
+            if (id == 'btnCancel') {
+                var rowId = grid.getSelectedRowId();
+                if (!rowId) {
+                    dhtmlx.alert({
+                        title : "배출 취소할 수 없습니다!",
+                        type : "alert-error",
+                        text : "취소할 항목을 먼저 선택해야합니다."
+                    });
+
+                    return;
+                }
+                cancelDlg.open(true);
+                cancelDlg.show(true);
+            }
+
+            if (id == 'btnChangeState') {
+                var rowId = grid.getSelectedRowId();
+                if (!rowId) {
+                    dhtmlx.alert({
+                        title : "상태 번경을 할 수 없습니다!",
+                        type : "alert-error",
+                        text : "변경할 항목을 먼저 선택해야합니다."
+                    });
+
+                    return;
+                }
+
+                stateDlg.open(true);
+                stateDlg.show(true);
+            }
+        })
+
+        grid.setOnRowSelect(function(id, ind) {
+
+            cancelDlg.form.id = id;
+            stateDlg.form.id = id;
+
+            var code = grid.getData('exhaustCode', id);
+            form.detailId = id;
+            form.detailState = grid.getData('stateR', id);
+            
+            form.load(code, 1);
+            
+            lastSelRowId = id; 
+            
+            // detailState
+
+        });
+
+        grid.setOnClear(function() {
+            form.clear();
+        });
+
+        var form = new RequestForm();
+        requestForm = form;
+
+        form.setOnSuccessedUpdateEvent(function(result) {
+            // grid.loadRow(result.newId, true, true);
+            // grid.reload()
+            requestGrid.loadRecords(function(){
+                requestGrid.selectRowById(lastSelRowId);
+            });
+        });
+
+        form.setOnSuccessedRemoveEvent(function(result) {
+            grid.removeRow(result.ids);
+        });
+
+        form.init(tabbar.cells("a1"));
+        form.addProgressCell('layout2', tabbar.cells("a1"));
+
+        form.setOnClearListener(function() {
+            // grid.clearSelection();
+        });
+
+        form.setOnClickToolbarButton(function(id, toolbar) {
+            if (id == 'btnAdd') {
+                grid.clearSelection();
+            }
+        });
+
+    }
+
+    function RequestGrid(config) {
+        DateRangeGrid.call(this);
+
+        this.setUrlPrefix('requestTemp');
+
+        this.excelTitle = "배출 예약";
+        
+
+    }
+    RequestGrid.prototype = Object.create(DateRangeGrid.prototype);
+    RequestGrid.prototype.constructor = RequestGrid;
+
+    RequestGrid.prototype.init = function(container, config) {
+
+        this.initToolbar(container, {
+            iconsPath : config.iconsPath,
+            xml : "xml/requestTemp/toolbar.xml",
+        });
+
+        this.initGrid(container, {
+            imageUrl : config.imageUrl,
+            xml : "xml/requestTemp/grid.xml",
+        });
+
+    };
+
+    RequestGrid.prototype.onInitedGrid = function(grid) {
+
+        DateRangeGrid.prototype.onInitedGrid.call(this, grid);
+
+        grid
+                .attachFooter(
+                        ",<div class='fsum' id='summary'></div>,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,", //
+                        [ "text-align:left;", "text-align:left;",
+                                "text-align:center;", "text-align:right;" ]);
+    };
+
+    RequestGrid.prototype.onAfterLoadRow = function(result) {
+        DateRangeGrid.prototype.onAfterLoadRow.call(this, result);
+    }
+
+    RequestGrid.prototype.onAfterLoaded = function(num) {
+        DateRangeGrid.prototype.onAfterLoaded.call(this, num);
+
+        var colIndex = this.grid.getColIndexById('state');
+        var qtyIndex = this.grid.getColIndexById('qty');
+
+        var TOTAL = 0;
+        var REQUESTED = 0;
+        var READY_COMPLETE = 0;
+        var COMPLETED = 0;
+        var READY_REJECT = 0; 
+        var REJECTED = 0;
+        var CANCELED = 0;
+        var READY_DEPOSIT = 0;
+        var NONE =0;
+        var OVER = 0;
+
+        for (var i = 0; i < this.grid.getRowsNum(); i++) {
+            var qty = this.grid.cells2(i, qtyIndex).getValue();
+            var stateName = this.grid.cells2(i, colIndex).getValue();
+            TOTAL += qty;
+            if (stateName == '수거 대기') {
+                REQUESTED += qty;
+            }
+            else if (stateName == '완료 대기') {
+                READY_COMPLETE+= qty;
+            }
+            else if (stateName == '수거 완료') {
+                COMPLETED+= qty;
+            }
+            else if (stateName == '거부 대기') {
+                READY_REJECT+= qty;
+            }
+            else if (stateName == '수거 거부') {
+                REJECTED+= qty;
+            }
+            else if (stateName == '입금 대기') {
+                READY_DEPOSIT+= qty;
+            } else if (stateName == '배출 취소') {
+                CANCELED+= qty;
+            }
+            else if (stateName == '미배출') {
+                NONE += qty;
+            }
+            else if (stateName == '기간 경과') {
+                OVER += qty;
+            } 
+        }
+        
+        $("#summary").html('총 ' +TOTAL+ '건 : 수거대기 <span class="sa">' + REQUESTED +"</span>건 / 완료대기 " + READY_COMPLETE + "건/ 완료 " + COMPLETED + "건/ 거부대기 " + READY_REJECT + "건/ 거부 " + REJECTED +"건/ 취소 " + CANCELED + "건/ 취소대기 "+ READY_REJECT + "건/ 미배출 " +NONE + "건/ 기간경과 " +OVER+ "건/ 입금대기 " + READY_DEPOSIT + "건 ");
+
+    }
+
+    function RequestForm() {
+
+        DataForm.call(this);
+
+        this.setUrlPrefix('request');
+
+        var me = this;
+
+        this.id = 0;
+
+        this.detailGrid;
+        this.stateGrid;
+        this.itemGrid;
+
+        this.past = true;
+        
+        this.detailId;
+        this.detailState;
+    }
+
+    RequestForm.prototype = Object.create(DataForm.prototype);
+    RequestForm.prototype.constructor = RequestForm;
+
+    RequestForm.prototype.onInitedForm = function(form) {
+        DataForm.prototype.onInitedForm.call(this, form);
+
+        var me = this;
+
+        $(form.getInput('exhaustDate')).attr('autocomplete', 'off');
+        
+     // phone
+        me.phoneOld = '';
+    form.attachEvent("onKeyUp", function(inp, ev, name, value) {
+        
+        if( name != 'phone')
+        { 
+            return;
+        } 
+        
+        if (  ev.key >= 0 && ev.key <= 9 || ev.key === 'Backspace') {
+            me.phoneOld = $(inp).val();
+        }
+        else{
+            $(inp).val(me.phoneOld);
+        }
+        
+    });
+        
+        var dhxCalendar = form.getCalendar('exhaustDate');
+        var now = new Date();
+        dhxCalendar.setSensitiveRange(new Date(now.setDate(now.getDate() + 1)), null);
+
+        if (this.past == false) {
+            var dhxCalendar = form.getCalendar("exhaustDate");
+            dhxCalendar.setSensitiveRange(new Date(), null);
+        }
+
+        this.addPublicAddressCell('address').setFieldMap({
+            address : {
+                name : 'address'
+            },
+            postNumber : {
+                name : 'postNumber',
+                required : true
+            },
+            dong : {
+                name : 'dong'
+            },
+            posX : {
+                name : 'posX'
+            },
+            posY : {
+                name : 'posY'
+            },
+            siNm : {
+                name : 'siNm'
+            },
+            sggNm : {
+                name : 'sggNm'
+            }
+        }).setNextFocus('addressDetail').setOnSuccessed(function(data) {
+            $.get('requestTemp/checkAddr', {
+                dong : data.dong
+            }, function(result) {
+                if (result.error) {
+                    dhtmlx.alert({
+                        title : "유효하지 않는 지역입니다!",
+                        type : "alert-error",
+                        text : "본 서비스의 관할지역이 아닙니다."
+                    });
+
+                    me.setData('dong', '');
+                    me.setData('address', '');
+                    me.setData('postNumber', '');
+                    me.setData('posX', '');
+                    me.setData('posY', '');
+                }
+            });
+
+            $.get('requestTemp/area', {
+                dong : data.dong
+            }, function(json) {
+                form.reloadOptions("area", json);
+            });
+
+        });
+    }
+
+    RequestForm.prototype.init = function(container) {
+        this.initToolbar(container, {
+            iconsPath : "../img/18/",
+            xml : 'xml/requestTemp/formToolbar2.xml',
+        });
+
+        var layout = container.attachLayout('3E');
+
+        layout.cells('a').hideHeader();
+        layout.cells('b').hideHeader();
+        layout.cells('c').hideHeader();
+        layout.cells('b').setHeight(270);
+
+        this.initForm(layout.cells('a'), {
+            xml : 'xml/requestTemp/form.xml',
+        });
+
+        this.detailGrid = new RequestDetail();
+        this.detailGrid.init(layout.cells('b'), {
+            iconsPath : "../img/18/",
+            imageUrl : imageUrl
+        });
+
+        var sublayout = layout.cells('c').attachLayout("2U");
+        sublayout.cells('a').hideHeader();
+        sublayout.cells('b').hideHeader();
+
+        this.stateGrid = new RequestDetailItem();
+        this.stateGrid.initState(sublayout.cells('a'), {
+            iconsPath : "../img/18/",
+            imageUrl : imageUrl
+        });
+        
+        
+        this.stateGrid.setOnAfterLoaded(function(){
+            me.stateGrid.selectRowById(me.detailState);
+            
+        }); 
+
+        var me = this;
+
+        this.detailGrid.setOnRowSelect(function(id, ind) {
+
+            var itemCode = me.detailGrid.getData('item', id);
+            
+           // if( me.itemGrid.item == itemCode )
+             //   return;
+            
+            me.itemGrid.item = itemCode;
+            me.stateGrid.item = itemCode;
+            me.stateGrid.reload();
+        });
+
+        this.itemGrid = new RequestDetailItem();
+        this.itemGrid.initItem(sublayout.cells('b'), {
+            iconsPath : "../img/18/",
+            imageUrl : imageUrl
+        });
+
+        this.stateGrid.setOnRowSelect(function(id, ind) {
+
+            me.itemGrid.state = id;
+            me.itemGrid.reload();
+        });
+
+    }
+
+    RequestForm.prototype.onBeforeUpdate = function(json) {
+        DataForm.prototype.onBeforeUpdate.call(this, json);
+
+        json.details = this.detailGrid.toJson();
+
+        console.log(json);
+
+        return true;
+    };
+
+    RequestForm.prototype.onClickAdded = function() {
+        DataForm.prototype.onClickAdded.call(this);
+        this.form.setItemFocus('name');
+        this.phoneOld = '';
+    };
+
+    RequestForm.prototype.onAfterLoaded = function(result) {
+        DataForm.prototype.onAfterLoaded.call(this, result);
+        this.detailGrid.clear();
+        this.stateGrid.clear();
+        this.itemGrid.clear(); 
+
+        this.stateGrid.exhaust = result.id;
+        this.itemGrid.exhaust = result.id;
+        
+        var targetId = this.detailId.split('_')[1];
+               
+
+        for (var i = 0; i < result.details.length; ++i) {
+            console.log( result.details[i].id )
+            this.detailGrid.addRow(result.details[i].id, result.details[i].data, null, true);
+        }
+        
+        this.detailGrid.selectRowById(targetId);
+
+        var me = this;
+        $.get('requestTemp/area', {
+            dong : result.dong
+        }, function(json) {
+            me.form.reloadOptions("area", json);
+            me.form.setItemValue("area", result.data.area.code);
+        });
+
+    };
+
+    function RequestFormDialog(x, y) {
+        FormDialog.call(this, "requestFormDialog", "배출 신청", 520, 700, x, y);
+        this.form = new RequestForm();
+        this.form.past = false;
+
+        var me = this;
+        this.form.setOnSuccessedUpdateEvent(function() {
+            me.close();
+        });
+
+    };
+
+    RequestFormDialog.prototype = Object.create(FormDialog.prototype);
+    RequestFormDialog.prototype.constructor = RequestFormDialog;
+
+    RequestFormDialog.prototype.onInitedForm = function(form) {
+        FormDialog.prototype.onInitedForm.call(this, form);
+    };
+
+    var requestDlg = new RequestFormDialog();
+
+    function RequestDetail(config) {
+        DataGrid.call(this, config);
+
+        this.setUrlPrefix('requestTemp/detail');
+
+        this.enableUpdate = false;
+
+        /*this.setNumberFormats([ {
+        	format : config.format.amount,
+        	columns : [ 'unitPrice' ],
+        	beforeAbs : true,
+        	afterAbs : true,
+        }, {
+        	format : config.format.qty,
+        	columns : [ 'qty' ],
+        	beforeAbs : true,
+        	afterAbs : true,
+        } ]);*/
+
+        var me = this;
+
+        this.productSelDlg = new ProductSelectorDialog();
+        this.productSelDlg
+                .setOnCloseEventListener(function() {
+
+                    var data = me.productSelDlg.getCheckedRowDatas();
+                    var d = new Date();
+                    var n = d.getTime() * -1;
+
+                    var qtyIdx = me.grid.getColIndexById("qty");
+                    var totalIdx = me.grid.getColIndexById("total");
+
+                    data
+                            .forEach(function(item, idx) {
+
+                                var rowId = null;
+                                for (var rowIdx = 0; rowIdx < me.grid
+                                        .getRowsNum(); ++rowIdx) {
+
+                                    var rowID = me.grid.getRowId(rowIdx);
+
+                                    var itemId = me.grid.getUserData(rowID,
+                                            "item");
+
+                                    if (itemId == item.id) {
+                                        rowId = rowID;
+                                        console.log("rowID   " + rowID);
+                                        break;
+                                    }
+                                }
+
+                                console.log(rowId);
+
+                                if (rowId == null) {
+                                    item.data.qty = 1;
+                                    item.data.total = item.data.unitPrice;
+                                    item.data.item = item.id;
+
+                                    me.addRow(n--, item.data, null, true);
+                                } else {
+
+                                    var qty = Number(me.grid.cells(rowId,
+                                            qtyIdx).getValue()) + 1;
+                                    me.grid.cells(rowId, qtyIdx).setValue(qty);
+                                    me.grid.cells(rowId, totalIdx).setValue(
+                                            qty * item.data.unitPrice);
+
+                                }
+                            });
+                });
+
+        this.insertFocusField = 'name';
+    }
+    RequestDetail.prototype = Object.create(DataGrid.prototype);
+    RequestDetail.prototype.constructor = RequestDetail;
+
+    RequestDetail.prototype.onInitedGrid = function(grid) {
+        DataGrid.prototype.onInitedGrid.call(this, grid);
+        var me = this;
+
+        this.addProductCell('name', false).setFieldMap({
+            name : {
+                name : 'name',
+            },
+
+            item : {
+                name : 'item',
+                required : true
+            },
+            unitPrice : {
+                name : 'unitPrice',
+            }
+
+        }).setNextFocus('qty').setOnSuccessed(function(data) {
+            console.log(data);
+
+            var rId = me.getSelectedRowId();
+            me.setData('item', data.code, rId);
+
+            me.onUpdatedQty(rId, 1);
+
+            return true;
+        });
+
+    };
+
+    RequestDetail.prototype.onClickToolbarButton = function(id, toolbar) {
+
+        if (id == 'btnAdd') {
+
+            this.productSelDlg.open(true);
+
+            this.productSelDlg.show();
+            this.productSelDlg.setModal(true);
+
+            return true;
+        }
+
+        return DataGrid.prototype.onClickToolbarButton.call(id, toolbar);
+
+    };
+
+    RequestDetail.prototype.onRowAdded = function(id, data) {
+        DataGrid.prototype.onRowAdded.call(this, id, data);
+    }
+
+    RequestDetail.prototype.init = function(container, config) {
+
+        this.initToolbar(container, {
+            iconsPath : config.iconsPath,
+            xml : "xml/requestTemp/detailToolbar2.xml"
+        });
+
+        this.initGrid(container, {
+            imageUrl : config.imageUrl,
+            xml : "xml/requestTemp/detailGrid2.xml",
+        });
+
+    };
+
+    RequestDetail.prototype.onBeforeParams = function(param) {
+        DataGrid.prototype.onBeforeParams.call(this, param);
+    };
+
+    function RequestDetailItem(config) {
+        DataGrid.call(this, config);
+
+        this.exhaust;
+        this.item;
+        this.state;
+
+        var me = this;
+    }
+    RequestDetailItem.prototype = Object.create(DataGrid.prototype);
+    RequestDetailItem.prototype.constructor = RequestDetailItem;
+
+    RequestDetailItem.prototype.onInitedGrid = function(grid) {
+        DataGrid.prototype.onInitedGrid.call(this, grid);
+        var me = this;
+    };
+
+    RequestDetailItem.prototype.onRowAdded = function(id, data) {
+        DataGrid.prototype.onRowAdded.call(this, id, data);
+    }
+
+    RequestDetailItem.prototype.initState = function(container, config) {
+
+        this.setUrlPrefix('requestTemp/detail/state');
+
+        this.initToolbar(container, {
+            iconsPath : config.iconsPath,
+            xml : "xml/requestTemp/itemToolbar2.xml"
+        });
+
+        this.initGrid(container, {
+            imageUrl : config.imageUrl,
+            xml : "xml/requestTemp/stateGrid.xml",
+        });
+
+    };
+
+    RequestDetailItem.prototype.initItem = function(container, config) {
+
+        this.setUrlPrefix('requestTemp/detail/item');
+
+        this.initToolbar(container, {
+            iconsPath : config.iconsPath,
+            xml : "xml/requestTemp/itemToolbar2.xml"
+        });
+
+        this.initGrid(container, {
+            imageUrl : config.imageUrl,
+            xml : "xml/requestTemp/itemGrid.xml",
+        });
+
+    };
+
+    RequestDetailItem.prototype.onBeforeParams = function(param) {
+        DataGrid.prototype.onBeforeParams.call(this, param);
+
+        param.exhaust = this.exhaust;
+        param.item = this.item;
+        param.state = this.state;
+    };
+    
+    
+    RequestDetailItem.prototype.onUpdateSuccessed = function(result) {
+        
+        DataGrid.prototype.onUpdateSuccessed.call(this, result); 
+        
+        
+        requestGrid.loadRecords(function(){
+            requestGrid.selectRowById(lastSelRowId);
+        });
+         
+    };
+
+    /*]]>*/
+</script>
+</head>
+<body onload="doOnLoad();"></body>
+</html>

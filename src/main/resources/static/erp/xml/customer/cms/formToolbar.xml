@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnAdd" type="button" text="신 규">
+		<userdata name="kind">insert</userdata>
+	</item>	
+	<item id="btnUpdate" type="button" text="저 장" />
+	<item id="btnPause" type="button" text="보 류" />
+	<item id="btnTerminate" type="button" text="해 지" />
+	<item id="btnNormal" type="button" text="정 상" />
+	<item type="separator" />
+	<item id="btnLogin" type="button" text="CMS로그인" />
+</toolbar>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="carName" width='100' align='left' type='ro' sort='str' color=''>명 칭</column>		
+		<column id="categoryName" width='100' align='center' type='ro' sort='str' color=''>분 류</column>
+		<column id="carType" width='100' align='center' type='ro' sort='str' color=''>차 종</column>
+		<column id="carNumber" width='65' align='center' type='ro' sort='str' >차량번호</column>
+		<column id="driverName" width='120' align='left' type='ro' sort='str' color=''>운전자</column>		
+		<column id="phone" width='100' align='left' type='ro' sort='str' color=''>연락처</column> 
+		
+		<column id="driveDistance" width='180' align='left' type='ro'	 sort='na' color=''>운행기록</column>
+		 	  
+		<column id="oiling" width='90' align='right' type='ron' sort='str' color=''>주유기록</column>
+		<column id="fixed" width='80' align='right' type='ron' sort='str' color=''>정비기록</column>
+		<column id="totalDistance" width='95' align='right' type='ron' sort='str' color=''>총운행거리</column>			
+		<column id="state" width='95' align='center' type='ron' sort='str' color=''>상 태</column>
+			
+		<column id="memo" width='200' align='left' type='ro'	 sort='na' color=''>비 고</column>
+				
+		<beforeInit> 
+			<call command="attachHeader">
+				<param>#text_filter,#select_filter,#select_filter,#select_filter,#text_filter,#text_filter,#text_filter,,,,,#text_filter,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			
+
+		</afterInit>
+	</head>
+
+</rows>

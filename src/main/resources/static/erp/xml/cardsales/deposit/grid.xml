@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<rows>
+	<head>				
+		<column id="depositDate" width='100' align='center' type='ro' sort='str' color=''>입금일자</column>
+		
+		<column id="cardKind" width='80' align='center' type='ro' sort='str' color=''>카드구분</column>
+		<!-- <column id="paymentType" width='60' align='center' type='ro' sort='na' color=''>구분</column> -->
+		<column id="salesAmount" width='70' align='right' type='ron' sort='int' color='' format="0,000">매출 금액</column>
+		<column id="salesCount" width='70' align='right' type='ron' sort='int' color='' format="0,000">매출 금액</column>
+		
+		<column id="realDeposit" width='70' align='right' type='ron' sort='int' color='' format="0,000">입금 금액</column>		
+		<column id="etcDeposit" width='70' align='right' type='ron' sort='int' color='' format="0,000">기타 입금</column>
+		<column id="vatDeputyPaymentAmount" width='70' align='right' type='ron' sort='int' color='' format="0,000">부가세 대리 납부 금액</column>
+		<column id="withholdingAmount" width='70' align='right' type='ron' sort='int' color='' format="0,000">보류 금액</column>
+		<column id="paymentBank" width='80' align='center' type='ro' sort='str' color=''>은행</column>
+		<column id="paymentAccount" width='80' align='center' type='ro' sort='str' color=''>계좌번호</column>
+
+		<beforeInit>
+			 <call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+			<!-- <call command="enableMultiline">
+				<param>1</param>
+			</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

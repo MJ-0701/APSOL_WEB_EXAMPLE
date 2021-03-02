@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnSend" type="button" text="결재/전송" img="save.gif"  imgdis="save_dis.gif"/>
+</toolbar>

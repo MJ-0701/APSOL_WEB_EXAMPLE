@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<rows>
+    <head>
+        <column id="no" width='40' align='right' type='ro' sort='na' color=''>번 호</column> 
+           
+        <column id="itemName" width='120' align='left' type='ro' sort='server' color=''>상품명</column>
+        <column id="qty" width='80' align='right' type='ro' sort='server' color=''>구매수(수량)</column>     
+        <column id="total" width='80' align='right' type='ro' sort='server' color=''>금액</column>          
+                 
+        
+        <beforeInit> 
+            <call command="attachHeader">
+                <param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,,,,,,</param>
+            </call>
+        </beforeInit>
+        <afterInit>
+            <call command="enableSmartRendering">
+                <param>1</param>
+                <param>50</param>
+            </call>
+            <call command="enableEditTabOnly">
+                <param>1</param>
+            </call>
+            <call command="enableMultiselect">
+                <param>1</param>
+            </call>
+            <call command="enableAccessKeyMap">
+                <param>1</param>
+            </call>
+        </afterInit>
+
+    </head>
+</rows>

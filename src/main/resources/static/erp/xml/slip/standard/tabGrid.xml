@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="year" width='40' align='center' type='ed' sort='str' color=''>일 자</column>
+		<column id="month" width='35' align='center' type='ed' sort='str' color=''>#cspan</column>
+		<column id="day" width='35' align='center' type='ed' sort='str' color=''>#cspan</column>
+		<column id="kind" width='55' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			구분
+			<option value="S10001">1.입 금</option>
+			<option value="S10002">2.출 금</option>
+		</column>
+		<column id="book" width='45' align='center' type='ro' sort='str' color=''>결제장부</column>
+		<column id="bookName" width='90' align='center' type='ed' sort='str' color=''>#cspan</column>		
+		<column id="customer" width='50' align='center' type='ro' sort='str' color=''>거래처(고객)</column>
+		<column id="customerName" width='90' align='left' type='ed' sort='str' color=''>#cspan</column>
+		<column id="managerName" width='70' align='center' type='ro' sort='str' color=''>#cspan</column>
+		<column id="customerGroupName" width='80' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="amount" width='80' align='right' type='edn' sort='int' color=''>상 세</column>
+		<column id="tax" width='80' align='right' type='edn' sort='int' color=''>#cspan</column>		
+		<column id="commission" width='80' align='right' type='edn' sort='str' color=''>#cspan</column>
+		<column id="deposit" width='90' align='right' type='ron' sort='int' color=''>입 금</column>
+		<column id="withdraw" width='90' align='right' type='ron' sort='int' color=''>출 금</column>
+		<column id="remarks" width='200' align='left' type='ed' sort='int' color=''>적 요</column>
+		<!--  <column id="docKind" width='80' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			증빙자료
+			<option value="IV0000">1.없음 </option>			
+			<option value="IV0002">2.카드영수증</option>
+			<option value="IV0003">3.현금영수증</option>
+		</column>  -->
+		<column id="uuid" width='100' align='left' type='ro' sort='int' color=''>전표 번호</column>
+		<beforeInit>
+			<call command="attachHeader">
+				<param>년,월,일,#rspan,코드,장부명,코드,명 칭,담당자,그룹명,금 액,세 액,수수료,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			
+		</afterInit>
+
+	</head>
+</rows>

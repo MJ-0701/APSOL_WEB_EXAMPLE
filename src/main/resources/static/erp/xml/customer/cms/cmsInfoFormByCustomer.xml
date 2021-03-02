@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="500" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" label="거래처" name="customer" inputWidth="180" />
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0">
+				<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+					<item type="input" value="" label="CMS상태" name="cmsState"
+						inputWidth="140" labelWidth="90" readonly='true' className="form_readonly" />
+					<!-- <item type="newcolumn" /> <item type="input" value="" label="보류/해지일" 
+						name="pauseDate" inputWidth="140" labelWidth="90" readonly='true' className="form_readonly" 
+						/> -->
+					<item type="newcolumn" />
+					<item type="input" value="" label="최근납부일" name="lastPaymentDate"
+						inputWidth="140" labelWidth="110" readonly='true' className="form_readonly" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="총 납부금액" name="paymentTotal"
+						inputWidth="140" labelWidth="110" readonly='true' className="form_readonly" />
+
+					<item type="newcolumn" />
+					<item type="input" value="" label="CMS미납금" name="cmsMisuTotal"
+						inputWidth="140" labelWidth="110" readonly='true' className="form_readonly" />
+
+
+				</item>
+				<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+					<item type="input" value="" label="불능사유" name="errorMsg"
+						inputWidth="500" labelWidth="90" readonly='true' className="form_readonly" />
+				</item>
+				<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+					<item type="input" label="비 고" name="message" inputWidth="800"
+						readonly='true' className="form_readonly" labelWidth="90"
+						inputHeight="100" rows="8" value="" />
+				</item>
+			</item>
+
+		</item>
+	</item>
+</items>
+

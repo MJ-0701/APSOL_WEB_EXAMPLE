@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="100" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" label="거래처" name="customer" inputWidth="180" />
+	<item type="hidden" label="계좌정보" name="cmsAccount" inputWidth="180" />
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0">
+				<item type="fieldset" blockOffset="0" label="청구정보">
+					<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+						<item type="select" label="청구구분" name="chargeKind"
+							inputWidth="160" labelWidth="70">
+							<option value="CH0001" text="청구 추가" />
+							<option value="CH0002" text="청구 예약 추가" />
+							<option value="CH0003" text="자동 청구 추가" />
+						</item>
+
+					</item>
+					<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+						<item type="input" value="" label="청구금액" name="amount"
+							inputWidth="140" labelWidth="70" />
+					</item>
+				</item>
+				<item type="fieldset" blockOffset="0" label="가맹점">
+
+					<item type="block" blockOffset="0">
+						<item type="input" value="" label="가맹점" name="customerName"
+							inputWidth="160" labelWidth="70" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="사업자 번호" name="customerBusinessNumber"
+							inputWidth="140" labelWidth="70" />
+					</item>
+					<item type="block" blockOffset="0">
+						<!-- <item type="input" value="" label="회원키" name="customerMPk" inputWidth="160" 
+							labelWidth="70" /> -->
+						<item type="input" value="" label="회원키" name="mPk"
+							inputWidth="160" labelWidth="70" />
+					</item>
+				</item>
+				<item type="fieldset" blockOffset="0" label="수동청구정보">
+					<item type="block" blockOffset="0">
+						<item type="select" label="청구항목키" name="itemPk" inputWidth="160"
+							labelWidth="70">
+							<option value="2" text="월 이용료" />
+						</item>
+						<item type="newcolumn" />
+						<item type="calendar" value="" label="청구일" name="dealTime"
+							inputWidth="140" labelWidth="70" />
+
+					</item>
+					<item type="block" blockOffset="0" offsetTop="0">
+						<item type="input" value="" label="비 고" name="message"
+							inputWidth="370" rows="10" labelWidth="70" />
+					</item>
+				</item>
+				<item type="fieldset" blockOffset="0" label="자동청구정보">
+					<item type="block" blockOffset="0">
+						<item type="calendar" value="" label="청구시작월" name="startMonth"
+							inputWidth="160" labelWidth="70" />
+						<item type="newcolumn" />
+						<item type="calendar" value="" label="청구종료월" name="endMonth"
+							inputWidth="140" labelWidth="70" />
+					</item>
+					<item type="block" blockOffset="0">
+						<item type="input" value="" label="청구주기(월)" name="chargeTerm"
+							inputWidth="160" labelWidth="70" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="청구일" name="chargeDate"
+							inputWidth="140" labelWidth="70" />
+					</item>
+				</item>
+			</item>
+
+		</item>
+	</item>
+</items>
+

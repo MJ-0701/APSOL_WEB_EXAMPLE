@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnRefresh" type="button" text="새로고침" img="redo.gif"  imgdis="redo_dis.gif"/>
+	<!--  <item id="btnUpdate" type="button" text="저 장[S_Enter]" img="save.gif"  imgdis="save_dis.gif"/>
+	<item id="btnDelete" type="button" text="항목 삭제[DEL]" img="save.gif"  imgdis="save_dis.gif"/>  -->
+	
+</toolbar>

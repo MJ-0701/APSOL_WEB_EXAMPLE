@@ -1,0 +1,312 @@
+<?xml version="1.0"?>
+<items id="contForm3">
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0"/>
+		
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0" width="330">
+			<item type="block" blockOffset="0">
+				<item type="input" name="content" inputWidth="330" inputHeight="140" rows="8" value="" />
+				<item type="button" id="textCount" name="textCount" className="textCount" value="0/90bytes"/>
+			</item>
+			<item type="block" blockOffset="3">
+				<item type="block" blockOffset="0">
+					<item type="button" value="특수문자" name="btnAddSymbols" width="75"/>
+					<item type="newcolumn" />
+					<item type="button" value="이름입력" name="btnAddName" width="75" offsetLeft="10"/>
+					<item type="newcolumn" />
+					<item type="button" value="문자저장" name="btnSaveMessage" width="75" offsetLeft="10"/>
+					<item type="newcolumn" />
+					<item type="button" value="보관함" name="btnLoadMessage" width="75" offsetLeft="10"/>
+				</item>
+				<item type="block" blockOffset="0" name="symbolListContainer" className="symbolListContainer" hidden="true">
+					<item type="block" blockOffset="0" className="symbolRow">
+						<item type="button" className="symbol" value="￦" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="￥" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="％" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="※" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="☆" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="★" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="○" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="●" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◎" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◇" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◆" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="□" width="25" height="25" readonly="true"/>
+					</item>
+					<item type="block" blockOffset="0" className="symbolRow">
+						<item type="button" className="symbol" value="■" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="△" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▲" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▽" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▼" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◁" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◀" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▷" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▶" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="♤" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="♠" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="♡" width="25" height="25" readonly="true"/>
+					</item>
+					<item type="block" blockOffset="0" className="symbolRow">
+						<item type="button" className="symbol" value="♥" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="♧" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="⊙" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◈" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▣" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◐" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◑" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▒" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▤" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▥" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▨" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▧" width="25" height="25" readonly="true"/>
+					</item>
+					<item type="block" blockOffset="0" className="symbolRow">
+						<item type="button" className="symbol" value="￦" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="￥" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="％" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="※" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="☆" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="★" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="○" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="●" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◎" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◇" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="◆" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="□" width="25" height="25" readonly="true"/>
+					</item>
+					<item type="block" blockOffset="0" className="symbolRow">
+						<item type="button" className="symbol" value="▦" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="▩" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="♨" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="☏" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="☎" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="☜" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="☞" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="♩" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="♪" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="♬" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="†" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="‡" width="25" height="25" readonly="true"/>
+					</item>
+					<item type="block" blockOffset="0" className="symbolRow">
+						<item type="button" className="symbol" value="↕" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="↗" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="↙" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="↖" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="↘" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="→" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="←" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="↑" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="↓" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="↔" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="。" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="‥" width="25" height="25" readonly="true"/>
+					</item>
+					<item type="block" blockOffset="0" className="symbolRow">
+						<item type="button" className="symbol" value="…" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="㉿" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="℃" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="½" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="⅔" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="⅔" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="㈜" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="№" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="㏇" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="™" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="㏂" width="25" height="25" readonly="true"/>
+						<item type="newcolumn" />
+						<item type="button" className="symbol" value="㏘" width="25" height="25" readonly="true"/>
+					</item>
+				</item>
+			</item>
+						
+			<item type="block" blockOffset="0" offsetTop="15">
+				<!-- <item type="combo" label="보내는사람" inputWidth="330" inputHeight="140" labelWidth="60" value="" position="label-top">
+					<option text="발신번호를 선택해주세요"/>
+				</item> -->
+				<item type="input" name="sender" label="보내는사람" inputWidth="330" labelWidth="60" value="" position="label-top">
+					<note>보내는 사람의 전화번호를 입력해주세요</note>
+				</item>
+			</item>			
+			
+			<item type="block" blockOffset="0" offsetTop="15">
+				<item type="checkbox" name="reserveCheck" label="예약지정(*예약 전송시에만 선택)" labelWidth="180" value="" position="label-right"/>
+				<item type="block" blockOffset="0">
+					<item type="calendar" name="calendar" readonly="true" inputWidth="130" disabled="true"/>
+					<item type="newcolumn" offset="25"/>
+					<item type="combo" label="시" name="hour" inputWidth="50" labelWidth="10" position="label-right" readonly="true" disabled="true">
+						<option text="00" value="00"/>
+						<option text="01" value="01"/>
+						<option text="02" value="02"/>
+						<option text="03" value="03"/>
+						<option text="04" value="04"/>
+						<option text="05" value="05"/>
+						<option text="06" value="06"/>
+						<option text="07" value="07"/>
+						<option text="08" value="08"/>
+						<option text="09" value="09"/>
+						<option text="10" value="10"/>
+						<option text="11" value="11"/>
+						<option text="12" value="12"/>
+						<option text="13" value="13"/>
+						<option text="14" value="14"/>
+						<option text="15" value="15"/>
+						<option text="16" value="16"/>
+						<option text="17" value="17"/>
+						<option text="18" value="18"/>
+						<option text="19" value="19"/>
+						<option text="20" value="20"/>
+						<option text="21" value="21"/>
+						<option text="22" value="22"/>
+						<option text="23" value="23"/>
+					</item>
+					<item type="newcolumn" offset="25"/>
+					<item type="input" label="분" name="min" inputWidth="30" labelWidth="10" position="label-right" disabled="true">
+						<option text="00" value="00"/>
+						<option text="30" value="30"/>
+					</item>
+					<!-- <item type="combo" label="분" name="min" inputWidth="50" labelWidth="20" position="label-right" readonly="true" disabled="true">
+						<option text="00" value="00"/>
+						<option text="30" value="30"/>
+					</item> -->
+				</item>
+			</item>
+			
+			<item type="block" blockOffset="0" offsetTop="15" hidden="true">
+				<item type="checkbox" label="분할발송" labelWidth="50" value="" position="label-right"/>
+				<item type="block" blockOffset="0">
+					<item type="input" label="분마다" inputWidth="50" labelWidth="40" value="" position="label-right"/>
+					<item type="newcolumn" offset="25"/>
+					<item type="input" label="명에게 발송" inputWidth="50" labelWidth="70" value="" position="label-right"/>
+				</item>
+			</item>
+		</item>
+		
+		<item type="newcolumn" />
+		
+		<item type="block" blockOffset="20" width="330">			
+			<item type="block" blockOffset="0">
+				<item type="block" blockOffset="0" hidden="true">
+					<item type="radio" name="addrOptions" label="직접입력" value="by_direct" labelWidth="50" position="label-right" checked="true"/>
+					<item type="newcolumn" offset="25"/>
+					<item type="radio" name="addrOptions" label="엑셀파일" value="by_excel" labelWidth="50" position="label-right"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" name="inputPhone" offsetLeft="0" inputWidth="267" position="label-right">
+						<note>받는 사람의 전화번호를 입력하고 추가버튼을 눌러주세요</note>
+					</item>
+					<item type="newcolumn" offset="3"/>
+					<item type="button" name="btnInputPhone" value="추가" labelWidth="50" readonly="true"/>
+				</item>
+				
+				<item type="block" blockOffset="0" offsetTop="10">
+					<item type="container" id="phoneList" name="phoneList" blockOffset="0" inputWidth="330" className="phoneListContainer">
+					</item>
+					
+					<item type="block" blockOffset="0">
+						<item type="button" value="주소록" name="btnAddAddress" width="160"/>
+						<item type="newcolumn" />
+						<item type="button" value="목록초기화" name="btnReset" width="160" offsetLeft="10"/>
+					</item>
+				</item>
+			</item>
+			
+			<item type="block" inputWidth="330" offsetTop="10" className="inputTextContainer">
+				<item type="input" value="" label="전송 가능 건수 0건" name="smsCountBefore" className="inputText"
+					labelWidth="300" inputWidth="0" readonly="true" />
+				<item type="input" value="" label="전송문자 0건" name="smsCount" className="inputText"
+					labelWidth="300" inputWidth="0" readonly="true" />
+				<item type="input" value="" label="전송 후 잔여문자 0건" name="smsCountAfter" className="inputText"
+					labelWidth="300" inputWidth="0" readonly="true" />
+			</item>
+			
+			<item type="block" inputWidth="330" offsetTop="10" className="inputTextContainer">
+				<item type="input" value="" label="단가 10P / 잔액 0P" name="remainPoint" className="inputText"
+					labelWidth="300" inputWidth="0" readonly="true" />
+			</item>
+			
+			<item type="button" value="전송하기" name="btnSend" width="100" offsetTop="15" offsetLeft="120"/>
+		</item>
+	</item>
+		
+	
+</items>
+

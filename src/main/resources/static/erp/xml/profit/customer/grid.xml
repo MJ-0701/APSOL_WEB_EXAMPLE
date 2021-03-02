@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='left' type='ro'
+			sort='na' color=''>NO</column>
+		<column id="customerName" width='100' align='left' type='ro'
+			sort='server' color=''>가맹점</column>
+		<column id="managerName" width='100' align='left' type='ro'
+			sort='server' color=''>담당자</column>
+		<column id="departmentName" width='100' align='left' type='ro'
+			sort='server' color=''>담당부서</column>
+			
+		<column id="activatedName" width='70' align='left' type='ro'
+			sort='server' color=''>활성화</column>
+	
+		<column id="profit" width='100' align='right' type='ron' sort='na' format="0,000"
+			color=''>손익</column>
+		
+		<column id="commission" width='75' align='right' type='ron' format="0,000"
+			sort='na' color=''>#cspan</column>
+
+		<column id="sales" width='70' align='right' type='ron' sort='na' format="0,000"
+			color=''>#cspan</column>
+			
+		<column id="cms" width='70' align='right' type='ron' sort='na' format="0,000"
+			color=''>#cspan</column>
+			
+		<column id="purchase" width='70' align='right' type='ron' sort='na' format="0,000"
+			color=''>#cspan</column>
+		
+		<column id="misu" width='70' align='right' type='ron' sort='na' format="0,000"
+			color=''>#cspan</column>
+			
+		<column id="rental" width='70' align='right' type='ron' format="0,000"
+			sort='na' color=''>#cspan</column>
+			
+		<column id="profit2" width='100' align='right' type='ron' sort='na' format="0,000"
+			color=''>손익2</column>
+		
+		<column id="managerCost" width='75' align='right' type='ron' format="0,000" sort='na' color=''>#cspan</column>
+			
+			<column id="companyCost" width='75' align='right' type='ron' format="0,000" sort='na' color=''>#cspan</column>
+			
+			<column id="vanCost" width='75' align='right' type='ron' format="0,000" sort='na' color=''>#cspan</column>
+
+		<beforeInit>
+			<call command="attachHeader"> <param>#rspan,#rspan,#rspan,#rspan,#rspan,손익,매출(수익),#cspan,#cspan,비용(급여/회사),#cspan,#cspan,손익2,직원비용,회사비용,VAN비용</param></call>
+			<call command="attachHeader"> <param>#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,VAN수수료,입금액,CMS,출금액,미납금,손익장비,#rspan,#rspan,#rspan,#rspan</param></call>
+			<call command="attachHeader"> <param>,#text_filter,#text_filter,#text_filter,#select_filter,,,,,,,,,,,</param></call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

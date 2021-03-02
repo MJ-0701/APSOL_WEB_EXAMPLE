@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<items id="contForm3">
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0"
+		id="contForm2" />
+	<item type="hidden" label="코드" name="code" inputWidth="180" value="0" />
+	<item type="hidden" label="구분" name="kind" inputWidth="180" />
+	<item type="hidden" label="거래처" name="customer" inputWidth="180" />
+	<item type="hidden" label="거래처" name="name" inputWidth="180" />
+	<item type="hidden" label="거래처" name="businessNumber" inputWidth="180" />
+	<item type="hidden" label="이전 거래처" name="prevCustomer" inputWidth="180" />
+	<item type="hidden" label="이후 거래처" name="nextCustomer" inputWidth="180" />
+	<item type="hidden" label="거래처" name="customerName" inputWidth="180" />
+	<item type="hidden" label="이전 거래처" name="prevCustomerName" inputWidth="180" />
+	<item type="hidden" label="이후 거래처" name="nextCustomerName" inputWidth="180" />
+	<item type="hidden" label="거래처" name="customerBusinessNumber" inputWidth="180" />
+	<item type="hidden" label="이후 거래처" name="contractor" inputWidth="180" />
+	<item type="hidden" label="이후 거래처" name="consumable" inputWidth="180" />
+	<item type="hidden"  name="supplyCustomer" />
+
+	<item type="fieldset" blockOffset="0" id="contForm" label="계약 정보">
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="미수금" name="misu" labelWidth="80" numberFormat="0,000"
+				inputWidth="70" readonly="true" />
+				<item type="newcolumn" />
+		<item type="input" value="" label="미지급금" name="misu2" labelWidth="80" numberFormat="0,000"
+				inputWidth="70" readonly="true" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="객단가" name="unitPrice" numberFormat="0,000"
+				labelWidth="60" inputWidth="80" readonly="true" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="손익" name="profit" labelWidth="60" numberFormat="0,000"
+				inputWidth="80" readonly="true" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="가맹점수수료 (신용)" name="creditRate" numberFormat="0,000"
+				labelWidth="120" inputWidth="50" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="가맹점수수료 (체크)" name="cashRate" numberFormat="0,000"
+				labelWidth="120" inputWidth="50" />
+				<item type="newcolumn" />
+			
+			<!-- <item type="input" value="" label="." name="cashRate"
+				labelWidth="50" inputWidth="50" /> -->
+		</item>
+		<item type="block" blockOffset="0">
+
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0">
+				<item type="block" blockOffset="0">
+					<item type="input" label="밴 사" name="vanNames" inputWidth="140"  labelWidth="80">
+
+					</item>
+					<item type="newcolumn" />
+					<item type="input" value="" label="계약서 번호" name="uuid"
+						labelWidth="100" inputWidth="140" />
+				</item>
+				<item type="block" blockOffset="0" labelWidth="80">
+					<item type="editor" label="계약 내용" name="content" inputWidth="400"
+						inputHeight="140" rows="8" value="" />
+				</item>
+
+
+
+			</item>
+			<item type="newcolumn" />
+			<item type="block" blockOffset="0" labelWidth="90">
+				<item type="select" label="계약서" name="contractDoc" inputWidth="80"
+					labelWidth="90">
+					<option value="BL0001" text="N" />
+					<option value="BL0002" text="Y" />
+				</item>
+				<item type="newcolumn" />
+				<item type="select" label="밴 계약서" name="vanDoc" inputWidth="80"
+					labelWidth="90">
+					<option value="BL0001" text="N" />
+					<option value="BL0002" text="Y" />
+				</item>
+				<item type="newcolumn" />
+				<item type="select" label="물품임대계약서" name="rentalDoc"
+					inputWidth="80" labelWidth="90">
+					<option value="BL0001" text="N" />
+					<option value="BL0002" text="Y" />
+				</item>
+			</item>
+			<item type="block" blockOffset="0" labelWidth="90">
+				<item type="calendar" value="" label="최초계약일" name="date"
+					labelWidth="90" inputWidth="80" />
+				<item type="newcolumn" />
+				<item type="block" blockOffset="0" labelWidth="80">
+					<item type="input" value="" label="계약년월(YYYYMM)" name="fromYearMonth"
+						labelWidth="90" inputWidth="80" />
+				</item>
+				<item type="newcolumn" />
+				<item type="block" blockOffset="0" labelWidth="80">
+					<item type="input" value="" label="종료년월((YYYYMM))" name="toYearMonth"
+						labelWidth="90" inputWidth="80" />
+				</item>
+			</item>
+			<item type="block" blockOffset="0" labelWidth="90">
+				<item type="input" value="" label="계약 기간" name="period"
+					labelWidth="90" inputWidth="80" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="비용" name="cost" labelWidth="90" numberFormat="0,000"
+					inputWidth="120" />
+			</item>
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="계약 건수" name="vanCnt"
+					labelWidth="90" inputWidth="80" />
+				<item type="newcolumn" />
+
+				<item type="input" value="" label="계약자" name="contractorName"
+					inputWidth="120" labelWidth="90" />
+				<item type="newcolumn" />
+				<item type="select" label="재계약" name="reDoc" labelWidth="50"
+					inputWidth="40">
+					<option value="BL0001" text="N" />
+					<option value="BL0002" text="Y" />
+				</item>
+
+			</item>
+			<item type="block" blockOffset="0">
+					<item type="input" value="" label="이전 사업자" name="prevCustomerBusinessNumber"
+						inputWidth="110" /><item type="newcolumn" />
+						<item type="button" value="품목" name="btnPrevCustomerItem" inputWidth="10"/>
+					<item type="newcolumn" />
+					<item type="input" value="" label="이후 사업자" name="nextCustomerBusinessNumber"
+						inputWidth="105" labelWidth="95" />
+						<item type="newcolumn" />
+						<item type="button" value="품목" name="btnNextCustomerItem" inputWidth="40"/>
+					<item type="newcolumn" />
+				</item>
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="약정 기간" name="period2"
+					inputWidth="80" labelWidth="90"/>
+				<item type="newcolumn" />
+				<item type="select" label="명의변경" name="changeCustomer"
+					inputWidth="40" labelWidth="60">
+					<option value="BL0001" text="N" />
+					<option value="BL0002" text="Y" />
+				</item>
+				<item type="newcolumn" />
+				<item type="select" label="추가" name="additive" inputWidth="40"
+					labelWidth="60">
+					<option value="BL0001" text="N" />
+					<option value="BL0002" text="Y" />
+				</item>
+				<item type="newcolumn" />
+				<item type="select" label="기변" name="changeItem" inputWidth="40"
+					labelWidth="60">
+					<option value="BL0001" text="N" />
+					<option value="BL0002" text="Y" />
+				</item>
+			</item>
+		</item>
+		<item type="block" blockOffset="0">
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="기변약정" label="기변 약정" name="changeItemPeriod"
+					inputWidth="160" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="지원 업체" name="supplyCustomerName"
+					inputWidth="160" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="완결년" name="completeYear"
+					inputWidth="80" labelWidth="87" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="완결월" name="completeMonth"
+					labelWidth="60" inputWidth="70" />
+			</item>
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="계약서 상태" name="stateName"
+					inputWidth="160" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="소모품" name="consumableName"
+					inputWidth="160" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="물품 임대 번호" name="rentalNumber"
+					inputWidth="160" labelWidth="87"/>
+			</item>
+			<item type="block" blockOffset="0" labelWidth="80">
+				<item type="editor" label="비 고" name="memo" inputWidth="900"
+					inputHeight="100" rows="8" value="" />
+			</item>
+		</item>
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="fieldset" blockOffset="0" id="contForm" label="지원내역">
+			<item type="input" value="" label="제품총액(지원)" name="total" numberFormat="0,000"
+				inputWidth="350" labelWidth="120" />
+			<item type="input" value="" label="현금지원" name="cash" inputWidth="350" numberFormat="0,000"
+				labelWidth="120" />
+			<item type="input" value="" label="지원물품" name="supplyItems"
+				inputWidth="350" rows="2" labelWidth="120" />
+		</item>
+		<item type="newcolumn" />
+		<item type="fieldset" blockOffset="0" label="판매내역">
+			<item type="input" value="" label="판매물품" name="items"
+				inputWidth="350" rows="4" labelWidth="120" />
+			<item type="input" value="" label="판매금액" name="amount" numberFormat="0,000"
+				inputWidth="350" labelWidth="120" />
+		</item>
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="fieldset" blockOffset="0" id="contForm" label="부가장비내역">
+			<item type="input" value="" label="부가장비내역" name="extraItems"
+				inputWidth="250" labelWidth="120" rows="2" />
+			<item type="input" value="" label="POS프로그램" name="posProgram"
+				inputWidth="250" labelWidth="120" />
+			<item type="input" value="" label="전용선" name="lanName" inputWidth="250"
+				labelWidth="120" />
+			<item type="input" value="" label="전용선ID" name="lanId"
+				inputWidth="250" labelWidth="120" />
+			<item type="newcolumn" />
+			<item type="select" label="싸인패드" name="signpad" inputWidth="40"
+				labelWidth="60">
+				<option value="BL0001" text="N" />
+				<option value="BL0002" text="Y" />
+			</item>
+			<item type="select" label="무상" name="free" inputWidth="40"
+				labelWidth="60">
+				<option value="BL0001" text="N" />
+				<option value="BL0002" text="Y" />
+			</item>
+			<item type="select" label="자동이체" name="transfer" inputWidth="40"
+				labelWidth="60">
+				<option value="BL0001" text="N" />
+				<option value="BL0002" text="Y" />
+			</item>
+		</item>
+		<item type="newcolumn" />
+		<item type="fieldset" blockOffset="0" label="CMS , 관리비">
+			<item type="input" value="" label="계약기간" name="cmsPeriod"
+				inputWidth="100" labelWidth="120" />
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="최초출금월" name="cmsYear"
+					inputWidth="55" labelWidth="120" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="" name="cmsMonth"
+					inputWidth="40" labelWidth="0" />
+			</item>
+			<item type="input" value="" label="CMS관리비" name="cms" numberFormat="0,000"
+				inputWidth="100" labelWidth="120" />
+			<item type="input" value="" label="POS관리비" name="posPee" numberFormat="0,000"
+				inputWidth="100" labelWidth="120" />
+			<item type="input" value="" label="ASP비용" name="aspPee" numberFormat="0,000"
+				inputWidth="100" labelWidth="120" />
+		</item>
+		<item type="newcolumn" />
+		<item type="fieldset" blockOffset="0" label="할부금융, 캐시백">
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="최초출금월" name="installmentYear"
+					inputWidth="55" labelWidth="120" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="" name="installmentMonth"
+					inputWidth="40" labelWidth="0" />
+			</item>
+			<item type="input" value="" label="금액" name="installment" numberFormat="0,000"
+				inputWidth="100" labelWidth="120" />
+			<item type="input" value="" label="계약기간" name="installmentPeriod"
+				inputWidth="100" labelWidth="120" />
+			<item type="input" value="" label="신세이브" name="sinsave"
+				inputWidth="100" labelWidth="120" />
+			<item type="input" value="" label="OK캐시백" name="okCashBack"
+				inputWidth="100" labelWidth="120" />
+		</item>
+	</item>
+	<item type="fieldset" blockOffset="0" label="PG 계약사항">
+
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="기본 수수료" name="fee"  
+				inputWidth="160" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="리셀러수수료" name="resellerFee" 
+				inputWidth="160" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="판매 수수료" name="salesFee"  
+				inputWidth="160" />
+		</item>
+
+	</item>
+
+
+</items>
+

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		
+		<column id="year" width='40' align='center' type='ed' sort='server' color=''>일 자</column>
+		<column id="month" width='25' align='center' type='ed' sort='na' color=''>#cspan</column>
+		<column id="day" width='25' align='center' type='ed' sort='na' color=''>#cspan</column>
+		<column id="kind" width='65' align='center' type='combo' sort='server' editable="false"  xmlcontent="1">
+			구분
+			<option value="S10003">1.입 고</option>
+			<option value="S10004">2.출 고</option>
+			<option value="S10005">3.입고반품</option>
+			<option value="S10006">4.출고반품</option>
+			<option value="S10008">5.분실/폐기</option>
+		</column>
+		<column id="memberName" width='100' align='left' type='ed' sort='server' color=''>고 객</column>		
+		<column id="memberUsername" width='120' align='left' type='ro' sort='server' color=''>#cspan</column> 
+		
+		<column id="itemName" width='250' align='left' type='ed' sort='server' color=''>품목명</column>		 
+		<column id="serialNumber" width='180' align='left' type='ed' sort='server' color=''>시리얼 넘버</column>		
+		<column id="qty" width='50' align='right' type='edn' sort='server' color=''>수 량</column>
+		<column id="unitPrice" width='70' align='right' type='edn' sort='server' color=''>단 가</column>
+		<column id="amount" width='90' align='right' type='edn' sort='server' color=''>금    액</column>
+		<column id="tax" width='80' align='right' type='edn' sort='server' color=''>#cspan</column>
+		<column id="total" width='95' align='right' type='ron' sort='server' color=''>#cspan</column>
+		<column id="registeredDate" width='130' align='center' type='ro'
+			sort='server'>등록일시</column>
+		<column id="memo" width='200' align='left' type='ed' sort='na' color=''>비 고</column> 
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>년,월,일,#rspan,이 름,아이디,#rspan,#rspan,#rspan,#rspan,금 액,세 액,합 계,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,,,,,,,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			
+
+		</afterInit>
+	</head>
+
+</rows>

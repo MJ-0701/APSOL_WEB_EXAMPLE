@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	 
+			<item type="hidden" name="posX"/> 
+			<item type="hidden" name="posY"/>
+			<item type="hidden" name="dong"/>
+			<item type="hidden" name="siNm"/>
+			<item type="hidden" name="sggNm"/>
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="이 름" name="name"
+				inputWidth="263" />
+		</item>
+
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="주 소" name="address"
+				inputWidth="263" />
+				<item type="newcolumn" />
+				<item type="select" label="행정동" name="area" inputWidth="130" labelWidth="80"></item>
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="상세 주소" name="addressDetail"
+				inputWidth="263" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="우편번호" name="postNumber" readonly="true" labelWidth="80"
+				inputWidth="150" />
+		</item> 
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="배출 위치" name="position"
+				inputWidth="363" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="전화번호" name="phone" inputWidth="263" />
+			<item type="newcolumn" />
+			<item type="checkbox" value="1" label="SMS 서비스 수신동의" name="agreeSms" labelWidth="140" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="calendar" value="" label="배출 예정일" name="exhaustDate" inputWidth="263" />
+			<item type="newcolumn" />
+			<item type="select" label="예정 시간" name="exhaustTime" inputWidth="150">
+				<option value="" text="선택 안함" />
+				<option value="ET0001" text="오전 00:00 ~ 오전 09:00" />
+				<option value="ET0002" text="오전 09:00 ~ 오전 11:00" />
+				<option value="ET0003" text="오전 11:00 ~ 오후 13:00" />
+				<option value="ET0004" text="오후 13:00 ~ 오전 23:59" />
+			</item>
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="radio" value="CARD" label="카드 결제" name="paymentMethod" 
+				labelWidth="130" />
+			<item type="newcolumn" />
+			<item type="radio" value="CASH" label="현금 결제" name="paymentMethod"
+				labelWidth="60" />
+			<item type="newcolumn" />
+			<item type="radio" value="FREE" label="수수료 면제 대상" name="paymentMethod"
+				labelWidth="140">
+				
+				<item type="radio" value="PF0001" label="수급자" name="paymentFreeKind"
+					labelWidth="140" />
+					<item type="newcolumn" />
+				<item type="radio" value="PF0002" label="국가유공자" name="paymentFreeKind"
+					labelWidth="140" />
+					<item type="newcolumn" />
+				<item type="radio" value="PF0003" label="한부모가정" name="paymentFreeKind"
+					labelWidth="140" />
+			</item>
+
+
+		</item>
+
+	</item>
+
+
+
+</items>
+

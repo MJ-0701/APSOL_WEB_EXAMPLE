@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='right' type='ro' sort='server' color=''>순 번</column>
+		<column id="orderDate" width='100' align='center' type='ro' sort='server' color=''>일 자</column>
+				
+		<column id="productName" width='150' align='left' type='ro' sort='server' color=''>판매 상품</column> 
+ 		 
+		<column id="unitPrice" width='110' align='right' type='ron' format="0,000"  sort='server' color=''>정가</column>		
+		<column id="discount" width='70' align='right' type='ron' sort='server' color=''>할인률</column>
+		<column id="price" width='110' align='right' type='ron' format="0,000"  sort='server' color=''>판매가</column>
+		
+		<column id="coupon" width='110' align='right' type='ron' format="0,000" 	sort='server' color=''>쿠 폰</column> 
+		<column id="emoney" width='110' align='right' type='ron' format="0,000" 	sort='server' color=''>적립금</column> 		
+		<column id="total" width='120' align='right' type='ron' format="0,000"  sort='server' color=''>매출 금액</column>  
+		
+		<column id="qty" width='100' align='right' type='ron' format="0,000"  sort='server' color=''>판매 수량</column>  
+				
+		<beforeInit> 
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call> 
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

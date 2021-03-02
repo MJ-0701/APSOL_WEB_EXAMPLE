@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='60' align='center' type='ro' sort='na'>
+			순번
+		</column>
+		<column id="paymentTime" width='100' align='center' type='ro'
+			sort='server'>납부월
+		</column>
+		<!-- <column id="dealTime" width='100' align='center' type='ro' sort='server'>등록일 
+			</column> -->
+		<!-- <column id="chargeKindName" width='80' align='left' type='ro' sort='str' 
+			color=''>청구구분</column> -->
+		<!--<column id="processStateName" width='100' align='center' type='ro' 
+			sort='server'>청구상태 </column> <column id="paymentKind" width='100' align='center' 
+			type='ro' sort='server'>납입구분 </column> -->
+		<!-- <column id="startMonth" width='60' align='left' type='ro' sort='str' 
+			color=''>청구월</column> <column id="endMonth" width='60' align='left' type='ro' 
+			sort='str' color=''>종료월</column> -->
+
+		<column id="paymentDate" width='100' align='center' type='ro'
+			sort='server'>납부일
+		</column>
+		<column id="amountOfMonth" width='80' align='right' type='ron'
+			sort='server' format="0,000">청구금액
+		</column>
+
+		<column id="paymentAmountOfMonth" width='80' align='right'
+			type='ron' format="0,000" sort='server'>납부금액
+		</column>
+
+		<column id="maturityAmount" width='80' align='right' type='ron'
+			sort='server' format="0,000">만기금액
+		</column>
+
+		<column id="cmsMisuOfMonth" width='80' align='right' type='ron'
+			sort='server' format="0,000">미납금
+		</column>
+
+		<column id="paymentAmountTotal" width='100' align='right' type='ron'
+			sort='server' format="0,000">총 납부금액
+		</column>
+		<column id="errorMsg" width='300' align='left' type='ro'
+			sort='server'>불능사유</column>
+		<!-- <column id="message" width='180' align='left' type='ro' sort='server'>비고
+		</column> -->
+
+
+		<column id="cmsAccount" width='50' align='left' type='ro'
+			hidden='1' sort='server'>계정
+		</column>
+		<column id="write_tax_date" width='160' align='center' type='ro'
+			sort='server'>세금계산서 작성일
+		</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

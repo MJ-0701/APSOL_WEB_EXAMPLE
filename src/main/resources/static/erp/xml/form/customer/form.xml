@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0"/>
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="상호명" name="name" inputWidth="180" required="true"/>
+					<item type="newcolumn"/>
+					<item type="input" value="" label="대표자" name="ceo" inputWidth="120" labelWidth="70" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="사업자 번호" name="businessNumber" inputWidth="180" required="true"/>
+					<item type="newcolumn"/>
+					<item type="input" value="" label="종사업자" name="businessNumberJ" inputWidth="120" labelWidth="70"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="사업장 주소" name="address" inputWidth="372"/>
+					<item type="input" value="" label="업 태" name="jobType" inputWidth="120"/>
+					<item type="input" value="" label="종 목" name="jobCategory" inputWidth="120"/>
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="대표 전화" name="phone" inputWidth="180"/>
+					<item type="newcolumn"/>
+					<item type="input" value="" label="대표 팩스" name="fax" inputWidth="120" labelWidth="70"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="이메일" name="email" inputWidth="300"/>
+					<item type="input" value="" label="핸드폰" name="mobile" inputWidth="180"/>
+				</item>
+			</item>
+			<!-- <item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="담당자명" name="staffName" inputWidth="180"/>
+					<item type="newcolumn"/>
+					<item type="input" value="" label="담당자 전화" name="staffPhone" inputWidth="120" labelWidth="70"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="이메일" name="staffEmail" inputWidth="300"/>
+					<item type="newcolumn"/>
+					<item type="hidden" value="" label="담당자코드" name="staffCode"/>
+				</item>
+			</item> -->
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="우편번호" name="postNumber" inputWidth="120" readonly = "true" className="form_readonly"/>
+					<item type="input" value="" label="배송지 주소" name="address2" inputWidth="372" />
+					<item type="input" value="" label="배송지 상세" name="address2Detail" inputWidth="372" />
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="input" value="" label="비 고" name="memo" inputWidth="372" rows="7"/>
+			</item>
+			<item type="newcolumn"/>
+			<item type="block" blockOffset="0" offsetLeft="5" offsetTop="0">
+				<item type="fieldset" blockOffset="0" offsetLeft="0" offsetTop="0">					
+					<item type="select" label="상 태" name="state" inputWidth="120" labelWidth="70">
+						<option  value="CS0001" text="1.정 상" />
+						<option  value="CS0000" text="2.종 결" />
+					</item>
+				</item>
+				<item type="fieldset" blockOffset="0" offsetLeft="0" offsetTop="0">
+					<item type="select" label="주거래구분" name="kind" inputWidth="120" labelWidth="70">
+						<option  value="OK0001" text="1.매출" />
+						<option  value="OK0002" text="2.매입" />
+						<option  value="OK0003" text="3.기타" />
+					</item>
+					<item type="block" blockOffset="0">
+						<item type="input" value="" label="거래계정" name="account" inputWidth="40" labelWidth="70" readonly = 'true'/>
+						<item type="newcolumn"/>
+						<item type="input" value="" label="" name="accountName" inputWidth="100" />
+
+					</item>
+				</item>
+				<item type="fieldset" blockOffset="0" offsetLeft="0" offsetTop="2">
+					<item type="select" label="주거래방식" name="paymentMethod" inputWidth="120" labelWidth="70">
+						<option  value="PY0001" text="1.외상거래" />
+						<option  value="PY0002" text="2.현금결제" />
+						<item type="newcolumn"/>
+					</item>
+					<item type="block" blockOffset="0">
+						<item type="input" value="" label="결제장부" name="book" inputWidth="40" labelWidth="70" readonly = 'true' className="form_readonly"/>
+						<item type="newcolumn"/>
+						<item type="input" value="" label="" name="bookName" inputWidth="100" />
+					</item>
+				</item>
+				<item type="fieldset" blockOffset="0" offsetLeft="0" offsetTop="1">
+					<item type="select" label="부가세 처리" name="taxMethod" inputWidth="120" labelWidth="70">
+						<option  value="CA0001" text="1.자동계산" />
+						<option  value="CA0002" text="2.직접입력" />
+						<item type="newcolumn"/>
+					</item>
+				</item>
+				<item type="fieldset" blockOffset="0" offsetLeft="0" offsetTop="2">
+					<item type="select" label="매입 단가" name="purchaseLevel" inputWidth="120" labelWidth="70">
+						<option  value="PM0000" text="매입 단가" />
+						<option  value="PM0001" text="최근 매입가" />
+					</item>
+				</item>
+				<item type="fieldset" blockOffset="0" offsetLeft="0" offsetTop="2">
+					<item type="select" label="매출 단가" name="salesLevel" inputWidth="120" labelWidth="70">
+						<option  value="SM0000" text="매출 단가" />
+						<option  value="SM0001" text="최근 매출가" />
+						<!-- <option  value="SM0002" text="소비자가" /> -->
+						<option  value="SM0003" text="1등급" />
+						<option  value="SM0004" text="2등급" />
+						<option  value="SM0005" text="3등급" />
+						<option  value="SM0006" text="4등급" />
+						<option  value="SM0007" text="5등급" />
+						<option  value="SM0008" text="6등급" />
+						<option  value="SM0009" text="7등급" />
+						<option  value="SM00010" text="8등급" />
+						<option  value="SM00011" text="9등급" />
+					</item>
+					<item type="checkbox" label="전용품목장 사용" offsetLeft="70" position="label-right" name="privateItems" inputWidth="70" labelWidth="auto" />
+				</item>
+				<item type="fieldset" blockOffset="0" offsetLeft="0" offsetTop="0">
+					<item type="block" blockOffset="0">
+						<item type="input" value="" label="거래처분류" name="category" inputWidth="40" labelWidth="70" readonly = 'true' className="form_readonly" />
+						<item type="newcolumn"/>
+						<item type="input" value="" label="" name="categoryName" inputWidth="100"/>
+					</item>
+				</item>
+				<item type="fieldset" blockOffset="0" offsetLeft="0" offsetTop="0">
+					<item type="block" blockOffset="0">
+						<item type="input" value="" label="영업담당자" name="manager" inputWidth="40" labelWidth="70" readonly = 'true' className="form_readonly" />
+						<item type="newcolumn"/>
+						<item type="input" value="" label="" name="managerName" inputWidth="100" />
+					</item>
+				</item>
+
+			</item>
+
+		</item>
+	</item>
+	
+
+</items>
+

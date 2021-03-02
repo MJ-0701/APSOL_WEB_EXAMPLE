@@ -1,0 +1,22 @@
+
+.write {width:30%; line-height:50px; }
+.write .formTitle {margin-top:10px; font-weight:bold; font-size:17px; }
+.write .bt_search {width:100%; height:40px; line-height:40px; margin-bottom:10px; background:#0085BA; border:1px solid #ddd; 
+	color:white; border-radius:3px; text-align:center; cursor:pointer; }
+.write .input {width:100%; height:50px; }
+.write .input input[type=text] {width:200px; height:35px; border:1px solid #ddd; background:white; color:#666;}
+.write .desc {line-height:25px; margin-top: 50px;}
+.write .bt_overlap {padding:7px 12px; margin-left:5px; cursor:pointer; background:#0085BA; color:white; 
+	border:1px solid #ddd; }
+#confirmOverlap {padding:0 5px; color:red; display:none; }
+
+.bt_write {width:110px; height:35px; line-height:35px; margin:7px 0 0 0; float:right; color:#0073AA; 
+	cursor:pointer; text-align:center; font-size:16px; }
+.bt_write:hover {background:#dfdfdf; }
+
+/* 모바일 */
+@media (max-width:1200px) {	
+	.write {width:100%; }
+}
+
+

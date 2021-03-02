@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="btn" width='60' align='center' type='ro' sort='na'></column>
+		<column id="name" width='130' align='left' type='ro' sort='server'>품목명</column>
+		<column id="standard" width='100' align='left' type='ro' sort='server'>규 격</column>		
+		<column id="stockUnitName" width='70' align='left' type='ro' sort='server' >단위</column>
+		<column id="itemUnitPrice" width='100' align='right' type='edn' sort='server' >그룹단가</column>
+		<column id="unitCost" width='100' align='right' type='ron' sort='server' >매입단가</column>
+		<column id="unitPrice" width='100' align='right' type='ron' sort='server' >매출단가</column>
+		
+		<column id="taxTypeName" width='80' align='center' type='ro' sort='server'>과세구분</column>
+		
+		
+		<column id="categoryName" width='90' align='left' type='ro' sort='server' >분 류1</column>
+		<column id="category1Name" width='90' align='left' type='ro' sort='server' >분 류2</column>
+		<column id="category2Name" width='90' align='left' type='ro' sort='server' >분 류3</column>
+		<column id="part" width='100' align='left' type='ro' sort='server' >파트넘버</column>		
+		<column id="inKindName" width='80' align='center' type='ro' sort='server' >입고 구분</column>
+		<column id="options" width='140' align='left' type='ro' sort='server' >옵 션</column>
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param> 
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

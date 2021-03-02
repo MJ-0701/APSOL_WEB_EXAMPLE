@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>번호
+		</column>
+		<column id="businessNumber" width='100' align='left' type='ro'
+			sort='server'>사업자번호
+		</column>
+		<column id="name" width='150' align='left' type='ro' sort='server'>가맹점명
+		</column>
+		
+		<column id="activatedName" width='70' align='center' type='ro' sort='server'>활성화
+		</column>
+		
+		<column id="stateName" width='70' align='center' type='ro' sort='server'>상 태
+		</column>
+		
+		<column id="distance" width='70' align='right' type='ron' format="0,000.000"
+			sort='server'>거리(Km)
+		</column>
+				
+		<column id="diffVisit" width='100' align='right' type='ron' format="0,000"
+			sort='server'>방문 경과(일)
+		</column>
+		
+		<column id="lastVisit" width='100' align='center' type='ro'
+			sort='server'>최근 방문일자
+		</column>	
+		<column id="vanCnt1" width='60' align='right' type='ron'  format="0,000"
+			sort='server'>2018-04
+		</column>
+		<column id="vanCnt2" width='60' align='right' type='ron'  format="0,000"
+			sort='server'>2018-03
+		</column>
+		<column id="vanCnt3" width='60' align='right' type='ron'  format="0,000"
+			sort='server'>2018-02
+		</column>
+		<column id="address" width='200' align='left' type='ro'
+			sort='server'>주 소
+		</column>	
+		
+		<column id="report" width='100' align='left' type='ro'
+			sort='na'>비 고
+		</column>		
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#select_filter,#select_filter,#numeric_filter,#numeric_filter,#text_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,#text_filter,#text_filter,
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

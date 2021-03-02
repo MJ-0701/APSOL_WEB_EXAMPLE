@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="stockStateName" width='70' align='center' type='ro' sort='server' color=''>상 태</column>
+		
+		<column id="uuid" width='100' align='left' type='ro' sort='server' color=''>전표번호</column>		
+		<column id="date" width='90' align='center' type='ro' sort='server' color=''>일 자</column>		
+		<column id="customer" width='50' align='left' type='ro' sort='server' color=''>거래처</column>
+		<column id="customerName" width='120' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="customerBusinessNumber" width='90' align='left' type='ro' sort='server' color=''>#cspan</column>
+		
+		<column id="customerManagerName" width='70' align='center' type='ro' sort='server' color=''>#cspan</column>
+		
+		<column id="item" width='50' align='left' type='ro' sort='server' color=''>항 목</column>
+		<column id="itemCategoryName" width='70' align='center' type='ro' sort='server' color=''>#cspan</column>
+		<column id="itemCategory1Name" width='70' align='center' type='ro' sort='server' color=''>#cspan</column>
+		<column id="name" width='130' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="standard" width='90' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="unitName" width='60' align='left' type='ro' sort='server' color=''>#cspan</column>		
+		<column id="inKindName" width='60' align='center' type='ro' sort='server' color=''>입고 구분</column>		
+		<column id="orderKindName" width='60' align='center' type='ro' sort='server' color=''>계약 구분</column>
+		<column id="qty" width='70' align='right' type='ron' sort='server' color=''>주문량</column>		
+		
+		<column id="acceptedQty" width='70' align='right' type='ron' sort='server' color=''>출고량</column>
+		<column id="completionDate" width='90' align='center' type='ro' sort='server' color=''>출고 일자</column>
+		
+		<column id="stockQty" width='70' align='right' type='ron' sort='server' color=''>재고량</column>	
+		<column id="productionQty" width='70' align='right' type='ron' sort='server' color=''>생산량</column>		
+		<column id="orderQty" width='70' align='right' type='ron' sort='server' color=''>발주량</column>		
+		<column id="deliveryDate" width='90' align='center' type='ro' sort='server' color=''>입고 예정일</column>		
+		<column id="lastInDate" width='90' align='center' type='ro' sort='server' color=''>최근 입고일</column>
+		<column id="avaliableQty" width='70' align='right' type='ro' sort='server' color=''>소요량</column>
+		<column id="updatedTime" width='130' align='center' type='ro' sort='server' color=''>계산 일시</column>
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,코 드,상 호,등록번호,담당자,코 드,분 류1,분 류2,이 름,규 격,단 위,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

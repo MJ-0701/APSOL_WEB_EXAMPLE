@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="100" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="0" label="코 드" name="code"
+		inputWidth="120" labelWidth="100" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="fieldset" blockOffset="0" offsetTop="0" label="기본정보">
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="가입일" name="joinTime"
+					inputWidth="180" readonly='true' />
+			</item> 
+		</item>
+
+		<item type="fieldset" blockOffset="0" offsetTop="0" label="개인정보">
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="아이디" name="username"
+					readonly='true' inputWidth="180" />
+				<item type="input" value="" label="이름" name="name" inputWidth="180" />
+			</item>
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="이메일 " name="email"
+					inputWidth="180" /> 
+
+			</item>
+			<item type="select" label="등 급" name="level" inputWidth="140" >
+				<option value="LV0000" text="기본등급" />
+				<option value="LV0001" text="1등급" />
+			</item>
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="연락처" name="phone"
+					inputWidth="180" />
+			</item>			
+			
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="우편번호" name="zipcode"
+					inputWidth="120" readonly="true" className="form_readonly" />
+				<item type="input" value="" label="주 소" name="address"
+					inputWidth="372" />
+				<item type="input" value="" label="주소 상세" name="addressDetail"
+					inputWidth="372" />
+			</item>
+
+		</item>
+		
+	</item>
+
+	<!-- <item type="fieldset" blockOffset="0" offsetTop="0" label="처리해야할 주문"> 
+		<item type="block" blockOffset="0"> <item type="input" value="" label="출고 
+		완료" name="postNumber" inputWidth="180" readonly="true" className="form_readonly" 
+		/> <item type="input" value="" label="반품 접수" name="postNumber" inputWidth="180" 
+		readonly="true" className="form_readonly" /> </item> <item type="newcolumn" 
+		/> <item type="block" blockOffset="0"> <item type="input" value="" label="결제 
+		확인" name="postNumber" inputWidth="180" readonly="true" className="form_readonly" 
+		/> <item type="input" value="" label="부분 출고 완료" name="postNumber" inputWidth="180" 
+		readonly="true" className="form_readonly" /> <item type="input" value="" 
+		label="부분 배송 완료" name="postNumber" inputWidth="180" readonly="true" className="form_readonly" 
+		/> <item type="input" value="" label="환불 접수" name="postNumber" inputWidth="180" 
+		readonly="true" className="form_readonly" /> </item> </item> -->
+
+
+
+</items>
+

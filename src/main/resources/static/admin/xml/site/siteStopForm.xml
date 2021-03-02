@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="block" blockOffset="0">
+		<item type="hidden" value="SW0001" label="코 드" name="kind" inputWidth="120"
+			labelWidth="70" />
+		<item type="hidden" value="사이트 점검중" label="이 름" name="name"
+			inputWidth="180" />
+		<item type="hidden" value="0" label="순 번" name="no" inputWidth="180" />
+		<item type="image" name="image" inputWidth="316" label="이미지"
+			inputHeight="176" imageWidth='316' imageHeight='176'
+			url="../fileData/formImage">
+			<note>600 * 330</note>
+		</item>
+
+	</item>
+
+
+</items>
+

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="name" width='*' align='center' type='ro' sort='str'>명 칭</column>
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<toolbar>
+
+	<item id="from" type="buttonInput" text="시작일" />
+	<item id="to" type="buttonInput" text="종료일" />
+	<item id="btnSearch" type="buttonSelect" text="검 색">
+		<item type="button" id="today" text="오늘" />
+		<item type="button" id="thisMonth" text="이번 달" />
+		<item type="button" id="lastMonth" text="지난 달" />
+		<item type="button" id="last7d" text="지난 7일간" />
+		<item type="button" id="last30d" text="지난 30일간" />
+	</item>
+	<item type="separator" />
+	
+	<item id="btnPick" type="button" text="배 정" img="save.gif"  imgdis="save_dis.gif"/>
+</toolbar>

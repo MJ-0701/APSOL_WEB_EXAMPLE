@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		
+		<column id="month" width='55' align='center' type='ed' sort='str' color=''>귀속 월</column>
+		<column id="employeeName" width='70' align='center' type='ed' sort='str' color=''>사 원</column>
+		<column id="departmentPositionName" width='75' align='left' type='ro' sort='str' color=''>#cspan</column>	
+		<column id="entryDate" width='70' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="leaveDate" width='70' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="workYears" width='70' align='left' type='ron' sort='str' color=''>#cspan</column>
+		<column id="workDays" width='70' align='left' type='ron' sort='str' color=''>#cspan</column>
+		
+		<column id="total" width='95' align='right' type='ron' sort='str' color='' format="0,000">퇴직금 실지급액</column>
+		
+		<column id="amountTax" width='70' align='right' type='edn' sort='str' color='' format="0,000">퇴직급여</column>
+		<column id="amountNoTax" width='70' align='right' type='edn' sort='str' color='' format="0,000">#cspan</column>
+		<column id="amount" width='70' align='right' type='ron' sort='str' color='' format="0,000">#cspan</column>
+		
+		
+		<column id="amountTax" width='70' align='right' type='edn' sort='str' color='' format="0,000">차감원천징수세액</column>
+		<column id="amountNoTax" width='70' align='right' type='ron' sort='str' color='' format="0,000">#cspan</column>
+		<column id="drawback" width='80' align='right' type='edn' sort='str' color='' format="0,000">#cspan</column>
+		<column id="drawback" width='85' align='right' type='edn' sort='str' color='' format="0,000">#cspan</column>
+		<column id="drawback" width='85' align='right' type='ron' sort='str' color='' format="0,000">#cspan</column>
+		<column id="drawback" width='70' align='right' type='ron' sort='str' color='' format="0,000">#cspan</column>
+			
+				
+		<column id="date" width='90' align='center' type='ed' sort='str' color=''>지급일자</column>
+		
+		<column id="bank" width='70' align='left' type='ed' sort='str' color=''>지급 계좌 정보</column>
+		<column id="accountNumber" width='70' align='left' type='ed' sort='str' color=''>#cspan</column>
+		<column id="accountOwner" width='70' align='left' type='ed' sort='str' color=''>#cspan</column>
+		
+		<column id="bank" width='70' align='left' type='ed' sort='str' color=''>연금 계좌 취급자</column>
+		<column id="accountNumber" width='70' align='left' type='ed' sort='str' color=''>#cspan</column>
+		<column id="accountOwner" width='70' align='left' type='ed' sort='str' color=''>#cspan</column>
+		<column id="accountOwner" width='70' align='left' type='ed' sort='str' color=''>#cspan</column>
+		<column id="accountOwner" width='70' align='left' type='ed' sort='str' color=''>#cspan</column>
+		
+		<column id="memo" width='140' align='right' type='edn' sort='int' color=''>비 고</column>
+						
+		<column id="uuid" width='90' align='left' type='ro' sort='str' color=''>전 표</column>
+								
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,사원명,부서/직위,입사일,퇴사일,근속년수,재직일수,#rspan,과 세,비과세,지급합계,소득세,주민세,농어촌특별세,이연퇴직소득세,이연퇴직주민세,합 계,#rspan,은 행,계 좌,예금주,취급자명,사업자번호,계좌번호,입금일,입금액,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#numeric_filter,#numeric_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

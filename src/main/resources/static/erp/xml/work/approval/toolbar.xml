@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<toolbar>
+	
+	<item id="btnEdit" type="button" text="편 집" img="new.gif"  imgdis="new_dis.gif"/>	
+	
+</toolbar>

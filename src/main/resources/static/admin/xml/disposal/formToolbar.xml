@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<toolbar>
+    <item id="btnAdd" type="button" text="신 규">
+        <userdata name="kind">insert</userdata>
+    </item>     
+    <item id="btnUpdate" type="button" text="저 장"/> 
+</toolbar>

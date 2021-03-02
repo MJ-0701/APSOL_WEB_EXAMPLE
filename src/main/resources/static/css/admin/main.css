@@ -1,0 +1,69 @@
+
+/* 공통 */
+.part {margin-top:20px; padding:20px 0; background:white; border:1px solid #ddd; font-size:13px; }
+.partBundle {width:32%; float:left; }
+.partBundle2 {width:32%; margin:auto; }
+.partTitle {width:100%; height:40px; line-height:20px; padding:0 20px; margin-bottom:15px; float:left; font-size:17px; 
+	font-weight:bold; border-bottom:1px solid #ddd; }
+.bt_manage {width:20%; height:20px; line-height:20px; float:right; margin-left:-20%; font-size:15px; color:#0FA4D7; 
+	/* cursor:pointer; */ text-align:center; }
+.emsMain {color:#0FA4D7; /* cursor:pointer; */ font-weight:bold; }
+.bt_manage:hover {text-decoration:underline; cursor:pointer; }
+.users:hover {text-decoration:underline; cursor:pointer; }
+
+/* 배출신청현황 */
+.part1 {width:100%; min-height:150px; }
+.part1 .partTitle2 {border-bottom:1px solid #ddd; }
+.part1 .status {width:30%; line-height:40px; float:left; padding:0 0 30px 40px; text-align:center; }
+.part1 .statusTitle {width:30%; float:left; }
+.part1 .statusContent {width:20%; float:left; }
+.tb_status {width:70%; height:170px; float:left; padding:0 40px; margin-top:10px; }
+
+/* 모바일 */
+@media (max-width:1200px) {	
+	.part1 .status {width:100%; padding:0 10px 20px 10px; border-bottom:1px solid #ddd; }
+	.part1 .statusTitle {text-align:center; }
+	.tb_status {width:100%; padding:0; }
+}
+
+/* 현황 */
+.part2 {width:100%; height:150px; }
+.part2 .num {width:25%; line-height:30px; padding-left:20px; float:left; }
+.part2 .numContent {width:25%; line-height:30px; float:left; text-align:center; }
+
+/* 기본품목 */
+.part3 {width:100%; height:350px; }
+.box_sbjForm {width:100%; height:270px; text-align:center; }
+.box_sbjForm .sbjForm {width:25%; line-height:30px; float:left; font-weight:bold; }
+.box_sbjForm .sbjForm2 {width:25%; line-height:30px; float:left; font-weight:normal; }
+
+/* 지자체 */
+.part4 {width:100%; height:250px; }
+.tb_localGov {width:100%; }
+.tb_localGov table {width:100%; border-collapse:collapse; }
+.tb_localGov table .title td {height:25px; font-weight:bold; }
+.tb_localGov table td {height:40px; text-align:center; }
+
+/* 수거업체 */
+.part5 {width:100%; height:250px; }
+.tb_cleanCorp {width:100%; }
+.tb_cleanCorp table {width:100%; border-collapse:collapse; }
+.tb_cleanCorp table .title td {height:25px; font-weight:bold; }
+.tb_cleanCorp table td {height:40px; text-align:center; }
+
+/* 최근배출신청 */
+.part6 {width:32%; height:520px; float:right; }
+.tb_exhaust {width:100%; }
+.tb_exhaust table {width:100%; border-collapse:collapse; }
+.tb_exhaust table .title td {height:25px; font-weight:bold; }
+.tb_exhaust table td {height:44px; padding:0 15px; border-bottom:1px solid #ddd; }
+.tb_exhaust table .name {font-weight:normal; }
+
+/* 모바일 */
+@media (max-width:1200px) {	
+	.part {font-size:12px; }
+	.partBundle {width:100%; float:none; margin:20px auto 0 auto; }
+	.partBundle2 {width:100%; float:none; margin:20px auto 0 auto; }
+	.part4 {width:100%; float:none; margin:20px auto 0 auto; }
+	.part6 {width:100%; float:none; margin:20px auto 0 auto; }
+}

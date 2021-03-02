@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="debitAccount" width='70' align='center' type='ro' sort='na' color=''>차 변</column>
+		<column id="debitAccountName" width='140' align='left' type='ed' sort='na' color=''>#cspan</column>
+		<column id="debit" width='100' align='right' type='edn' sort='na' color=''>#cspan</column>
+		<column id="creditAccount" width='70' align='center' type='ro' sort='na' color=''>대 변</column>
+		<column id="creditAccountName" width='140' align='left' type='ed' sort='na' color=''>#cspan</column>
+		<column id="credit" width='100' align='right' type='edn' sort='na' color=''>#cspan</column>
+		<beforeInit>
+			<call command="attachHeader">
+				<param>코드,과목명,금액,코드,과목명,금액</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,164 @@
+    
+.search {width:100%; min-height:45px; line-height:45px; }
+.search .split {float:left; }
+.search .type {height:45px; padding:0 10px; float:left; text-align:center; font-size:15px; }
+.search .select {width:120px; height:45px; float:left; }
+.search select {width:100%; height:35px; padding:0 5px; background:white; border:1px solid #999; }
+.search input {width:100%; height:35px; border:1px solid #999; background:white; font-weight:bold; color:#666; }
+.search .wave {width:25px; height:45px; float:left; text-align:center; }
+.search .calendar {width:35px; height:35px; line-height:35px; margin:5px 0 0 -35px; float:left; cursor:pointer; 
+	text-align:center; }
+.search .calendar img {height:20px; vertical-align:middle; }
+.search .bt_search {width:50px; height:35px; line-height:35px; margin:5px 0 0 20px; float:left; background:#0085BA; 
+	color:white; cursor:pointer; text-align:center; }
+.search .period {float:left; height:30px; line-height:30px; margin:7px 10px 0 0; background:white; 
+	border:1px solid #ccc; }
+.search .period .item {float:left; padding:0 10px; cursor:pointer; font-size:13px; border-right:1px solid #ccc; }
+	
+.desc {line-height:40px; padding:0 15px; font-size:15px; }
+.desc .desc2 {float:left; margin:0 30px 0 0; }
+.desc .descTitle {font-weight:bold; cursor : pointer; }
+.desc .descNum {float:right; }
+
+  .excelBtn{
+	  width:120px; height:35px; line-height:35px; background:#0085BA; 
+	color:white; cursor:pointer; text-align:center; font-size: 14px; float: right; margin-top: 0px; margin-right:7px; 
+  }
+
+/* 모바일 */
+@media (max-width:1200px) {	
+	.search .type {font-size:13px; }
+	.search .period .item {font-size:11px; }
+	
+	.desc {font-size:14px; line-height:30px; padding:0 5px; }   
+	.desc2 {float:left; margin:0 50px 0 0; font-size:13px; }
+	.desc .descNum {float:left; font-size:13px; }
+}
+
+.tb_request {width:100%; }
+.tb_request table {width:100%; border-collapse:collapse; border:1px solid #ddd; }
+.tb_request table .title {border-bottom:2px solid #eee; }
+.tb_request table .title td {height:35px; font-weight:bold; }
+.tb_request table .odd {background:#FBF8FB; }
+.tb_request table td {height:45px; line-height:25px; padding:5px 20px; box-sizing:border-box; }
+.tb_request table .none {border:none; padding:0 15px; }
+
+.tb_request table .no { }
+.tb_request table .rid {min-width:40px; }
+.tb_request table .ridBr {display:none; }
+.tb_request table .price {min-width:60px; }
+.tb_request table .status {min-width:55px; }
+
+.tb_request table .bt_qrcode {padding:5px 10px; border:1px solid #c2c2c2; font-size:11px; cursor:pointer; }
+.tb_request table .bt_qrcode:hover {text-decoration:underline; }
+.Chkprint {padding:5px 10px; border:1px solid #c2c2c2; font-size:11px; cursor:pointer; }
+/* 모바일 */
+@media (max-width:1200px) {	
+	.tb_request table td {padding:5px 3px; font-size:11px; }
+	.tb_request table td:nth-child(3) {display:none; }
+	.tb_request table td:nth-child(4) {display:none; }
+	.tb_request table td:nth-child(5) {display:none; }
+	.tb_request table td:nth-child(6) {display:none; }
+	.tb_request table td:nth-child(11) {display:none; }
+}
+
+.tb_request table .selectReq:hover{opacity: 0.6;cursor: pointer;}
+
+
+    /* 신청자정보 */    
+    .tb_info {width:100%; margin:20px 0; }
+    .tb_info table {width:100%; border-collapse:collapse; border-top:2px solid #777; border-bottom:2px solid #777; 
+    	background:white; }
+    .tb_info table td {height:45px; line-height:25px; padding:3px 20px; }
+    .tb_info table tr {border-top:1px solid #ddd; border-bottom:1px solid #ddd; }
+    .tb_info table td:nth-child(1) {width:200px; background:#f5f5f5; font-weight:bold; }
+    .tb_info table input[type=text] {height:30px; border:1px solid #999; }
+    .tb_info table input[type=radio] {width:16px; height:16px; vertical-align:middle; }
+    .tb_info table .snail {width:30px; float:left; text-align:center; }
+    .tb_info table .span_em {color:red; }
+    .tb_info table .bt_signup {width:80px; height:30px; line-height:30px; margin-left:7px; float:left; 
+    	border:1px solid #ddd; background:#616161; color:white; text-align:center; cursor:pointer; }
+    .tb_info table .bt_certi {width:120px; }
+    .tb_info table .signup_desc {clear:both; }
+
+    .tb_info table .input_wrap2 {width:350px; height:30px; float:left; }
+    .tb_info table .input_wrap2 input {width:350px; }
+    .tb_info .address2 {width:350px; }
+    .tb_info table .input_wrap3 {width:320px; height:30px; float:left; }
+    .tb_info table .input_wrap3 input {width:300px; text-align:center; }
+    
+	.tb_info table .dexhaust {width:150px; height:35px; border:1px solid #999; background:white; font-weight:bold; 
+		color:#666; }
+	.tb_info table .calendar {width:25px; height:25px; margin:-2px 0 0 -35px; cursor:pointer; vertical-align:middle; }
+    
+    .box_info .policy {width:100%; height:180px; margin-top:20px; border:1px solid #bbb; }
+    .box_info .policy .title {width:100%; height:30px; line-height:30px; padding:0 15px; background:#f5f5f5; 
+    	border-bottom:1px solid #ddd; font-weight:bold; color:#034273; }
+    .box_info .policy .content {width:100%; height:150px; line-height:20px; padding:10px; overflow-y:scroll; 
+    	word-wrap:break-word; }
+    .box_info .box_agree {width:100%; height:50px; line-height:50px; text-align:center; }
+    .box_info .box_agree input {vertical-align:middle; }
+    
+    .tb_info table .bt_qrcode {padding:3px 10px; margin-left: 10px; border:1px solid #c2c2c2; font-size:11px; cursor:pointer; }
+	.tb_info table .bt_qrcode:hover {text-decoration:underline; }
+    
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .tb_info table td:nth-child(1) {width:80px; display:none;}
+      .tb_info table td {padding:3px 10px; }
+      .tb_info table input {width:100%; }
+      .tb_info table .bt_certi {width:100%; margin:7px auto; }
+
+      .tb_info table .input_wrap2 {width:100%; padding-right:90px; margin-right:-90px; }
+      .tb_info table .input_wrap2 input {width:100%; }
+      .tb_info .address2 {width:100%; }
+      .tb_info table .input_wrap3 {width:100%; text-align:center; }
+      .tb_info table .input_wrap3 input {width:26%; }
+    }
+    
+    .atcSubject{
+    	border: 1px solid #999;
+	    height: 30px;
+	    width: 30px;
+	    font-family: 'Nanum Gothic';
+	    background: none;
+	    padding: 0 5px;
+    }
+    
+    #addr_hemd{
+    	border: 1px solid #999;
+	    height: 30px;
+	    width: 21.5%;
+	    font-family: 'Nanum Gothic';
+	    background: none;
+	    padding: 0 5px;
+    }
+    
+   #exhaust_time{
+    	border: 1px solid #999;
+	    height: 30px;
+	    width: auto;
+	    font-family: 'Nanum Gothic';
+	    background: none;
+	    padding: 0 5px;
+	    margin-left: 10px;
+    } 
+
+    /* 선택한 품목 */
+    .box_tb_selected {width:100%; margin:20px 0; }
+    .tb_selected {width:100%; border-collapse:collapse; }
+    .tb_selected td {height:40px; text-align:center; }
+    .tb_selected td img {height:25px; vertical-align:middle; cursor:pointer; }
+    .tb_selected .first_row {max-width:100px; text-align:left; padding:0 10px; }
+    .tb_selected .title td {border:1px solid #ddd; background:white; font-size:14px;}
+    .tb_selected .num_product {padding:0 7px; }
+    .box_request .total_price {height:50px; line-height:50px; padding:0 10px; text-align:right; font-size:20px; 
+    font-weight:bold; border-top:1px solid #ddd; }
+
+    /* 버튼 */
+    .box_bt {width:500px; height:35px; line-height:35px; margin:50px auto 50px auto; }
+    .box_bt .bt {width:100px; height:35px; float:left; background:#616161; color:white; cursor:pointer; 
+    	text-align:center; }
+    .box_bt .bt2 {float:left; background:#0E3B64; margin-left:31px;}
+    .box_bt .bt3 {float:left; background:#0085BA; margin-left:31px;}
+    .box_bt .bt4 {float:right; background:#0085BA; margin-left:31px;}

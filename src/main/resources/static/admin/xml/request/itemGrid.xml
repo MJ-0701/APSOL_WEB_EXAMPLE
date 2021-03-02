@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="exhaustNo" width='100' align='center' type='ro' sort='str'>일련번호</column> 
+		<column id="state" width='100' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+                상 태
+            <option value="REQUESTED">수거 대기</option>
+            <option value="CANCELED">배출 취소</option>
+            <option value="READY_COMPLETE">완료 대기</option>
+            
+            <option value="COMPLETED">수거 완료</option>
+            <option value="READY_REJECT">거부 대기</option>
+            <option value="REJECTED">수거 거부</option>
+            <option value="READY_CANCEL">취소 대기</option>
+            <option value="READY_DEPOSIT">입금 대기</option>
+            <option value="NON_EXHAUSTED">미배출</option>
+            <option value="OVER_PERIOD">기간 경과</option>
+            
+        </column>
+        
+		<beforeInit>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call> 
+		</afterInit>
+	</head>
+
+</rows>

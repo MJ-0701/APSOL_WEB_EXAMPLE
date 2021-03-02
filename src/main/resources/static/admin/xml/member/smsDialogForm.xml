@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+
+	<!-- <item type="block" blockOffset="0">
+		<item type="checkbox" checked="checked" label="SMS 전송" name="sendSms"
+			inputWidth="180" />
+	</item> -->
+<item type="hidden" readonly='true' value="0" label="코 드" name="bytes"
+		inputWidth="120" labelWidth="100" />
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="내용" name="msg" required="true"
+			rows="4" inputWidth="300" />
+			<item type="newcolumn" />
+			<item type="input" value="0/80 byte" label="" name="msgByte" readonly="true"
+			rows="1" inputWidth="120" />
+	</item>
+</items>
+

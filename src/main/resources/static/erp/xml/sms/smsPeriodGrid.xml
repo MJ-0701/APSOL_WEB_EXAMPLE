@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="editor" width='80' align='left' type='ro' sort='str' color=''>아이디</column>
+		<column id="smsTypeName" width='70' align='center' type='ro' sort='str' color=''  >서비스</column>	
+		<column id="registeredDate" width='120' align='center' type='ro' sort='str' color=''>날짜</column>	
+		<column id="smsCnt" width='50' align='right' type='ro' sort='str' color=''>전체</column>
+		<column id="successCnt" width='50' align='right' type='ro' sort='str' color=''>성공건</column>
+		<column id="waitCnt" width='50' align='right' type='ro' sort='str' color=''>결과대기</column>
+		<column id="failureCnt" width='50' align='right' type='ro' sort='str' color=''>실패건</column>
+
+	</head>
+</rows>

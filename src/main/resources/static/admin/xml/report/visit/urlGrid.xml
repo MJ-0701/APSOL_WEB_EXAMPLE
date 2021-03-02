@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="visitUrl" width='400' align='left' type='ro' sort='na' color=''>유입 경로</column>
+		<column id="visit_cnt" width='100' align='right' type='ron' sort='na' color=''>방문자수</column>
+				 
+				
+		<beforeInit> 
+			<!-- <call command="attachHeader">
+				<param>#text_filter,</param>
+			</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call> 
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

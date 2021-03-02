@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<items id="addListForm">
+	<item id="groupId" type="Hidden"/>
+	<item type="block" width="400" blockOffset="0">
+		<item id="groupName" name="groupName" type="combo" inputWidth="200" label="그룹명" labelWidth="50" position="label-left" readonly="true" offsetTop="30" offsetLeft="70"/>
+		<item id="customerName" name="customerName" type="input" inputWidth="200" label="가맹점명" labelWidth="50" position="label-left" offsetLeft="70"/>
+		<item id="ceoName" name="ceoName" type="input" inputWidth="200" label="대표자명" labelWidth="50" position="label-left" offsetLeft="70"/>
+		<item id="phone" name="phone" type="input" inputWidth="200" label="전화번호" labelWidth="50" position="label-left" offsetLeft="70"/>
+	</item>
+	<item id="btnSaveAddItem" name="btnSaveAddItem" type="button" value="저장하기" width="100" offsetTop="30" offsetLeft="150"/>
+</items>

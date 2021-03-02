@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="date" width='80' align='center' type='ro' sort='na' >기안일자</column>
+		<column id="kindName" width='60' align='center' type='ro' sort='na' >유 형</column>
+		<column id="stateName" width='60' align='center' type='ro' sort='na'>상 태
+		</column>
+		<column id="title" width='300' align='left' type='ro' sort='na'>제 목
+		</column>
+		<column id="approvaler" width='100' align='center' type='ro' sort='na'>현재 결재자
+		</column>
+		<column id="approvalTime" width='100' align='center' type='ro' sort='na'>결재 일시
+		</column>
+		<column id="registeredDate" width='100' align='center' type='ro' sort='server'>작성 일시
+		</column>
+		<column id="updatedDate" width='100' align='center' type='ro' sort='server'>수정 일시
+		</column>
+		
+		<beforeInit>
+			<!-- <call command="attachHeader">
+				<param>#select_filter,#text_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,
+				</param>
+			</call> 
+			
+			검토, 확인, 심사, 승인 결재 순서에 따라 상태가 지정되도록.
+			
+			-->
+			
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

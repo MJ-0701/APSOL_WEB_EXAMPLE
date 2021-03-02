@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="code" name="msg" align='left' type='ro' width='270' hidden="true">메세지</column>
+		<column id="msg" name="msg" align='left' type='ro' width='270' sort='na'>메세지</column>
+		<column id="use" name="use" align='center' type='img' width='30'>사용</column>
+		<column id="del" name="del" align='center' type='img' width='30'>삭제</column>
+	</head>
+</rows>

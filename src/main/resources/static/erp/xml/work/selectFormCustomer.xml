@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" offsetLeft="10"
+		labelWidth="60" inputWidth="auto" noteWidth="auto" />
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="button" value="일반 문서" name="WK0000" className="sButton" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="button" value="주문서" name="WK0003" className="sButton" />			
+		</item>
+
+	</item>
+
+
+</items>
+

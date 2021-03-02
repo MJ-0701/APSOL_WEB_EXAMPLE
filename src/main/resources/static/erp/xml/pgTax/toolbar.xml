@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<toolbar>
+
+
+	<item id="btnRefresh" type="button" text="조회" img="redo.gif"
+		imgdis="redo_dis.gif">
+		<userdata name="kind">search</userdata>
+	</item>
+
+	<item type="separator" />
+	<item id="btnTax" type="button" text="가맹점 계산서 자동발행" img="select_all.gif"
+		imgdis="select_all_dis.gif">
+	</item>
+	<item id="btnTaxCus" type="button" text="가맹점 계산서 수동발행" img="select_all.gif"
+		imgdis="select_all_dis.gif">
+	</item>
+	<item type="separator" />
+	<item id="btnTaxErp" type="button" text="대리점 계산서 발행" img="select_all.gif"
+		imgdis="select_all_dis.gif">
+	</item>
+	
+</toolbar>

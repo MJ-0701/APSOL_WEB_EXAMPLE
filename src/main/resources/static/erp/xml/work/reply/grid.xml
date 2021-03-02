@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		
+		<column id="managerName" width='110' align='left' type='ro' sort='str' color=''>작성자</column>
+		<column id="content" width='350' align='left' type='ro' sort='str' color=''>내 용</column>
+		<column id="updatedDate" width='80' align='left' type='ro' sort='int' color=''>일시</column>		
+		<beforeInit>		
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+
+</rows>

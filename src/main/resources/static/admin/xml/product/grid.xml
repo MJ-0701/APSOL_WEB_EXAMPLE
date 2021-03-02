@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="code" width='30' align='center' type='ro' sort='na'></column>
+
+
+		<column id="categoryName" width='120' align='center' type='ro' sort='str'>분 류</column>			
+		 
+
+		<column id="name" width='150' align='left' type='ro' sort='str'>품목명</column>
+		
+		<column id="standard" width='150' align='left' type='ro' sort='str'>규 격</column>
+		
+		<column id="unitPrice" width='120' align='right' type='ron' sort='str'>가 격</column>
+		
+		<column id="stateName" width='100' align='center' type='ro' sort='str'>상 태</column>
+		 
+		<beforeInit> 
+			 <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param> 
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

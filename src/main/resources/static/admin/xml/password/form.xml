@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" labelWidth="140" inputWidth="auto" noteWidth="auto" offsetLeft="0"/>
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="password" value="" label="현재 비밀번호" name="password" required="true"/>					
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="password" value="" label="새 비밀번호" name="newPassword"  required="true"/>
+					<item type="password" value="" label="새 비밀번호 확인" name="confirmPassword"  required="true"/>
+				</item>				
+			</item>
+		</item>
+	</item>
+</items>
+

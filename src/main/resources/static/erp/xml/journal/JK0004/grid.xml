@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="replyCount" width='30' align='left' type='tree' sort='str' color=''></column>		
+		<column id="date" width='80' align='center' type='ro' sort='str' color=''>일 자</column>		
+		<column id="customerName" width='120' align='left' type='ro' sort='str' color=''>가맹점명</column>	
+		<column id="content" width='400' align='left' type='ro' sort='str'	color=''>업무 내용</column>
+		<column id="workStateName" width='50' align='center' type='ro' sort='str' color=''>상 태</column>	
+		<column id="stateName" width='60' align='center' type='ro' sort='str' color=''>결제 상태</column>
+		<column id="customerBusinessNumber" width='80' align='center' type='ro' sort='str' color=''>사업자번호</column>
+		<column id="managerName" width='70' align='center' type='ro' sort='str' color=''>작성자</column>
+		<column id="platformName" width='40' align='center' type='ro' sort='str'	color=''>구 분</column>
+		<column id="registeredDate" width='100' align='center' type='ro' sort='str'	color=''>등록일시</column>
+		<beforeInit>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+			<call command="attachHeader">
+				<param>,,#text_filter,,#select_filter,#select_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableHeaderMenu">
+			</call>
+			<call command="enableColumnMove">
+				<param>1</param>
+			</call>	
+
+		</afterInit>
+	</head>
+</rows>

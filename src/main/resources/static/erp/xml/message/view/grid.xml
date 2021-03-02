@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="stateName" width='60' align='center' type='ro' sort='str'>
+			상 태
+		</column>
+		
+		<column id="senderName" width='80' align='left' type='ro' sort='str'>
+			발신자
+		</column>
+		
+		<column id="receiverName" width='80' align='left' type='ro' sort='str'>
+			수신자
+		</column>
+		
+		<column id="customerName" width='120' align='left' type='ro' sort='str'>가맹점명</column>
+		<column id="customerBusinessNumber" width='100' align='left' type='ro' sort='str'>사업자 번호</column>
+		<column id="content" width='380' align='left' type='ro' sort='str'>내 용 </column>
+		<column id="registeredDate" width='120' align='center' type='ro' sort='str'>작성 일시</column>
+		<column id="readTime" width='120' align='center' type='ro' sort='str'>확인 일시 </column>
+		<beforeInit>
+		
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>		
+			
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

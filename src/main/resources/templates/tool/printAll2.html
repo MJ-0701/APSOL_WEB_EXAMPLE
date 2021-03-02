@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, 
+    minimum-scale=1.0" />
+<title>대형폐기물 : 출력</title>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<style>
+@import url(/css/nanumgothic.css);
+
+@import url(/css/jejugothic.css);
+
+@import url(/css/hanna.css);
+
+html, body {
+	width: 100%;
+	min-width: 300px;
+	margin: 0;
+	padding: 0;
+	font-family: 'Nanum Gothic' !important;
+	background: white;
+	color: #555;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+div {
+	box-sizing: border-box;
+} /* height:100%;  */
+form {
+	box-sizing: border-box;
+}
+
+.slow {
+	transition: all .2s;
+	-webkit-transition: all .2s;
+	-moz-transition: all .2s;
+	-o-transition: all .2s;
+}
+
+.rm_slow {
+	transition: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: color 0 ease-in;
+}
+
+input {
+	font-family: 'Nanum Gothic';
+	background: none;
+	border: none;
+	box-sizing: border-box;
+	padding: 0 10px;
+}
+
+textarea {
+	line-height: 20px;
+	box-sizing: border-box;
+	padding: 10px;
+	font-family: 'Nanum Gothic';
+	border: none;
+	resize: none;
+}
+
+.non_draggable {
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.clear_both {
+	height: 1px;
+	clear: both;
+}
+
+.cb {
+	display: none;
+}
+
+.cb_label {
+	padding: 0 9px;
+	background: url(/img/cb.png) no-repeat;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+input[type="checkbox"]:checked+.cb_label {
+	background: url(/img/cb_on.png) no-repeat;
+}
+
+#paging {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	margin: 20px 0 80px 0;
+	text-align: center;
+}
+
+#paging .page {
+	padding: 5px 8px;
+	margin: 0 1px;
+	background: white;
+	border: 1px solid #ccc;
+	cursor: pointer;
+}
+
+#paging .page_on {
+	background: #103E93;
+	color: white;
+	cursor: default;
+}
+
+/* 모바일 */
+@media ( max-width :1200px) {
+	.cb_label {
+		padding: 2px 9px;
+	}
+}
+</style>
+
+<script type="text/javascript" th:inline="javascript">/*<![CDATA[*/
+
+
+	// 날짜 간격 사이 날짜 목록 구하기
+	function getDateRange(startDate, endDate, listDate){
+
+		var dateMove = new Date(startDate);
+		var strDate = startDate;
+		console.log('strDate : ' + strDate + ', endDate : ' + endDate);
+		if (startDate == endDate)
+		{
+			var strDate = dateMove.toISOString().slice(0, 10);
+			listDate.push(strDate);
+		}
+
+		else
+		{
+			while (strDate < endDate)
+			{
+				var strDate = dateMove.toISOString().slice(0, 10);
+				listDate.push(strDate);
+				dateMove.setDate(dateMove.getDate() + 1);
+			}
+		}
+
+		return listDate;
+	};
+
+	// 위경도좌표 얻기
+	function getLatLng(coordiX, coordiY) {
+		if (!coordiX || !coordiY)
+			return [ 127.09304875538659, 37.60626176888083 ];
+
+		var utm = "+proj=tmerc +lat_0=38 +lon_0=127.5 +k=0.9996 +x_0=1000000 +y_0=2000000 +ellps=GRS80 +units=m +no_defs";
+		var wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
+		return proj4(utm, wgs84, [ coordiX, coordiY ]);
+	}
+
+	// 내일날짜부터 선택가능
+	function setNotPrev(t) {
+		$(t).bind(
+				'change',
+				function() {
+					var v = $(t).val();
+					var date = new Date(v.substring(0, 4) * 1, v
+							.substring(5, 7) * 1 - 1, v.substring(8) * 1);
+					date.setDate(date.getDate() + 1);
+					if (date.getTime() < new Date().getTime()) {
+						alert('배출예약일을 과거로 설정할 수 없습니다.');
+						$(t).val(getFuture(0));
+					}
+				});
+	}
+
+	// 전화번호 자동 하이픈 입력
+	function autoHypenPhone(t) {
+		str = $(t).val().replace(/[^0-9]/g, '');
+		var tmp = '';
+		if (str.length < 4) {
+			$(t).val(str);
+			return;
+		} else if (str.length < 7) {
+			tmp = str.substr(0, 3) + '-' + str.substr(3);
+			$(t).val(tmp);
+			return;
+		} else if (str.length < 11) {
+			tmp += str.substr(0, 3) + '-' + str.substr(3, 3) + '-'
+					+ str.substr(6);
+			$(t).val(tmp);
+			return;
+		} else {
+			tmp += str.substr(0, 3) + '-' + str.substr(3, 4) + '-'
+					+ str.substr(7);
+			$(t).val(tmp);
+			return;
+		}
+	}
+
+	function getIsMobile() {
+		var isMobile = {
+			Android : function() {
+				return navigator.userAgent.match(/Android/i) == null ? false
+						: true;
+			},
+			BlackBerry : function() {
+				return navigator.userAgent.match(/BlackBerry/i) == null ? false
+						: true;
+			},
+			IOS : function() {
+				return navigator.userAgent.match(/iPhone|iPad|iPod/i) == null ? false
+						: true;
+			},
+			Opera : function() {
+				return navigator.userAgent.match(/Opera Mini/i) == null ? false
+						: true;
+			},
+			Windows : function() {
+				return navigator.userAgent.match(/IEMobile/i) == null ? false
+						: true;
+			},
+			any : function() {
+				return (isMobile.Android() || isMobile.BlackBerry()
+						|| isMobile.IOS() || isMobile.Opera() || isMobile
+						.Windows());
+			}
+		};
+		return isMobile;
+	}
+
+	function getPhoneForm(str) {
+		var str = str.replace(/[^0-9]/g, '');
+		var tmp = '';
+		if (str.substring(0, 2) == '02') {
+			if (str.length < 3) {
+				return str;
+			} else if (str.length < 6) {
+				tmp = str.substr(0, 2) + '-' + str.substr(2);
+				return tmp;
+			} else if (str.length < 10) {
+				tmp += str.substr(0, 2) + '-' + str.substr(2, 3) + '-'
+						+ str.substr(5);
+				return tmp;
+			} else {
+				tmp += str.substr(0, 2) + '-' + str.substr(2, 4) + '-'
+						+ str.substr(6);
+				return tmp;
+			}
+		} else {
+			if (str.length < 4) {
+				return str;
+			} else if (str.length < 7) {
+				tmp = str.substr(0, 3) + '-' + str.substr(3);
+				return tmp;
+			} else if (str.length < 11) {
+				tmp += str.substr(0, 3) + '-' + str.substr(3, 3) + '-'
+						+ str.substr(6);
+				return tmp;
+			} else {
+				tmp += str.substr(0, 3) + '-' + str.substr(3, 4) + '-'
+						+ str.substr(7);
+				return tmp;
+			}
+		}
+	}
+
+	// 숫자만 입력
+	function onlyNumber(t) {
+		$(t).val($(t).val().replace(/[^0-9]/g, ''));
+	}
+
+	function nonHangul(t) {
+		$(t).val($(t).val().replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, ''));
+	}
+
+	function getFirstDate() {
+		var date = new Date();
+		//date.setMonth(0);
+		date.setDate(1);
+		date = date.getFullYear() + '.'
+				+ String('0' + (date.getMonth() + 1)).slice(-2) + '.'
+				+ String('0' + date.getDate()).slice(-2);
+		return date;
+	}
+
+	function getTodayDate() {
+		var date = new Date();
+		date = date.getFullYear() + '.'
+				+ String('0' + (date.getMonth() + 1)).slice(-2) + '.'
+				+ String('0' + date.getDate()).slice(-2);
+		return date;
+	}
+
+	function getFuture(days) {
+		var date = new Date();
+		date.setDate(date.getDate() + days);
+		date = date.getFullYear() + '.'
+				+ String('0' + (date.getMonth() + 1)).slice(-2) + '.'
+				+ String('0' + date.getDate()).slice(-2);
+		return date;
+	}
+
+	function setDatePicker(t) {
+		$(t).datepicker(
+				{
+					dateFormat : 'yy.mm.dd',
+					prevText : '이전 달',
+					nextText : '다음 달',
+					monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+							'8월', '9월', '10월', '11월', '12월' ],
+					monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+							'7월', '8월', '9월', '10월', '11월', '12월' ],
+					dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+					dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+					dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+					showMonthAfterYear : true,
+					yearSuffix : '년',
+					setDate : new Date()
+				});
+	}
+
+	function calculus(end_ymd){    
+		
+		 
+	    var yyyy = end_ymd.substring(0,4);
+	    var mm = end_ymd.substring(4,6);
+	    var dd = end_ymd.substring(6);              
+	    return new Date(yyyy, mm-1, dd, 23, 59, 59);
+	    
+	}
+
+	
+	/**
+	 * 두 날짜의 차이를 일자로 구한다.(조회 종료일 - 조회 시작일)
+	 *
+	 * @param val1 - 조회 시작일(날짜 ex.2002-01-01)
+	 * @param val2 - 조회 종료일(날짜 ex.2002-01-01)
+	 * @return 기간에 해당하는 일자
+	 */
+	function calDateRange(exhaustDate) {
+
+		// FORMAT을 포함한 길이 체크
+		/* if (val1.length != 10 || val2.length != 10)
+		    return null;
+
+
+
+		// FORMAT이 있는지 체크
+		if (val1.indexOf(FORMAT) < 0 || val2.indexOf(FORMAT) < 0)
+		    return null; */
+		var date = new Date();
+		var year = exhaustDate.substring(0, 4);
+		var month = exhaustDate.substring(4, 6);
+		var day = exhaustDate.substring(6, 8);
+
+		// 년도, 월, 일로 분리
+		var start_dt = [ year, month, day ];
+		var end_dt = [ date.getFullYear(), date.getMonth() + 1, date.getDate() ];
+
+		// 월 - 1(자바스크립트는 월이 0부터 시작하기 때문에...)
+		// Number()를 이용하여 08, 09월을 10진수로 인식하게 함.
+		start_dt[1] = (Number(start_dt[1]) - 1) + "";
+		end_dt[1] = (Number(end_dt[1]) - 1) + "";
+
+		var from_dt = new Date(start_dt[0], start_dt[1], start_dt[2]);
+		var to_dt = new Date(end_dt[0], end_dt[1], end_dt[2]);
+
+		return (to_dt.getTime() - from_dt.getTime()) / 1000 / 60 / 60 / 24;
+	}
+
+	function getToday() {
+		var date = new Date();
+		var todayDate = date.getFullYear()
+				+ String('0' + (date.getMonth() + 1)).slice(-2)
+				+ String('0' + date.getDate()).slice(-2);
+		return todayDate;
+	}
+
+	function alertError(jqXHR, exception) {
+		var msg = '';
+		if (jqXHR.status === 0) {
+			msg = 'Not connect.\n Verify Network.';
+		} else if (jqXHR.status == 404) {
+			msg = 'Requested page not found. [404]';
+		} else if (jqXHR.status == 500) {
+			msg = 'Internal Server Error [500].';
+		} else if (exception === 'parsererror') {
+			msg = 'Requested JSON parse failed.';
+		} else if (exception === 'timeout') {
+			msg = 'Time out error.';
+		} else if (exception === 'abort') {
+			msg = 'Ajax request aborted.';
+		} else {
+			msg = 'Uncaught Error.\n' + jqXHR.responseText;
+		}
+		alert(msg);
+	}
+
+	// checkbox 폼
+	function getCbForm(id, onclick, padding, checked) {
+		if (!onclick)
+			onclick = '';
+		if (!padding)
+			padding = 0;
+		if (!checked)
+			checked = '';
+		return '<input class="cb" type="checkbox" id="'+id+'" name="'+id+'" onchange="'+onclick+'" '+checked+'>'
+				+ '<label class="cb_label" style="padding:'+padding+'px 9px;" for="'+id+'"></label>';
+	}
+
+	// 세자리마다 콤마
+	function comma(x) {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	//이미지용량 확인
+	function getImageSize(target) {
+		var browser = '';
+		var ieName = navigator.appName;
+		var agent = navigator.userAgent.toLowerCase();
+
+		if (ieName == 'Microsoft Internet Explorer') { // ie 10 or lower
+			browser = 'msie';
+		} else {
+			if (agent.search('trident') > -1)
+				browser = 'ie11'; // trident/.*rv:
+			else if (agent.search('edge/') > -1)
+				browser = 'ie12'; // edge/
+		}
+
+		// 브라우저 확인
+		var fileSize = 0;
+		if (browser == 'msie') {
+			var oas = new ActiveXObject("Scripting.FileSystemObject");
+			fileSize = oas.getFile(target.value).size;
+		} else {
+			fileSize = target.files[0].size;
+		}
+
+		return fileSize;
+	}
+
+	/* 쿠키설정관련 */
+	function createCookie(name, value, days) {
+		var expires;
+		if (days) {
+			var date = new Date();
+			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+			expires = "; expires=" + date.toGMTString();
+		} else
+			expires = "";
+		document.cookie = name + "=" + value + expires + "; path=/";
+	}
+
+	function readCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ')
+				c = c.substring(1, c.length);
+			if (c.indexOf(nameEQ) == 0)
+				return c.substring(nameEQ.length, c.length);
+		}
+		return null;
+	}
+
+	function eraseCookie(name) {
+		createCookie(name, "", -1);
+	}
+
+	function areCookiesEnabled() {
+		var r = false;
+		createCookie("testing", "Hello", 1);
+		if (readCookie("testing") != null) {
+			r = true;
+			eraseCookie("testing");
+		}
+		return r;
+	}
+	/* 쿠키설정관련 */
+
+	function isNullOrEmpty(val) {
+		if (val == undefined || val == null || val == '')
+			return true;
+
+		return false;
+	}
+	/*]]>*/
+</script>
+<style>
+/* body,html {padding:0; margin:0; font-family: '맑은고딕';}
+    .table_receipt {width:358px; height:358px;  left:50%; top:50%; margin:0 auto; }
+    table {width:358px; height:358px; border-collapse:collapse; }
+    table td {height:20px; box-sizing:border-box; padding:0 3px; border:1px solid black; font-size:7pt; 
+    	color:black; font-weight:normal; }
+    table .policy_title {font-size:12pt; text-align:center; line-height:8px;}
+    table .policy {line-height:15px; text-align:left; font-size: 8pt; }
+    table .qr {text-align:center; width:70px;}
+    table .qr img {width:100%; vertical-align:middle; }
+    table .date {font-size:18pt; text-align:center;}
+    table .req_num{font-size:18pt; text-align:center; }
+    table td:nth-child(1) {text-align:center; }
+    table td:nth-child(3) {text-align:center; } */
+body, html {
+	padding: 0;
+	margin: 0;
+	font-family: '맑은고딕';
+}
+
+.table_receipt {
+	width: 100%;
+	height: 500px;
+	display: inline;
+}
+
+table {
+	width: 560px;
+	height: 400px;
+	border: 5px double black;
+}
+
+table .qr {
+	text-align: center;
+	width: 70px;
+}
+
+table .qr img {
+	width: 100px;
+	vertical-align: middle;
+	margin: 5px;
+	margin-right: 30px;
+}
+
+/* .printLine {
+	page-break-before: always;
+} */
+</style>
+</head>
+
+<!-- <body onload="window.print();"> -->
+<body >
+	<!--  -->
+	<div style="height: 1px; clear: both;">
+		<div th:each="request : ${reqs}">
+			<div class="printLine">
+				<div class="table_receipt">
+					<div
+						style="width: 550px; heigh: 400px; vertical-align: middle; margin: 0 auto;">
+						<table>
+							<tr>
+								<td colspan="1" style="width: 50%; text-align: left;"><span th:inline="text">(일련번호 : [[${request.exhaustNo}]] )</span></td>
+										<td colspan="1" style="width: 50%; text-align: right;"><span
+									th:inline="text">배출일자 : [[${request.exhaust_date}]]</span></td>
+							</tr>
+							<tr>
+								<td colspan="2"
+									style="text-decoration: underline; text-align: center;"><h1>대형생활폐기물배출신고필증</h1></td>
+							</tr>
+							
+							<tr>
+								<td style="padding-left: 10px; line-height: 20px;"><span
+									th:inline="text">○
+										품&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목:&nbsp;&nbsp;[[${request.sub_name}]]([[${request.req_atc}]])</span><br />
+									<span th:inline="text">○
+
+										부과금액:&nbsp;&nbsp;[[${#numbers.formatDecimal(request.total, 0,
+								'COMMA', 0, 'POINT')}]]원</span> <br />
+										<span th:inline="text">○
+										총 금액:&nbsp;&nbsp;[[${#numbers.formatDecimal(totalAmt, 0,
+								'COMMA', 0, 'POINT')}]]원</span> <br />  <span
+									th:inline="text">○ 갯&nbsp;&nbsp;수:&nbsp;&nbsp;1 개 (총
+										[[${#numbers.formatDecimal(request.req_cnt,0, 0 )}]] 개)</span><br /> <span th:inline="text">○
+										배출주소:&nbsp;&nbsp;[[${request.addr_emd}]]
+										[[${request.addr_bg}]] [[${request.addr_detail}]]</span><br /> <span
+									th:inline="text">○ 수거업체:&nbsp;&nbsp;[[${corpName}]]
+										([[${corpPhone}]])</span></td>
+								<td class="qr"><img
+									th:src="${'data:image/jpeg;base64,' + request.qrcodeImg}" /></td>
+							</tr>
+							<tr>
+								<td colspan="2"
+									style="padding-left: 10px; font-size: 12pt; line-height: 20px;">
+									<span th:inline="text">상기 품목은 [[${date}]] 관할 동주민센터에 신고
+										접수된</span><br /> <!-- <c:choose> 
+			     		<c:when test="${sessionScope.users_name != null}">관할 동주민센터에 신고 접수된<br/></c:when>
+			     		<c:when test="${sessionScope.users_name == null}">동대문구청에 신고 접수된<br/></c:when>
+			     	</c:choose> --> <span>대형생활폐기물로 수일 내에 수송차량이 와서 수거해 갑니다.</span><br />
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" style="padding-left: 10px; font-size: 12pt;">
+									<strong style="color: red;">※배출신고일 기준 '10일 이내'(휴일 미포함)
+										취소신고해야 환불가능합니다.</strong>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" style="text-align: center;"><span
+									th:inline="text">[[${date}]]</span></td>
+							</tr>
+							<tr>
+								<td colspan="2" style="text-align: center; font-size: 15pt;">
+									<span th:inline="text"><img
+										style="width: 100px; margin-right: 30px;"
+										src="/img/logo_1.jpg" /> [[${dong}]]장</span>
+
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+<br/><br/>
+<div class="printLine"></div>
+		</div>
+	</div>
+</body>
+</html>

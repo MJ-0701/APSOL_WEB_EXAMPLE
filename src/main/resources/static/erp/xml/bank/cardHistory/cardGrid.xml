@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>순 번
+		</column>
+		<column id="cardNumber" width='130' align='center' type='ro' sort='na'>카드번호
+		</column> 
+		
+		<column id="cardName" width='80' align='center' type='ro' sort='na'>카드사명
+		</column>
+		
+		<column id="cardKind" width='80' align='center' type='ro' sort='na'>카드구분
+		</column>
+		
+		<column id="amount" width='90' align='right' type='ron' sort='na' format="0,000">이용금액
+		</column> 
+		
+		<column id="tax" width='90' align='right' type='ron' sort='na' format="0,000">부가세
+		</column>
+		
+		<column id="tip" width='80' align='right' type='ron' sort='na' format="0,000">봉사료
+		</column> 
+		
+		<column id="canceledAmount" width='80' align='right' type='ron' sort='na' format="0,000" >취소금액
+		</column>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<rows>
+    <head>
+        <column id="no" width='40' align='right' type='ro' sort='na' color=''>번 호</column>
+        <column id="uuid" width='120' align='left' type='ro' sort='server' color=''>주문번호</column>
+        
+        <column id="company" width='100' align='left' type='ro' sort='server' color=''>택배사</column>
+        <column id="deliveryNumber" width='120' align='left' type='ro' sort='server' color=''>운송장번호</column>        
+        <column id="deliveryDate" width='120' align='left' type='ro' sort='server' color=''>출고일(발송일)</column>
+        
+        <column id="orderDate" width='120' align='center' type='ro' sort='server' color=''>주문일</column>     
+        <column id="orderState" width='100' align='center' type='ro' sort='na' color=''>주문상태</column>
+        <column id="itemName" width='120' align='left' type='ro' sort='server' color=''>상품명</column>
+        <column id="qty" width='80' align='right' type='ro' sort='server' color=''>구매수(수량)</column>     
+        <column id="total" width='80' align='right' type='ro' sort='server' color=''>결제액</column>        
+        
+        <column id="receiverName" width='80' align='left' type='ro' sort='server' color=''>수취인 이름</column>
+        <column id="receiverPhone" width='80' align='left' type='ro' sort='server' color=''>수취인 전화번호</column>
+        <column id="zipcode" width='70' align='left' type='ro' sort='server' color=''>우편번호</column>     
+        <column id="addressFul" width='140' align='left' type='ro' sort='server' color=''>수취인 주소</column>
+        
+        <column id="memo" width='140' align='left' type='ro' sort='server' color=''>배송메세지</column>      
+        <column id="paymentMethod" width='80' align='center' type='ro' sort='na' color=''>결제수단</column> 
+                 
+        
+        <beforeInit> 
+            <call command="attachHeader">
+                <param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,,,,,,</param>
+            </call>
+        </beforeInit>
+        <afterInit>
+            <call command="enableSmartRendering">
+                <param>1</param>
+                <param>50</param>
+            </call>
+            <call command="enableEditTabOnly">
+                <param>1</param>
+            </call>
+            <call command="enableMultiselect">
+                <param>1</param>
+            </call>
+            <call command="enableAccessKeyMap">
+                <param>1</param>
+            </call>
+        </afterInit>
+
+    </head>
+</rows>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Object-based init</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/dhtmlx/codebase/dhtmlx.css?v=vank3323222212}" />
+<link rel="stylesheet" type="text/css" th:href="@{/admin/common.css}" />
+
+<script th:src="@{/vendor/dhtmlx/codebase/dhtmlx.js}"></script>
+<script th:src="@{/vendor/jquery/jquery-1.11.1.min.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/jquery.form.min.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/json2/json2.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/admin/js/common.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+
+<script th:src="@{/erp/js/popup/dataPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formProductPopup.js}"></script>
+
+<script th:src="@{/erp/js/popup/grid/cellPopup.js}"></script>
+<script th:src="@{/erp/js/popup/grid/productCell.js}"></script>
+
+
+
+<script th:src="@{/erp/js/data/dataGrid.js}"></script>
+<script th:src="@{/erp/js/data/dateRangeGrid.js}"></script>
+<script th:src="@{/erp/js/data/dataForm.js}"></script>
+
+
+
+<script th:src="@{/admin/js/product/eventGrid.js}"></script>
+<script th:src="@{/admin/js/product/productGrid.js}"></script>
+<script th:src="@{/admin/js/product/productForm.js}"></script>
+
+
+<script th:src="@{/admin/js/product/productItem.js}"></script>
+
+<script th:src="@{/admin/js/imageItem/imageItem.js}"></script>
+<script th:src="@{/admin/js/imageItem/imageItemForm.js}"></script>
+
+<script
+	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<style>
+.validate_magenta .dhxform_label, .validate_magenta .dhxform_select {
+	color: magenta !important;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs {
+	background-color: #ED878A;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tab {
+	background-color: #2589ce;
+	border-left: 2px solid #ED878A;
+	border-right: 2px solid #ED878A;
+}
+</style>
+
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+
+    var imageUrl = /*[[@{/vendor/dhtmlx/codebase/imgs/}]]*/"../../../codebase/imgs/";
+
+    var yearMonths = /*[[${yearMonthList}]]*/"../../../codebase/imgs/";
+
+    var grid;
+    var tabbar;
+
+    var days = 7;
+
+    var gridMap = {};
+    function doOnLoad() {
+
+        var layout = new dhtmlXLayoutObject({
+            parent : document.body,
+            pattern : "1C"
+        });
+
+        layout.cells("a").hideHeader();
+
+        var grid = new ReportGrid();
+        grid.addProgressCell('a', layout.cells("a"));
+        grid.init(layout.cells('a'), {
+            iconsPath : "../img/18/",
+            imageUrl : imageUrl
+        });
+
+        grid.setOnClickToolbarButton(function(id) {
+
+            if (id == 'btnComplete') {
+                var rowId = grid.getSelectedRowId();
+                if (!rowId) {
+                    dhtmlx.alert({
+                        title : "완료 처리할 수 없습니다!",
+                        type : "alert-error",
+                        text : "처리할 항목을 먼저 선택해야합니다."
+                    });
+
+                    return;
+                }
+
+                dhtmlx.confirm({
+                    type : "confirm-warning",
+                    text : "선택한 항목으로 완료 처리하시겠습니까?",
+                    callback : function(r) {
+                        if (r) {
+                            $.post('requestReport/complete', {
+                                ids : rowId
+                            }, function(result) {
+                                if (result.error) {
+                                    dhtmlx.alert({
+                                        title : "완료 할 수 없습니다!",
+                                        type : "alert-error",
+                                        text : result.error
+                                    });
+                                    return;
+                                }
+
+                                dhtmlx.alert({
+                                    text : "처리가 완료되었습니다.",
+                                });
+                                
+                                grid.loadRecords(function(){
+                                    grid.selectRowById(rowId);
+                                }); 
+                            });
+                        }
+                    }
+                });
+
+            }
+
+        });
+    }
+
+    function ReportGrid(config) {
+        DateRangeGrid.call(this);
+
+        this.setUrlPrefix('requestReport');
+        this.excelTitle = "배출 현황";
+
+        this.setSelectFilterData('onlineKind', [ 'Online', 'Offline' ]);
+
+        this.combos = [];
+
+        this.yearMonth = '';
+
+    }
+    ReportGrid.prototype = Object.create(DateRangeGrid.prototype);
+    ReportGrid.prototype.constructor = ReportGrid;
+
+    ReportGrid.prototype.init = function(container, config) {
+
+        this.initToolbar(container, {
+            iconsPath : config.iconsPath,
+            xml : "xml/requestReport/toolbar.xml",
+        });
+
+        this.initGrid(container, {
+            imageUrl : config.imageUrl,
+            xml : "xml/requestReport/grid.xml",
+        });
+
+    };
+
+    ReportGrid.prototype.onClickToolbarButton = function(id, toolbar) {
+
+        if (id == 'btnCancelXls') {
+            // 취소증 다운로드
+            if (this.getSelectedRowId()) {
+
+                var state = this.getData('state', this.getSelectedRowId());
+
+                if (state != '배출 취소' && state != '취소 대기') {
+                    dhtmlx.alert({
+                        title : "배출 취소 신고서를 출력할 수 없습니다.",
+                        type : "alert-error",
+                        text : "배출 취소나 취소 대기 항목만 출력이 가능합니다."
+                    });
+                    return;
+                }
+
+                console.log(state);
+                console.log(this.getSelectedRowId());
+
+                window.location = 'request/cancelXls?ids='
+                        + this.getSelectedRowId();
+            }
+            else{
+                dhtmlx.alert({
+                    title : "배출 취소 신고서를 출력할 수 없습니다.",
+                    type : "alert-error",
+                    text : "선택된 항목이 없습니다."
+                });
+            }
+
+            return true;
+        }
+        
+        else if (id == 'btnExhaustXls') {
+            // 취소증 다운로드
+            if (this.getSelectedRowId()) {
+
+                var state = this.getData('state', this.getSelectedRowId());
+
+                if (state != '수거 대기' && state != '완료 대기' && state != '수거 완료') {
+                    dhtmlx.alert({
+                        title : "배출 신고서를 출력할 수 없습니다.",
+                        type : "alert-error",
+                        text : state + "는 출력할 수 없는 항목입니다."
+                    });
+                    return;
+                }
+
+                console.log(state);
+                console.log(this.getSelectedRowId());
+
+                window.location = 'request/exhaustXls?ids='
+                        + this.getSelectedRowId();
+            }
+            else{
+                dhtmlx.alert({
+                    title : "배출 신고서를 출력할 수 없습니다.",
+                    type : "alert-error",
+                    text : "선택된 항목이 없습니다."
+                });
+            }
+
+            return true;
+        }
+
+        else if (id == 'btnInvoice') {
+
+            if (this.getSelectedRowId()) {
+
+                var state = this.getData('state', this.getSelectedRowId());
+
+                if (state != '수거 대기' && state != '완료 대기' && state != '수거 완료') {
+                    dhtmlx.alert({
+                        title : "배출증을 출력할 수 없습니다.",
+                        type : "alert-error",
+                        text : state + "항목은 출력할 수 없습니다."
+                    });
+                    return;
+                }
+
+                var uuid = this.getSelectedRowId();
+
+                var printWindow = window.open("../tool/printAll4.do?str="
+                        + uuid, "print");
+            }
+            else{
+                dhtmlx.alert({
+                    title : "배출증을 출력할 수 없습니다.",
+                    type : "alert-error",
+                    text : "선택된 항목이 없습니다."
+                });
+            }
+        }
+
+        else if (id == 'btnMonthReport') {
+            if (this.yearMonth == '' || this.yearMonth == undefined ) {
+                dhtmlx.alert({
+                    title : "월보를 출력할 수 없습니다.",
+                    type : "alert-error",
+                    text : "출력할 항목이 없습니다.."
+                });
+                return;
+            }
+
+            window.location = 'request/monthReport?yearMonth=' + this.yearMonth;
+        }
+
+        return DateRangeGrid.prototype.onClickToolbarButton.call(this, id, toolbar);
+
+    };
+
+    ReportGrid.prototype.onInitedGrid = function(grid) {
+
+        DateRangeGrid.prototype.onInitedGrid.call(this, grid);
+        
+        grid
+        .attachFooter(
+                ",<div class='fsum' id='summary'></div>,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,#cspan,", //
+                [ "text-align:left;", "text-align:left;",
+                        "text-align:center;", "text-align:right;" ]);
+ 
+    };
+    
+    ReportGrid.prototype.onAfterLoaded = function(num) {
+        DateRangeGrid.prototype.onAfterLoaded.call(this, num);
+
+        var colIndex = this.grid.getColIndexById('state');
+        var qtyIndex = this.grid.getColIndexById('qty');
+
+        var TOTAL = 0;
+        var REQUESTED = 0;
+        var READY_COMPLETE = 0;
+        var COMPLETED = 0;
+        var READY_REJECT = 0; 
+        var REJECTED = 0;
+        var CANCELED = 0;
+        var READY_DEPOSIT = 0;
+        var NONE =0;
+        var OVER = 0;
+
+        for (var i = 0; i < this.grid.getRowsNum(); i++) {
+            var qty = this.grid.cells2(i, qtyIndex).getValue();
+            var stateName = this.grid.cells2(i, colIndex).getValue();
+            TOTAL += qty;
+            if (stateName == '수거 대기') {
+                REQUESTED += qty;
+            }
+            else if (stateName == '완료 대기') {
+                READY_COMPLETE+= qty;
+            }
+            else if (stateName == '수거 완료') {
+                COMPLETED+= qty;
+            }
+            else if (stateName == '거부 대기') {
+                READY_REJECT+= qty;
+            }
+            else if (stateName == '수거 거부') {
+                REJECTED+= qty;
+            }
+            else if (stateName == '입금 대기') {
+                READY_DEPOSIT+= qty;
+            } else if (stateName == '배출 취소') {
+                CANCELED+= qty;
+            }
+            else if (stateName == '미배출') {
+                NONE += qty;
+            }
+            else if (stateName == '기간 경과') {
+                OVER += qty;
+            } 
+        }
+        
+        $("#summary").html('총 ' +TOTAL+ '건 : 수거대기 <span class="sa">' + REQUESTED +"</span>건 / 완료대기 " + READY_COMPLETE + "건/ 완료 " + COMPLETED + "건/ 거부대기 " + READY_REJECT + "건/ 거부 " + REJECTED +"건/ 취소 " + CANCELED + "건/ 취소대기 "+ READY_REJECT + "건/ 미배출 " +NONE + "건/ 기간경과 " +OVER+ "건/ 입금대기 " + READY_DEPOSIT + "건 ");
+
+    }
+
+    ReportGrid.prototype.onInitedToolbar = function(toolbar) {
+        DateRangeGrid.prototype.onInitedToolbar.call(this, toolbar);
+
+        var me = this;
+
+        toolbar
+                .addText('cb0', 9,
+                        '<div id="combo3" style="width:70px; height:30px; margin-top:-3px;">');
+        var combo = new dhtmlXCombo("combo3", "cmb1", 70);
+        combo.readonly(true);
+        this.combos.push(combo);
+
+        for (i = 0; i < yearMonths.length; ++i) {
+            combo.addOption(yearMonths[i] + "", yearMonths[i] + "");
+        }
+
+        combo.attachEvent("onChange", function(value, text) {
+            me.yearMonth = value;
+        });
+
+        combo.selectOption(combo.getIndexByValue(yearMonths[0]));
+        
+        this.yearMonth = yearMonths[0];
+    };
+
+    ReportGrid.prototype.onAfterLoadRow = function(result) {
+        DateRangeGrid.prototype.onAfterLoadRow.call(this, result);
+    }
+
+    /*]]>*/
+</script>
+</head>
+<body onload="doOnLoad();"></body>
+</html>

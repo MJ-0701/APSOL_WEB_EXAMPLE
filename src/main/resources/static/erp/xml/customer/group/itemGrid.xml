@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="activated" width='40' align='center' type='ch'
+			sort='server'>사 용
+		</column>
+		<column id="report" width='40' align='center' type='ch'
+			sort='server'>리포트
+		</column>
+		
+		<column id="kindName" width='40' align='center' type='ro'
+			sort='server'>구 분
+		</column>
+
+		<column id="state" width='50' align='center' type='combo'
+			sort='server' editable="false" xmlcontent="1">
+			처리 상태
+			<option value="GI0001">미처리</option>
+			<option value="GI0002">처리</option>
+		</column>
+
+		<column id="name" width='150' align='left' type='ro' sort='server'>
+			가맹점명
+		</column>
+		<column id="businessNumber" width='90' align='center' type='ro'
+			sort='server'>
+			사업자번호
+		</column>
+		<column id="memo" width='180' align='left' type='ed'
+			sort='na'>메 모
+		</column>
+		<column id="customerManagerName" width='70' align='center' type='ro'
+			sort='server'>영업담당자
+		</column>
+		<column id="customerActivatedName" width='70' align='center' type='ro'
+			sort='server'>활성화
+		</column>
+		<column id="customerStateName" width='60' align='center' type='ro'
+			sort='server'>상태
+		</column>
+
+		<column id="address" width='150' align='left' type='ro'
+			sort='server'>주 소
+		</column>
+
+		<column id="lastVisit" width='80' align='center' type='ro'
+			sort='server'>최근 방문일
+		</column>
+
+		<column id="diffVisit" width='65' align='right' type='ro'
+			sort='server'>방문 경과(일)
+		</column>
+
+		<column id="fromDate" width='80' align='center' type='ro'
+			sort='server'>계약 시작
+		</column>
+
+		<column id="toDate" width='80' align='center' type='ro'
+			sort='server'>계약 종료
+		</column>
+
+		<column id="diffToDate" width='65' align='right' type='ro'
+			sort='server'>남은 기간(일)
+		</column>
+
+		<column id="vanCnt" width='65' align='right' type='ron'
+			sort='server'>계약건수
+		</column>
+
+		<column id="diffVan" width='65' align='right' type='ron'
+			sort='server'>미달건수
+		</column>
+
+		<column id="vans" width='60' align='center' type='ron'
+			sort='server'>밴사
+		</column>
+
+		<column id="vanCnt1" width='60' align='right' type='ron'
+			sort='server'>2018-10
+		</column>
+
+		<column id="vanCnt2" width='60' align='right' type='ron'
+			sort='server'>2018-9
+		</column>
+
+		<column id="vanCnt3" width='60' align='right' type='ron'
+			sort='server'>2018-8
+		</column>
+		<column id="vanCnt4" width='60' align='right' type='ron'
+			sort='server'>2018-7
+		</column>
+
+		<column id="vanCnt5" width='60' align='right' type='ron'
+			sort='server'>2018-6
+		</column>
+
+		<column id="vanCnt6" width='60' align='right' type='ron'
+			sort='server'>2018-5
+		</column>
+
+		<column id="cmsCharge1" width='60' align='right' type='ron'
+			sort='server'>2018-10(cms청구)
+		</column>
+
+		<column id="cmsCharge2" width='60' align='right' type='ron'
+			sort='server'>2018-9(cms청구)
+		</column>
+
+		<column id="cmsCharge3" width='60' align='right' type='ron'
+			sort='server'>2018-8(cms청구)
+		</column>
+		<column id="cmsCharge4" width='60' align='right' type='ron'
+			sort='server'>2018-7(cms청구)
+		</column>
+
+		<column id="cmsCharge5" width='60' align='right' type='ron'
+			sort='server'>2018-6(cms청구)
+		</column>
+
+		<column id="cmsCharge6" width='60' align='right' type='ron'
+			sort='server'>2018-5(cms청구)
+		</column>
+
+		<column id="cms1" width='60' align='right' type='ron'
+			sort='server'>2018-10(cms)
+		</column>
+
+		<column id="cms2" width='60' align='right' type='ron'
+			sort='server'>2018-9(cms)
+		</column>
+
+		<column id="cms3" width='60' align='right' type='ron'
+			sort='server'>2018-8(cms)
+		</column>
+
+
+
+		<column id="content" width='250' align='left' type='ro'
+			sort='server'>처리사유
+		</column>
+		<column id="completeDate" width='100' align='center' type='ro'
+			sort='server'>처리일시
+		</column>
+		<column id="managerName" width='100' align='left' type='ro'
+			sort='server'>처리자
+		</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,,#select_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#numeric_filter,#text_filter,#numeric_filter,#text_filter,#numeric_filter,#text_filter,#numeric_filter,#text_filter,#text_filter,#text_filter,,,</param>
+<!-- <param>,,#select_filter,#text_filter,#text_filter,,#text_filter,#select_filter,#select_filter,#text_filter,#text_filter,#numeric_filter,#text_filter,#text_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,,,</param> -->				
+			</call>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<!-- <param>50</param> -->
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

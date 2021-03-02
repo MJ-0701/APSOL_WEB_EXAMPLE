@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="year" width='40' align='right' type='ed' sort='server' color=''>일 자</column>
+		<column id="month" width='25' align='right' type='ed' sort='na' color=''>#cspan</column>
+		<column id="day" width='25' align='right' type='ed' sort='na' color=''>#cspan</column>
+	
+		<column id="type" width='70' align='center' type='combo' sort='server' editable="false"  xmlcontent="1">
+			유 형
+			<option value="TI0001">1.과 세</option>
+			<option value="TI0003">2.면 세</option>			
+			<option value="TI0002">3.영 세</option>
+		</column>
+		
+		<column id="customer" width='50' align='center' type='ro' sort='server' color=''>거래처</column>
+		<column id="customerName" width='90' align='left' type='ed' sort='server' color=''>#cspan</column>
+		<column id="customerBusinessNumber" width='90' align='center' type='ro' sort='server' color=''>#cspan</column> 
+			 	
+		<column id="remarks" width='180' align='left' type='ed' sort='na' color=''>적 요</column>
+	 
+	 	<column id="amount" width='90' align='right' type='edn' sort='server' color=''>금 액</column>
+		<column id="tax" width='80' align='right' type='edn' sort='server' color=''>#cspan</column>
+		<column id="total" width='90' align='right' type='ron' sort='server' color=''>#cspan</column>
+		
+		<column id="invoice" width='70' align='center' type='combo' sort='server' editable="false"  xmlcontent="1">
+			구 분
+			<option value="TT0001">1.영 수</option>
+			<option value="TT0002">2.청 구</option>		
+		</column>
+		
+		<column id="publish" width='70' align='center' type='combo' sort='server' editable="false"  xmlcontent="1">
+			발 행
+			<option value="TP0000">1.임 시</option>
+			<option value="TP0001">2.전 자</option>			
+			<option value="TP0002">3.종 이</option>
+		</column>
+		
+		<column id="memo" width='180' align='left' type='ed' sort='na' color=''>비 고</column>
+		
+		<column id="ref" width='180' align='left' type='ed' sort='na' color=''>참조사항</column>
+				
+		<column id="uuid" width='90' align='left' type='ro' sort='na' color=''>전표 번호</column>
+										
+		<beforeInit>
+			<call command="attachHeader">
+				<param>년,월,일,#rspan,코드,상 호,사업자번호,#rspan,공급가액,세 액,합 계,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>,,,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#select_filter,,,,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

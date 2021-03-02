@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		
+		<column id="no" width='50' align='center' type='ro' sort='na' color=''>순 번</column>
+		<column id="customerName" width='100' align='left' type='ro' sort='na' color=''>상 호</column>
+		<column id="businessNumber" width='80' align='center' type='ro' sort='na' color=''>사업자번호</column>
+		<column id="centerCode" width='80' align='center' type='ro' sort='na' color=''>센터코드</column>
+		
+		<column id="authAmount" width='75' align='right' type='ron' sort='int' color='' format="0,000">승 인</column>
+		<column id="totalCount" width='80' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+		<column id="totalCount" width='80' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+		<column id="totalCount" width='80' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column> 
+		
+		<column id="cancelAmount" width='70' align='right' type='ron' sort='int' color='' format="0,000">취 소</column> 
+		<column id="cancelCount" width='75' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,#rspan,건수,금액,공급가,세액,건수,금액</param>
+			</call>
+			 <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,,,,,,,,,,</param>
+			</call> 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드"
+		name="code" inputWidth="120" labelWidth="70" />
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+
+			<item type="select" label="구 분" name="kind" inputWidth="140">
+				<option value="PK0000" text="일 반" />
+				<option value="PK0001" text="견 적" />
+				<option value="PK0002" text="휴 가" />
+				<option value="PK0003" text="발 주" />
+			</item>
+			<item type="newcolumn" />
+			<item type="select" label="공 개" name="publicKind" inputWidth="140">
+				<option value="PK0000" text="전체 공개" />
+				<option value="PK0001" text="팀 공개" /> 
+				<option value="PK0001" text="비공개" />
+			</item>
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" label="제 목" name="title" inputWidth="560" />
+
+
+		</item>
+	</item>
+</items>
+

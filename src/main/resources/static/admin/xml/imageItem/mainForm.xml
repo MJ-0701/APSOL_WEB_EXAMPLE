@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드"
+		name="code" inputWidth="120" labelWidth="70" />
+		
+		<item type="hidden"   value="" label="코 드"
+		name="product" inputWidth="120" labelWidth="70" /> 
+		
+		<item type="hidden"  value="" label="코 드"
+		name="kind" inputWidth="120" labelWidth="70" />  
+
+	<item type="block" blockOffset="0">
+	
+		<item type="input" value="" label="이 름" name="name"
+						inputWidth="180" />
+						
+		<item type="input" value="" label="순 번" name="no"
+						inputWidth="180" />
+						
+		<item type="input" value="" label="연결 링크" name="itemUrl"
+						inputWidth="180" />
+		
+		<item type="image" name="image" inputWidth="516" label="이미지"
+				inputHeight="276" imageWidth='516' imageHeight='276'
+				url="../fileData/formImage" >				
+				<note>1920 * 750</note>
+		</item>  
+				
+		<item type="checkbox" label="유튜브 사용" name="video" value="ON0002" inputWidth="120">
+				
+			<item type="input" value="" label="유튜브 링크" name="videoUrl" inputWidth="160" />
+				
+		</item>
+
+	</item>
+	
+
+</items>
+

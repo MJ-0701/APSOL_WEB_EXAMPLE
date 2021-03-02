@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	<column id="no" width='50' align='center' type='ro' sort='na' color=''>순 번</column>
+		<column id="cardName" width='90' align='center' type='ro' sort='na' color=''>카드사</column>
+		
+		<column id="cnt" width='55' align='right' type='ron' sort='na' color='' format="0,000">건수</column>
+		<column id="amount" width='70' align='right' type='ron' sort='na' color='' format="0,000">금 액</column>
+		
+		<column id="cancelCnt" width='55' align='right' type='ron' sort='na' color='' format="0,000">취소 건수</column>
+		<column id="cancelAmount" width='70' align='right' type='ron' sort='na' color='' format="0,000">취소 금액</column>
+		 
+
+		<beforeInit>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

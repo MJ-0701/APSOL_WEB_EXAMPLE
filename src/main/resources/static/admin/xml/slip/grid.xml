@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='center' type='ro' sort='server' color=''>순 번</column>		
+		<column id="date" width='100' align='center' type='ro' sort='server' color=''>일 자</column>
+		<column id="kind" width='65' align='center' type='ro' sort='server' >구 분</column>
+		<column id="customerName" width='120' align='left' type='ro' sort='server' color=''>거래처</column>		
+		<column id="businessNumber" width='100' align='left' type='ro' sort='server' color=''>#cspan</column> 
+		
+		<column id="remarks" width='180' align='left' type='ro'	 sort='na' color=''>적 요</column>
+		 	  
+		<column id="amount" width='90' align='right' type='ron' sort='server' color=''>금    액</column>
+		<column id="tax" width='80' align='right' type='ron' sort='server' color=''>#cspan</column>
+		<column id="total" width='95' align='right' type='ron' sort='server' color=''>#cspan</column>			
+			
+		<column id="memo" width='200' align='left' type='ro'	 sort='na' color=''>비 고</column>
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,상 호,사업자번호,#rspan,금 액,세 액,합 계,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>,,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			
+
+		</afterInit>
+	</head>
+
+</rows>

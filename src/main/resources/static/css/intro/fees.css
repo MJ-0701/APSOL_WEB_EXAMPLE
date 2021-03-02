@@ -1,0 +1,35 @@
+
+    .box_fees {width:100%; height:auto; }
+    .box_fees2 {width:1200px; height:100%; padding:0 10px; margin:20px auto; }
+    .box_fees .main_title {width:100%; height:60px; line-height:60px; border-bottom:2px solid #333; font-size:21px; 
+    	font-weight:bold; }
+
+    .rightContent {width:890px; float:right; }
+
+	.box_fees .fees_menu {width:100%; line-height:35px; margin:30px auto 0 auto; border}
+    .box_fees .fees_menu .menu {width:115px; height:35px; float:left; margin:3px 5px; background:white; 
+    	border:1px solid #ddd; text-align:center; cursor:pointer; font-size:13px; }
+    .box_fees .fees_menu .menu_on {height:35px; background:#056DAE; color:white; border:none; }
+
+    .box_tb_fees {width:89%; margin:30px auto 50px auto; border-top:1px solid #333; border-bottom:1px solid #333; 
+    	display:none; }
+    .box_tb_fees .tb_fees {width:100%; border-collapse:collapse; }
+    .box_tb_fees .tb_fees .title td {text-align:center; font-weight:bold; background:#f5f5f5; }
+    .box_tb_fees .tb_fees td {height:35px; border:1px solid #ddd; padding:0 15px; font-size:13px; 
+    	box-sizing:border-box; }
+    .box_tb_fees .tb_fees .td_price {text-align:right; }
+    .box_tb_fees .tb_fees td:nth-child(1) {border-left:none; }
+    .box_tb_fees .tb_fees td:nth-child(3) {border-right:none; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .box_fees2 {width:100%; }
+      .rightContent {width:100%; }
+
+      .box_fees .fees_menu .menu {width:25%; font-size:15px; }
+
+      .box_fees .fees_menu {width:95%; }
+      .box_fees .fees_menu .menu {width:21%; margin:3px 2%; }
+      .box_fees .box_tb_fees {width:94%; }
+    }
+    

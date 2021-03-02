@@ -1,0 +1,5 @@
+<?xml version='1.0' ?>
+<menu id="0">
+	<item text="댓글 추가" />
+	<item text="삭제" />
+</menu>

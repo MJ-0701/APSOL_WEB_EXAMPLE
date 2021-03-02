@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		
+		<column id="parentAccount" width='80' align='center' type='coro' sort='str' editable="false">
+			장부 구분
+			<option value="101">1.현 금</option>
+			<option value="102">2.보통예금</option>
+			<option value="103">3.당좌예금</option>
+			<option value="104">4.정기예금</option>
+			<option value="105">5.정기적금</option>
+			<option value="106">6.제예금</option>
+			<option value="107">7.유가증권</option>
+			<option value="111">8.카드매출</option>
+			<option value="112">9.받을어음</option>
+			<option value="202">10.신용카드</option>
+			<option value="203">11.지급어음</option>
+		</column>
+
+		<column id="name" width='100' align='center' type='ed' sort='na'>장부명</column>
+		
+		<column id="bank" width='60' align='center' type='ro' sort='na'>은행/카드</column>
+		<column id="bankName" width='100' align='left' type='ed' sort='na'>#cspan</column>
+		
+		<column id="accountNumber" width='120' align='left' type='ed' sort='na'>계좌/카드 번호</column>
+		
+		<column id="commission" width='70' align='right' type='edn' sort='na'>수수료</column>
+		
+		<column id="officeName" width='120' align='left' type='ed' sort='na'>개설 지점</column>
+		
+		<column id="managerName" width='120' align='left' type='ed' sort='na'>담당자</column>
+		
+		<column id="phone" width='120' align='left' type='ed' sort='na'>전 화</column>
+		
+		<column id="fax" width='120' align='left' type='ed' sort='na'>팩 스</column>
+		<column id="hidden" width='70' align='center' type='ch' sort='server'>숨김 여부</column>
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,코 드,명 칭,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter</param>
+			</call>
+
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

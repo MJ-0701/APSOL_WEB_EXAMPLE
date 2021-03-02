@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="name" width='100' align='left' type='ro' sort='str'>명칭</column>		
+		<column id="field" width='100' align='left' type='ro' sort='str'>필드명</column>
+		<column id="cell1" width='100' align='center' type='ro' sort='str'>Cell1</column>
+		<column id="cell2" width='100' align='center' type='ro' sort='str'>Cell2</column>
+		<column id="cell3" width='100' align='center' type='ro' sort='str'>Cell3</column>
+		<column id="space" width='100' align='center' type='ed' sort='str'>빈 칸</column>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

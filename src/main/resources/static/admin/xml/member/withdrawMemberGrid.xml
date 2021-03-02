@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+
+		<column id="username" width='130' align='left' type='ro'
+			sort='server'>아이디</column>
+		
+		<column id="name" width='130' align='left' type='ro'
+			sort='server'>이 름</column>	
+			
+		<column id="withdrawReasonName" width='200' align='center' type='ro'
+		sort='server'>탈퇴 사유</column>
+		
+		<column id="withdrawDate" width='180' align='center' type='ro'
+		sort='server'>탈퇴신청일시</column>
+		
+		<column id="cancelWithdrawDate" width='180' align='center' type='ro'
+		sort='server'>탈퇴철회일시</column>			
+		
+		<column id="completeWithdrawDate" width='180' align='center' type='ro'
+		sort='server'>탈퇴완료일시</column>
+		
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

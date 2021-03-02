@@ -1,0 +1,44 @@
+
+    .box_request {width:100%; height:auto; }
+    .box_request2 {width:1200px; height:100%; padding:0 10px; margin:20px auto; }
+    .box_request .main_title {width:100%; height:60px; line-height:60px; border-bottom:2px solid #333; font-size:21px; 
+    	font-weight:bold; }
+
+    .rightContent {width:890px; float:right; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .box_request2 {width:100%; }
+      .rightContent {width:100%; }
+    }
+    
+    .panel-title{
+    	font-size : 1.55em; 
+    }
+    
+    .desc {width:100%; line-height:20px; margin-top:20px; }
+    .box_map {width:100%; height:500px; margin-top:10px; }
+    #map {width:100%; height:100%; }
+    
+    .panel-default{
+    	margin : 20px 0;
+    	padding : 3px;
+    	border: 1px solid #c0c0c0;
+    	height: 30%;
+    	
+    }
+    
+    .panel-heading{
+    	border-bottom: 1px solid #838383;
+    	padding: 3px;
+    	text-align: center;
+    	margin: auto;
+    	font-family: "나눔스퀘어";
+    	
+    }
+    
+    .panel-body{
+    	padding: 15px;
+    	letter-spacing: 1px;
+    	line-height: 2;
+    }

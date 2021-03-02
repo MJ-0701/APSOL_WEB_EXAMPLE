@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="100" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="hidden" name="customerKind" inputWidth="180" value="0" />
+	<item type="hidden" name="state" inputWidth="180" value="0" />
+	<item type="hidden" name="kind" inputWidth="180" value="0" />
+	<item type="hidden" name="manager" inputWidth="180" value="0" />
+
+
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="가맹점명" name="name"
+						labelWidth="100" inputWidth="570" required="true" />
+
+					<item type="block" blockOffset="0">
+						<item type="input" value="" label="대표자" name="ceo"
+							inputWidth="120" labelWidth="100" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="업 태" name="jobType"
+							labelWidth="100" inputWidth="120" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="종 목" name="jobCategory"
+							inputWidth="120" labelWidth="100" />
+
+					</item>
+
+
+					<item type="block" blockOffset="0">
+						<item type="block" blockOffset="0">
+							<item type="input" value="" label="사업자 번호"
+								name="businessNumber" inputWidth="80" />
+							<item type="newcolumn" />
+							<item type="button" value="복사" name="btnCopyBusinessNumber"
+								required="true" width="40" />
+						</item>
+						<item type="newcolumn" />
+						<item type="block" blockOffset="0">
+							<item type="input" value="" label="관리업체" name="office"
+								inputWidth="30" labelWidth="100" readonly='true'
+								className="form_readonly" />
+							<item type="newcolumn" />
+							<item type="input" value="" label="" name="officeName"
+								inputWidth="87" />
+						</item>
+						<item type="newcolumn" />
+						<item type="block" blockOffset="0">
+							<item type="input" value="" label="관리업체2" name="office2"
+								inputWidth="30" labelWidth="100" readonly='true'
+								className="form_readonly" />
+							<item type="newcolumn" />
+							<item type="input" value="" label="" name="office2Name"
+								inputWidth="87" />
+						</item>
+					</item>
+				</item>
+
+				<item type="block" blockOffset="0">
+					<item type="block" blockOffset="0">
+						<item type="block" blockOffset="0">
+							<item type="input" value="" label="상 태" name="stateName"
+								inputWidth="120" labelWidth="100" />
+						</item>
+						<item type="newcolumn" />
+						<item type="block" blockOffset="0">
+							<item type="input" value="" label="구 분"
+								name="customerKindName" inputWidth="120" labelWidth="100" />
+						</item>
+						<item type="newcolumn" />
+						<item type="block" blockOffset="0">
+							<item type="input" value="" label="신규 구분" name="kindName"
+								inputWidth="120" labelWidth="100" />
+						</item>
+					</item>
+					<item type="block" blockOffset="0">
+						<item type="select" label="활성화" name="activated"
+							inputWidth="120" labelWidth="100">
+							<option value="AT0001" text="활 성" />
+							<option value="AT0002" text="비활성" />
+						</item>
+						<item type="newcolumn" />
+						<item type="calendar" value="" label="등록일자" name="joinDate"
+							labelWidth="100" inputWidth="120" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="담당자" name="managerName"
+							inputWidth="120" labelWidth="100" />
+
+					</item>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="block" blockOffset="0">
+						<item type="input" value="" label="전화번호" name="phone"
+							labelWidth="100" inputWidth="120" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="자택번호" name="homePhone"
+							inputWidth="120" labelWidth="100" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="휴대폰" name="mobile"
+							inputWidth="120" labelWidth="100" />
+
+
+					</item>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="block" blockOffset="0">
+						<item type="input" value="" label="은 행" name="bank"
+							inputWidth="40" readonly='true' className="form_readonly" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="" name="bankName"
+							inputWidth="77" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="예금주" name="accountOwner"
+							inputWidth="120" labelWidth="100" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="이메일" name="email"
+							inputWidth="120" labelWidth="100" />
+					</item>
+					<item type="block" blockOffset="0">
+						<item type="input" value="" name="accountNumber"
+							inputWidth="343" labelWidth="100" label="계좌번호" />
+						
+					</item>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="주 소" name="address"
+						inputWidth="570" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="block" blockOffset="0">								
+						<item type="input" value="" label="센터 코드" name="centerCode"
+							inputWidth="120" labelWidth="100" />
+							<item type="newcolumn" />
+						<item type="input"  label="PG 수수료(%)" name="pgFeeRate" value="3.5" className="form_readonly"  readonly='true' 
+							inputWidth="120" labelWidth="100" />
+					</item>
+				</item>
+				<item type="block" blockOffset="0" offsetTop="0">
+					<item type="input" value="" label="비 고" name="memo"
+						inputWidth="570" rows="10" />
+				</item>
+			</item>
+		</item>
+	</item>
+</items>
+

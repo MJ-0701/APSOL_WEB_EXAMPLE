@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="year" width='40' align='right' type='ro' sort='server' color=''>일 자</column>
+		<column id="month" width='25' align='right' type='ro' sort='server' color=''>#cspan</column>
+		<column id="day" width='25' align='right' type='ro' sort='server' color=''>#cspan</column>	
+		<column id="itemKindName" width='50' align='center' type='ro' sort='server' color=''>제조 품목</column>
+		<column id="name" width='120' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="part" width='100' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="standard" width='100' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="unitName" width='80' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="qty" width='75' align='right' type='ron' sort='server' color=''>작업지시량</column>
+		 
+		<column id="factoryName" width='100' align='left' type='ro' sort='server' color=''>생산처</column>		
+		<column id="deliveryDate" width='90' align='center' type='ro' sort='server' color=''>납기 예정일</column>
+				
+		<column id="uuid" width='90' align='left' type='ro' sort='server' color=''>전표 번호</column>	 
+		<column id="managerName" width='80' align='center' type='ro' sort='server' color=''>담당자</column>		 
+		<column id="projectName" width='80' align='left' type='ro' sort='server' color=''>프로젝트</column>			
+		<column id="remarks" width='250' align='left' type='ro' sort='na' color=''>비 고</column>
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>년,월,일,구 분,품목명,파트넘버,규격,단 위,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>,,,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

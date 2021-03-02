@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="name" width='130' align='left' type='ro' sort='server'>업체명</column>
+		<column id="phone" width='130' align='left' type='ro' sort='server'>전화번호</column>
+		<column id="manager" width='130' align='left' type='ro' sort='server'>담당자</column>
+		<column id="address" width='130' align='left' type='ro' sort='server'>업체 주소지</column>
+		<column id="areaNames" width='130' align='left' type='ro' sort='server'>담당구역</column>
+		<column id="activated" width='60' align='center' type='ro' sort='server'>상 태</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

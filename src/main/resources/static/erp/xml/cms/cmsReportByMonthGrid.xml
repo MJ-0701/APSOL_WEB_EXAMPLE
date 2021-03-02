@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="kind" width='100' align='center' type='ro'>
+			구분
+		</column>
+		<column id="cnt" width='80' align='center' type='ro' color=''>건수
+		</column>
+		<column id="amount" width='120' align='right' type='ro' color='' format="0,000">금액
+		</column>
+		<column id="vat" width='120' align='right' type='ro' color='' format="0,000">수수료
+		</column>
+	</head>
+</rows>

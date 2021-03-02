@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="state" width='100' align='center' type='ro' sort='str'>상 태</column>		
+		<column id="total" width='100' align='right' type='ron' sort='int' color=''>금 액</column>
+		<beforeInit>
+		</beforeInit>
+		<afterInit>			
+		</afterInit>
+	</head>
+
+</rows>

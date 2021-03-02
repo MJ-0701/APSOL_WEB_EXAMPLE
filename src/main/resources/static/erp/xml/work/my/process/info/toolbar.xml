@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<toolbar>
+	
+	<item id="btnProcess" type="button" text="업무 처리">	
+	</item>
+	<item id="btnCancel" type="button" text="업무 취소" img="close.gif"  imgdis="close_dis.gif">
+	</item>
+	
+</toolbar>

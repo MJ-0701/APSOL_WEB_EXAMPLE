@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, 
+    	minimum-scale=1.0"/>
+    <title>대형폐기물 : 이용안내</title>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    
+<style>
+@import url(/css/nanumgothic.css);
+@import url(/css/jejugothic.css);
+@import url(/css/hanna.css);
+html,body {width:100%; min-width:300px; margin:0; padding:0; font-family:'Nanum Gothic' !important; background:white; color:#555; 
+	font-size:14px; font-weight:normal; }
+div {box-sizing:border-box; } /* height:100%;  */
+form {box-sizing:border-box; }
+.slow {transition:all .2s; -webkit-transition:all .2s; -moz-transition:all .2s; -o-transition:all .2s; }
+.rm_slow {transition: none; -webkit-transition:none; -moz-transition:none; -o-transition:color 0 ease-in; }
+input {font-family:'Nanum Gothic'; background:none; border:none; box-sizing:border-box; padding:0 10px; }
+textarea {line-height:20px; box-sizing:border-box; padding:10px; font-family:'Nanum Gothic'; border:none; resize:none; }
+.non_draggable {-ms-user-select: none; -moz-user-select: -moz-none; -khtml-user-select: none; -webkit-user-select:none; 
+	user-select: none; }
+.clear_both {height:1px; clear:both; }
+
+.cb {display:none; }
+.cb_label {padding:0 9px; background:url(/img/cb.png) no-repeat; cursor:pointer; vertical-align:middle; }
+input[type="checkbox"]:checked + .cb_label {background:url(/img/cb_on.png) no-repeat; }
+
+#paging {width:100%; height:30px; line-height:30px; margin:20px 0 80px 0; text-align:center; }
+#paging .page {padding:5px 8px; margin:0 1px; background:white; border:1px solid #ccc; cursor:pointer; }
+#paging .page_on {background:#103E93; color:white; cursor:default; }
+
+/* 모바일 */
+@media (max-width:1200px) {
+	.cb_label {padding:2px 9px; }
+}
+    
+</style>
+
+<script>/*<![CDATA[*/
+
+
+	// 날짜 간격 사이 날짜 목록 구하기
+	function getDateRange(startDate, endDate, listDate){
+
+		var dateMove = new Date(startDate);
+		var strDate = startDate;
+		if (startDate == endDate)
+		{
+			var strDate = dateMove.toISOString().slice(0, 10);
+			listDate.push(strDate);
+		}
+
+		else
+		{
+			while (strDate < endDate)
+			{
+				var strDate = dateMove.toISOString().slice(0, 10);
+				listDate.push(strDate);
+				dateMove.setDate(dateMove.getDate() + 1);
+			}
+		}
+
+		return listDate;
+	};
+
+	// 위경도좌표 얻기
+	function getLatLng(coordiX, coordiY) {
+		if (!coordiX || !coordiY)
+			return [ 127.09304875538659, 37.60626176888083 ];
+
+		var utm = "+proj=tmerc +lat_0=38 +lon_0=127.5 +k=0.9996 +x_0=1000000 +y_0=2000000 +ellps=GRS80 +units=m +no_defs";
+		var wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
+		return proj4(utm, wgs84, [ coordiX, coordiY ]);
+	}
+
+	// 내일날짜부터 선택가능
+	function setNotPrev(t) {
+		$(t).bind(
+				'change',
+				function() {
+					var v = $(t).val();
+					var date = new Date(v.substring(0, 4) * 1, v
+							.substring(5, 7) * 1 - 1, v.substring(8) * 1);
+					date.setDate(date.getDate() + 1);
+					if (date.getTime() < new Date().getTime()) {
+						alert('배출예약일을 과거로 설정할 수 없습니다.');
+						$(t).val(getFuture(0));
+					}
+				});
+	}
+
+	// 전화번호 자동 하이픈 입력
+	function autoHypenPhone(t) {
+		str = $(t).val().replace(/[^0-9]/g, '');
+		var tmp = '';
+		if (str.length < 4) {
+			$(t).val(str);
+			return;
+		} else if (str.length < 7) {
+			tmp = str.substr(0, 3) + '-' + str.substr(3);
+			$(t).val(tmp);
+			return;
+		} else if (str.length < 11) {
+			tmp += str.substr(0, 3) + '-' + str.substr(3, 3) + '-'
+					+ str.substr(6);
+			$(t).val(tmp);
+			return;
+		} else {
+			tmp += str.substr(0, 3) + '-' + str.substr(3, 4) + '-'
+					+ str.substr(7);
+			$(t).val(tmp);
+			return;
+		}
+	}
+
+	function getIsMobile() {
+		var isMobile = {
+			Android : function() {
+				return navigator.userAgent.match(/Android/i) == null ? false
+						: true;
+			},
+			BlackBerry : function() {
+				return navigator.userAgent.match(/BlackBerry/i) == null ? false
+						: true;
+			},
+			IOS : function() {
+				return navigator.userAgent.match(/iPhone|iPad|iPod/i) == null ? false
+						: true;
+			},
+			Opera : function() {
+				return navigator.userAgent.match(/Opera Mini/i) == null ? false
+						: true;
+			},
+			Windows : function() {
+				return navigator.userAgent.match(/IEMobile/i) == null ? false
+						: true;
+			},
+			any : function() {
+				return (isMobile.Android() || isMobile.BlackBerry()
+						|| isMobile.IOS() || isMobile.Opera() || isMobile
+						.Windows());
+			}
+		};
+		return isMobile;
+	}
+
+	function getPhoneForm(str) {
+		var str = str.replace(/[^0-9]/g, '');
+		var tmp = '';
+		if (str.substring(0, 2) == '02') {
+			if (str.length < 3) {
+				return str;
+			} else if (str.length < 6) {
+				tmp = str.substr(0, 2) + '-' + str.substr(2);
+				return tmp;
+			} else if (str.length < 10) {
+				tmp += str.substr(0, 2) + '-' + str.substr(2, 3) + '-'
+						+ str.substr(5);
+				return tmp;
+			} else {
+				tmp += str.substr(0, 2) + '-' + str.substr(2, 4) + '-'
+						+ str.substr(6);
+				return tmp;
+			}
+		} else {
+			if (str.length < 4) {
+				return str;
+			} else if (str.length < 7) {
+				tmp = str.substr(0, 3) + '-' + str.substr(3);
+				return tmp;
+			} else if (str.length < 11) {
+				tmp += str.substr(0, 3) + '-' + str.substr(3, 3) + '-'
+						+ str.substr(6);
+				return tmp;
+			} else {
+				tmp += str.substr(0, 3) + '-' + str.substr(3, 4) + '-'
+						+ str.substr(7);
+				return tmp;
+			}
+		}
+	}
+
+	// 숫자만 입력
+	function onlyNumber(t) {
+		$(t).val($(t).val().replace(/[^0-9]/g, ''));
+	}
+
+	function nonHangul(t) {
+		$(t).val($(t).val().replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, ''));
+	}
+
+	function getFirstDate() {
+		var date = new Date();
+		//date.setMonth(0);
+		date.setDate(1);
+		date = date.getFullYear() + '.'
+				+ String('0' + (date.getMonth() + 1)).slice(-2) + '.'
+				+ String('0' + date.getDate()).slice(-2);
+		return date;
+	}
+
+	function getTodayDate() {
+		var date = new Date();
+		date = date.getFullYear() + '.'
+				+ String('0' + (date.getMonth() + 1)).slice(-2) + '.'
+				+ String('0' + date.getDate()).slice(-2);
+		return date;
+	}
+
+	function getFuture(days) {
+		var date = new Date();
+		date.setDate(date.getDate() + days);
+		date = date.getFullYear() + '.'
+				+ String('0' + (date.getMonth() + 1)).slice(-2) + '.'
+				+ String('0' + date.getDate()).slice(-2);
+		return date;
+	}
+
+	function setDatePicker(t) {
+		$(t).datepicker(
+				{
+					dateFormat : 'yy.mm.dd',
+					prevText : '이전 달',
+					nextText : '다음 달',
+					monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+							'8월', '9월', '10월', '11월', '12월' ],
+					monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+							'7월', '8월', '9월', '10월', '11월', '12월' ],
+					dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+					dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+					dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+					showMonthAfterYear : true,
+					yearSuffix : '년',
+					setDate : new Date()
+				});
+	}
+
+	function calculus(end_ymd){    
+		
+		 
+	    var yyyy = end_ymd.substring(0,4);
+	    var mm = end_ymd.substring(4,6);
+	    var dd = end_ymd.substring(6);              
+	    return new Date(yyyy, mm-1, dd, 23, 59, 59);
+	    
+	}
+
+	
+	/**
+	 * 두 날짜의 차이를 일자로 구한다.(조회 종료일 - 조회 시작일)
+	 *
+	 * @param val1 - 조회 시작일(날짜 ex.2002-01-01)
+	 * @param val2 - 조회 종료일(날짜 ex.2002-01-01)
+	 * @return 기간에 해당하는 일자
+	 */
+	function calDateRange(exhaustDate) {
+
+		// FORMAT을 포함한 길이 체크
+		/* if (val1.length != 10 || val2.length != 10)
+		    return null;
+
+
+
+		// FORMAT이 있는지 체크
+		if (val1.indexOf(FORMAT) < 0 || val2.indexOf(FORMAT) < 0)
+		    return null; */
+		var date = new Date();
+		var year = exhaustDate.substring(0, 4);
+		var month = exhaustDate.substring(4, 6);
+		var day = exhaustDate.substring(6, 8);
+
+		// 년도, 월, 일로 분리
+		var start_dt = [ year, month, day ];
+		var end_dt = [ date.getFullYear(), date.getMonth() + 1, date.getDate() ];
+
+		// 월 - 1(자바스크립트는 월이 0부터 시작하기 때문에...)
+		// Number()를 이용하여 08, 09월을 10진수로 인식하게 함.
+		start_dt[1] = (Number(start_dt[1]) - 1) + "";
+		end_dt[1] = (Number(end_dt[1]) - 1) + "";
+
+		var from_dt = new Date(start_dt[0], start_dt[1], start_dt[2]);
+		var to_dt = new Date(end_dt[0], end_dt[1], end_dt[2]);
+
+		return (to_dt.getTime() - from_dt.getTime()) / 1000 / 60 / 60 / 24;
+	}
+
+	function getToday() {
+		var date = new Date();
+		var todayDate = date.getFullYear()
+				+ String('0' + (date.getMonth() + 1)).slice(-2)
+				+ String('0' + date.getDate()).slice(-2);
+		return todayDate;
+	}
+
+	function alertError(jqXHR, exception) {
+		var msg = '';
+		if (jqXHR.status === 0) {
+			msg = 'Not connect.\n Verify Network.';
+		} else if (jqXHR.status == 404) {
+			msg = 'Requested page not found. [404]';
+		} else if (jqXHR.status == 500) {
+			msg = 'Internal Server Error [500].';
+		} else if (exception === 'parsererror') {
+			msg = 'Requested JSON parse failed.';
+		} else if (exception === 'timeout') {
+			msg = 'Time out error.';
+		} else if (exception === 'abort') {
+			msg = 'Ajax request aborted.';
+		} else {
+			msg = 'Uncaught Error.\n' + jqXHR.responseText;
+		}
+		alert(msg);
+	}
+
+	// checkbox 폼
+	function getCbForm(id, onclick, padding, checked) {
+		if (!onclick)
+			onclick = '';
+		if (!padding)
+			padding = 0;
+		if (!checked)
+			checked = '';
+		return '<input class="cb" type="checkbox" id="'+id+'" name="'+id+'" onchange="'+onclick+'" '+checked+'>'
+				+ '<label class="cb_label" style="padding:'+padding+'px 9px;" for="'+id+'"></label>';
+	}
+
+	// 세자리마다 콤마
+	function comma(x) {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	//이미지용량 확인
+	function getImageSize(target) {
+		var browser = '';
+		var ieName = navigator.appName;
+		var agent = navigator.userAgent.toLowerCase();
+
+		if (ieName == 'Microsoft Internet Explorer') { // ie 10 or lower
+			browser = 'msie';
+		} else {
+			if (agent.search('trident') > -1)
+				browser = 'ie11'; // trident/.*rv:
+			else if (agent.search('edge/') > -1)
+				browser = 'ie12'; // edge/
+		}
+
+		// 브라우저 확인
+		var fileSize = 0;
+		if (browser == 'msie') {
+			var oas = new ActiveXObject("Scripting.FileSystemObject");
+			fileSize = oas.getFile(target.value).size;
+		} else {
+			fileSize = target.files[0].size;
+		}
+
+		return fileSize;
+	}
+
+	/* 쿠키설정관련 */
+	function createCookie(name, value, days) {
+		var expires;
+		if (days) {
+			var date = new Date();
+			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+			expires = "; expires=" + date.toGMTString();
+		} else
+			expires = "";
+		document.cookie = name + "=" + value + expires + "; path=/";
+	}
+
+	function readCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ')
+				c = c.substring(1, c.length);
+			if (c.indexOf(nameEQ) == 0)
+				return c.substring(nameEQ.length, c.length);
+		}
+		return null;
+	}
+
+	function eraseCookie(name) {
+		createCookie(name, "", -1);
+	}
+
+	function areCookiesEnabled() {
+		var r = false;
+		createCookie("testing", "Hello", 1);
+		if (readCookie("testing") != null) {
+			r = true;
+			eraseCookie("testing");
+		}
+		return r;
+	}
+	/* 쿠키설정관련 */
+
+	function isNullOrEmpty(val) {
+		if (val == undefined || val == null || val == '')
+			return true;
+
+		return false;
+	}
+/*]]>*/ </script>
+
+    <link type="text/css" rel="stylesheet" href="/css/intro/fees.css?v=1"/>
+  </head>
+  <body>
+  	
+    <!-- 헤더 -->
+    
+  
+
+
+
+<style>
+
+.subHeader {width:100%; height:30px; line-height:30px; background:#f5f5f5; display:none; }
+.subHeader2 {width:100%; height:30px; padding:0 10px; margin:auto; text-align:right; }
+
+.navbar-light {
+    font-family: 'Nanum Gothic' !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;    
+    
+}
+
+.kdl-navbar-button-list {
+    padding-left: 4.563rem;
+}
+
+.kdl-button-white {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    background-color: white;
+    font-size: 0.9rem;
+    color: #333333;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 1rem;
+    border: 1px solid #dddddd;    
+    cursor: pointer;
+}
+
+.navbar-collapse .dropdown-menu {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: inset 0px -1px 0 0 #dddddd;
+}
+
+.navbar-collapse .dropdown-menu > .dropdown-item {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #dddddd;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: #009c7f !important;
+  }
+
+@media(min-width: 992px) {
+    .navbar-brand {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-collapse .dropdown-menu {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: inset 0px -1px 0 0 #dddddd;
+
+    }
+
+    .navbar-collapse .dropdown-menu > .dropdown-item {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .navbar-collapse {
+        /* height: 3.625rem; */
+        height: 5rem;
+    }
+
+    .navbar-collapse ul, .navbar-collapse li, .navbar-collapse li a.nav-link {
+        height: 100%;
+    }
+
+    .navbar-collapse li a.nav-link {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .navbar-collapse li a.nav-link:hover {
+        border-bottom: 1px solid #009c7f;
+    }
+}
+
+@media(max-width: 991px) {
+	.dropdown-menu{
+		display: block !important; 
+	}
+	
+    .navbar-collapse .dropdown-menu {
+        border-left: none;
+        border-right: none;
+    }
+
+    .navbar-brand {
+        position: absolute;
+        top: 1rem;
+        left: 32.5%;
+        margin: 0;
+        padding: 0;
+    }  
+    .navbar-brand > .img-fluid {
+        height: 40px;
+    }  
+
+    .navbar-light .navbar-toggler {
+        border-color: transparent !important;
+    }
+
+    .masthead {
+        padding-top: 8rem !important;
+        background: url("../img/img-backmain-mo@3x.png") !important;
+        background-position: 58% 50%  !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+    }
+
+    .kdl-main-title-wrapper, .kdl-main-banner-button-wrapper {
+        padding-left: 2.5rem !important;
+    }
+
+    .kdl-main-title {
+        font-size: 1.813rem !important;
+        margin: 0 !important;
+    }
+
+    .kdl-button-primary, .kdl-button-primary:hover {        
+        color: white;
+        border-radius: 5rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.438rem;
+        font-weight: bold;
+        box-shadow: inset 0px -4px 0 0 rgba(0, 0, 0, 0.08);
+        font-weight: 500;
+        font-size: 1.1rem !important;
+    }
+}
+	
+	.routeBrowserSetting {
+		color: blue;
+	}
+	.routeBrowserSetting:hover,
+	.routeBrowserSetting:focus {
+		color: red;
+		
+	}
+	
+
+</style>
+
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="/css/creative.css" rel="stylesheet"/>
+  
+  <!-- Noto Sans CJK KR Font -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,500,700&amp;display=swap&amp;subset=korean" rel="stylesheet"/>
+
+
+  <!-- <link href="/css/main.css" rel="stylesheet"/> -->
+  
+  <!-- Font Awesome Icons -->
+  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+  
+  <!-- Noto Sans CJK KR Font -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,500,700&amp;display=swap&amp;subset=korean"
+    rel="stylesheet"/>
+    
+  <!-- <link href="/css/main.css" rel="stylesheet"/> -->
+  
+  <!-- Bootstrap core JavaScript -->
+  <!-- <script src="/vendor/jquery/jquery.min.js"></script> -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+
+  
+
+  <!-- Plugin JavaScript -->
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Navigation -->
+
+							<!-- 상단바 인터넷 익스플로러 호환성 안내 -->
+  <div id="topbar-IE" style="width: 100%; background: #fafad2; height: 30px; position: fixed; z-index: 1030; text-align:center; padding-top: 5px;">
+  	<span class="routeBrowserSetting" onclick="routeBrowserSetting()" style="cursor:pointer; font-family: 'Nanum Gothic',sans-serif;">
+  		[안내] Internet Explorer로 접속하셨습니다. 원활한 결제 기능을 이용하시기 위해 호환성 설정이 필요합니다. (자세히)
+  	</span>
+  </div>					<!-- 상단바 인터넷 익스플로러 호환성 안내 END  -->
+  
+  <nav class="navbar navbar-expand-lg navbar-light py-3 py-lg-0" id="mainNav">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <img src="/img/logo-header.png" alt="logo" class="img-fluid"
+          srcset="/img/logo-header.png 1x, /img/logo-header@2x.png 2x, /img/logo-header@3x.png 3x"/>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <div class="dropdown h-100">
+                <a class="nav-link" href="javascript:;" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이용안내</a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownMenuButton">
+                  <!-- <a class="dropdown-item" onclick="goTarget('intro','intro')">서비스 소개</a> -->
+                  <a class="dropdown-item" onclick="goTarget('intro','guide')">이용방법</a>
+                  <a class="dropdown-item" onclick="goTarget('intro','fees')">품목별 수수료</a>
+                  <a class="dropdown-item" onclick="goTarget('intro','center')">재활용센터</a><a class="dropdown-item" onclick="goTarget('intro','map')">수거차량 실시간 위치</a>
+                </div>
+            </div>          
+          </li>
+          <li class="nav-item">
+           <!--  <a class="nav-link" href="#">온라인신청</a> -->
+            <div class="dropdown h-100">
+                <a class="nav-link" href="javascript:;" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">온라인신청</a>
+                <div class="dropdown-menu py-0" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" onclick="goTarget('online','request')">배출신청</a>
+                  <a class="dropdown-item" onclick="goTarget('online','reqCancel')">배출취소</a>
+                  <a class="dropdown-item" onclick="goTarget('online','lookup')">신청결과조회</a>
+                </div>
+            </div>  
+          </li>
+          
+          <!-- <li class="nav-item d-lg-none">
+            <div onclick="location.href='/imageViewer.do'" class="nav-link kdl-button-white rounded-0">실시간 폐기물 현황</div>
+          </li> -->
+        </ul>
+      </div>
+      <div class="d-none d-lg-flex kdl-navbar-button-list align-items-center">
+      
+        <!-- <div class="kdl-button-white" onclick="location.href='/imageViewer.do'">실시간 폐기물 현황</div> -->
+      </div>
+    </div>
+  </nav> 
+<div class="subHeader" id="subNav">
+  <div class="subHeader2"></div>
+</div>
+
+
+
+  <!-- Custom scripts for this template -->
+  <script src="/js/creative.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  
+  
+  
+<script>/*<![CDATA[*/
+
+var userAgent = window.navigator.userAgent;
+var isChrome = userAgent.indexOf('Chrome');
+var isChromeMobile = userAgent.indexOf('CriOS');
+var isSamsungBrowser = userAgent.indexOf('SamsungBrowser');
+var isWindows = userAgent.indexOf('Windows NT');
+var isEdge = userAgent.indexOf('Edge');
+var isIE = userAgent.indexOf('Trident');
+
+
+var is_show = false;
+
+init_mheader();
+
+
+
+// 초기화
+function init_mheader() {
+	$('.pop_menu2').bind('click', function(e) { e.stopPropagation(); });
+	$('.addr_sgg').html('동대문구');
+	
+	
+	// 상단바 익스플로러 호환성 안내
+	var getTopBar = document.getElementById('topbar-IE');
+	var getMainNav = document.getElementById('mainNav');
+	
+	if(isIE > -1){
+		// 익스플로러인 경우
+		getMainNav.style.top = "30px";
+		$('#subNav').css('margin-top', '30px');
+		
+	}else{
+		getTopBar.style.display = "none"; // 익스플로러가 아닌 경우
+		getMainNav.style.top = "0px";
+	}
+
+}
+
+// 페이지명
+function init_subHeader(subTitle) {
+  $('.subHeader2').html(subTitle);
+  $('.subHeader').show();
+}
+
+// 메뉴 보이기
+function show_pop_menu() {
+  if(! is_show) {
+    $('.pop_menu').show();
+    setTimeout(function() { $('.pop_menu').css({'opacity':1}); }, 200);
+  } else {
+    $('.pop_menu').css({'opacity':0});
+    $('.pop_menu').hide();
+  }
+
+  is_show = !is_show;
+}
+
+// 해당 페이지로 이동
+function goTarget(base, url) {
+	if(base != 'cs') {
+		location.href = '/'+base+'/'+url+'.do';
+	} else {
+		location.href = '/bbs.do?t='+url;
+	}
+}
+
+function routeBrowserSetting(){
+	var win = window.open("https://www.allatpay.com/servlet/AllatBizV2/support/SupportNoticeCL?menu_id=m040600&amp;type=detail&amp;page=1&amp;seq_no=7508", '_blank');
+	win.focus();
+}
+
+/*]]>*/ </script>
+
+    <!-- 본문 -->
+    <div class="box_fees">
+      <div class="box_fees2">
+        
+<style>
+.leftMenu {width:250px; min-height:600px; line-height:60px; float:left; }
+.leftMenu .title {width:100%; height:70px; line-height:70px; text-align:center; background:#1A3C70; color:white; font-size:26px; }
+.leftMenu .list {width:100%; margin-top:10px; }
+
+.leftMenu .list .item {width:100%; height:45px; line-height:45px; padding:0 20px; border-bottom:1px solid #E3E4E5; cursor:pointer; font-size:16px; }
+.leftMenu .list .item:hover {text-decoration:underline; }
+.leftMenu .list .item_on {background:#EFF0F4; color:#103E9F; font-weight:bold; }
+
+@media (max-width:1200px) {
+  .leftMenu {display:none; }
+}
+
+</style>
+
+<div class="leftMenu">
+  <div class="title"></div>
+  <div class="list"></div>
+</div>
+
+<script>/*<![CDATA[*/
+
+function init_leftMenu(n, now) {
+  var title;
+  var menus;
+  var base;
+  var urls;
+  if(n == 0) {
+    title = '이용안내';
+    menus = [/* '서비스 소개', */'이용방법','품목별 수수료','재활용센터', '수거차량 실시간 위치'];
+    base = 'intro';
+    urls = [/* 'intro', */'guide','fees','center', 'map'];
+  } else if(n == 1) {
+    title = '온라인신청';
+    menus = ['배출신청','배출취소','신청결과조회'];
+    base = 'online';
+    urls = ['request','reqCancel','lookup'];
+  } else if(n == 2) {
+    title = '고객민원';
+    menus = ['공지사항','FAQ'];
+    base = 'cs';
+    urls = ['notice','qna'];
+  }
+
+  $('.leftMenu .title').html(title);
+  var tmp = '';
+  for(var i=0; i<menus.length; i++) {
+    var selected = ''; if(urls[i].indexOf(now)>-1) selected = 'item_on';
+    tmp += '<div class="item '+selected+'" id="leftMenu'+i+'" onclick="goTarget(\''+base+'\',\''+urls[i]+'\');">'+menus[i]+'</div>';
+  }
+  $('.leftMenu .list').html(tmp);
+}
+
+/*]]>*/ </script>
+
+
+        <div class="rightContent">
+          <div class="main_title">수거차량 실시간 위치</div>
+          <div class="fees_menu">           
+          </div>
+          <div class="box_tb_fees" style="margin-left: 0; margin-right: 0; height: 100%; width: 100%">
+             <iframe  
+    width="100%"
+    height="840"
+    src="/intro/carmap.do">
+</iframe>
+          </div>
+        </div>
+
+        <div class="clear_both"></div>
+      </div>
+    </div>
+
+    <!-- 푸터 -->
+    
+<!-- <style>
+
+.footer {width:100%; height:190px; border-top:1px solid #DFDFDF; }
+.footer2 {width:1200px; height:100%; margin:auto; }
+
+/* 모바일 */
+@media (max-width:1200px) {
+  .footer2 {width:100%; }
+}
+
+.footer .menu {width:100%; height:50px; line-height:50px; font-size:10px; border-bottom:1px solid #ddd; }
+.footer .menu .item {padding:3px 15px; font-size:15px; cursor:pointer; }
+
+.footer .logo {width:300px; height:140px; line-height:140px; float:left; text-align:center; font-weight:bold; font-size:20px; }
+.footer .content {width:900px; height:90px; line-height:30px; float:left; margin-top:25px; font-size:14px; }
+
+/* 모바일 */
+@media (max-width:1200px) {
+  .footer .menu {text-align:center; }
+  .footer .menu .item {font-size:12px; }
+  .footer .logo {width:100%; height:60px; line-height:60px; float:none; font-size:15px; }
+  .footer .content {width:100%; height:75px; line-height:25px; padding:0 10px; margin-bottom:20px; float:none; margin-top:0px; font-size:11px; text-align:center; }
+}
+
+</style> -->
+
+<style>
+
+	/* Footer */
+	.kdl-footer {
+	    padding-top: 1.875rem;
+	    padding-bottom: 1.875rem;
+	}
+	
+	.kdl-footer-logo-wrapper {
+	    text-align: center;
+	    padding-bottom: 1.188rem;
+	}
+	
+	.kdl-footer-terms {
+	    padding-bottom: 1.75rem;
+	    font-size: 0.875rem;
+	    font-weight: bold;
+	    text-align: center;
+	    color: white;
+	}
+	
+	.kdl-footer-contact {
+	    font-weight: bold;
+	    color: white;
+	    text-align: center;
+	    font-size: 0.75rem;
+	}
+	
+	.bg-primary {
+	    background-color: #009c7f !important;
+	}
+	
+	footer{
+		display: block;
+		box-sizing: border-box;
+		
+		font-family: 'Noto Sans KR', sans-serif !important;
+	    -webkit-font-smoothing: antialiased;
+	    -moz-osx-font-smoothing: grayscale;
+	    text-rendering: optimizeLegibility;
+		
+	}
+</style>
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="bg-primary kdl-footer">
+    <div class="container">
+      <div class="kdl-footer-logo-wrapper">
+        <img src="/img/logo-footer.png" alt="logo-footer" class="img-fluid"
+          srcset="/img/logo-footer.png 1x, /img/logo-footer@2x.png 2x, /img/logo-footer@3x.png 3x"/>
+      </div>
+      <div class="kdl-footer-terms">
+      <!-- <span class="item" onclick="location.href='/policy/use.do'" style=" cursor: pointer;">이용약관</span>&emsp;|&emsp;
+      <span class="item" onclick="location.href='/policy/info.do'" style=" cursor: pointer;">개인정보처리방침</span>&emsp;|&emsp;
+      <span class="item" onclick="location.href='/bbs.do?t=qna'" style=" cursor: pointer;">고객센터</span> -->
+      &emsp;|&emsp;<span class="item" onclick="location.href='http://www.ddm.go.kr/etc/infoProtect.jsp'" style=" cursor: pointer;">개인정보처리방침</span>&emsp;|&emsp;
+      
+      </div>
+      <div class="kdl-footer-contact">
+        <!-- Copyright © (주)앱솔. 사업자번호 : 391-87-01186 대표자 : 이승원  All Rights reserved.<br/><br/> -->
+        Copyright© 2019 DONGDAEMUN-GU all rights reserved.<br/><br/>
+
+        02565 서울시 동대문구 천호대로 145(용두동) 동대문구청 3층 청소행정과<br/>
+                대표번호 : 02-2127-4620 / 팩스번호 : 02-3299-2629<br/>
+        145, Cheonhodae-ro, Dongdaemun-gu, Seoul, Republic of Korea
+      </div>
+    </div>
+  </footer>
+  <script>/*<![CDATA[*/
+
+  init_mfooter();
+
+  // 초기화
+  function init_mfooter() {
+
+    
+  }
+
+  /*]]>*/ </script>
+
+ 
+  </body>
+
+  <script th:inline="javascript">/*<![CDATA[*/
+  
+  // var menus = [];
+  var menus = []; // [[${categories}]];
+  
+  init_fees();
+
+  function init_fees() {
+    init_subHeader('Home > 이용안내 > 품목별 수수료');
+    init_leftMenu(0, 'map');
+
+    // 메뉴
+    var tmp = '';
+    for(var i=0; i<menus.length; i++) {
+    	tmp += '<div class="menu" id="fees_menu'+i+'" onclick="fees_menu('+i+')">'+menus[i]+'</div>';
+	}
+    tmp += '<div class="clear_both"></div>';
+	// $('.fees_menu').html(tmp);
+	
+	fees_menuu('전체');
+	
+	$( "#category" ).change(function() {
+	    fees_menuu($(this).val());
+	});
+  }
+  
+  function fees_menuu(name) { 
+      $('.box_tb_fees').show();  
+      var sendData = {'Sub_group':name};
+      $.ajax({
+          url:'/intro/call.do',
+          type:'post',
+          data:sendData,
+          contentType:'application/x-www-form-urlencoded',
+          dataType:'json',
+          success:function(data) { callback(data); },
+          error:function(jqXHR, exception) { alertError(jqXHR, exception); }
+      });
+       
+    }
+
+  // 메뉴 선택
+  function fees_menu(n) { 
+	$('.box_tb_fees').show();
+    $('.fees_menu .menu').removeClass('menu_on');
+    $('#fees_menu' + n).addClass('menu_on');
+    console.log('n : ' + n);
+    var sendData = {'Sub_group':menus[n]};
+    $.ajax({
+        url:'/intro/call.do',
+        type:'post',
+        data:sendData,
+        contentType:'application/x-www-form-urlencoded',
+        dataType:'json',
+        success:function(data) { callback(data); },
+        error:function(jqXHR, exception) { alertError(jqXHR, exception); }
+    });
+     
+  }
+
+  // 콜백
+  function callback(subjects) { 
+	  // 테이블
+	  var tmp = '<tr class="title"><td style="width: 30%;">품목</td><td>규격</td><td style = "width: 30%;">금액</td></tr>';
+	  for(var i=0; i<subjects.length; i++) {
+	    var item = subjects[i];
+	    tmp += '<tr><td>'+item.sub_name+'</td><td>'+item.sub_standard+'</td><td class="td_price">'+comma(item.sub_price)
+	    		+' 원</td></tr>';
+	  }
+	  $('.tb_fees').html(tmp);
+  }
+
+  /*]]>*/ </script>
+</html>

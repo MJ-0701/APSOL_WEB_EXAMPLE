@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='right' type='ro' sort='server' color=''>번 호</column>
+		<column id="year" width='40' align='right' type='ro' sort='server' color=''></column>
+		<column id="month" width='25' align='right' type='ro' sort='na' color=''>#cspan</column>
+		<column id="day" width='25' align='right' type='ro' sort='na' color=''>#cspan</column>
+				
+		<column id="customerName" width='110' align='left' type='ro' sort='server' color=''>주문자</column>
+		<column id="customerUsername" width='100' align='left' type='ro' sort='server' color=''>#cspan</column>
+
+		<!-- <column id="orderState" width='80' align='center' type='combo' sort='server' editable="false"  xmlcontent="1">
+			주문상태
+			<option value="OS0001">주문 대기</option>
+			<option value="OS0002">주문 완료</option>
+			<option value="OS0003">주문 보류</option>
+			<option value="OS0004">주문 실패</option>
+		</column>
+		<column id="paymentState" width='80' align='center' type='combo' sort='server' editable="false"  xmlcontent="1">
+			결제상태
+			<option value="PS0001">결제 완료</option>
+			<option value="PS0002">결제 실패</option>
+			<option value="PS0003">결제 대기</option>
+		</column> -->
+		
+		<column id="cancelled" width='80' align='center' type='ro' sort='server' color=''>상 태</column>
+		<column id="orderStateName" width='80' align='center' type='ro' sort='server' color=''>주문상태</column>
+		<column id="paymentStateName" width='80' align='center' type='ro' sort='server' color=''>결제상태</column>
+		
+		<column id="msg1" width='110' align='left' type='ro' sort='server' color=''>결제결과</column>
+		
+		<column id="productName" width='160' align='left' type='ro'	sort='server' color=''>품목명</column> 
+		
+		<column id="amount" width='90' align='right' type='ron' sort='na' color=''>금 액</column>
+		<column id="tax" width='80' align='right' type='ron' sort='na' color=''>#cspan</column>
+		<column id="total" width='90' align='right' type='ron' sort='na' color=''>#cspan</column> 
+		
+		<column id="activatedKey" width='70' align='center' type='ro' sort='server' editable="false" xmlcontent="1">
+			키 활성화
+		</column>
+		<column id="activatedKeyTime" width='130' align='center' type='ro' sort='na' color=''>#cspan</column>
+		
+		<column id="paymentKindName" width='110' align='left' type='ro' sort='server' color=''>결제방법</column>
+		<column id="paymentDate" width='130' align='left' type='ro' sort='server' color=''>결제일시</column>
+		<column id="emoney" width='90' align='right' type='ron' sort='na' color=''>포인트</column>
+		<column id="coupon" width='90' align='right' type='ron' sort='na' color=''>쿠폰</column>
+		
+		
+		<column id="registeredDate" width='130' align='center' type='ro'
+			sort='server'>등록일시</column>
+			 	 
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>년,월,일,이 름,아이디,#rspan,#rspan,#rspan,#rspan,#rspan,금 액,세 액,합 계,활성화,활성화 일시,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#select_filter,#select_filter,#text_filter,#text_filter,,,,#select_filter,,#select_filter,,,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

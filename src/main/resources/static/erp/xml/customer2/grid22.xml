@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>번호
+		</column>
+		<column id="businessNumber" width='100' align='left' type='ro'
+			sort='server'>사업자번호
+		</column>
+		<column id="name" width='130' align='left' type='ro' sort='server'>가맹점명
+		</column>
+
+		<column id="address" width='150' align='left' type='ro' sort='na'>주
+			소
+		</column>
+		
+		<column id="phone" width='100' align='left' type='ro'
+			sort='server'>전화번호
+		</column>
+		
+		<column id="homePhone" width='100' align='left' type='ro'
+			sort='server'>자택번호
+		</column>
+		
+		<column id="mobile" width='100' align='left' type='ro'
+			sort='server'>휴대폰
+		</column>
+		
+		<column id="vanCnt" width='70' align='right' type='ron'
+			sort='na'>8월
+		</column>
+		
+		<column id="vanCnt1" width='70' align='right' type='ron'
+			sort='na'>7월
+		</column>
+		
+		<column id="vanCnt2" width='70' align='right' type='ron'
+			sort='na'>6월
+		</column>
+		
+		<column id="memo" width='300' align='left' type='ro' sort='na'>비 고
+		</column>
+		<column id="code" width='40' align='center' type='ro' sort='na'>코 드
+		</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,#text_filter,#text_filter,,
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="no" width='40' align='center' type='ro' sort='na' color=''>No</column>
+		<column id="registeredDate" width='130' align='center' type='ro' sort='na' color=''>날짜</column>
+		<column id="pointType" width='80' align='center' type='ro' sort='str' color=''>구분</column>
+		<column id="name" width='120' align='left' type='ro' sort='str' color=''  >거래처명</column>	
+		<column id="point" width='80' align='right' type='ro' sort='str' color=''>금액</column>	
+		<column id="registeredType" width='80' align='center' type='ro' sort='str' color=''>발행구분</column>
+		<column id="usage" width='120' align='left' type='ro' sort='str' color=''>사용처</column>
+
+	</head>
+</rows>

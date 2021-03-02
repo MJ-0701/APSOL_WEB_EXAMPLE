@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="from" width='120' align='right' type='edn' sort='na'>구간(앞)
+		</column>
+		<column id="to" width='120' align='right' type='edn' sort='na'>구간(뒤)
+		</column>
+		<column id="credit" width='80' align='right' type='edn' sort='str'>
+			신용
+		</column>
+		<column id="check" width='80' align='right' type='edn' sort='str'>체크
+		</column>
+		<column id="avg" width='90' align='right' type='edn' sort='na'>평균
+		</column>
+		<column id="desc" width='90' align='right' type='edn'
+			sort='na'>DESC
+		</column>
+		<column id="descOver" width='100' align='right' type='edn'
+			sort='na'>DESC(5만 초과)
+		</column>
+		<column id="descUnder" width='100' align='right' type='edn'
+			sort='na'>DESC(5만 이하)
+		</column>
+		<column id="ddc" width='90' align='right' type='edn'
+			sort='na'>DDC
+		</column>
+		<column id="ddcOver" width='100' align='right' type='edn'
+			sort='na'>DDC(5만 초과)
+		</column>
+		<column id="ddcUnder" width='100' align='right' type='edn'
+			sort='na'>DDC(5만 이하)
+		</column>
+		<column id="esc" width='100' align='right' type='edn'
+			sort='na'>ESC
+		</column>
+		<column id="cash" width='100' align='right' type='edn' sort='na'>현금영수증
+		</column>
+		<column id="charge" width='100' align='right' type='edn' sort='na'>지급정률
+		</column>
+		<beforeInit>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			
+		</beforeInit>
+
+		<afterInit>
+			<!-- <call command="enableSmartRendering">
+				<param>1</param>
+			</call> -->
+		</afterInit>
+
+	</head>
+</rows>

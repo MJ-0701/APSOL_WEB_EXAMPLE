@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="employee" width='100' align='left' type='ro' sort='str' color=''>아이디</column>
+		<column id="employeeName" width='100' align='left' type='ro' sort='str' color=''>이 름</column>
+		<column id="kindName" width='60' align='center' type='ro' sort='str'>구 분
+		</column>
+		<column id="stateName" width='60' align='center' type='ro' sort='str'>상 태
+		</column>
+		<column id="approvalTime" width='140' align='center' type='ro' sort='str' color=''>확인 일시</column>
+		<!-- <column id="comment" width='220' align='left' type='ro'	 sort='na' color=''>비 고</column> -->
+		<beforeInit>
+			<!-- <call command="enableMultiline">
+				<param>1</param>
+			</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+	</head>
+
+</rows>

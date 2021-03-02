@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='60' align='center' type='ro' sort='na'>
+			순번
+		</column>
+		<column id="paymentTime" width='80' align='center' type='ro'
+			sort='server'>납부월
+		</column>
+		<!-- <column id="processStateName" width='100' align='center' type='ro' 
+			hidden='true' sort='server'>청구상태 </column> <column id="paymentKind" width='100' 
+			align='center' type='ro' hidden='true' sort='server'>납입구분 </column> -->
+		<column id="paymentDate" width='80' align='center' type='ro'
+			sort='server'>납부일
+		</column>
+		<column id="amountOfMonth" width='80' align='right' type='ron'
+			sort='server' format="0,000">청구금액
+		</column>
+
+		<column id="paymentAmountOfMonth" width='80' align='right'
+			type='ron' format="0,000" sort='server'>납부금액
+		</column>
+
+		<column id="maturityAmount" width='80' align='right' type='ron'
+			sort='server' format="0,000">만기금액
+		</column>
+
+		<column id="cmsMisuOfMonth" width='80' align='right' type='ron'
+			sort='server' format="0,000">미납금
+		</column>
+
+		<column id="paymentAmountTotal" width='100' align='right' type='ron'
+			sort='server' format="0,000">총 납부금액
+		</column>
+		<column id="failedReason" width='150' align='left' type='ro'
+			hidden='true' sort='server'>불능사유</column>
+		<column id="message" width='250' align='left' type='ro' sort='server'
+			hidden='true'>비고
+		</column>
+
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan
+				</param>
+			</call>
+		</beforeInit>
+
+
+	</head>
+</rows>

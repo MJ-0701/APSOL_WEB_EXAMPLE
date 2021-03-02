@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Object-based init</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/dhtmlx/codebase/dhtmlx.css?v=vank3323222212}" />
+<link rel="stylesheet" type="text/css" th:href="@{/admin/common.css}" />
+
+<script th:src="@{/vendor/dhtmlx/codebase/dhtmlx.js}"></script>
+<script th:src="@{/vendor/jquery/jquery-1.11.1.min.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/jquery.form.min.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/json2/json2.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/admin/js/common.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+
+<script th:src="@{/erp/js/popup/dataPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formProductPopup.js}"></script>
+
+<script th:src="@{/erp/js/popup/grid/cellPopup.js}"></script>
+<script th:src="@{/erp/js/popup/grid/productCell.js}"></script>
+
+<script th:src="@{/erp/js/data/dataGrid.js}"></script>
+<script th:src="@{/erp/js/data/dateRangeGrid.js}"></script>
+<script th:src="@{/erp/js/data/dataForm.js}"></script>
+
+<script th:src="@{/admin/js/board/noticeGrid.js}"></script>
+<script th:src="@{/admin/js/board/noticeForm.js}"></script>
+
+
+<style>
+.validate_magenta .dhxform_label, .validate_magenta .dhxform_select {
+	color: magenta !important;
+}
+</style>
+
+<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+
+	var imageUrl = /*[[@{/vendor/dhtmlx/codebase/imgs/}]]*/"../../../codebase/imgs/";
+
+	var grid;
+	var tabbar;
+
+	var days = 7;
+
+	var gridMap = {};
+	function doOnLoad() {
+
+		//var kind = 'BOARD';
+
+		var layout = new dhtmlXLayoutObject({
+			parent : document.body,
+			pattern : "2U"
+		});
+
+		layout.cells("a").hideHeader();
+		layout.cells("b").hideHeader();
+		layout.cells("b").setWidth(700);
+
+		var boardGrid = new NoticeGrid();
+		//boardGrid.kind = kind;
+		boardGrid.addProgressCell('a', layout.cells("a"));
+		boardGrid.init(layout.cells('a'), {
+			iconsPath : "../img/18/",
+			imageUrl : imageUrl
+		});
+
+		var boardForm = new NoticeForm();
+		//boardForm.kind = kind;
+		boardForm.setGrid(boardGrid);
+		boardForm.init(layout.cells("b"));
+		boardForm.addProgressCell('layout2', layout.cells("b"));
+
+		boardGrid.setOnRowSelect(function(id, ind) {
+
+			boardForm.load(id);
+
+		});
+
+	}
+	/*
+	function BoardForm() {
+
+		DataForm.call(this);
+
+		this.setUrlPrefix('popup');
+
+		var me = this;
+
+		this.id = 0;
+	}
+
+	BoardForm.prototype = Object.create(DataForm.prototype);
+	BoardForm.prototype.constructor = BoardForm;
+
+	BoardForm.prototype.onInitedForm = function(form) {
+		DataForm.prototype.onInitedForm.call(this, form);
+			
+		
+		$(form.getInput('title')).attr('autocomplete', 'off');
+		$(form.getInput('fromDate')).attr('autocomplete', 'off');
+		$(form.getInput('toDate')).attr('autocomplete', 'off'); 
+		
+		form.setItemValue('fromDate', new Date());
+	}
+
+	BoardForm.prototype.init = function(container) {
+		this.initToolbar(container, {
+			iconsPath : "../img/18/",
+			xml : 'xml/board/formToolbar.xml',
+		});
+
+		this.initForm(container, {
+			xml : 'xml/board/form.xml',
+		});
+	}
+
+	BoardForm.prototype.onBeforeUpdate = function(json) {
+		DataForm.prototype.onBeforeUpdate.call(this, json);
+		console.log(json);
+		return true;
+	};
+
+	BoardForm.prototype.onClickAdded = function() {
+		DataForm.prototype.onClickAdded.call(this);
+		this.form.setItemFocus('title');
+		
+		this.form.setItemValue('fromDate', new Date());
+	};
+	
+	
+	BoardForm.prototype.clear = function() {	
+		DataForm.prototype.clear.call(this);
+		
+		this.form.setItemValue('fromDate', new Date());
+	}
+*/
+	/*]]>*/
+</script>
+</head>
+<body onload="doOnLoad();"></body>
+</html>

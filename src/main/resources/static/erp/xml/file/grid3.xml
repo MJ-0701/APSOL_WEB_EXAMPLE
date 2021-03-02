@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="name" width='256' align='center' type='ro' sort='na'
+			color=''>미리보기</column>
+			
+		<column id="fileName" width='200' align='left' type='ro' sort='str'
+			color=''>파일명</column>
+
+		<column id="name" width='80' align='center' type='link' sort='na'
+			color=''>새창 열기</column>
+			
+		<column id="name" width='100' align='center' type='ro' sort='na'
+			color=''>작성자</column>
+
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>true</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

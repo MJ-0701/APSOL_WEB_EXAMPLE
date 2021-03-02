@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" labelWidth="60" inputWidth="auto" noteWidth="auto" offsetLeft="0"/>
+	<item type="block" blockOffset="0">
+
+		<item type="hidden"  name="code"/>
+		
+		<item type="block" blockOffset="0">
+			<item type="calendar" value="" label="복사 일자" name="date" inputWidth="90"  />
+			<item type="newcolumn"/>
+			<item type="input" value="" label="전표 번호" name="uuid" inputWidth="90" readonly = 'true' labelWidth="65" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" label="적 요" name="remarks" inputWidth="254"/>
+		</item>	
+		<item type="button" value="전표 복사" name="btnApply" inputWidth="180" offsetLeft="62"/>
+
+	</item>
+
+</items>
+

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="registeredDate" name="no" width='150' align='center' type='ro'>수정일시</column>
+		<column id="name" name="name" width='150' align='left' type='ed'>등급명</column>
+		<column id="field" name="field" width='70' align='left' type='ed'>변경필드</column>
+		<column id="data" name="data" width='150' align='left' type='ed'>내용</column>
+
+	</head>
+</rows>

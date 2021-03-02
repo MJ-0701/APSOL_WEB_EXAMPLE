@@ -1,0 +1,198 @@
+    .box_lookup {width:100%; height:auto; }
+    .box_lookup2 {width:1200px; height:100%; padding:0 10px; margin:20px auto; }
+    .box_lookup .main_title {width:100%; height:60px; line-height:60px; border-bottom:2px solid #333; font-size:21px; 
+    	font-weight:bold; }
+    .rightContent {width:890px; float:right; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .box_lookup2 {width:100%; }
+      .rightContent {width:100%; }
+    }
+    .guide{ text-align: center;}
+    
+    .guide table th {
+    	padding: 10px;
+    	text-align: center;
+    }
+    
+    .guide table td {
+    	padding: 10px;
+    }
+    
+    .guide p { 
+    
+    line-height: 25px; 
+    margin-top: 10px;
+    margin-bottom: 0px;
+    
+    }
+    
+    .tableDiv{
+    	width : 600px;
+    	margin: 0 auto;
+    }
+    
+    .checkedBox{
+    	width : 10px;
+    }
+
+    /* 검색 */
+    .box_lookup .method {height:30px; line-height:25px; float:left; padding:0 30px 35px 0; }
+    .box_lookup .methodTxt {cursor:pointer; }
+    .box_lookup .box_opt {width:100%; line-height:30px; margin-top:30px; padding:20px 30px; background:#F8F8FA; 
+    	border:1px solid #E8E9EE; }
+    .box_lookup .box_opt0 {width:120px; height:30px; float:left; margin:5px 0; font-weight:bold; font-size:15px; }
+    .box_lookup .box_opt1 {width:130px; height:30px; float:left; margin:5px 0; background:white; }
+    .box_lookup .box_opt1 input {width:100%; height:30px; border:1px solid #ccc; }
+    .box_lookup .uphone {width:250px; }
+    .box_lookup .rid2 {width:250px; }
+    .box_lookup .search_clear {display:none; }
+    .box_lookup .box_opt2 {width:70px; height:40px; line-height:40px; margin:0 0 0 20px; float:left; 
+    	background:#0E3B64; color:white; cursor:pointer; text-align:center; font-weight:bold; }
+    #methodRid {display:none; }
+    	
+    /* 메뉴 */
+    .lookup_menu {width:100%; height:40px; line-height:40px; margin:30px auto 0 auto; border-bottom:1px solid #056DAE;}
+    .lookup_menu .menu {width:120px; height:39px; float:left; background:#F0F4F6; border:1px solid white; 
+    	text-align:center; cursor:pointer; font-size:17px; font-weight:bold; }
+    .lookup_menu .menu_on {height:40px; line-height:36px; background:white; border:1px solid #056DAE; 
+    	border-top:4px solid #056DAE; border-bottom:none; }
+    .lookup_menu .num_lookup {color:#DA3833; }
+
+    /* 신청목록 */
+    .box_tb_lookup {width:100%; margin:30px auto; overflow-x:auto; /* border-top:1px solid #333; */ border-bottom:1px solid #333; }
+    .box_tb_lookup .tb_lookup {width:100%; border-collapse:collapse; margin-bottom: 15px;}
+    .box_tb_lookup .tb_lookup .title td {height:30px; background:#f5f5f5; font-weight:bold; text-align:center; }
+    .box_tb_lookup .tb_lookup td {height:30px; line-height:25px; padding:7px 15px; border:1px solid #ddd; 
+    	font-size:13px; text-align:center; }
+    .box_tb_lookup .tb_lookup td:nth-child(1) {border-left:none; }
+    .box_tb_lookup .tb_lookup td:nth-child(6) {border-right:none; }
+    .box_tb_lookup .tb_lookup .rid {min-width:45px; }
+    .box_tb_lookup .tb_lookup .ridBr {display:none; }
+    .box_tb_lookup .tb_lookup .name {min-width:80px; text-align:left; }
+    .box_tb_lookup .tb_lookup .num {min-width:25px; }
+    .box_tb_lookup .tb_lookup .price {min-width:50px; text-align:right; }
+    .box_tb_lookup .tb_lookup .picture{max-width:100px;}
+    .box_tb_lookup .tb_lookup .status {min-w.pictureidth:60px; }
+    
+    .box_tb_lookup .tb_lookup .bt_qrcode {height:40px; padding:5px; margin:0 5px; border:1px solid #c2c2c2; 
+    	border-radius:3px; cursor:pointer; vertical-align:middle; }
+    .box_tb_lookup .tb_lookup .bt_cancel {padding:3px 7px; margin:10px 0; border:1px solid #c2c2c2; border-radius:2px; 
+    	cursor:pointer; font-weight:bold; }
+    .box_tb_lookup .tb_lookup .bt_cancel:hover {text-decoration:underline; background:#f1f1f1;}
+	
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .box_tb_lookup {width:96%; }
+      .box_lookup .box_opt {padding:10px 15px; }
+      .box_lookup .box_opt0 {width:30%; font-size:13px; }
+      .box_lookup .box_opt1 {width:30%; }
+      .box_lookup .uphone {width:70%; }
+      .box_lookup .rid2 {width:70%; }
+      .box_lookup .search_clear {display:block; }
+      .box_lookup .box_opt2 {float:none; clear:both; margin:10px auto 0 auto; }
+      
+      .lookup_menu .menu {width:25%; font-size:13px; }
+      
+      .box_tb_lookup .tb_lookup td {height:30px; line-height:24px; padding:8px 5px; font-size:11px; }
+      .box_tb_lookup .tb_lookup .ridBr {display:block; }
+      
+      .box_tb_lookup .tb_lookup .bt_qrcode {height:20px; }
+      .box_tb_lookup .tb_lookup .bt_print {display:none; }
+    }
+
+
+/* 파일 업로드 */
+
+.picture {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+.picture {
+    margin: 20px;
+}
+
+.picture .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.picture .form-control {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    font-size: 12px;
+    line-height: 1.42857;
+    color: rgb(85, 85, 85);
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    box-shadow: rgba(0, 0, 0, 0.0745098) 0 1px 1px inset;
+    padding: 6px 9px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 2px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.picture.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: rgb(238, 238, 238);
+    opacity: 1;
+}
+
+.picture .form_file .file_load {
+    display: inline-block;
+    position: relative;
+    width: 75px;
+    height: 31px;
+    cursor: pointer;
+}
+
+.picture .form_file .file_load [type="file"] {
+    display: inline-block;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    z-index: 1;
+    opacity: 0;
+}
+
+.picture .form_file .file_load label {
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.picture .btn-default {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    white-space: nowrap;
+    font-size: 12px;
+    user-select: none;
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    padding: 6px 9px;
+    border-radius: 2px;
+    color: rgb(51, 51, 51);
+}

@@ -1,0 +1,49 @@
+html,body {background:#F1F1F1; }
+body {overflow-y:scroll; }
+.requestList2 {width:100%; }
+.requestList2 .lookup {width:96%; height:40px; line-height:40px; margin:15px auto; }
+.requestList2 .qrcode {width:40px; height:40px; line-height:38px; float:left; position:relative; z-index:2; 
+	background:white; color:#777; border:1px solid #aaa; font-size:18px; font-weight:bold; text-align:center; 
+	cursor:pointer; }
+.requestList2 .qrcode img {height:25px; vertical-align:middle; }
+.requestList2 .lookupInput {width:87%; height:40px; position:relative; z-index:1; float:right; 
+	margin:0 -40px 0 0; padding:0 40px 0 0; }
+.requestList2 .lookupInput input {width:100%; height:40px; background:white; border:1px solid #ddd; }
+.requestList2 .bt_lookup {width:40px; height:40px; position:relative; z-index:2; float:right; text-align:center; 
+	background:#0E3B64; border:1px solid #ddd; cursor:pointer; }
+.requestList2 .bt_lookup img {height:20px; vertical-align:middle; }
+.requestList2 .mainTitle {width:100%; height:40px; line-height:40px; padding:0 15px; background:#0073AA; color:#f1f1f1;
+	font-weight:bold; }
+.requestList2 .refresh {height:20px; padding:10px; vertical-align:middle; cursor:pointer; }
+pop_lookup {width:100%; height:100%; position:fixed; left:0; top:0; z-index:8000;  }
+    .pop_lookup2 {width:712px; height:520px; background:white; position:fixed; left:50%;   
+    	margin:90px -270px; border:1px solid #333;display:none; }
+    .pop_lookup .top {width:100%; height:30px; line-height:30px; background:#1A3C70; }
+    .pop_lookup .top .close {width:30px; height:30px; float:right; margin-right:10px; cursor:pointer; 
+    	text-align:center; }
+    .pop_lookup .top .close img {height:17px; vertical-align:middle; }
+    .pop_lookup .content {width:100%; height:100%; padding:30px 20px; margin-top:-10px; }
+    .pop_lookup .pop_title {width:100%; height:35px; line-height:35px; margin-top:10px; font-weight:bold; 
+    	font-size:17px; border-bottom:1px solid #333; overflow:hidden; }
+    .tb_info {width:100%; margin:20px 0 0 0; border-top:1px solid #333; }
+	.tb_info table {width:100%; border-collapse:collapse; }
+	.tb_info table td {height:45px; line-height:25px; padding:5px 15px; box-sizing:border-box; border:1px solid #ddd; }
+	.tb_info table td:nth-child(1) {width:150px; background:#eee; font-weight:bold; }
+	
+	.box_deny {width:95%; height:40px; line-height:40px; margin:20px auto; }
+	.box_deny .deny {width:23%; height:40px; float:left; margin:0 1%; background:#0073AA; color:white; 
+		text-align:center; cursor:pointer; border:1px solid #ddd; }
+	.box_deny .deny1 {}
+	.box_deny .deny2 {background:#EB4132; }
+	.box_deny .deny3 {background:#616161; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {      
+      .pop_lookup2 {width:100%; height:auto; position:fixed; left:0; top:24%; margin:0; }
+      .pop_lookup .content {padding:30px 10px; }      
+      .deny {font-size:13px; }
+    }
+    /* qr코드 팝업 */
+#iframe_qrCamera {width:100%; height:100%; position:fixed; left:0; top:0; z-index:9000; display:none; 
+	background:black; border:none; }
+    

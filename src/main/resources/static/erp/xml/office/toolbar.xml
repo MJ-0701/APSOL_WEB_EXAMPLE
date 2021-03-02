@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<toolbar>	
+	<item id="btnUpdate" type="button" text="저 장" img="save.gif"  imgdis="save_dis.gif"/>
+</toolbar>

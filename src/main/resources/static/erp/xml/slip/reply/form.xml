@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+		
+		
+	<item type="hidden" value="" label="수신자" name="receivers" />
+
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="추가 수신자" name="receiverNames"
+			required="true" inputWidth="113" readonly="true" className="form_readonly" />
+		<item type="newcolumn" />
+		<item type="button" value="..." name="btnReceiver" required="true"
+			width="40" />
+	</item>
+
+</items>
+

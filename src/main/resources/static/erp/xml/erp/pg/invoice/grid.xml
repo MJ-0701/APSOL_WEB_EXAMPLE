@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='center' type='ro' sort='na'>순번
+		</column>
+		<column id="invDate" width='90' align='center' type='ro' sort='str'>일 자</column>
+		
+		<column id="customerName" width='120' align='left' type='ro' sort='str'>가맹점</column>
+
+		<column id="authAmount" width='80' align='right' type='ron' sort='int' color='' format="0,000">승인 금액</column>  	
+		<column id="fees" width='70' align='right' type='ron' sort='int' color=''  format="0,000">수수료</column>		
+ 		<column id="feesTax" width='60' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column> 
+ 		<column id="feesVat" width='70' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column> 
+ 		
+ 		<column id="invoiceAmount" width='80' align='right' type='ron' sort='int' color='' format="0,000">정산 금액</column>
+ 		
+ 		<column id="fromDate" width='75' align='center' type='ro' sort='str' color=''>승인 일자</column> 
+		<column id="toDate" width='75' align='center' type='ro' sort='str' color=''>#cspan</column> 
+ 
+  		<column id="reminderAmount" width='80' align='right' type='ron' sort='int' color='' format="0,000">이월 금액</column>
+ 		
+ 		<column id="totalInvoiceAmount" width='80' align='right' type='ron' sort='int' color='' format="0,000">청구 금액</column>
+ 		
+ 		
+ 		
+ 		<column id="cancelAmount" width='70' align='right' type='ron' sort='str' color='' format="0,000">승인 취소</column>		
+		<column id="cancelCount" width='60' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>  
+		
+		<column id="paymentTime" width='75' align='center' type='ro' sort='str' color=''>이체 일시</column> 
+ 		<column id="paymentAmount" width='80' align='right' type='ron' sort='int' color='' format="0,000">이체 금액</column>
+ 		
+ 		<column id="bank" width='75' align='center' type='ro' sort='str' color=''>은행명</column> 
+ 		<column id="accountNumber" width='80' align='left' type='ro' sort='str' color='' format="0,000">계좌번호</column>
+ 		<column id="accountOwner" width='80' align='left' type='ro' sort='str' color='' format="0,000">예금주</column> 
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,#rspan,합 계,세 액,금 액,#rspan,시작일자,종료일자,#rspan,#rspan,금 액,건 수,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+
+
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

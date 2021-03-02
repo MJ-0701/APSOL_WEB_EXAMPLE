@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='left' type='ro' sort='str'>
+			순번
+		</column> 
+			<column id="state" width='80' align='center' type='ro' sort='str'>
+			결재 상태
+		</column>
+		<column id="sendTime" width='100' align='center' type='ro' sort='str'>발주 일시</column>		
+		 
+		<column id="customerName" width='100' align='center' type='ro' sort='str'>발주처</column>
+		
+		<column id="remarks" width='120' align='left' type='ro' sort='str'>적 요</column> 
+		<column id="comment" width='250' align='left' type='ro' sort='str'>반려 사유</column>
+		<column id="writtenTime" width='140' align='center' type='ro' sort='str'>작성 일시</column>
+		<beforeInit>
+		
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>			 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

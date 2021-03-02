@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<rows>
+	<head>				
+		<column id="no" width='50' align='center' type='ro' sort='str' color=''>순번</column>  
+		<column id="businessNumber" width='110' align='center' type='ro' sort='str' color=''>사업자번호</column>
+		<column id="identifier" width='110' align='center' type='ro' sort='str' color=''>발행번호</column>	
+		<!-- <column id="identifier" width='50' align='center' type='ro' sort='str' color=''>발행구분</column>
+		
+		//20 핸드폰 10 주민번호 30 사업자번호 40 카드번호 -->
+				
+		<column id="stateName" width='80' align='center' type='ro' sort='str' color=''>승인 상태</column>
+		<column id="usingType" width='90' align='center' type='ro' sort='str' color=''>거래자 구분</column>
+		 
+		<column id="orderDate" width='125' align='center' type='ro' sort='str' color=''>승 인</column>		
+		<column id="dealAmount" width='100' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+		<column id="dealAmountNet" width='100' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+		<column id="dealAmountTax" width='100' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+		
+		<beforeInit>
+			<call command="attachHeader">
+
+				<param>#rspan,#rspan,#rspan,#rspan,#rspan,일시,금액,공급가액,세액</param>
+
+			</call>
+			 <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,,,,,</param>
+			</call> 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

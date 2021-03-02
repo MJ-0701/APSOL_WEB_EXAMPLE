@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<toolbar>
+
+	<item id="from" type="buttonInput" text="시작일" />
+	<item id="to" type="buttonInput" text="종료일" />
+	<item id="btnSearch" type="buttonSelect" text="검 색">
+		<item type="button" id="today" text="오늘" />
+		<item type="button" id="thisMonth" text="이번 달" />
+		<item type="button" id="lastMonth" text="지난 달"/>
+		<item type="button" id="thisYear" text="올해"/>
+		<item type="button" id="lastYear" text="작년"/>
+		<item type="button" id="last7d" text="지난 7일간"/>
+		<item type="button" id="last30d" text="지난 30일간"/>
+		<item type="button" id="last365d" text="지난 365일간"/>
+	</item>
+	<item type="separator" />
+
+	<item id="btnAdd" type="button" text="추 가" />
+	<item id="btnDelete" type="button" text="삭 제" />
+	<item type="separator" />
+	<item id="btnSerial" type="button" text="제조번호 전환" />
+	<item type="separator" />
+
+	<item type="buttonSelect" text="매입매출전표" renderSelect="false"
+		openAll="true">
+		<item id="btnSlip" type="button" text="선택 항목 발행" />		
+	</item>
+
+	<item type="buttonSelect" text="거래명세표" renderSelect="false"
+		openAll="true">
+		<item id="btnSpec" type="button" text="선택 항목 발행" />		
+	</item>
+	<item type="separator" />
+	<item id="btnExcel" type="button" text="엑셀 출력" />
+
+</toolbar>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<rows>
+	<head>				
+		<column id="no" width='50' align='center' type='ro' sort='na' color=''>순번</column>  
+				
+		<column id="billDate" width='80' align='center' type='ro' sort='str' color=''>청구일</column> 
+		
+		<column id="pgDate" width='75' align='center' type='ro' sort='str' color=''>승인 일자</column> 
+		  	
+		<column id="authAmount" width='80' align='right' type='ron' sort='int' color='' format="0,000">승인 금액</column>  	
+ 		
+ 		<column id="fees" width='70' align='right' type='ron' sort='int' color=''  format="0,000">수수료</column>		
+ 		<column id="feesTax" width='60' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column> 
+ 		<column id="feesVat" width='70' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column> 
+ 		
+ 		<column id="billAmount" width='80' align='right' type='ron' sort='int' color='' format="0,000">정산 금액</column>
+ 		
+ 		<column id="fromDate" width='75' align='center' type='ro' sort='str' color=''>이월 기간</column> 
+		<column id="toDate" width='75' align='center' type='ro' sort='str' color=''>#cspan</column> 
+ 		
+ 		<column id="reminderAmount" width='80' align='right' type='ron' sort='int' color='' format="0,000">이월 금액</column>
+ 		
+ 		<column id="totalBillAmount" width='80' align='right' type='ron' sort='int' color='' format="0,000">청구 금액</column>
+ 		
+ 		<column id="paymentTime" width='130' align='center' type='ro' sort='str' color=''>입 금</column>		
+		<column id="paymentAmount" width='80' align='right' type='edn' sort='int' color='' format="0,000">#cspan</column>
+ 		
+ 		<column id="cancelAmount" width='70' align='right' type='ron' sort='str' color='' format="0,000">승인 취소</column>		
+		<column id="cancelCount" width='60' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>  
+
+		<column id="memo" width='120' align='right' type='ro' sort='str' color=''>비 고</column>  
+		
+		<beforeInit>
+			<call command="attachHeader">
+
+				<param>#rspan,#rspan,#rspan,#rspan,수수료,부가세,합 계,#rspan,시작일자,종료일자,#rspan,#rspan,일 시,금 액,금 액,건 수,#rspan</param>
+			</call>
+			<!--  <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>  -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

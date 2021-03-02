@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<!-- <column id="editor" width='80' align='left' type='ro' sort='str' color=''>아이디</column> -->
+		<column id="InsertDT" width='150' align='center' type='ro' sort='str' color=''>입력시간</column>	
+		<column id="sendTypeName" width='80' align='center' type='ro' sort='str' color=''  >구분</column>	
+		<column id="smsCnt" width='80' align='right' type='ro' sort='str' color=''>발송건수</column>
+		<column id="msg" width='250' align='left' type='ro' sort='str' color=''>내용</column>
+		<column id="success" width='80' align='center' type='ro' sort='str' color=''>문자전송</column>
+
+	</head>
+</rows>

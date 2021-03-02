@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnUpload" type="button" text="파일 추가">	
+	<userdata name="kind">insert</userdata>
+	</item>	
+	<item id="btnDelete" type="button" text="파일 삭제">
+	</item>	
+</toolbar>

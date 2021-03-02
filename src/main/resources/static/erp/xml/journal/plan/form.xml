@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" name="customer" />
+	<item type="block" blockOffset="0">
+		<item type="input" value="" name="customerName" label="가맹점"
+			width="180" readonly="true" className="form_readonly" />
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="calendar" value="" label="일자" name="date" inputWidth="100" />
+		<item type="newcolumn" />
+		<item type="select" label="구 분" name="kind" inputWidth="100" labelWidth="70">
+			
+			<option value="JK0002" text="예정" />
+			<option value="JK0003" text="방문" />
+			<option value="JK0004" text="출고" />
+			<option value="JK0005" text="계약" />
+			<option value="JK0006" text="입금" />
+			<option value="JK0007" text="폐업" />
+			<option value="JK0008" text="요청사항" />
+			
+		</item>
+	</item>
+
+</items>
+

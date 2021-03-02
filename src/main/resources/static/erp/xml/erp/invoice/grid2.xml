@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='center' type='ro' sort='na'>순번
+		</column>
+		<column id="id" width='90' align='left' type='ro' sort='server'>아이디
+		</column>
+		<column id="erpName" width='130' align='left' type='ro' sort='server'>이 름
+		</column>
+		
+		<column id="mobileTraffic" width='120' align='right' type='ron' sort='server' format="0,000">가맹점 APPS(누적)
+		</column>
+		
+		<column id="pg" width='80' align='right' type='ron' sort='server' format="0,000">PG 승인 금액
+		</column>
+		
+		<column id="pgAmount" width='80' align='right' type='ron' sort='server' format="0,000">PG 가맹점 수수료
+		</column>
+		
+		<column id="pgAmount" width='80' align='right' type='ron' sort='server' format="0,000">PG 대리점 수수료
+		</column>
+		
+		<column id="pgAmount" width='80' align='right' type='ron' sort='server' format="0,000">PG 밴코 수수료
+		</column>
+		
+		<column id="activatedUsers" width='80' align='right' type='ron' sort='server' format="0,000">활성 유저수
+		</column>
+		
+		<column id="traffic" width='120' align='right' type='ron' sort='server' format="0,000">PC 메뉴 접속 횟수
+		</column>
+		
+		<column id="mobileTraffic" width='120' align='right' type='ron' sort='server' format="0,000">모바일 메뉴 접속 횟수
+		</column>
+		
+		<column id="mobileTraffic" width='120' align='right' type='ron' sort='server' format="0,000">문 자
+		</column>
+		
+		<column id="mobileTraffic" width='120' align='right' type='ron' sort='server' format="0,000">세금계산서
+		</column>
+		
+		<column id="mobileTraffic" width='120' align='right' type='ron' sort='server' format="0,000">CMS
+		</column>
+		
+		<column id="memorySize" width='100' align='right' type='ron' sort='server' format="0,000">누적 용량(MB)
+		</column> 
+
+		<beforeInit> 
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,,,,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

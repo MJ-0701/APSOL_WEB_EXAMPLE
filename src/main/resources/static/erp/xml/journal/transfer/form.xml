@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" name="journals" />
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="select" label="대상자" name="employee"
+					inputWidth="153" connector="employee/select">
+				</item>						 
+			</item>
+		</item>
+	</item>
+
+</items>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="date" width='150' align='center' type='ro' sort='na' color=''>날짜</column>
+		<column id="uuid" width='150' align='left' type='ro' sort='str' color=''>대리점명</column>
+		<column id="vanName" width='80' align='right' type='ro' sort='str' color=''>충전금액</column>
+		<column id="date" width='80' align='right' type='ro' sort='str' color=''>잔여포인트</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

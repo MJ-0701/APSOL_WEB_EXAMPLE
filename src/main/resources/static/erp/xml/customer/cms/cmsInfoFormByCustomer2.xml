@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="500" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" label="거래처" name="customer" inputWidth="180" />
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0">
+				<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+					
+					<item type="input" value="" label="최근납부일" name="lastPaymentDate"
+						inputWidth="100" labelWidth="80" readonly='true' className="form_readonly" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="총 납부금액" name="paymentTotal"
+						inputWidth="100" labelWidth="80" readonly='true' className="form_readonly" />
+
+					<item type="newcolumn" />
+					<item type="input" value="" label="CMS미납금" name="cmsMisuTotal"
+						inputWidth="100" labelWidth="80" readonly='true' className="form_readonly" />
+						
+				</item>
+
+				
+			</item>
+
+		</item>
+	</item>
+</items>
+

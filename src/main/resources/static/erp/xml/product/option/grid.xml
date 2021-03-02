@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="option" width='70' align='center' type='ro' sort='str'>코 드</column>
+		<column id="optionName" width='130' align='left' type='ed' sort='str'>옵션명</column>
+		<column id="memo" width='*' align='left' type='ro' sort='str'></column>
+
+		<beforeInit>
+
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

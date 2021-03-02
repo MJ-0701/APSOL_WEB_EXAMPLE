@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="funnelKind" width='120' align='left' type='ro'  sort='server'>유입 구분</column>
+		<column id="username" width='130' align='left' type='ro' sort='server'>아이디</column>
+		
+		<column id="name" width='130' align='left' type='ro' sort='server'>이 름</column>	
+			
+		<column id="state" width='70' align='center' type='ro' sort='server'>상 태</column>
+		
+		<column id="levelName" width='70' align='center' type='ro' sort='server'>등 급</column>			 
+		
+		<column id="email" width='120' align='left' type='ro' sort='server'>이메일</column>
+		
+		<column id="phone" width='100' align='left' type='ro' sort='server'>연락처</column> 
+		
+		<column id="zipcode" width='120' align='left' type='ro'  sort='server'>우편번호</column> 
+		<column id="address" width='160' align='left' type='ro'  sort='server'>주 소</column> 
+		<column id="addressDetail" width='120' align='left' type='ro'  sort='server'>상세 주소</column> 
+		
+		
+			
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#select_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,,,,,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

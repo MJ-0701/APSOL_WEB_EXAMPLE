@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="no" width='50' align='center' type='ro' sort='na'>번호</column>
+		<column id="registeredDate" width='130' align='center' type='ro' sort='str' color=''>년월일시</column>
+		<column id="amount" width='80' align='right' type='ro' sort='str' color=''  >충전금액</column>	
+		<column id="method" width='100' align='center' type='ro' sort='str' color=''  >충전방식</column>	
+		<!-- <column id="cnt" width='80' align='center' type='ro' sort='str' color=''>건수</column> -->	
+	</head>
+</rows>

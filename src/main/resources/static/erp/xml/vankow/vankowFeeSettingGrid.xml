@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="no" name="no" width='40' align='center' type='ro'>순번</column>
+		<column id="name" name="name" width='200' align='left' type='ed'>등급명</column>
+		<column id="sms" name="sms" width='100' align='right' type='ed'>SMS</column>	
+		<column id="lms" name="lms" width='100' align='right' type='ed'>LMS</column>	
+		<column id="mms" name="mms" width='100' align='right' type='ed'>MMS</column>
+		<column id="tax" name="tax" width='100' align='right' type='ed'>계산서</column>
+
+	</head>
+</rows>

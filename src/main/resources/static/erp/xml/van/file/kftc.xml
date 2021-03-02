@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" labelWidth="50"
+		inputWidth="auto" noteWidth="auto" offsetLeft="10" />
+		
+		<item type="hidden" label="년" name="username" inputWidth="60" labelWidth="70">
+	</item>
+	
+	<item type="hidden" label="년" name="erpId" inputWidth="60" labelWidth="70">
+	</item>
+
+	<item type="input" label="년" name="year" inputWidth="60"
+		labelWidth="70">
+	</item>
+
+	<item type="input" label="월" name="month" inputWidth="60"
+		labelWidth="70">
+	</item>
+
+	<item type="select" label="구분" name="type" inputWidth="140"
+		labelWidth="70">
+
+		<option value="TYPE1" text="신용,체크,합계" />
+		<option value="TYPE2" text="DDC, DESC, ESC" />
+
+	</item>
+
+	<item type="file" name="excel" label="파일" required="true" />
+
+
+
+	<item type="button" name="btnUpload" value="업로드" offsetLeft="240" />
+
+	<item type="button" name="btnDelete" value="일괄삭제" offsetLeft="240" />
+</items>
+

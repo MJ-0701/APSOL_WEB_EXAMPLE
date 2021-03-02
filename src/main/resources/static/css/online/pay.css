@@ -1,0 +1,145 @@
+
+    .box_request {width:100%; height:auto; }
+    .box_request2 {width:950px; height:100%; padding:0 10px; margin:20px auto; }
+    .box_request .main_title {width:100%; height:60px; line-height:60px; border-bottom:2px solid #333; font-size:21px; 
+    	font-weight:bold; }
+    .box_request .main_title2 {height:35px; line-height:35px; margin-top:10px; font-weight:bold; font-size:17px; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .box_request2 {width:100%; }
+    }
+
+    /* 배출자 정보 */
+    .tb_info {width:100%; margin:10px auto 30px auto; border-top:1px solid #333; }
+    .tb_info table {width:100%; border-collapse:collapse; }
+    .tb_info table td {height:40px; font-size:14px; padding:0 15px; border-bottom:1px solid #ddd; font-size:14px; }
+    .tb_info table td:nth-child(1) {width:120px; background:#f3f3f3; font-weight:bold; border-right:1px solid #ddd; 
+    	text-align:center; }
+
+    /* 배출품목 */
+    .box_tb_product {width:100%; margin:10px auto 30px auto; border-top:1px solid #333; }
+    .tb_product {width:100%; border-collapse:collapse; }
+    .tb_product tr:nth-child(1) {background:#f3f3f3; text-align:center; font-weight:bold; }
+    .tb_product td {height:35px; font-size:14px; padding:0 20px; border-bottom:1px solid #ddd; text-align:center; }
+    .tb_product .product {width:55%; border-right:1px solid #ddd; text-align:left; }
+    .tb_product .num {width:20%; border-right:1px solid #ddd; }
+    .tb_product .price {width:25%; text-align:right; }
+    .tb_product .totalPrice {height:50px; text-align:right; font-weight:bold; font-size:20px; }
+
+    /* 결제방법 */
+    .box_method {width:100%; margin:10px auto 0 auto; border-top:1px solid #333; }
+    .box_method .top {width:100%; height:45px; line-height:45px; /*background:#f3f3f3;*/ border-bottom:1px solid #ddd; }
+    .box_method .top .method {width:150px; height:45px; line-height:45px; float:left; padding:0 10px; cursor:pointer; 
+    	text-align:center; }
+    .box_method .top .method:hover {text-decoration:underline; }
+    .box_method .top .method_on {font-weight:bold; /*background:#ddd;*/ background:#f3f3f3; }
+    .box_method .top .method input {display:none; }
+    /*.box_method .bottom {width:100%; height:170px; border-bottom:1px solid #ddd; }*/
+
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .tb_info td:nth-child(1) {width:70px; }
+      .tb_product .price {width:60px; }
+      .box_method .top .method {width:25%; padding:0 5px; }
+    }
+
+    /* 버튼 */
+    .box_bt {width:220px; height:35px; line-height:35px; margin:50px auto 50px auto; }
+    .box_bt .bt {width:100px; height:35px; float:left; background:#616161; color:white; cursor:pointer; 
+    	text-align:center; }
+    .box_bt .bt2 {float:right; background:#0E3B64; }
+
+/* 파일 업로드 */
+
+.picture {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+.picture {
+    margin: 20px;
+}
+
+.picture .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.picture .form-control {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    font-size: 12px;
+    line-height: 1.42857;
+    color: rgb(85, 85, 85);
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    box-shadow: rgba(0, 0, 0, 0.0745098) 0 1px 1px inset;
+    padding: 6px 9px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 2px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.picture.form-control[readonly],
+fieldset[disabled] .form-control {
+    background-color: rgb(238, 238, 238);
+    opacity: 1;
+}
+
+.picture .form_file .file_load {
+    display: inline-block;
+    position: relative;
+    width: 65px;
+    height: 31px;
+    cursor: pointer;
+}
+
+.picture .form_file .file_load [type="file"] {
+    display: inline-block;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    z-index: 1;
+    opacity: 0;
+}
+
+.picture .form_file .file_load label {
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.picture .btn-default {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    white-space: nowrap;
+    font-size: 12px;
+    user-select: none;
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    padding: 6px 9px;
+    border-radius: 2px;
+    color: rgb(51, 51, 51);
+}

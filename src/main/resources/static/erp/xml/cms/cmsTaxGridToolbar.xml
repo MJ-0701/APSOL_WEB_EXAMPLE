@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnRefresh" type="button" text="새로고침" img="redo.gif"
+		imgdis="redo_dis.gif">
+	</item>
+	<item type="separator" />
+	<item id="btnTax" type="button" text="계산서발행/일괄" img="select_all.gif"
+		imgdis="select_all_dis.gif">
+	</item><item id="btnTaxNotSend" type="button" text="계산서발행/일괄(전송X)" img="select_all.gif"
+		imgdis="select_all_dis.gif">
+	</item>
+	<item type="separator" />
+	<item id="btnExcel" type="button" text="엑셀 출력" img="icon_grid.gif"
+		imgdis="icon_grid.gif" />
+</toolbar>

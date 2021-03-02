@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>순 번
+		</column> 
+		<column id="date" width='100' align='center' type='ro' sort='na'>거래일자
+		</column>
+		<column id="time" width='80' align='center' type='ro' sort='na'>거래시간
+		</column>		
+		<column id="withdraw" width='100' align='right' type='ron' sort='na' format="0,000">출금액
+		</column>
+		
+		<column id="deposit" width='100' align='right' type='ron' sort='na' format="0,000">입금액
+		</column>
+		
+		<column id="balance" width='100' align='right' type='ron' sort='na' format="0,000">잔액
+		</column>
+		
+		<column id="memo" width='200' align='left' type='ro' sort='na'>적 요
+		</column>
+		
+		<column id="client" width='100' align='left' type='ro' sort='na'>의뢰인
+		</column>
+		
+		<column id="officeCode" width='100' align='center' type='ro' sort='na'>지점
+		</column>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

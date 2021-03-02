@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드"
+		name="code" inputWidth="120" labelWidth="70" />
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" label="반려 사유" name="comment" inputWidth="360" rows="4" />
+		</item>
+	</item>
+</items>
+

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnRefresh" type="button" text="새로고침" img="redo.gif"  imgdis="redo_dis.gif"/>
+	<item  type="separator"/>
+	<item type="text" text="현 재고량을 수정하면 기초 재고량이 수정됩니다."/>
+</toolbar>

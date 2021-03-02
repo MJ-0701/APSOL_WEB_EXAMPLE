@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rows>
+	<head> 
+		<column id="name" width='150' align='left' type='ed' sort='str'>품목명</column> 
+		<column id="qty" width='80' align='right' type='edn' sort='int'>수 량</column> 
+
+		<beforeInit>
+
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

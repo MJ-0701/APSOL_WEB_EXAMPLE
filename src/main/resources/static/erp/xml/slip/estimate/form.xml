@@ -1,0 +1,63 @@
+﻿<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="60" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="hidden" name="code" />
+	<item type="hidden" name="customer" />
+	<item type="hidden" name="customer2" />
+	<item type="hidden" name="project" />
+	<item type="hidden" name="kind" />
+	<item type="hidden" name="type" />
+	<item type="hidden" name="completionDate" />
+	<item type="hidden" name="manager" />
+	<item type="hidden" name="orderKind" />
+
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="적 요" name="remarks"
+			inputWidth="250" />
+	<!-- 	<item type="newcolumn" />
+		<item type="button" value="이메일 전송" label="결재/전송" name="btnEmail" /> -->
+	</item>
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="calendar" value="" label="견적 일자" name="date" />
+			<item type="input" value="" label="거래처" name="customerName" readonly='true'/>
+			<item type="input" value="" label="프로젝트" name="projectName" readonly='true'/>
+		</item>
+		<item type="newcolumn" />
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="담당자" name="staffName" />
+			<item type="input" value="" label="연락처" name="staffPhone" />
+			<item type="input" value="" label="이메일" name="staffEmail" />
+		</item>
+	</item>
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="견적 금액" name="orderAmount"
+				className="amount" />
+			<item type="input" value="" label="할인율(%)" name="discountRate"
+				className="amount" />
+			<item type="select" label="상 태" name="state">
+				<option value="TS0000" text="1.진행" />
+				<option value="TS0001" text="2.계약" />
+				<option value="TS0002" text="3.만료" />
+			</item>
+		</item>
+		<item type="newcolumn" />
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="금 액" name="amount" className="amount"
+				readonly='true' />
+			<item type="input" value="" label="세 액" name="tax" className="amount"
+				readonly='true' />
+			<item type="input" value="" label="합 계" name="total" className="amount"
+				readonly='true' />
+		</item>
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="비 고" name="memo" inputWidth="370" />
+	</item>	
+</items>
+

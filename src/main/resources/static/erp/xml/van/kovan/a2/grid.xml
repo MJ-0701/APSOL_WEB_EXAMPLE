@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="customerName" width='100' align='left' type='ro' sort='na' color=''>가맹점</column>	
+		<column id="van" width='100' align='center' type='ro' sort='na' color=''>밴 사</column>	
+		<column id="catId" width='80' align='center' type='ro' sort='na' color=''>CATID</column>	
+		<column id="kind" width='75' align='center' type='ro' sort='na' color=''>구 분</column>
+		
+		<column id="m12" width='70' align='right' type='ro' sort='na' color=''  >2017</column>
+		<column id="m11" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+		<column id="m10" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+		<column id="m9" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+		<column id="m8" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+		<column id="m7" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+		<column id="m6" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+		<column id="m5" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+		<column id="m4" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+		<column id="m3" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+		<column id="m2" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+		<column id="m1" width='70' align='right' type='ro' sort='na' color=''  >#cspan</column>
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,#rspan,12,11,10,9,8,7,6,5,4,3,2,1</param>
+			</call>
+			<!-- <call command="attachHeader">
+				<param>,,#text_filter,,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,</param>
+			</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call><!-- 
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call> -->
+			
+			
+		</afterInit>
+
+	</head>
+</rows>

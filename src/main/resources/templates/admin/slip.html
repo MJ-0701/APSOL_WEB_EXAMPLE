@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Object-based init</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css" th:href="@{/vendor/dhtmlx/codebase/dhtmlx.css?v=vank3323222212}" />
+<link rel="stylesheet" type="text/css" th:href="@{/admin/common.css}" />
+
+<script th:src="@{/vendor/dhtmlx/codebase/dhtmlx.js}"></script>
+<script th:src="@{/vendor/jquery/jquery-1.11.1.min.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/jquery.form.min.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/json2/json2.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/admin/js/common.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+
+<script th:src="@{/erp/js/popup/dataPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formProductPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formCompanyPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formBascodePopup.js}"></script>
+
+<script th:src="@{/erp/js/popup/grid/cellPopup.js}"></script>
+<script th:src="@{/erp/js/popup/grid/productCell.js}"></script>
+
+
+
+<script th:src="@{/erp/js/data/dataGrid.js}"></script>
+<script th:src="@{/erp/js/data/dateRangeGrid.js}"></script>
+<script th:src="@{/erp/js/data/dataForm.js}"></script>
+
+
+
+<script th:src="@{/admin/js/product/eventGrid.js}"></script>
+<script th:src="@{/admin/js/product/productGrid.js}"></script>
+<script th:src="@{/admin/js/product/productForm.js}"></script>
+
+
+<script th:src="@{/admin/js/product/productItem.js}"></script>
+
+<script th:src="@{/admin/js/imageItem/imageItem.js}"></script>
+<script th:src="@{/admin/js/imageItem/imageItemForm.js}"></script>
+
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<style>
+.validate_magenta .dhxform_label, .validate_magenta .dhxform_select {
+	color: magenta !important;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs {
+	background-color: #ED878A;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tab {
+	background-color: #2589ce;
+	border-left: 2px solid #ED878A;
+	border-right: 2px solid #ED878A;
+}
+</style>
+
+<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+
+	var imageUrl = /*[[@{/vendor/dhtmlx/codebase/imgs/}]]*/"../../../codebase/imgs/";
+
+	var grid;
+	var tabbar;
+
+	var days = 7;
+
+	var gridMap = {};
+	function doOnLoad() {
+
+		var layout = new dhtmlXLayoutObject({
+			parent : document.body,
+			pattern : "2U"
+		});
+
+		layout.cells("a").hideHeader();
+		layout.cells("b").hideHeader();
+		layout.cells("b").setWidth(520); 
+
+		var grid = new SlipGrid();
+		grid.addProgressCell('a', layout.cells("a"));
+		grid.init(layout.cells('a'), {
+			iconsPath : "../img/18/",
+			imageUrl : imageUrl
+		});
+
+		var form = new SlipForm();
+
+		form.setGrid(grid);
+
+		form.init(layout.cells("b"));
+		form.addProgressCell('layout2', layout.cells("b"));
+
+		form.setOnClearListener(function() {
+			// grid.clearSelection();
+		});
+
+		form.setOnClickToolbarButton(function(id, toolbar) {
+			if (id == 'btnAdd') {
+				grid.clearSelection();
+			}
+		});
+
+	}
+
+	function SlipGrid(config) {
+		DateRangeGrid.call(this);
+
+		this.setUrlPrefix('slip');
+		
+		this.excelTitle = "입출금";
+
+		this.setSelectFilterData('kind', [ '입금', '출금' ]);
+
+	}
+	SlipGrid.prototype = Object.create(DateRangeGrid.prototype);
+	SlipGrid.prototype.constructor = SlipGrid;
+
+	SlipGrid.prototype.init = function(container, config) {
+
+		this.initToolbar(container, {
+			iconsPath : config.iconsPath,
+			xml : "xml/slip/toolbar.xml",
+		});
+
+		this.initGrid(container, {
+			imageUrl : config.imageUrl,
+			xml : "xml/slip/grid.xml",
+		}, 'server');
+
+	};
+
+	SlipGrid.prototype.onInitedGrid = function(grid) {
+
+		DateRangeGrid.prototype.onInitedGrid.call(this, grid); 
+		
+		var aligns = [ "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;", "text-align:right;" ];
+
+		grid.attachFooter(",#cspan,#cspan,#cspan,#cspan,입금,<div class='fsum'>0</div>,<div class='fsum'>0</div>,<div class='fsum'>0</div>,,,,,,",aligns);
+		grid.attachFooter(",#cspan,#cspan,#cspan,#cspan,출금,<div class='fsum'>0</div>,<div class='fsum'>0</div>,<div class='fsum'>0</div>,,,,,,",aligns); 
+		grid.attachFooter(",#cspan,#cspan,#cspan,#cspan,총 자산,#cspan,#cspan,<div class='fsum'>0</div>,,,,,,",aligns);
+
+	};
+
+	SlipGrid.prototype.onBeforeParams = function(param) {
+		
+		DateRangeGrid.prototype.onBeforeParams.call(this, param);
+	};
+	
+	SlipGrid.prototype.updateFooter = function() { 
+		
+		$.get("slip/summary", this.getRange(), function(result){			
+			for(var i=0;i<result.length;++i)
+			{
+				$(".fsum").eq(i).text(result[i]);
+			}
+		});
+		
+		/*
+		// 입금
+		$(".fsum").eq(0).text();
+
+		var pos = 0;
+		for (idx in lineArr) {
+
+			for (sidx in lineArr[idx]) {
+				$(".fsum").eq(pos++).text(lineArr[idx][sidx]);
+			}
+		}
+
+		$("#sumEmp").text(rowsNum / 4);*/
+	}
+
+	SlipGrid.prototype.onAfterLoadRow = function(result) {
+		DateRangeGrid.prototype.onAfterLoadRow.call(this, result);
+		
+		
+	}
+	
+	SlipGrid.prototype.onAfterLoaded = function(num) {		
+		DataGrid.prototype.onAfterLoaded .call(this, num);
+		
+		this.updateFooter();
+	}
+
+	function SlipForm() {
+
+		DataForm.call(this);
+
+		this.setUrlPrefix('slip');
+
+		var me = this;
+
+		this.id = 0;
+	}
+
+	SlipForm.prototype = Object.create(DataForm.prototype);
+	SlipForm.prototype.constructor = SlipForm;
+
+	SlipForm.prototype.onInitedForm = function(form) {
+		DataForm.prototype.onInitedForm.call(this, form);
+		
+		
+		this.addCompanyCell('customerName').setFieldMap({
+			customer : {
+				name : 'uuid',
+				required : true
+			},
+			customerName : {
+				name : 'name',
+			}, 
+			businessNumber : {
+				name : 'businessNumber',
+			},
+		}).setOnSelected(function(data) {
+		}); 
+		
+		this.addBascodeCell('accountName', 'AC').setFieldMap({
+            account : {
+                name : 'uuid',
+                required : true
+            },
+            accountName : {
+                name : 'name',
+            },  
+        }).setOnSelected(function(data) {
+        }); 
+		
+		
+		$(form.getInput('date')).attr('autocomplete', 'off');
+		$(form.getInput('remarks')).attr('autocomplete', 'off');
+		$(form.getInput('customerName')).attr('autocomplete', 'off');
+		$(form.getInput('amount')).attr('autocomplete', 'off');
+		$(form.getInput('tax')).attr('autocomplete', 'off'); 
+		
+		form.setItemValue('date', new Date());
+	}
+
+	SlipForm.prototype.init = function(container) {
+		this.initToolbar(container, {
+			iconsPath : "../img/18/",
+			xml : 'xml/slip/formToolbar.xml',
+		});
+
+		this.initForm(container, {
+			xml : 'xml/slip/form.xml',
+		});
+	}
+
+	SlipForm.prototype.onBeforeUpdate = function(json) {
+		DataForm.prototype.onBeforeUpdate.call(this, json);
+		console.log(json);
+		return true;
+	};
+
+	SlipForm.prototype.onClickAdded = function() {
+		DataForm.prototype.onClickAdded.call(this);
+		this.form.setItemFocus('remarks');
+		
+		this.form.setItemValue('date', new Date());
+	};
+	
+	
+	SlipForm.prototype.clear = function() {	
+		DataForm.prototype.clear.call(this);
+		
+		this.form.setItemValue('date', new Date());
+	}
+	
+	
+ 
+
+	/*]]>*/
+</script>
+</head>
+<body onload="doOnLoad();"></body>
+</html>

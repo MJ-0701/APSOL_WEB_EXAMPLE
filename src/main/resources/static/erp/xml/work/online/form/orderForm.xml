@@ -1,0 +1,52 @@
+﻿<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="60" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="hidden" name="code" />
+	<item type="hidden" name="customer" />
+	<item type="hidden" name="customer2" />
+	<item type="hidden" name="project" />
+	<item type="hidden" name="slipKind" />
+	<item type="hidden" name="ignoreStep" />
+	<item type="hidden" name="orderAmount" />
+	<item type="hidden" name="discountRate" />
+	<item type="hidden" name="deliveryDate" />
+	<item type="hidden" name="collectDate" />
+	<item type="hidden" name="publishDate" />
+
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="제 목" name="title" inputWidth="250" />
+	</item>
+	
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="담당자" name="staffName" />
+			<item type="input" value="" label="연락처" name="staffPhone" />
+			<item type="input" value="" label="이메일" name="staffEmail" />	
+		</item>
+		<item type="newcolumn" />
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="금 액" name="amount" className="amount"
+				readonly='true' />
+			<item type="input" value="" label="세 액" name="tax" className="amount"
+				readonly='true' />
+			<item type="input" value="" label="합 계" name="total" className="amount"
+				readonly='true' />
+		</item>
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="select" label="배송 구분" name="deliveryType"
+				connector="bascode/select/DT?empty=true&amp;parent=true" />
+		</item>
+		<item type="input" value="" label="배송지" name="address"
+			inputWidth="370" />
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="비 고" name="memo" inputWidth="370" />
+	</item>
+	<item type="button" value="결재/전송" label="결재/전송" name="btnSend"
+		offsetLeft="63" />
+</items>
+

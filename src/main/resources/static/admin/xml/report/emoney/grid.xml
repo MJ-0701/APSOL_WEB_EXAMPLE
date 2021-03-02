@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<rows>
+	<head> 
+		<column id="date" width='100' align='center' type='ro' sort='server' color=''>일 자</column>
+				
+		<column id="memberName" width='100' align='left' type='ro' sort='server' color=''>고객명</column> 
+		<column id="memberUsername" width='100' align='left' type='ro' sort='server' color=''>아이디</column> 
+		<column id="kindName" width='150' align='left' type='ro' sort='server' color=''>구 분</column> 
+ 		 
+		<column id="emoney" width='110' align='right' type='ron' format="0,000" sort='server' color=''>적립금</column>
+		
+		<column id="memo" width='350' align='left' type='ro' sort='server' color=''>비 고</column>
+				
+		<beforeInit> 
+			  <call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,,</param>
+			</call> 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call> 
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="employeeName" width='100' align='center' type='ro' sort='str'>신고자</column>
+		<column id="date" width='100' align='center' type='ro' sort='str'>일 시</column> 
+		<column id="address" width='180' align='left' type='ro' sort='str'>주소</column>
+		<column id="content" width='200' align='left' type='ro' sort='str'>내 용</column> 
+		<column id="stateName" width='80' align='center' type='ro' sort='str'>상 태</column>
+		<column id="receiptEmployeeName" width='100' align='center' type='ro' sort='str'>접수자</column>
+		<column id="receiptedTime" width='130' align='center' type='ro' sort='str'>접수일시</column>
+		<column id="complteEmployeeName" width='100' align='center' type='ro' sort='str'>완료자</column>
+		<column id="completedTime" width='130' align='center' type='ro' sort='str'>완료일시</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param> 
+			</call> 
+
+		</afterInit>
+
+	</head>
+</rows>

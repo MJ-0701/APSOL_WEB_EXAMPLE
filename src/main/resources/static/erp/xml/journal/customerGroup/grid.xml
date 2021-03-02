@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+			
+		<column id="groupName" width='100' align='left' type='ed' sort='str' color=''>그룹명</column>
+		<column id="state" width='65' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			구 분
+			<option value="GI0001">1.미처리</option>
+			<option value="GI0002">2.처리</option>
+		</column>
+		<column id="content" width='100' align='left' type='text' sort='na' color=''>내 용</column>
+		
+		<beforeInit>
+			<!-- <call command="enableMultiline">
+				<param>1</param>
+			</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+	</head>
+
+</rows>

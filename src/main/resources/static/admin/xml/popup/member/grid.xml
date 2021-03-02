@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+
+		<column id="uuid" width='100' align='left' type='ro' sort='server' color=''>아이디</column>
+		<column id="name" width='180' align='left' type='ro' sort='server' color=''>이 름</column>
+				
+		<afterInit>			
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+				
+			</call>
+		</afterInit>
+	</head>
+</rows>

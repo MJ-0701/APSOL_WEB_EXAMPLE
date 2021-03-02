@@ -1,0 +1,65 @@
+﻿<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="60" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="hidden" name="code" />
+	<item type="hidden" name="customer" />
+	<item type="hidden" name="kind" />
+
+	<item type="hidden" name="year" />
+	<item type="hidden" name="month" />
+	<item type="hidden" name="day" />
+
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="적 요" name="remarks"
+			inputWidth="370" />
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="calendar" value="" label="거래 일자" name="date" />
+			<item type="input" value="" label="금 액" name="amount" className="amount" />
+			<item type="input" value="" label="세 액" name="tax" className="amount" />
+			<item type="input" value="" label="수수료" name="commission"
+				className="amount" />
+		</item>
+		<item type="newcolumn" />
+		<item type="block" blockOffset="0">
+
+			<item type="input" label="거래 구분" name="kindName" readonly='true'></item>
+			<item type="input" value="" label="거래처" name="customerName"
+				readonly='true' />
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="거래계정" name="account"
+					inputWidth="40" labelWidth="60" readonly='true' />
+				<item type="newcolumn" />
+				<item type="input" value="" label="" name="accountName"
+					inputWidth="110" />
+			</item>
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="결제장부" name="book"
+					inputWidth="40" labelWidth="60" readonly='true' />
+				<item type="newcolumn" />
+				<item type="input" value="" label="" name="bookName"
+					inputWidth="110" />
+			</item>
+
+		</item>
+	</item>
+
+	<item type="block" blockOffset="0">
+		<item type="select" label="영수증" name="docKind">
+			<option value="IV0000" text="없음" />
+			<option value="IV0001" text="세금계산서" />
+			<option value="IV0002" text="카드" />
+			<option value="IV0003" text="현금" />
+		</item>
+		<item type="newcolumn" />
+		<item type="input" value="" label="비 고" name="memo" inputWidth="232" labelWidth="50" />
+	</item>
+	
+	<item type="block" blockOffset="0">
+		<item type="button" value="저 장" label="저 장" name="btnUpdate" offsetLeft="63"/>
+	</item>
+</items>
+

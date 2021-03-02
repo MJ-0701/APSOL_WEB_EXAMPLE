@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="acquirerName" width='70' align='center' type='ro' sort='str' color=''>매입사</column>
+		<column id="dataType" width='75' align='center' type='ro' sort='str' color=''>구 분</column>
+		<column id="sellDate" width='90' align='center' type='ro' sort='na' color=''>거래 일자</column>
+		<column id="serviceType" width='75' align='center' type='ro' sort='str' color=''>서비스 구분</column>
+		<column id="cardNumber" width='120' align='center' type='ro' sort='str' color=''>카드번호</column>
+		<!-- <column id="validity" width='80' align='left' type='ro' sort='na' color=''>유효기간</column>
+		<column id="cvv" width='60' align='center' type='ro' sort='str' color=''>cvv</column> -->
+		
+		<!-- <column id="dealDate" width='90' align='center' type='ro' sort='na' color=''>원거래일자</column> -->
+		<column id="admissionNumber" width='100' align='center' type='ro' sort='str' color=''>승인번호</column>
+		<!-- <column id="currencyCode" width='80' align='center' type='ro' sort='str' color=''>통화코드</column>
+		<column id="currencyIndex" width='80' align='center' type='ro' sort='na' color=''>통화지수</column> -->
+		<column id="sellAmount" width='70' align='right' type='ron' sort='na' color='' format="0,000">순매출액</column>
+		<column id="serviceCharge" width='80' align='right' type='ron' sort='na' color='' format="0,000">봉사료</column>
+		<column id="amountTotal" width='80' align='right' type='ron' sort='na' color='' format="0,000">총금액</column>
+		<column id="installmentPeriod" width='60' align='center' type='ro' sort='na' color=''>할부기간</column>
+		<column id="claimDate" width='80' align='center' type='ro' sort='na' color=''>청구일</column>
+		
+		<!-- <column id="officeCode" width='70' align='center' type='ro' sort='na' color=''>대리점코드</column> -->
+		<!-- <column id="customerNumber" width='80' align='center' type='ro' sort='na' color=''>가맹점번호</column> -->
+		<!-- <column id="dealKind" width='80' align='center' type='ro' sort='na' color=''>거래형태</column> -->
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+			<!-- <call command="enableMultiline">
+				<param>1</param>
+			</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

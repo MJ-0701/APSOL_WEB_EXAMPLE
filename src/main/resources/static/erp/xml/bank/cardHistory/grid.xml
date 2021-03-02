@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>순 번
+		</column>
+		<column id="date" width='100' align='center' type='ro' sort='na'>승인일자
+		</column>
+		<column id="time" width='80' align='center' type='ro' sort='na'>승인시간
+		</column>
+		
+	
+		
+		<column id="name" width='120' align='left' type='ro' sort='na'>가맹점명
+		</column>
+		
+		<column id="businessNumber" width='120' align='center' type='ro' sort='na'>가맹점 사업자번호
+		</column>
+		
+		<column id="job" width='120' align='left' type='ro' sort='na'>가맹점 업종명
+		</column>
+		
+		<column id="amount" width='90' align='right' type='ron' sort='na' format="0,000">이용금액
+		</column> 
+		
+		<column id="tax" width='90' align='right' type='ron' sort='na' format="0,000">부가세
+		</column>
+		
+		<column id="tip" width='90' align='right' type='ron' sort='na' format="0,000">봉사료
+		</column> 
+		
+		<column id="authNumber" width='90' align='center' type='ro' sort='na'>승인번호
+		</column> 
+		
+		<column id="paymentPlan" width='90' align='center' type='ro' sort='na'>결제예정일
+		</column>
+		
+		<column id="paymentState" width='90' align='center' type='ro' sort='na'>결제상태
+		</column>
+		
+		<column id="paymentWay" width='90' align='center' type='ro' sort='na'>결제방법
+		</column>
+		
+		<column id="intmmocnt" width='90' align='right' type='ro' sort='na'>할수개월수
+		</column>
+		
+		<column id="canceled" width='70' align='center' type='ro' sort='na'>취소여부
+		</column>
+		
+		<column id="canceledAmount" width='90' align='right' type='ro' sort='na' format="0,000" >취소금액
+		</column>
+		
+			<column id="foreignKind" width='70' align='center' type='ro' sort='na'>국내외구분
+		</column>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnConfirm" type="button" text="승 인">
+		<userdata name="kind">insert</userdata>
+	</item>		
+	<item id="btnDeny" type="button" text="반 려"/>
+</toolbar>

@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" labelWidth="60" inputWidth="auto" noteWidth="auto" offsetLeft="0"/>
+	<item type="hidden" value="" name="uuid" />
+	<item type="hidden" value="" name="slipKind" />
+	<item type="hidden" value="" name="publish" />
+	<item type="hidden" value="" name="slipUuid" />
+	<item type="block" blockOffset="0" id="block1">
+		<item type="fieldset" blockOffset="0">
+			<item type="block" blockOffset="0" >
+				<item type="input" readonly="true"  label="종 류" name="kind" inputWidth="90"/>
+			</item>
+			<item type="newcolumn"/>
+			<item type="block" blockOffset="0"  offsetLeft="15" >
+				<item type="calendar" readonly="true"  label="작성일자" name="writeDate" inputWidth="90"/>
+			</item>
+			<item type="newcolumn"/>
+			<item type="block" blockOffset="0"  offsetLeft="15">
+				<item type="input" readonly="true" label="발행일시" name="date" inputWidth="130"/>
+			</item>
+			<item type="newcolumn"/>
+			<item type="block" blockOffset="0"  offsetLeft="15">
+				<item type="input" readonly="true" label="상 태" name="state" inputWidth="130"/>
+			</item>
+		</item>
+	</item>
+	<item type="block" blockOffset="0" id="block2">
+		<item type="block" blockOffset="0" id="supplyCustomer2">
+
+			<item type="fieldset" blockOffset="0" label="공급자">
+				<item type="block" blockOffset="0">
+					<item type="input" readonly = 'true' value="" label="등록번호" name="businessNumber" inputWidth="100"/>
+					<item type="newcolumn"/>
+					<item type="input" readonly = 'true' value="" label="종사업장" name="businessNumberJ" inputWidth="120" labelWidth="60"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" readonly = 'true' value="" label="상 호" name="name" inputWidth="100"/>
+					<item type="newcolumn"/>
+					<item type="input" readonly = 'true' value="" label="성 명" name="ceo" inputWidth="120" labelWidth="60"/>
+
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" readonly = 'true' value="" label="주 소" name="address" inputWidth="282"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" readonly = 'true'  value="" label="업 태" name="jobType" inputWidth="100"/>
+					<item type="newcolumn"/>
+					<item type="input" readonly = 'true'  value="" label="종 목" name="jobCategory" inputWidth="120" labelWidth="60"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" readonly = 'true'  value="" label="이메일" name="email" inputWidth="282"/>
+				</item>
+				<item type="block" blockOffset="0" >
+					<item type="label" label=" " offsetTop="20"/>
+				</item>
+
+			</item>
+		</item>
+		<item type="newcolumn"/>
+		<item type="block" blockOffset="0" id="supplyCustomer" offsetLeft="0">
+
+			<item type="fieldset" blockOffset="0" label="공급받는자">
+				<item type="block" blockOffset="0">
+					<item type="input"  value="" label="등록번호" name="businessNumber1" inputWidth="100"/>
+					<item type="newcolumn"/>
+					<item type="input"  value="" label="종사업장" name="businessNumberJ1" inputWidth="120" labelWidth="60"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input"  value="" label="상 호" name="name1" inputWidth="100"/>
+					<item type="newcolumn"/>
+					<item type="input"  value="" label="성 명" name="ceo1" inputWidth="120" labelWidth="60"/>
+
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input"  value="" label="주 소" name="address1" inputWidth="282"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input"  value="" label="업 태" name="jobType1" inputWidth="100"/>
+					<item type="newcolumn"/>
+					<item type="input"  value="" label="종 목" name="jobCategory1" inputWidth="120" labelWidth="60"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="이메일1" name="email21" inputWidth="282"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="이메일2" name="email22" inputWidth="282"/>
+				</item>
+			</item>
+
+		</item>
+	</item>
+	<item type="block" blockOffset="0" id="block3">
+		<item type="fieldset" blockOffset="0" offsetTop="0">
+			<item type="input" value="" label="비 고" name="memo" inputWidth="670" />
+		</item>
+	</item>
+	<item type="block" blockOffset="0" id="block4">
+		<item type="fieldset" blockOffset="0" offsetTop="0">
+			<item type="input" value="" readonly = 'true' label="합계금액 : " name="total" inputWidth="166" labelWidth="60"/>
+			<item type="newcolumn"/>
+			<item type="input" value="" readonly = 'true' label="공급가액 : " name="amount" inputWidth="166" labelWidth="80"/>
+			<item type="newcolumn"/>
+			<item type="input" value="" readonly = 'true' label="세 액 : " name="tax" inputWidth="166" labelWidth="80"/>
+		</item>
+	</item>
+	<item type="block" blockOffset="0" id="block4">
+		<item type="fieldset" blockOffset="0" offsetTop="0" >
+			<item type="block" blockOffset="0">
+				 
+				<item type="label" value=""  label="품목 / 규격" labelWidth="120" offsetLeft="50"  />
+				<item type="newcolumn"/>
+				<item type="label" value=""  label="단위" labelWidth="30" offsetLeft="5"/>
+				<item type="newcolumn"/>
+				<item type="label" value=""  label="수 량" labelWidth="60" offsetLeft="15"/>
+				<item type="newcolumn"/>
+				<item type="label" value=""  label="단 가" labelWidth="80" offsetLeft="20"/>
+				<item type="newcolumn"/>
+				<item type="label" value=""  label="공급가액" labelWidth="90" offsetLeft="5"/>
+				<item type="newcolumn"/>
+				<item type="label" value=""  label="세 액" labelWidth="60" offsetLeft="15"/>
+				<item type="newcolumn"/>
+				<item type="label" value=""  label="비 고" labelWidth="55"  offsetLeft="35"/>
+			</item>
+			<item type="block" blockOffset="0">
+				 
+				<item type="input" value=""  name="itemName" inputWidth="180" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="unit1" inputWidth="40" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="qty1" inputWidth="60" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="unitPrice1" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="amount1" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="tax1" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="memo1" inputWidth="140" />
+			</item>
+			<item type="block" blockOffset="0">
+				 
+				<item type="input" value=""  name="item2" inputWidth="180" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="unit2" inputWidth="40" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="qty2" inputWidth="60" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="unitPrice2" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="amount2" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="tax2" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="memo2" inputWidth="140" />
+			</item>
+			<item type="block" blockOffset="0">
+				 
+				<item type="input" value=""  name="item3" inputWidth="180" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="unit3" inputWidth="40" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="qty3" inputWidth="60" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="unitPrice3" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="amount3" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="tax3" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="memo3" inputWidth="140" />
+			</item>
+			<item type="block" blockOffset="0">
+				 
+				<item type="input" value=""  name="item4" inputWidth="180" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="unit4" inputWidth="40" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="qty4" inputWidth="60" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="unitPrice4" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="amount4" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="tax4" inputWidth="100" />
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="memo4" inputWidth="140" />
+			</item>
+		</item>
+		<item type="fieldset" blockOffset="0" offsetTop="0" >
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="참고 사항"  name="reference" inputWidth="400" />
+			</item>
+			<item type="newcolumn"/>
+			<item type="block" blockOffset="0">
+				<item type="label" label="위 금액을 " offsetLeft="60" labelWidth="70"></item>
+				<item type="newcolumn"/>
+				<item type="input" value=""  name="type" inputWidth="80" />
+				<item type="newcolumn"/>
+				<item type="label" label=" 함" labelWidth="20"></item>
+			</item>
+		</item>
+	</item>
+</items>
+

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="100" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="0" label="코 드" name="code"
+		inputWidth="120" labelWidth="100" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="fieldset" blockOffset="0" offsetTop="0" label="쿠폰정보">
+			<item type="block" blockOffset="0">
+				<!-- <item type="select" label="구 분" name="kind" connector="bascode/select/CT"
+					labelWidth="60" inputWidth="80" />
+				<item type="newcolumn" /> -->
+				<item type="select" value="" label="기 준" name="type"
+					labelWidth="60" connector="bascode/select/CY" inputWidth="120" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="발급수량" name="qty" labelWidth="60"
+					inputWidth="35" />
+				<item type="newcolumn" />
+				<item type="select" label="할인구분" name="discountKind"
+					labelWidth="60">
+					<option value="rate" text="할인율" />
+					<option value="amount" text="할인금액" />
+				</item>
+			</item>
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="쿠폰명" name="name" inputWidth="180"
+					labelWidth="60" />
+				<item type="newcolumn" />
+				<item type="input" value="0" label="할인금액" name="discountAmount"
+					inputWidth="180" />
+				<item type="newcolumn" />
+				<item type="input" value="0" label="할인율" name="discountRate"
+					inputWidth="180" />
+			</item>
+
+			<item type="block" blockOffset="0">
+				<item type="calendar" value="" label="시작날짜" name="startDate"
+					inputWidth="180" labelWidth="60" />
+				<item type="newcolumn" />
+				<item type="calendar" value="" label="종료날짜" name="endDate"
+					inputWidth="180" />
+			</item>
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="최소주문금액" name="minAmount"
+					labelWidth="60" inputWidth="180" />
+				<item type="newcolumn" />
+				<item type="image" name="image" inputWidth="180"
+					label="이미지" inputHeight="209" imageWidth='180' imageHeight='209'
+					url="../fileData/formImage">
+					<note>180 * 209</note>
+				</item>
+			</item>
+
+
+		</item>
+
+	</item>
+
+
+</items>
+

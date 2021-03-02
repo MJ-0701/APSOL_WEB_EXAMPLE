@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="name" width='140' align='left' type='ro' sort='server' color=''>품 목</column>
+		<column id="barcode" width='100' align='center' type='ro' sort='server' color=''>#cspan</column>
+		<column id="standard" width='140' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="unitName" width='80' align='center' type='ro' sort='server' color=''>#cspan</column>
+		
+		<column id="stockQty" width='100' align='right' type='edn' sort='na' color=''>현 재고량</column>
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>품목명,바코드,규 격,단 위,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

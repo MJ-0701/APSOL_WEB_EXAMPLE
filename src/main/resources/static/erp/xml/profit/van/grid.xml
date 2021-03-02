@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="year" width='40' align='center' type='ed' sort='server' color=''>일 자</column>	
+		<column id="month" width='25' align='center' type='ed' sort='na' color=''>#cspan</column>	
+				
+		<column id="kind" width='65' align='center' type='combo' sort='str' editable="false"  source="bascode/combo/VN">
+			구분
+		</column>
+		
+		<column id="customer" width='40' align='center' type='ro' sort='server' color=''  >거래처(가맹점)</column>
+		<column id="customerName" width='150' align='left' type='ed' sort='server' color=''  >#cspan</column>
+		<column id="businessNumber" width='110' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="customerManagerName" width='80' align='center' type='ro' sort='server' color=''>#cspan</column>
+		
+		<column id="creditCnt" width='100' align='right' type='edn' sort='server' color=''  >신용승인건수</column>
+		<column id="cashCnt" width='100' align='right' type='edn' sort='server' color=''  >체크승인건수</column>
+		<column id="credit" width='100' align='right' type='edn' sort='server' color=''  >신용승인수수료</column>
+		<column id="cash" width='100' align='right' type='edn' sort='server' color=''  >체크승인수수료</column>
+		<column id="profit" width='100' align='right' type='edn' sort='server' color=''  >총수수료</column>		
+		<column id="amount" width='100' align='right' type='edn' sort='server' color=''  >총 승인 금액</column>
+		<column id="ddcCnt" width='100' align='right' type='edn' sort='server' color=''  >DDC 승인 건수</column>
+		<column id="ddc" width='100' align='right' type='edn' sort='server' color=''  >DDC 승인 수수료</column>
+		<column id="ddcBcCnt" width='100' align='right' type='edn' sort='server' color=''  >DDC BC 건수</column>
+		<column id="ddcBc" width='100' align='right' type='edn' sort='server' color=''  >DDC BC 수수료</column>
+		<column id="ddcBcEtcCnt" width='100' align='right' type='edn' sort='server' color=''  >DDC BC 외 건수</column>
+		<column id="ddcBcEtc" width='100' align='right' type='edn' sort='server' color=''  >DDC BC 외 수수료</column>
+		
+		<column id="descCnt" width='100' align='right' type='edn' sort='server' color=''  >DESC 승인 건수</column>
+		<column id="desc" width='100' align='right' type='edn' sort='server' color=''  >DESC 승인 수수료</column>
+		<column id="descBcCnt" width='100' align='right' type='edn' sort='server' color=''  >DESC BC 건수</column>
+		<column id="descBc" width='100' align='right' type='edn' sort='server' color=''  >DESC BC 수수료</column>
+		<column id="descBcEtcCnt" width='100' align='right' type='edn' sort='server' color=''  >DESC BC 외 건수</column>
+		<column id="descBcEtc" width='100' align='right' type='edn' sort='server' color=''  >DESC BC 외 수수료</column>
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>년,월,#rspan,코 드,상 호,사업자번호,영업담당자,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>,,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			
+			
+		</afterInit>
+
+	</head>
+</rows>

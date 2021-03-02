@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="kind" width='80' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			구 분
+			<!-- <option value="product">품목</option> -->
+			<option value="slip">입출고</option>
+			
+		</column>
+		<column id="name" width='150' align='left' type='ed' sort='str'>명 칭</column>		
+		<column id="startLine" width='100' align='center' type='edn' sort='str'>시작라인(0부터)</column>
+		<column id="sheet" width='100' align='center' type='edn' sort='str'>시트(0부터)</column>		
+		<column id="memo" width='*' align='left' type='ed' sort='str'>메 모</column>		
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#select_filter,#text_filter,,,#text_filter</param>
+			</call>
+		</beforeInit>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+				<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

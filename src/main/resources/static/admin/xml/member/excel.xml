@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" labelWidth="50" inputWidth="auto" noteWidth="auto" offsetLeft="10" />
+
+	<item type="file" name="excel" label="파일" required="true" />
+
+
+
+	<item type="button" name="btnUpload" value="업로드" offsetLeft="240" />
+	<!-- 
+	<item type="button" name="btnDelete" value="일괄삭제" offsetLeft="240" /> -->
+</items>
+

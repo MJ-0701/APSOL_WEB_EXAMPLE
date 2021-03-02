@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="name" align='left' type='ro' width='150' sort='na'>이름</column>
+		<column id="phone" align='left' type='ro' width='120' sort='na'>전화번호</column>
+		<column id="del" align='center' type='img' width='30'></column>
+	</head>
+</rows>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="itemName" width='150' align='left' type='ed' sort='str'>공제 항목</column>
+		<column id="itemKindName" width='80' align='center' type='ro' sort='str' color=''>구 분</column>
+		<column id="amount" width='120' align='right' type='edn' sort='str' color=''>금 액</column>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+
+</rows>

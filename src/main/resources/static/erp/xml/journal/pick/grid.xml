@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="replyCount" width='30' align='left' type='ro' sort='na' color=''></column>		
+		<column id="registeredDate" width='90' align='center' type='ro' sort='na' color=''>일 시</column>		
+		<column id="customerName" width='120' align='left' type='ro' sort='na' color=''>가맹점명</column>			
+		<column id="customerAddress" width='150' align='left' type='ro' sort='na' color=''>주 소</column>	
+		<column id="content" width='400' align='left' type='ro' sort='na'	color=''>업무 내용</column>
+		<column id="workName" width='60' align='center' type='ro' sort='ro' color=''>구 분</column>
+		
+		<column id="managerName" width='70' align='center' type='ro' sort='na' color=''>작성자</column>
+		
+		<column id="pickManagerName" width='70' align='center' type='ro' sort='na' color=''>업무 담당자</column>
+		<column id="pickTime" width='90' align='center' type='ro' sort='na' color=''>배정 일시</column>
+		<column id="pickRef" width='90' align='center' type='ro' sort='na' color=''>배정 상태</column>			
+		<column id="pickStateName" width='90' align='center' type='ro' sort='na' color=''>업무 상태</column>
+		
+		<column id="platformName" width='40' align='center' type='ro' sort='na'	color=''>구 분</column>
+		
+		<column id="customerManagerName" width='80' align='center' type='ro' sort='na' color=''>영업담당자</column>	
+		<column id="customerBusinessNumber" width='90' align='center' type='ro' sort='na' color=''>사업자번호</column>
+		
+		<beforeInit>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+			<call command="attachHeader">
+				<param>,,#text_filter,#text_filter,#text_filter,,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableHeaderMenu">
+			</call>
+			<call command="enableColumnMove">
+				<param>1</param>
+			</call>	
+
+		</afterInit>
+	</head>
+</rows>

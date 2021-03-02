@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="type" width='65' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			구분
+			<option value="RI0001">1.판 매</option>
+			<option value="RI0002">2.임 대</option>
+			<option value="RI0003">3.무 상</option>
+			<option value="RI0004">4.A/S</option>
+			<option value="RI0005">5.명의변경</option>
+			<option value="RI0006">6.기기변경</option>
+			<option value="RI0007">7.타사</option>
+			<option value="RI0008">8.폐업</option>
+		</column>
+		<column id="profitKind" width='65' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			출고 구분
+			<option value="RI0001">1.판 매</option>
+			<option value="RI0002">2.임 대</option>
+			<option value="RI0003">3.무 상</option>
+		</column>
+		<column id="itemName" width='110' align='left' type='ed' sort='str' color=''>품목</column>		
+		<column id="serialNumber" width='100' align='left' type='ed' sort='str' color=''>제조번호</column>
+		<column id="qty" width='70' align='right' type='ed' sort='str' color=''>수량</column>		
+		<column id="warehouseName" width='120' align='left' type='ed' sort='server' color=''>창 고</column>
+						
+		<beforeInit>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>			
+
+		</afterInit>
+	</head>
+
+</rows>

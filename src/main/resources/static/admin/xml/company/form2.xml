@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="block" blockOffset="0">
+	
+	   <item type="select" label="구 분" name="kind" inputWidth="140">
+            <option value="JUMIN" text="주민센터" />
+            <option value="OFFICE" text="지자체" />
+        </item>
+	
+		<item type="block" blockOffset="0">
+	<item type="input" value="" label="명 칭" name="name"
+		inputWidth="263" />
+	<item type="newcolumn" />
+			<item type="checkbox" value="1" label="활 성" name="activated" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="담당자" name="manager"
+				inputWidth="140" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="전화번호" name="phone"
+				inputWidth="140" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="주 소" name="address"
+				inputWidth="363" />
+		</item>
+
+	</item>
+
+
+
+
+</items>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<rows>
+	<head>				
+		<column id="billDate" width='100' align='center' type='ro' sort='str' color=''>거래일시</column>
+		<column id="approvalNumber" width='80' align='center' type='ro' sort='str' color=''>승인번호</column>
+		
+		
+		
+		<column id="cardNumber" width='120' align='center' type='ro' sort='str' color=''>카드번호</column>
+		<column id="incomingDate" width='70' align='center' type='ro' sort='str' color=''>매입일시</column>
+		
+		<column id="cardCompany" width='80' align='center' type='ro' sort='str' color=''>카드사</column>
+		<column id="partnerCard" width='80' align='center' type='ro' sort='str' color=''>제휴 카드</column>
+		<column id="kindCard" width='80' align='center' type='ro' sort='str' color=''>카드 종류</column>
+		
+		<column id="incomingAmount" width='80' align='right' type='ro' sort='str' color=''>매입금액(수수료)</column>
+		<column id="customerFees" width='80' align='right' type='ro' sort='str' color=''>가맹점(수수료)</column>
+		<column id="pointFees" width='80' align='right' type='ro' sort='str' color=''>포인트(수수료)</column>
+		<column id="etcFees" width='80' align='right' type='ro' sort='str' color=''>기타(수수료)</column>
+		<column id="totalFees" width='80' align='right' type='ro' sort='str' color=''>계(수수료)</column>
+		
+		<column id="vatProxyPayment" width='80' align='right' type='ro' sort='str' color=''>부가세 대리 납부 금액</column>
+		<column id="payAmount" width='80' align='right' type='ro' sort='str' color=''>지급금액</column>
+		<column id="payExpectedDate" width='80' align='center' type='ron' sort='str' color=''>지급일</column>
+		<column id="qrPayment" width='80' align='center' type='ro' sort='str' color=''>MPM QR 결제 여부</column>
+		 
+
+		<beforeInit>
+			 <call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+			<!-- <call command="enableMultiline">
+				<param>1</param>
+			</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

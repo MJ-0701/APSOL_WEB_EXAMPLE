@@ -1,0 +1,34 @@
+	
+/* 배출신청목록 */
+.requestList {width:350px; height:100%; position:fixed; right:0; top:0; z-index:1; padding:45px 0 25px 0; 
+	background:white; border-left:1px solid #aaa; }
+.requestList2 {width:100%; height:100%; overflow:hidden; }
+#iframe_list {width:100%; height:100%; background:#F1F1F1; border:none; }
+.requestList .company {height:25px; line-height:25px; background:#E7E7E7; color:#777; border-top:1px solid #ccc; 
+	text-align:center; font-size:12px; }
+
+/* 모바일 */
+@media (max-width:1200px) {
+	.requestList {width:100%; display:none; }
+}
+
+/* 구글지도 */
+.box_map {width:100%; height:100%; position:fixed; left:0; top:0; background:#eee; padding:45px 350px 0 150px; }
+.box_map .mapTitle {height:30px; line-height:30px; padding:0 15px; background:white; border-bottom:1px solid #555; 
+	font-size:11px; }
+.box_map .mapTitle .arrow {padding:0 10px; color:#777; }
+.box_map2 {width:100%; height:100%; padding-top:30px; margin-top:-30px;}
+.box_map2 #map {width:100%; height:100%; }
+
+.markerBt {padding:5px 10px; margin:10px 10px 0 0; border-radius:3px; border:1px solid #ddd; background:#EB4132; 
+	cursor:pointer; color:white; font-weight:bold; }
+.markerBtOn {background:#18AFA3; }
+
+/* 모바일 */
+@media (max-width:1200px) {
+	.box_map {padding:45px 0 0 0; }
+}
+
+/* qr코드 팝업 */
+#iframe_qrCamera {width:100%; height:100%; position:fixed; left:0; top:0; z-index:9000; display:none; 
+	background:black; border:none; }

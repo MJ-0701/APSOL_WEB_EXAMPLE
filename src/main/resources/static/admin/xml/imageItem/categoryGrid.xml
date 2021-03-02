@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="name" width='*' align='center' type='ro' sort='na'>분 류</column>
+		<beforeInit>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

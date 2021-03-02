@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="100" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" label="거래처" name="customer" inputWidth="180" />
+	<item type="hidden" label="회원번호" name="mPk" inputWidth="180" />
+	<item type="hidden" label="수납구분" name="memberKind"
+		inputWidth="180" />
+
+	<item type="hidden" label="휴대전화" name="memberCellular"
+		inputWidth="120" />
+	<item type="hidden" label="일반전화" name="memberContact"
+		inputWidth="120" />
+	<item type="hidden" label="휴대전화" name="contact" inputWidth="120" />
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="관리코드" name="hostCode"
+						inputWidth="120" required="true" readonly='true'
+						className="form_readonly" labelWidth="100" />
+					<item type="newcolumn" />
+					<item type="select" label="구분" name="remarks" inputWidth="120"
+						labelWidth="100">
+						<option value="고정금액출금" text="고정금액출금" />
+						<option value="매달건수" text="매달건수" />
+						<option value="매달건수확정" text="매달건수(확정)" />
+						<option value="미쓰김" text="미쓰김" />
+					</item>
+					<item type="newcolumn" />
+					<item type="select" value="" label="청구일" name="chargeDate"
+						inputWidth="120" labelWidth="100" connector="cms/selectChargeDate" />
+				</item>
+
+
+				<item type="block" blockOffset="0">
+					<item type="select" label="고유번호구분" name="identityKind"
+						inputWidth="120" labelWidth="100">
+						<option value="J" text="1.생년월일" />
+						<option value="B" text="2.사업자번호" />
+						<option value="E" text="3.기타" />
+					</item>
+					<item type="newcolumn" />
+					<item type="input" value="" label="고유번호" name="identity"
+						inputWidth="120" labelWidth="100" />
+					<item type="newcolumn" />
+					<item type="input" label="회원명" name="memberName"
+						inputWidth="120" labelWidth="100" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="block" blockOffset="0">
+						<item type="block" blockOffset="0">
+							<item type="input" value="" label="은 행" name="bankcode"
+								inputWidth="40" labelWidth="100" readonly="true"
+								className="form_readonly" />
+							<item type="newcolumn" />
+							<item type="input" value="" label="" name="bankName"
+								inputWidth="76" labelWidth="70" />
+								<item type="newcolumn" />
+								<item type="input" value="" label="예금주" name="name"
+								inputWidth="120" labelWidth="100" />
+						</item>
+						<item type="block" blockOffset="0">
+							
+							<item type="input" value="" label="계좌 번호" name="account"
+								inputWidth="570" labelWidth="100" />
+							
+						</item>
+					</item>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="block" blockOffset="0">
+						<item type="select" value="" label="청구항목" name="itemPK"
+							connector="cms/select" inputWidth="120" labelWidth="100" />
+						<item type="newcolumn" />
+						<item type="select" value="" label="세금계산서" name="taxType"
+							connector="cms/taxType" inputWidth="120" labelWidth="100" />
+							<item type="newcolumn" />
+						<item type="input" value="" label="미납금" name="remain"
+							inputWidth="120" labelWidth="100" />
+					</item>
+				</item>
+				<item type="block" blockOffset="0" label="자동청구정보">
+					<item type="block" blockOffset="0">
+
+						<item type="calendar" value="" label="청구시작월"
+							name="startMonth" labelWidth="100" inputWidth="120" />
+						<item type="newcolumn" />
+						<item type="calendar" value="" label="청구종료월" name="endMonth"
+							inputWidth="120" labelWidth="100" />
+
+
+					</item>
+					<item type="block" blockOffset="0">
+						<item type="input" value="" label="청구주기(월)" name="chargeTerm"
+							inputWidth="120" labelWidth="100" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="청구금액" name="amount"
+							inputWidth="120" labelWidth="100" />
+					</item>
+				</item>
+
+
+			</item>
+		</item>
+	</item>
+</items>
+

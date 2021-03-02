@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+
+		<column id="name" width='220' align='left' type='ro' sort='server'>쿠폰명
+		</column>
+		<column id="discountKind" width='80' align='center' type='ro'
+			sort='server'>할인구분</column>
+		<column id="discountRate" width='80' align='center' type='ro'
+			sort='server'>할인율</column>
+		<column id="discountAmount" width='80' align='center' type='ron' format="0,000"
+			sort='server'>할인금액</column>
+
+		<!-- <column id="kindName" width='120' align='center' type='ro'
+			sort='server'>구 분
+		</column> -->
+
+		<column id="typeName" width='120' align='center' type='ro'
+			sort='server'>기 준
+		</column>
+
+		<column id="qty" width='70' align='center'  type='ron' format="0,000" sort='int'>발급수량
+		</column>
+		
+		<column id="sendQty" width='70' align='center'  type='ron' format="0,000" sort='int'>지급수량
+		</column>
+		
+		<column id="remainQty" width='70' align='center'  type='ron' format="0,000" sort='int'>잔여수량
+		</column>
+		
+		<column id="usedQty" width='70' align='center'  type='ron' format="0,000" sort='int'>사용수량
+		</column>
+
+		<column id="startDate" width='120' align='center' type='ro'
+			sort='server'>
+			시작날짜
+		</column>
+
+		<column id="endDate" width='120' align='center' type='ro' sort='server'>
+			종료날짜
+		</column>
+
+		<column id="minAmount" width='120' align='center'  type='ron' format="0,000"
+			sort='server'>최소주문금액
+		</column>
+
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#select_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

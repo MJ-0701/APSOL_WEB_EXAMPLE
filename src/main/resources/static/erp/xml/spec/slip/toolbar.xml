@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<toolbar>
+
+	<item id="from" type="buttonInput" text="시작일"/>
+	<item id="to" type="buttonInput" text="종료일"/>
+	<item id="btnSearch" type="buttonSelect" text="검 색">
+		<item type="button" id="today" text="오늘" />
+		<item type="button" id="thisMonth" text="이번 달" />
+		<item type="button" id="lastMonth" text="지난 달"/>
+		<item type="button" id="thisYear" text="올해"/>
+		<item type="button" id="lastYear" text="작년"/>
+		<item type="button" id="last7d" text="지난 7일간"/>
+		<item type="button" id="last30d" text="지난 30일간"/>
+		<item type="button" id="last365d" text="지난 365일간"/>
+	</item>
+	<item  type="separator"/>
+	<item id="btnDelete" type="button" text="삭 제"  img="close.gif"  imgdis="close_dis.gif"/>
+	<item  type="separator"/>
+	<item type="buttonSelect" text="엑셀 변환" renderSelect="false" openAll="true" img="icon_grid.gif"  imgdis="icon_grid_dis.gif">
+		<!-- <item id="btnExcelR" type="button" text="청구서" /> -->
+		<item id="btnExcelA" type="button" text="A형(1장)" />
+		<item id="btnExcelB" type="button" text="B형(2장)" />
+		
+	</item>
+	<item type="buttonSelect" text="프린트 출력" renderSelect="false" openAll="true" img="print.gif"  imgdis="print_dis.gif">
+		<!-- <item id="btnPrintR" type="button" text="청구서" /> -->
+		<item id="btnPrintA" type="button" text="A형(1장)" />
+		<item id="btnPrintB" type="button" text="B형(2장)" />
+	</item>
+	<item type="buttonSelect" text="PDF" renderSelect="false" openAll="true" img="paste.gif"  imgdis="paste_dis.gif">
+		<!-- <item id="btnPDFR" type="button" text="청구서" /> -->
+		<item id="btnPDFA" type="button" text="A형(1장)" />
+		<item id="btnPDFB" type="button" text="B형(2장)" />
+		<!-- <item id="btnPDFEmailR" type="button" text="이메일 청구서 전송" />
+		<item id="btnPDFEmailA" type="button" text="이메일 A형(1장) 전송" />
+		<item id="btnPDFEmailB" type="button" text="이메일 B형(2장) 전송" />		 -->
+	</item>
+	<!--  <item id="btnExcel" type="button" text="엑셀 출력" img="save.gif"  imgdis="save_dis.gif"/>  -->
+
+	<!-- <item id="btnEmail" type="button" text="이메일 전송" img="save.gif"  imgdis="save_dis.gif"/> -->
+</toolbar>

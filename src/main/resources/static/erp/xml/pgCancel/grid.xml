@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<rows>
+	<head>				
+		<column id="no" width='50' align='center' type='ro' sort='str' color=''>순번</column>  
+		
+		<column id="customerName" width='100' align='center' type='ro' sort='na' color=''>가맹점명</column>
+		<column id="businessNumber" width='80' align='center' type='ro' sort='na' color=''>사업자번호</column>
+		
+		<column id="issueCompanyName" width='50' align='center' type='ro' sort='str' color=''>카드사</column>
+		<column id="pinNumber" width='130' align='center' type='ro' sort='str' color=''>카드 번호</column>
+		<column id="quota" width='75' align='center' type='ro' sort='str' color=''>할 부</column>
+				
+		<column id="paymentState" width='65' align='center' type='combo' sort='server' editable="false"  xmlcontent="1">
+			상 태
+			<option value="PG0004">취소요청</option>
+			<option value="PG0005">취소확정</option>
+			<option value="PG0006">취소성공</option>
+		</column>
+		
+		<column id="admissionDate" width='125' align='center' type='ro' sort='str' color=''>승 인</column>		
+		<column id="authAmount" width='70' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>  
+		<column id="transactionId" width="120" align='center' type='ro' sort='na' color=''>#cspan</column>
+		
+		<column id="orderDate" width='125' align='center' type='ro' sort='str' color=''>취소 요청</column>	
+		<column id="billAmount" width='70' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+		
+		
+		<column id="depositState" width='65' align='center' type='combo' sort='server' editable="false"  xmlcontent="1">
+			PG사 입금
+			<option value="DS0001">입금대기</option>
+			<option value="DS0002">입금확인</option>
+			
+		</column>
+		<column id="name" width='100' align='center' type='ro' sort='str' color=''>#cspan</column>  
+		<column id="cancelDepositDate" width='125' align='center' type='ro' sort='str' color='' >#cspan</column>  
+	 		
+ 		<column id="orderDate2" width='125' align='center' type='ro' sort='str' color=''>PG사 환불</column>		
+		<column id="authAmount2" width='70' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>  
+	 				
+		<column id="resMessage" width='80' align='center' type='ro' sort='str' color=''>결 과</column>
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,승인 일시,승인 금액,거래번호,요청 일시,요청 금액,입금 상태,입금자명,입금일자,환불 일시,환불 금액,#rspan</param>
+			</call>
+			 <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,(0.99% 부가세 포함),#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call> 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

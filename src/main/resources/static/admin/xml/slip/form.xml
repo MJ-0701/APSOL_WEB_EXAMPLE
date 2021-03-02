@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="hidden" value="" label="" name="company" />
+	<item type="hidden" value="" label="" name="account" />
+
+	
+	<item type="block" blockOffset="0">
+		<item type="select" label="구 분" name="kind" inputWidth="140">
+			<option value="DEPOSIT" text="입 금" />
+			<option value="WITHDRAW" text="출 금" />
+		</item>
+		<item type="newcolumn" />
+		<item type="calendar" value="" label="일 자" name="date"
+			inputWidth="140" />
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="거래처명" name="customerName"
+			inputWidth="140" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="사업자번호" name="businessNumber"
+			readonly='true' inputWidth="140" />
+	</item>
+	
+	<item type="block" blockOffset="0">
+        <item type="input" value="" label="계정" name="accountName"
+            inputWidth="140" />        
+    </item>
+
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="금 액" name="amount"
+			inputWidth="140" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="세 액" name="tax"
+			inputWidth="140" />
+	</item>
+	
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="메 모" name="memo" inputWidth="363" />
+	</item>
+
+    <item type="block" blockOffset="0">
+        <item type="input" value="" label="적 요" name="remarks" inputWidth="363" />
+    </item>
+
+
+</items>
+

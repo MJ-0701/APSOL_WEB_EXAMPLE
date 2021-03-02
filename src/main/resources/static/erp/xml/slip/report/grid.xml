@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='20' align='left' type='ro' sort='na' color=''></column> 
+		<column id="date" width='100' align='center' type='ro' sort='str' color=''>일 자</column> 
+		<column id="kindName" width='50' align='center' type='ro' sort='str' color=''>구 분</column> 
+		
+		<column id="accountName" width='70' align='center' type='ro' sort='str' color=''>계 정</column> 	
+		
+		<column id="remarks" width='220' align='left' type='ro' sort='str' color=''>업무 내용</column>
+		<column id="amount" width='80' align='right' type='ron' sort='int' color='' format="0,000">금 액</column>
+		<column id="tax" width='70' align='right' type='ron' sort='int' color='' format="0,000">세 액</column>
+		<column id="total" width='80' align='right' type='ron' sort='int' color='' format="0,000">합 계</column>
+		
+		<column id="managerName" width='80' align='center' type='ro' sort='str' color=''>작성자</column>
+		
+		<column id="bookName" width='65' align='center' type='ro' sort='str' color=''>결제수단</column>
+				
+		<!-- <column id="bookName" width='65' align='center' type='combo' sort='server' editable="false" xmlcontent="1" >
+			결제수단
+			<option value="000"> * </option>			
+			<option value="101">현금</option>			
+			<option value="202">신용카드</option>
+			<option value="102">예금</option>
+			<option value="1026">예금(법인)</option>
+			<option value="1027">예금(개인)</option>
+			<option value="1021">CMS</option>
+			<option value="1022">자동이체</option>
+			<option value="1023">차감</option>
+			<option value="1024">지로</option>
+			<option value="1011">수금</option>
+			<option value="117">미수금</option>
+			<option value="119">합산청구</option>
+		</column> -->	
+				
+		<!-- <column id="docKind" width='80' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			계산서
+			<option value="IV0000">없음</option>
+			<option value="IV0004">발행 예정</option>
+			<option value="IV0003">영수증</option>
+			<option value="IV0006">지로 영수증</option>
+			<option value="IV0005">지출 후 계산서</option>
+			<option value="IV0001">발행 완료</option>
+			<option value="IV0007">현금 영수증</option>
+		</column> -->
+		
+		<column id="docKindName" width='100' align='center' type='ro' sort='str' color=''>계산서</column>
+		<column id="docKindTime" width='120' align='center' type='ro' sort='na' color=''>계산서발행일시</column>
+		
+		<column id="memo" width='250' align='left' type='ro' sort='str' color=''>비 고</column>
+				
+		<column id="uuid" width='100' align='left' type='ro' sort='str' color=''>전표 번호</column>
+				
+		<beforeInit>
+			<!-- <call command="attachHeader">
+				<param>년,월,일,#rspan,#rspan,상 호,등록번호,#rspan,금 액,세 액,합 계,#rspan,#rspan,코드,장부명,#rspan,#rspan,#rspan</param>
+			</call> -->
+			<!-- <call command="attachHeader">
+				<param>,,,,#select_filter,#select_filter,,,,,#text_filter,#text_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,#select_filter,#select_filter,,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call> -->
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

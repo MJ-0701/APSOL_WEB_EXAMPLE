@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		
+		<column id="year" width='45' align='center' type='ed' sort='str' color=''>생산 일자</column>
+		<column id="month" width='30' align='center' type='ed' sort='str' color=''>#cspan</column>
+		<column id="day" width='30' align='center' type='ed' sort='str' color=''>#cspan</column>
+		
+		<column id="item" width='50' align='center' type='ro' sort='str' color=''>생산 품목</column>
+		<column id="name" width='110' align='left' type='ed' sort='str' color=''>#cspan</column>
+		<column id="standard" width='100' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="unitName" width='60' align='left' type='ro' sort='str' color=''>#cspan</column>		
+		<column id="customerName" width='90' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="slipUuid" width='130' align='left' type='ro' sort='str'>#cspan</column>
+		
+		<column id="typeName" width='70' align='left' type='ed' sort='str' color=''>공 정</column>		
+		
+		<column id="serialNumber" width='70' align='left' type='ed' sort='int' color=''>제조 번호</column>
+		<column id="qty" width='70' align='right' type='edn' sort='int' color=''>생산량</column>
+		<column id="warehouseName" width='100' align='left' type='ed' sort='na' color=''>입고창고</column>
+		<column id="memo" width='200' align='left' type='ed'	 sort='na' color=''>비 고</column>
+		<beforeInit>
+			<call command="attachHeader">
+				<param>년,월,일,코 드,품목명,파트넘버,단 위,생산처,전표번호,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>,,,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			
+
+		</afterInit>
+	</head>
+
+</rows>

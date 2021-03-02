@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="replyCount" width='20' align='left' type='tree' sort='str' color=''></column> 
+		
+		<column id="state" width='50' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			결 재			
+			<option value="CM0001">대 기</option>
+			<option value="CM0002">결 재</option>
+		</column>
+		
+		<column id="year" width='40' align='right' type='ed' sort='int' color=''>년</column>
+		<column id="month" width='25' align='right' type='ed' sort='int' color=''>월</column>
+		<column id="day" width='25' align='right' type='ed' sort='int' color=''>일</column>
+		<column id="typeName" width='50' align='center' type='ro' sort='str' color=''>작성</column>
+		<column id="kind" width='50' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			구분
+			<option value="S10004">입금</option>
+			<option value="S10003">출금</option>
+		</column>
+		<column id="profitState" width='65' align='center' type='combo' sort='server' editable="false"  xmlcontent="1">
+			손익/세금
+			<option value="CM0001">미확정</option>
+			<option value="CM0002">확 정</option>
+		</column>
+		
+		<column id="profitKind" width='65' align='center' type='combo' sort='server' editable="false"  source="profitCustomer/profitKind">
+			손익 구분
+		</column>		
+		
+		<column id="account" width='50' align='center' type='combo' sort='str' color='' editable="false"  source="bascode/combo/AN?empty=true" >계정</column>
+		<column id="customerName" width='90' align='left' type='ed' sort='str' color=''>가맹점</column>
+		<column id="customerBusinessNumber" width='80' align='center' type='ro' sort='str' color=''>사업자번호</column>	
+		
+		<column id="remarks" width='220' align='left' type='ed' sort='str' color=''>업무 내용</column>
+		<column id="amount" width='80' align='right' type='edn' sort='int' color='' format="0,000">금 액</column>
+		<column id="tax" width='70' align='right' type='edn' sort='int' color='' format="0,000">세 액</column>
+		<column id="total" width='80' align='right' type='edn' sort='int' color='' format="0,000">합 계</column>
+		
+		<column id="managerName" width='80' align='center' type='ro' sort='int' color=''>작성자</column>
+				
+		<column id="book" width='65' align='center' type='combo' sort='server' editable="false" xmlcontent="1" >
+			결제수단
+			<option value="000"> * </option>			
+			<option value="101">현금</option>			
+			<option value="202">신용카드</option>
+			<option value="102">예금</option>
+			<option value="1026">예금(법인)</option>
+			<option value="1027">예금(개인)</option>
+			<option value="1021">CMS</option>
+			<option value="1022">자동이체</option>
+			<option value="1023">차감</option>
+			<option value="1024">지로</option>
+			<option value="1011">수금</option>
+			<option value="117">미수금</option>
+			<option value="119">합산청구</option>
+		</column>	
+				
+		<column id="docKind" width='80' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			계산서
+			<option value="IV0000">없음</option>
+			<option value="IV0004">발행 예정</option>
+			<option value="IV0003">영수증</option>
+			<option value="IV0006">지로 영수증</option>
+			<option value="IV0005">지출 후 계산서</option>
+			<option value="IV0001">발행 완료</option>
+			<option value="IV0007">현금 영수증</option>
+		</column>
+		<column id="docKindTime" width='80' align='center' type='ro' sort='na' color=''>계산서발행일시</column>
+		
+		<column id="memo" width='250' align='left' type='ed' sort='str' color=''>비 고</column>
+		
+		
+		
+		
+		
+		<column id="bank" width='65' align='center' type='combo' sort='str' editable="false"  source="bascode/combo/BK?empty=true">
+			은행
+		</column>		
+		<column id="accountNumber" width='120' align='left' type='ed' sort='str' color=''>계좌번호</column>
+		<column id="accountOwner" width='100' align='left' type='ed' sort='str' color=''>예금주</column>
+		
+		
+		<column id="approvalerName" width='80' align='center' type='ro' sort='int' color=''>결재자</column>
+		<column id="approvalTime" width='100' align='center' type='ro' sort='int' color=''>결재 시간</column>
+		
+		<column id="uuid" width='100' align='left' type='ro' sort='str' color=''>전표 번호</column>
+		
+		<column id="privated" width='100' align='center' type='ch' sort='str' color=''>보 안</column>
+		
+		
+		
+		<beforeInit>
+			<!-- <call command="attachHeader">
+				<param>년,월,일,#rspan,#rspan,상 호,등록번호,#rspan,금 액,세 액,합 계,#rspan,#rspan,코드,장부명,#rspan,#rspan,#rspan</param>
+			</call> -->
+			<call command="attachHeader">
+				<param>,#select_filter,,,,#select_filter,#select_filter,#select_filter,#select_filter,#select_filter,#text_filter,#text_filter,#text_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,#select_filter,#select_filter,,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,</param>
+			</call>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+				<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

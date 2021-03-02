@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<toolbar>
+	
+	<item id="from" type="buttonInput" text="시작일"/>
+	<item id="to" type="buttonInput" text="종료일"/>
+	<item id="btnSearch" type="buttonSelect" text="검 색">
+		<item type="button" id="today" text="오늘" />
+		<item type="button" id="thisMonth" text="이번 달" />
+		<item type="button" id="lastMonth" text="지난 달"/>
+		<item type="button" id="last7d" text="지난 7일간"/>
+		<item type="button" id="last30d" text="지난 30일간"/>
+	</item>
+	<item  type="separator"/>
+	
+	<item id="btnCalendar" type="button" text="달 력" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" />
+		<item type="separator" />
+	<item id="btnReply" type="button" text="댓 글" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" />
+	<item id="btnSend" type="button" text="업무 연락" img="message.gif"
+		imgdis="message.gif" />
+		
+	<item id="btnConfirm" type="button" text="일괄 결제"   />
+</toolbar>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<toolbar>
+
+	<item id="from" type="buttonInput" text="시작일" />
+	<item id="to" type="buttonInput" text="종료일" />
+	<item id="btnDetail" type="buttonTwoState" text="상호,사업자,대표자명" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" />
+
+	<item id="btnSearch" type="buttonSelect" text="검 색">
+		<item type="button" id="lastday" text="전일" />
+		<item type="button" id="last30d" text="1개월" />
+		<item type="button" id="last90d" text="3개월" />
+		<item type="button" id="last180d" text="6개월" />
+		<item type="button" id="lastYear" text="전년" />
+	</item>
+	<item type="separator" />
+
+
+	<item type="separator" />
+	<item id="btnFax" type="button" text="FAX발송" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" />
+	<item id="btnEmail" type="button" text="이메일전송" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" />
+</toolbar>

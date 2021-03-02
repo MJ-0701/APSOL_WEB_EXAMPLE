@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드" name="code"
+		inputWidth="120" labelWidth="70" />  
+
+	<item type="block" blockOffset="0">
+		 
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="품목명" name="name" inputWidth="140" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="규 격" name="standard" inputWidth="140" />
+		</item>
+		<item type="block" blockOffset="0">
+			<!-- <item type="select" label="상 태" name="state" connector="bascode/select/PS" inputWidth="140" /> -->
+			<!-- connector="bascode/combo/PK" -->
+			<item type="select" label="분 류" name="category" inputWidth="140"  connector="product/select/category"/>
+			<item type="newcolumn" />
+			<item type="select" label=" 상 태" name="used" inputWidth="140">
+				<option value="1" text="사용" />
+				<option value="0" text="중지" />
+			</item>			
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="금 액" name="unitPrice"				className="amount" inputWidth="140" />			
+		</item>
+	</item>
+</items>
+

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="date" width='140' align='center' type='ro' sort='server' color=''>일 시</column>
+		<column id="prevQty" width='140' align='right' type='ron' sort='server' color=''>이전 재고</column>
+		<column id="qty" width='140' align='right' type='ron' sort='server' color=''>수정 재고</column>
+		<column id="managerName" width='80' align='center' type='ro' sort='server' color=''>담당자</column>		
+		<column id="memo" width='250' align='left' type='ed' sort='na' color=''>비 고</column>
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

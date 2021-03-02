@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>No
+		</column>
+		
+		<column id="kind" width='80' align='center' type='ro'
+			sort='server'>구분</column>
+			
+			<column id="popup" width='80' align='center' type='ro'
+			sort='server'>보이기</column>
+
+		<column id="title" width='350' align='left' type='ro'
+			sort='server'>제 목</column>
+			
+			<column id="fromDate" width='100' align='center' type='ro'
+			sort='server'>시작일</column>
+			
+			<column id="toDate" width='100' align='center' type='ro'
+			sort='server'>종료일</column>
+
+
+		<column id="writerName" width='100' align='center' type='ro'
+			sort='server'>작성자</column>
+
+		<column id="writtenTime" width='100' align='center' type='ro'
+			sort='server'>작성일시</column>
+
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

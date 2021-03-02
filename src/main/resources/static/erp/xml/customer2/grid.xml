@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>번호
+		</column>
+		<column id="businessNumber" width='100' align='left' type='ro'
+			sort='server'>사업자번호
+		</column>
+		<column id="name" width='130' align='left' type='ro' sort='server'>가맹점명
+		</column>
+		<column id="centerCode" width='80' align='left' type='ro' sort='server'>센터 코드
+		</column>
+		<column id="staffCnt" width='80' align='right' type='ron' sort='na'>전화번호 수량
+		</column>
+		<column id="phoneNumbers" width='80' align='left' type='ro' sort='na'>전화번호
+		</column>
+		<column id="terminalCnt" width='80' align='right' type='ron' sort='na'>단말기 수량
+		</column>
+		<column id="terminalNumbers" width='80' align='left' type='ro' sort='na'>단말기
+		</column>
+		<column id="modifiedDate" width='90' align='center' type='ro'
+			sort='server'>
+			변경일자
+		</column>
+		<column id="stateName" width='70' align='center' type='ro'
+			sort='server'>상 태
+		</column>
+		<column id="kindName" width='70' align='center' type='ro' sort='server'>
+			신규 구분
+		</column>
+		<column id="customerKindName" width='70' align='center' type='ro' sort='server'>
+			구 분
+		</column> 
+
+		<column id="activatedName" width='70' align='center' type='ro'
+			sort='server'>활성화
+		</column>
+
+		<column id="address" width='150' align='left' type='ro' sort='na'>주
+			소
+		</column>  
+		<column id="managerName" width='100' align='left' type='ro'
+			sort='server'>담당자
+		</column>
+		
+		<column id="officeName" width='100' align='left' type='ro'
+			sort='server'>관리업체
+		</column>
+
+		<column id="memo" width='300' align='left' type='ro' sort='na'>비 고
+		</column>
+		<column id="code" width='40' align='center' type='ro' sort='na'>코 드
+		</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#select_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,#text_filter,#text_filter,,
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

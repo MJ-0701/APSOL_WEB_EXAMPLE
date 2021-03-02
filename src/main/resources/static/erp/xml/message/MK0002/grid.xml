@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='left' type='ro' sort='str'>
+			순번
+		</column>
+		<column id="state" width='60' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			확 인
+			<option value="MP0001">신규</option>
+			<option value="MP0002">진행중</option>
+			<option value="MP0003">완료</option>
+			<option value="MP0004">대기</option>
+		</column>
+		<column id="senderName" width='80' align='left' type='ro' sort='str'>
+			발신자
+		</column>			
+		<column id="content" width='380' align='left' type='ro' sort='str'>내 용 </column> 
+		<column id="sendTime" width='140' align='center' type='ro' sort='str'>수신 일시</column>
+		<column id="customerName" width='120' align='left' type='ro' sort='str'>이 름</column>
+		<column id="customerInfo" width='100' align='left' type='ro' sort='str'>정 보</column>
+		<beforeInit>
+		
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+			
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

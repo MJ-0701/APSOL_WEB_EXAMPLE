@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="name" width='130' align='left' type='ro' sort='str'>아이디
+		</column>
+		<column id="users" width='80' align='right' type='ron' sort='int'>접속횟수
+		</column>
+		<column id="activatedUsers" width='110' align='center' type='ro' sort='str'>최종 접속일자
+		</column>
+		<column id="registeredDate" width='100' align='center' type='ro' sort='str'>최종 접속 IP
+		</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<!-- <afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit> -->
+
+	</head>
+</rows>

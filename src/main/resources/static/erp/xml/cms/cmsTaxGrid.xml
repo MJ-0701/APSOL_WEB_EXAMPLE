@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='left' type='ro' sort='na'
+			color=''>순번</column>
+		<column id="accountState" width='60' align='left' type='ro'
+			sort='str' color=''>회원상태</column>
+		<column id="businessNumber" width='80' align='left' type='ro'
+			sort='str' color=''>사업자번호</column>
+		<column id="customerName" width='120' align='left' type='ro'
+			sort='str' color=''>상 호</column>
+		<column id="taxTypeName" width='120' align='left' type='ro'
+			sort='str' color=''>계산서 구분</column>
+		<column id="remain" width='80' align='left' type='ron' sort='server'>미납금
+		</column>
+		<column id="remarks" width='100' align='left' type='ro' sort='server'>
+			비고
+		</column>
+		<column id="message" width='430' align='left' type='ro' sort='server'>
+			계약내용
+		</column>
+		<beforeInit>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+			<call command="attachHeader">
+				<param>,#select_filter,#text_filter,#text_filter,,#text_filter,
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<!-- <param>50</param> -->
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

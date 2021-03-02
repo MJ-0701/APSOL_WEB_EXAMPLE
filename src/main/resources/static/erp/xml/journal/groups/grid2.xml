@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+			
+		<column id="groupName" width='100' align='left' type='ro' sort='str' color=''>그룹명</column>
+		<column id="stateName" width='100' align='left' type='ro' sort='str' color=''>상 태</column>
+		<column id="content" width='*' align='left' type='ro' sort='str' color=''>내 용</column>	
+		<beforeInit>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+	</head>
+
+</rows>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnRefresh" type="button" text="새로고침" img="redo.gif"
+		imgdis="redo_dis.gif">
+		<userdata name="kind">search</userdata>
+	</item>
+	<item id="btnApproval" type="button" text="결 재">
+		<userdata name="kind">insert</userdata>
+	</item>
+	<item id="btnRef" type="button" text="참 조">
+	</item>
+</toolbar>

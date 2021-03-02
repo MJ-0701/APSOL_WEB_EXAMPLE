@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<toolbar>
+	
+	<item id="btnAdmission" type="button" text="결재(찬성)">
+	
+	</item>
+	<item id="btnDeny" type="button" text="반려(반대)">
+	</item>
+	<item id="btnCancel" type="button" text="결재 취소" img="close.gif"  imgdis="close_dis.gif">
+	</item>
+	
+</toolbar>

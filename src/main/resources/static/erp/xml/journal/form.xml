@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" name="work" />
+	<item type="hidden" name="item" />
+	<item type="hidden" name="customer" />
+	<item type="hidden" name="workEmployee" />
+	
+	<item type="hidden" name="lat" />	
+	<item type="hidden" name="lng" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="select" label="업무 구분" name="kind" inputWidth="153" position="">
+					<option value="JK0002" text="방문계획  &amp; 예정사항" />
+					<option value="JK0005" text="계약(신규,명변,기변)" />
+					<option value="JK0003" text="가맹점 방문" />
+					<!-- <option value="JK0001" text="상 담" /> -->
+					<option value="JK0004" text="가맹점 출고" />
+					<option value="JK0006" text="입금/출금" />
+					<option value="JK0007" text="폐업/타사교체" />
+					<option value="JK0008" text="요청 사항" />
+				</item>
+				<item type="newcolumn" />
+				<item type="calendar" value="" label="일 자" name="date" />
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="320" offsetTop="0">
+					<item type="select" label="시" name="planHour" inputWidth="60" position="label-right"
+						labelWidth="10">
+						<option value="" text="-" />
+						<option value="00" text="0" />
+						<option value="01" text="1" />
+						<option value="02" text="2" />
+						<option value="03" text="3" />
+						<option value="04" text="4" />
+						<option value="05" text="5" />
+						<option value="06" text="6" />
+						<option value="07" text="7" />
+						<option value="08" text="8" />
+						<option value="09" text="9" />
+						<option value="10" text="10" />
+						<option value="11" text="11" />
+						<option value="12" text="12" />
+						<option value="13" text="13" />
+						<option value="14" text="14" />
+						<option value="15" text="15" />
+						<option value="16" text="16" />
+						<option value="17" text="17" />
+						<option value="18" text="18" />
+						<option value="19" text="19" />
+						<option value="20" text="20" />
+						<option value="21" text="21" />
+						<option value="22" text="22" />
+						<option value="23" text="23" />
+					</item>
+					<item type="newcolumn" />
+					<item type="select" label="분" name="planMin" inputWidth="60" position="label-right" offsetLeft="10"
+						labelWidth="10">
+						<option value="" text="-" />
+						<option value="00" text="00" />
+						<option value="15" text="15" />
+						<option value="30" text="30" />
+						<option value="45" text="45" />
+						
+					</item>
+				</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="calendar" value="" label="예정 일자" name="workDate" />
+				
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="input" value="" label="가맹점" name="customerName" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="사업자 번호" name="customerBusinessNumber" />
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="button" value="인근 가맹점 검색" name="btnCustomerLocation" required="true" offsetLeft="83"/>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="select" label="계약 구분" name="contractKind"
+					inputWidth="153" connector="bascode/select/TK?empty=true">
+				</item>
+				<item type="select" label="방문 구분" name="visitKind" inputWidth="153"
+					connector="bascode/select/VK?empty=true">
+				</item>
+				<item type="select" label="출고 구분" name="factoryKind" inputWidth="153">
+					<option value="S10004" text="출고" />
+					<option value="S10006" text="반품" />
+				</item>
+				<item type="select" label="구분" name="slipKind" inputWidth="153">
+				
+					<option value="S10004" text="입금" />
+						<option value="S10003" text="출금" />
+				</item>
+				<item type="select" label="계정 구분" name="account" inputWidth="153"
+					connector="bascode/select/AN?empty=true">
+				</item>		
+				<item type="select" label="폐업/타사 구분" name="closeKind" inputWidth="153"
+					connector="bascode/select/LK?empty=true">
+				</item>		
+					
+				<item type="newcolumn" />
+				<item type="select" label="계산서 발행" name="taxInvoice" inputWidth="153">					
+					<option value="IV0000" text="없음" />						
+					<option value="IV0004" text="발행 예정" />		
+					<option value="IV0003" text="영수증" />	
+					<option value="IV0006" text="지로 영수증" />	
+					<option value="IV0005" text="지출 후 계산서" />					
+					<option value="IV0001" text="발행 완료" />
+					<option value="IV0007" text="현금 영수증" />
+				</item>	
+				<item type="select" label="작업 상태" name="workState" inputWidth="153">
+					<option value="" text="" />
+					<option value="WS0002" text="진행중" />
+					<option value="WS0003" text="완료" />
+					<option value="WS0001" text="대기" />
+				</item>
+				<item type="select" label="반품 구분" name="extraKind" inputWidth="153"
+					connector="bascode/select/TR?empty=true">
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="input" value="" label="금액" name="amount" />
+				<item type="newcolumn" />
+				<item type="select" label="결제 장부" name="book" inputWidth="153">
+					<option value="102" text="예금" />
+					<option value="101" text="현금" />
+					<option value="202" text="신용카드" />
+					<option value="1021" text="CMS" />		
+					<option value="1022" text="자동이체" />	
+					<option value="1024" text="지 로" />	
+					<option value="1025" text="현금 영수증" />	
+					<option value="119" text="합산청구"  />					
+				</item>
+			</item>
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="결재자" name="receivers"
+					required="true" inputWidth="113" readonly="true" className="form_readonly" />
+				<item type="newcolumn" />
+				<item type="button" value="..." name="btnReceiver" required="true"
+					width="40" />
+			</item>
+
+			<!-- <item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="editor" label="비 고" name="content" inputWidth="390"
+					inputHeight="250" rows="8" value="" />
+			</item> -->
+		</item>
+	</item>
+
+</items>
+

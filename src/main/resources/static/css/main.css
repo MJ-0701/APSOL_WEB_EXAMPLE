@@ -1,0 +1,398 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;    
+}
+
+.icon-plus:hover{
+	cursor: pointer;
+}
+
+.kdl-main-banner-logo-wrapper {
+    text-align: left;
+    padding-bottom: 2.125rem;
+}
+
+.kdl-main-title-wrapper {
+    padding-bottom: 3.813rem;
+}
+
+.kdl-main-title {
+    text-align: left;
+    font-size: 2.75rem !important;
+    font-weight: 100;
+}
+
+.kdl-button-primary, .kdl-button-primary:hover {
+    background-color: #009c7f;
+    color: white;
+    border-radius: 5rem;
+    padding: 1.188rem 5.188rem;
+    font-size: 1.438rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.kdl-navbar-button-list {
+    padding-left: 4.563rem;
+}
+
+.kdl-button-white {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.8125rem;
+    background-color: white;
+    font-size: 1.063rem;
+    color: #333333;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 1rem;
+    border: 1px solid #dddddd;    
+    cursor: pointer;
+}
+
+.navbar-collapse .dropdown-menu {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: inset 0px -1px 0 0 #dddddd;
+}
+
+.navbar-collapse .dropdown-menu > .dropdown-item {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #dddddd;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: #009c7f;
+  }
+
+@media(min-width: 992px) {
+    .navbar-brand {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-collapse .dropdown-menu {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: inset 0px -1px 0 0 #dddddd;
+
+    }
+
+    .navbar-collapse .dropdown-menu > .dropdown-item {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .navbar-collapse {
+        /* height: 3.625rem; */
+        height: 5rem;
+    }
+
+    .navbar-collapse ul, .navbar-collapse li, .navbar-collapse li a.nav-link {
+        height: 100%;
+    }
+
+    .navbar-collapse li a.nav-link {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .navbar-collapse li a.nav-link:hover {
+        border-bottom: 1px solid #009c7f;
+    }
+}
+
+@media(max-width: 991px) {
+	
+	.dropdown-menu{
+		display: block !important;
+	}
+	
+    .navbar-collapse .dropdown-menu {
+        border-left: none;
+        border-right: none;
+    }
+
+    .navbar-brand {
+        position: absolute;
+        top: 1rem;
+        left: 32.5%;
+        margin: 0;
+        padding: 0;
+    }  
+    .navbar-brand > .img-fluid {
+        height: 40px;
+    }  
+
+    .navbar-light .navbar-toggler {
+        border-color: transparent !important;
+    }
+
+    .masthead {
+        padding-top: 8rem !important;
+        background: url("../img/img-backmain-mo@3x.png") !important;
+        background-position: 58% 50% !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+    }
+
+    .kdl-main-title-wrapper, .kdl-main-banner-button-wrapper {
+        padding-left: 2.5rem !important;
+    }
+
+    .kdl-main-title {
+        font-size: 1.813rem !important;
+        margin: 0 !important;
+    }
+
+    .kdl-button-primary, .kdl-button-primary:hover {        
+        color: white;
+        border-radius: 5rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.438rem;
+        font-weight: bold;
+        box-shadow: inset 0px -4px 0 0 rgba(0, 0, 0, 0.08);
+        font-weight: 500;
+        font-size: 1.15rem !important;
+    }
+}
+
+.bg-sky {
+    background-color: #69c7e3;
+}
+
+.bg-primary {
+    background-color: #009c7f !important;
+}
+
+.bg-orange {
+    background-color: #f6a100;
+}
+
+.bg-light-green {
+    background-color: #b3dd17;
+}
+
+.bg-purple {
+    background-color: #5a2978;
+}
+
+
+
+/* Main Section 1 */
+.kdl-main-section-1 {
+    background-color: white;
+    padding-top: 3.688rem;
+    padding-bottom: 5rem;
+}
+
+.kdl-main-box-list {
+    padding-bottom: 4.5rem;
+}
+
+.kdl-main-box {
+    padding-top: 3.438rem;
+    /* padding-bottom: 3.125rem; */
+    padding-bottom: 2.125rem;
+    color: white;
+    font-size: 2.063rem;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+}
+
+.kdl-main-box-plus-icon {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.438rem;
+}
+
+.kdl-main-box-first-title {
+    padding-bottom: 2.313rem;
+}
+
+.kdl-main-box-second-title {
+    padding-bottom: 3.438rem;
+    font-weight: bold;
+}
+
+.kdl-main-box-third-title {
+    padding-bottom: 1.313rem;
+    font-weight: bold;
+}
+
+.kdl-main-box-third-sub-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    padding-bottom: 2.438rem;
+}
+
+.kdl-main-box-4th-title {
+    padding-bottom: 1.5rem;
+    font-weight: bold; 
+}
+
+.kdl-main-box-4th-sub-title {
+    font-size: 1.125rem;
+    padding-bottom: 3.625rem;
+}
+
+.kdl-main-box-5th-title {
+    padding-bottom: 1.5rem;
+    font-weight: bold; 
+}
+
+.kdl-main-box-5th-sub-title {
+    font-size: 1.125rem;
+    padding-bottom: 2.438rem;
+}
+
+.kdl-main-board-head {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #009c7f;
+}
+
+.kdl-main-board-body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.kdl-main-board-body > ul {
+    margin: 0;
+}
+
+.kdl-main-board-body > ul li {
+    font-weight: 300;
+}
+
+@media(min-width: 992px) {
+    .kdl-main-section-1 [class*="col-"]:nth-child(n+4) {
+        padding-top: 10px;
+    }
+}
+
+@media(max-width: 360px) {
+   	.kdl-main-box-4th-title,.kdl-main-box-third-title{
+   		font-size: 1.15rem !important;
+   	}
+}
+
+@media(max-width: 991px) {
+    .pl-03125 {
+        padding-left: 0.3125rem !important;
+    }
+
+    .kdl-main-section-1 {
+        padding-top: 1.688rem !important;
+        padding-bottom: 3.75rem !important;
+    }    
+
+    .kdl-main-box-list {
+        padding-bottom: 2.375rem;
+    }
+
+    .kdl-main-box-list [class*="col-"]:nth-last-child(n+3) {
+        padding-bottom: 0.3125rem;
+    }
+
+    .kdl-main-box {        
+        padding-top: 1.438rem;
+        padding-bottom: 1.25rem !important;
+        padding-left: 1.563rem !important;
+        padding-right: 1.563rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }    
+
+    .kdl-main-box-plus-icon {
+        top: 0.6875rem !important;
+        right: 0.6875rem !important;
+    }
+    
+    .kdl-main-box-plus-icon > .img-fluid {
+        width: 0.8125rem !important;
+        height: 0.875rem !important;
+        vertical-align: top;
+    }
+
+    .kdl-main-box-first-title {
+        font-size: 1.313rem !important;
+        padding-bottom: 1.438rem !important;
+    }
+    
+    .kdl-main-box-second-title {
+        padding-bottom: 2.25rem !important;
+        font-weight: bold;
+        font-size: 1.313rem !important;
+    }
+    
+    .kdl-main-box-third-title {
+        font-size: 1.313rem;
+        padding-bottom: 0.8125rem;
+        font-weight: bold;
+    }
+    
+    .kdl-main-box-third-sub-title {
+        font-size: 0.8125rem;
+        font-weight: 500;
+        padding-bottom: 0.5rem;
+    }
+    
+    .kdl-main-box-4th-title {
+        font-size: 1.313rem;
+        padding-bottom: 0.5rem;
+        font-weight: bold; 
+    }
+    
+    .kdl-main-box-4th-sub-title {
+        font-size: 0.8125rem;
+        padding-bottom: 0.9375rem;
+    }
+    
+    .kdl-main-box-5th-title {
+        font-size: 1.313rem;
+        padding-bottom: 0.6875rem;
+        font-weight: bold; 
+    }
+    
+    .kdl-main-box-5th-sub-title {
+        font-size: 0.8125rem;
+        padding-bottom: 0.625rem;
+    }
+}
+
+/* /* Footer */
+.kdl-footer {
+    padding-top: 1.875rem;
+    padding-bottom: 1.875rem;
+}
+
+.kdl-footer-logo-wrapper {
+    text-align: center;
+    padding-bottom: 1.188rem;
+}
+
+.kdl-footer-terms {
+    padding-bottom: 1.75rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.kdl-footer-contact {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: 0.75rem;
+}
+ */
+

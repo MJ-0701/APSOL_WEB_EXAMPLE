@@ -1,0 +1,158 @@
+
+    .box_request {width:100%; height:auto; }
+    .box_request2 {width:1200px; height:100%; padding:0 10px; margin:20px auto; }
+    .box_request .main_title {width:100%; height:60px; line-height:60px; border-bottom:2px solid #333; 
+    	font-size:21px; font-weight:bold; }
+    .box_request .main_title2 {height:35px; line-height:35px; margin-top:10px; font-weight:bold; font-size:17px; }
+
+    .rightContent {width:890px; float:right; position:relative; }
+    
+    /* 신청자정보 */    
+    .tb_info {width:100%; margin:20px 0; }
+    .tb_info table {width:100%; border-collapse:collapse; border-top:2px solid #777; border-bottom:2px solid #777; }
+    .tb_info table td {height:45px; line-height:25px; padding:3px 20px; }
+    .tb_info table tr {border-top:1px solid #ddd; border-bottom:1px solid #ddd; }
+    .tb_info table td:nth-child(1) {width:200px; background:#f5f5f5; font-weight:bold; }
+    .Lplace {width:200px; background:#f5f5f5; font-weight:bold;}
+    .Iplace {height:30px; border:1px solid #ddd;}
+    .tb_info table input {height:30px; border:1px solid #999; }
+    .tb_info table .snail {width:30px; float:left; text-align:center; }
+    .tb_info table .span_em {color:red; }
+    .tb_info table .bt_signup {width:80px; height:30px; line-height:30px; margin-left:7px; float:left; 
+    	border:1px solid #ddd; background:#616161; color:white; text-align:center; cursor:pointer; }
+    .tb_info table .bt_certi {width:120px; }
+    .tb_info table .signup_desc {clear:both; }
+
+    .tb_info table .input_wrap2 {width:350px; height:30px; float:left; }
+    .tb_info table .input_wrap2 input {width:350px; }
+    .tb_info .address2 {width:350px; }
+    .tb_info table .input_wrap3 {width:320px; height:30px; float:left; }
+    .tb_info table .input_wrap3 input {width:90px; text-align:center; }
+    
+	.tb_info table .dexhaust {width:150px; height:35px; border:1px solid #999; background:white; font-weight:bold; 
+		color:#666; }
+	.tb_info table .calendar {width:25px; height:25px; margin:0 0 3px -28px; cursor:pointer; vertical-align:middle; }
+    
+    .box_info .policy {width:100%; height:180px; margin-top:20px; border:1px solid #bbb; }
+    .box_info .policy .title {width:100%; height:30px; line-height:30px; padding:0 15px; background:#f5f5f5; 
+    	border-bottom:1px solid #ddd; font-weight:bold; color:#034273; }
+    .box_info .policy .content {width:100%; height:150px; line-height:20px; padding:10px; overflow-y:scroll; 
+    	word-wrap:break-word; }
+    .box_info .box_agree {width:100%; height:50px; text-align:right; margin-top: 10px;}
+    .box_info .box_agree input {vertical-align:middle; }
+    
+    .policy .content {
+	    overflow-x: hidden;
+	    overflow-y: auto;
+	    height: 250px;
+	    padding: 5px 10px 5px 10px;
+	    margin-bottom: 15px;
+	    line-height: 18px;
+	    background: #f7f7f7;
+	    border: 1px solid #dadada;
+	    font-size: 12px;
+	}
+    
+    .agreeBx table {
+    	border-right: 1px solid #ccc;
+    	border-top: 1px solid #ccc;
+    	width: 100%;
+	}
+    .agreeBx table th {
+	    background: #ddd;
+	    padding: 5px 0;
+	    border-left: 1px solid #ccc;
+	    border-bottom: 1px solid #ccc;
+	    text-align: center;
+	}
+	
+	.agreeBx table td {
+	    padding: 5px 0;
+	    border-bottom: 1px solid #ccc;
+	    border-left: 1px solid #ccc;
+	    text-align: center;
+	}
+    
+    #addr_hemd {
+    	border: 1px solid #999;
+    	height: 30px;
+    	width: 26.7%;
+    	font-family: 'Nanum Gothic';
+	    background: none;
+	    padding: 0 5px;
+
+    }
+    
+     #exhaust_time{
+    	border: 1px solid #999;
+	    height: 30px;
+	    width: auto;
+	    font-family: 'Nanum Gothic';
+	    background: none;
+	    padding: 0 5px;
+	    margin-left: 10px;
+    } 
+    
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .tb_info table td:nth-child(1) {width:80px; }
+      .tb_info table td {padding:3px 10px; }
+      .Lplace {display:none;}
+      .Iname {width:72%;}
+      .Iaddr {width:50%;}
+      .Iphone {width: 62%;}
+      .Idate{width: 40%;}
+      
+      .tb_info table .bt_certi {width:35%; margin:0px auto; }
+
+      .tb_info table .input_wrap2 {width:100%; padding-right:90px; margin-right:-90px; }
+      .tb_info table .input_wrap2 input {width:100%; }
+      .tb_info .address2 {width:100%; }
+      .tb_info table .input_wrap3 {width:100%; text-align:center; }
+      .tb_info table .input_wrap3 input {width:26%; }
+    }
+
+    /* 품목 목록
+    .box_product {width:100%; margin:20px auto; }
+    .box_product .item {width:100px; height:100px; line-height:100px; margin:10px; float:left; border:1px solid #ddd; 
+    border-radius:10px; box-shadow:2px 2px #ddd; overflow:hidden; cursor:pointer; text-align:center; }
+    .box_product .item:hover {background:#f5f5f5; }
+    .box_product .item img {width:60px; vertical-align:middle; } */
+    .box_product {width:100%; margin:20px auto 0 auto; }
+    .box_product .item {width:115px; height:35px; line-height:35px; margin:3px 5px; float:left; 
+    	border:1px solid #ddd; overflow:hidden; cursor:pointer; text-align:center; font-size: 10pt;}
+    .box_product .item:hover {background:#f5f5f5; text-decoration:underline; }
+    .bt_smartlens {width:280px; height:50px; line-height:46px; margin-top:15px; float:right; background:#2196F3; 
+    	color:white; border:2px solid #ddd; border-radius:5px; text-align:center; cursor:pointer; font-size:16px; }
+    .bt_smartlens img {height:27px; vertical-align:middle; margin-right:20px; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {      
+      .box_request2 {width:100%; }
+      .rightContent {width:100%; }
+      .box_product .item {width:21%; margin:3px 2%; font-size:12px; }
+      .bt_smartlens {width:100%; }
+    }
+    /* 선택한 품목 */
+    .box_tb_selected {width:100%; margin:20px 0; }
+    .tb_selected {width:100%; border-collapse:collapse; }
+    .tb_selected td {height:40px; text-align:center; }
+    .tb_selected td img {height:25px; vertical-align:middle; cursor:pointer; }
+    .tb_selected .first_row {max-width:100px; text-align:left; padding:0 10px; }
+    .tb_selected .title td {border:1px solid #ddd; }
+    .tb_selected .num_product {padding:0 7px; }
+    .box_request .total_price {height:50px; line-height:50px; padding:0 10px; text-align:right; font-size:20px; 
+    font-weight:bold; border-top:1px solid #ddd; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {
+    	.tb_selected td {font-size:11px; }
+    	.tb_selected td img {height:22px; }
+    }
+
+    /* 버튼 */
+    .box_bt {width:220px; height:35px; line-height:35px; margin:50px auto 50px auto; }
+    .box_bt .bt {width:100px; height:35px; float:left; background:#616161; color:white; cursor:pointer; 
+    	text-align:center; }
+    .box_bt .bt2 {float:right; background:#0E3B64; }
+    

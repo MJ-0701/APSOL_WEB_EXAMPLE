@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="10" />
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="hidden" name="ids" />
+			<item type="block" blockOffset="0">
+				<item type="button" value="불 출" name="btnApply" inputWidth="180"
+					offsetLeft="10" />
+				<item type="newcolumn" />
+				<item type="button" value="취 소" name="btnCancel" inputWidth="180"
+					offsetLeft="50" />
+			</item>
+		</item>
+	</item>
+
+</items>
+

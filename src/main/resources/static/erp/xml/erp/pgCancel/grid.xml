@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='center' type='ro' sort='na'>순번
+		</column>
+		<column id="erpId" width='70' align='left' type='ro' sort='server'>ERP ID
+		</column>
+		<column id="erpName" width='100' align='left' type='ro' sort='server'>ERP 이름
+		</column> 
+		<column id="customerName" width='120' align='left' type='ro' sort='server'>가맹점명
+		</column>
+		
+		<column id="businessNumber" width='90' align='left' type='ro' sort='server'>사업자번호
+		</column>		
+		
+		<column id="requestTime" width='130' align='center' type='ro' sort='server'>요청 일시
+		</column>
+		
+		<column id="amount" width='80' align='right' type='ron' sort='server' format="0,000">요청 금액 
+		</column>
+		
+		<column id="depositTime" width='130' align='center' type='ed' sort='server'>입금 확인 일시
+		</column>
+		
+		<column id="depositAmount" width='80' align='right' type='edn' sort='server' format="0,000">입금 금액 
+		</column>
+		
+		<column id="cancelTime" width='130' align='center' type='ro' sort='server' >취소 일시
+		</column>
+		
+		<column id="transactionId" width='120' align='center' type='ro' sort='server' >Tran Id
+		</column>
+				
+		<column id="memo" width='250' align='left' type='ed' sort='na' >비 고 
+		</column>
+
+		<beforeInit>  
+			<!-- <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,,3.5%(VAT),0.9%(VAT),0.2%(VAT),,,,,,,,,,,,,,,,</param>
+			</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>순 번
+		</column>
+		<column id="authTime" width='120' align='center' type='ro' sort='na'>거래년월일
+		</column> 
+		<column id="puchareDate" width='100' align='center' type='ro' sort='na'>구매년월일
+		</column>
+		<column id="cardName" width='80' align='center' type='ro' sort='na'>카드사명
+		</column>
+		<column id="cardNumber" width='100' align='center' type='ro' sort='na'>카드번호
+		</column>
+		
+		<column id="amount" width='100' align='right' type='ron' sort='na' format="0,000">매입금액
+		</column>
+		
+		<column id="sumFee" width='100' align='right' type='ron' sort='na' format="0,000">합계수수료
+		</column>
+		
+		<column id="customerFee" width='100' align='right' type='ron' sort='na' format="0,000">가맹점수수료
+		</column>
+		
+		<column id="pointFee" width='120' align='right' type='ron' sort='na' format="0,000">포인트수수료
+		</column>
+		
+		<column id="etcFee" width='120' align='right' type='ron' sort='na' format="0,000">기타수수료
+		</column>
+		
+		<column id="paymentAmount" width='120' align='right' type='ron' sort='na' format="0,000">지급금액
+		</column>
+		
+		<column id="paymentDate" width='120' align='center' type='ro' sort='na'>지급예정일
+		</column>
+				
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

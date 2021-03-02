@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="replyCount" width='20' align='left' type='tree' sort='str' color=''></column>
+		<column id="state" width='40' align='center' type='ro' sort='str' color=''>상 태</column>
+		<column id="year" width='40' align='right' type='ro' sort='int' color=''>년</column>
+		<column id="month" width='25' align='right' type='ro' sort='int' color=''>월</column>
+		<column id="day" width='25' align='right' type='ro' sort='int' color=''>일</column>
+		
+		<column id="accountName" width='50' align='center' type='ro' sort='str' color='' editable="false" >계정</column>
+		<column id="customerName" width='90' align='left' type='ro' sort='str' color=''>대리점</column>
+		<column id="customerBusinessNumber" width='80' align='center' type='ro' sort='str' color=''>사업자번호</column>	
+		
+		<column id="remarks" width='220' align='left' type='ro' sort='str' color=''>내용</column>
+		<column id="total" width='80' align='right' type='ron' sort='int' color='' format="0,000">합 계</column>
+
+
+		<column id="docKindTime" width='80' align='center' type='ro' sort='na' color=''>계산서발행일시</column>
+		
+		<column id="memo" width='250' align='left' type='ro' sort='str' color=''>비 고</column>
+		
+
+		
+		<beforeInit>
+			<!-- <call command="attachHeader">
+				<param>년,월,일,#rspan,#rspan,상 호,등록번호,#rspan,금 액,세 액,합 계,#rspan,#rspan,코드,장부명,#rspan,#rspan,#rspan</param>
+			</call> -->
+			<call command="attachHeader">
+				<param>,#select_filter,,,,#text_filter,#text_filter,#text_filter,#text_filter,#numeric_filter,#select_filter,,#text_filter,#text_filter</param>
+			</call>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+				<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

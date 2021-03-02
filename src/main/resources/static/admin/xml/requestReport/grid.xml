@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="exhaustNo" width='100' align='center' type='ro' sort='str'>주문번호</column>
+		<column id="exhaustDate" width='100' align='center' type='ro' sort='str'>배출 예정일</column>
+		<column id="name" width='100' align='left' type='ro' sort='str'>이름</column>
+		<column id="phone" width='100' align='left' type='ro' sort='str'>전화번호</column>
+		<column id="address" width='150' align='left' type='ro' sort='str'>주소</column>
+		<column id="dong" width='75' align='center' type='ro' sort='str'>행정동</column>
+		<column id="itemName" width='90' align='left' type='ro' sort='str'>품목</column>
+		<column id="itemStandard" width='90' align='left' type='ro' sort='str'>규격</column>
+		<column id="qty" width='60' align='right' type='ron' sort='str'>수량</column>
+		<column id="total" width='70' align='right' type='ron' sort='str'>가격</column>
+		<column id="state" width='80' align='center' type='ro' sort='str'>상 태</column>
+		
+		<column id="completedTime" width='130' align='center' type='ro' sort='str'>완료일시</column>
+		<column id="companyName" width='130' align='center' type='ro' sort='str'>등록업체</column>
+        <column id="onlineKind" width='130' align='center' type='ro' sort='str'>신청경로</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,,,#select_filter,,#select_filter,#select_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

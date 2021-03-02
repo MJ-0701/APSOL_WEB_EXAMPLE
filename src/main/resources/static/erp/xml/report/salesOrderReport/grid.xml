@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		
+		<column id="uuid" width='100' align='left' type='ro' sort='server' color=''>전표번호</column>		
+		<column id="date" width='85' align='center' type='ro' sort='server' color=''>일 자</column>	
+			
+		<column id="customerName" width='120' align='left' type='ro' sort='str' color=''>거래처</column>
+		<column id="customerBusinessNumber" width='90' align='center' type='ro' sort='str' color=''>#cspan</column>
+		
+		<column id="staffName" width='80' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="staffEmail" width='80' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="staffPhone" width='70' align='left' type='ro' sort='str' color=''>#cspan</column>
+		
+		<column id="customerManagerName" width='80' align='center' type='ro' sort='str' color=''>영업 담당자</column>
+		<column id="customerManagerDepartmentName" width='80' align='center' type='ro' sort='str' color=''>#cspan</column>
+		
+		<column id="customer2Name" width='120' align='left' type='ro' sort='str' color=''>거래처(현장)</column>
+		<column id="customer2BusinessNumber" width='90' align='center' type='ro' sort='str' color=''>#cspan</column>
+		
+		<column id="remarks" width='180' align='left' type='ro' sort='str' color=''>적 요</column>
+		
+		<column id="publishDate" width='90' align='center' type='ro' sort='str' color=''>계산서 발행 예정일</column>		
+		<column id="collectDate" width='90' align='center' type='ro' sort='str' color=''>수금 예정일</column>
+		
+		<column id="deliveryDate" width='90' align='center' type='ro' sort='str' color=''>납기 예정일</column>
+		<column id="completionDate" width='90' align='center' type='ro' sort='str' color=''>납기 완료일</column>
+		<column id="deliveryTypeName" width='60' align='center' type='ro' sort='str' color=''>배송 구분</column>
+		<column id="address" width='250' align='left' type='ro' sort='str' color=''>배송지</column>
+				
+		<column id="barcode" width='70' align='center' type='ro' sort='str' color=''>품 목</column>
+		<column id="itemKindName" width='50' align='center' type='ro' sort='str' color=''>#cspan</column>
+		<column id="name" width='150' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="standard" width='100' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="part" width='70' align='center' type='ro' sort='str' color=''>#cspan</column>		
+		<column id="unitName" width='60' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="inKindName" width='60' align='center' type='ro' sort='str' color=''>입고 구분</column>		
+		<column id="orderKindName" width='60' align='center' type='ro' sort='str' color=''>계약 구분</column>
+		<column id="qty" width='70' align='right' type='ron' sort='int' color=''>수 량</column>				
+		<column id="unitPrice" width='70' align='right' type='ron' sort='int' color=''>단 가</column>
+		<column id="amount" width='100' align='right' type='ron' sort='int' color=''>금 액</column>
+		<column id="tax" width='90' align='right' type='ron' sort='str' color=''>#cspan</column>
+		<column id="total" width='110' align='right' type='ron' sort='str' color=''>#cspan</column>
+		
+
+		
+		<column id="memo" width='180' align='right' type='ro' sort='int' color=''>비 고</column>	
+						
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,상 호,등록번호,담당자,이메일,연락처,이 름,부 서,상 호,등록번호,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,바코드,구 분,명 칭,규 격,파 트,단 위,#rspan,#rspan,#rspan,#rspan,공급가,세액,합 계,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#select_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,#text_filter,#numeric_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>			
+			
+		</beforeInit>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

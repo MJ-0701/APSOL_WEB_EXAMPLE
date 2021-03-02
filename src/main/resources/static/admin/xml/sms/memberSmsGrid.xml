@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		
+
+		<column id="sendDate" width='130' align='center' type='ro' sort='server'>발송일시
+		</column>
+		
+
+		<column id="calledNumber" width='100' align='center' type='ro'
+			sort='server'>수신번호</column>
+
+		<column id="callingNumber" width='100' align='center' type='ro'
+			sort='server'>발신번호</column>
+
+		<column id="msg" width='500' align='left' type='ron'
+			sort='server'>발송내용</column>
+
+		<column id="resultDetail" width='70' align='center' type='ron' sort='server'>
+			현재상태</column>
+			
+		<beforeInit>
+			
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

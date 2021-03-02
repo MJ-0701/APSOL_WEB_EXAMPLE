@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<rows>
+	<head>				
+		<column id="no" width='50' align='center' type='ro' sort='str' color=''>순번</column>
+		
+		<column id="customerName" width='100' align='left' type='ro' sort='na' color=''>상 호</column>
+		<column id="businessNumber" width='80' align='center' type='ro' sort='na' color=''>사업자번호</column>
+		<column id="centerCode" width='80' align='center' type='ro' sort='na' color=''>센터코드</column>  
+		
+		<column id="payer" width='100' align='left' type='ro' sort='str' color=''>결제자</column>
+		
+		<column id="issueCompanyName" width='80' align='center' type='ro' sort='str' color=''>카드사</column>
+		<column id="pinNumber" width='130' align='center' type='ro' sort='str' color=''>카드 번호</column>
+		<column id="quota" width='75' align='center' type='ro' sort='str' color=''>할 부</column>
+		<!-- <column id="orderId" width='150' align='center' type='ro' sort='str' color=''>주문 번호</column>  -->
+		
+		<column id="paymentStateName" width='80' align='center' type='ro' sort='str' color=''>승인 상태</column>
+		 
+		<column id="orderDate" width='125' align='center' type='ro' sort='str' color=''>승 인</column>		
+		<column id="authAmount" width='85' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>    
+		<column id="authAmountNet" width='85' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+		<column id="authAmountTax" width='85' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>
+ 		
+ 		<column id="cancelDate" width='120' align='center' type='ro' sort='str' color=''>승인 취소 일시</column>	
+ 		
+ 				<column id="fees" width='65' align='right' type='ron' sort='int' color='' format="0,000">가맹점 수수료</column>
+		<column id="feesTax" width='65' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>  
+		<column id="feesVat" width='70' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>  
+ 		
+ 		<column id="depositDate" width='125' align='center' type='ro' sort='str' color=''>입 금</column>		
+		<column id="depositAccount" width='150' align='right' type='ro' sort='str' color=''>#cspan</column> 	
+		
+		<beforeInit>
+			<call command="attachHeader">
+
+				<param>#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,일시,금액,공급가,세액,#rspan,금액,세액,합계,일시,계좌</param>
+
+			</call>
+			 <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,(0.99% 부가세 포함),#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call> 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

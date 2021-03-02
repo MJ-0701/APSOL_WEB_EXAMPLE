@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<items id="addListForm">
+	<item type="block" blockOffset="0">
+		<item id="erpTaxPoint" type="input" inputWidth="80" label="대리점 계산서" labelWidth="80" position="label-left"/>
+		<item id="erpSMSPoint" type="input" inputWidth="80" label="대리점SMS" labelWidth="80" position="label-left" readonly="true"/>
+		<item id="erpLMSPoint" type="input" inputWidth="80" label="대리점LMS" labelWidth="80" position="label-left"/>
+		<item id="erpMMSPoint" type="input" inputWidth="80" label="대리점 이미지" labelWidth="80" position="label-left"/>
+	</item>
+		
+	<item type="block" blockOffset="0" offsetTop="20">
+		<item id="customerTaxPoint" type="input" inputWidth="80" label="가맹점 계산서" labelWidth="80" position="label-left"/>
+		<item id="customerSMSPoint" type="input" inputWidth="80" label="가맹점SMS" labelWidth="80" position="label-left" readonly="true"/>
+		<item id="customerLMSPoint" type="input" inputWidth="80" label="가맹점LMS" labelWidth="80" position="label-left"/>
+		<item id="customerMMSPoint" type="input" inputWidth="80" label="가맹점 이미지" labelWidth="80" position="label-left"/>
+	</item>	
+	
+	<item type="button" value="저장하기" name="btnSend" width="100" offsetTop="15" offsetLeft="40"/>
+</items>
+

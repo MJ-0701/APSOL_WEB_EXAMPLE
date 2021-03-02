@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+
+		<column id="name" width='100' align='center' type='ro' sort='server' color=''>구 분</column>
+		<column id="name" width='150' align='left' type='ro' sort='server' color=''>품목명</column>
+		<column id="name" width='150' align='left' type='ro' sort='server' color=''>단 위</column>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>true</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

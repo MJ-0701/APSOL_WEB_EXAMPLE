@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+
+	<item type="block" blockOffset="0">
+		<item type="select" label="구분" name="kind" labelWidth="80">
+			<option value="ET0001" text="적립" />
+			<option value="ET0002" text="차감" />
+		</item>
+
+		<item type="newcolumn" />
+
+		<item type="select" label="사유" name="reason" labelWidth="80">
+			<option value="ER0001" text="신규 회원가입 지급" />
+			<option value="ER0002" text="상품구매 추가 적립" />
+			<option value="ER0003" text="상품구매 사용 차감" />
+			<option value="ER0004" text="기타" />
+		</item>
+	</item>
+	
+	<item type="block" blockOffset="0">
+	<item type="input" value="" label="사유 직접 입력" name="memo" required="true"
+			inputWidth="260" />
+	
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="금액" name="amount" required="true"
+			inputWidth="140" />
+	</item>
+
+</items>
+

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="hostCode" width='70' align='center' type='ro' sort='na'>
+			관리코드
+		</column>
+		<column id="businessNumber" width='80' align='left' type='ro'
+			sort='str' color=''>사업자번호</column>
+		<column id="customerName" width='120' align='left' type='ro'
+			sort='str' color=''>상호</column>
+			<column id="startMonth" width='80' align='left' type='ro'
+			sort='str' color=''>청구월</column>
+		<column id="endMonth" width='80' align='left' type='ro'
+			sort='str' color=''>종료월</column>
+			<column id="chargeTerm" width='70' align='left' type='ro'
+			sort='str' color=''>청구주기</column>
+			<column id="processStateName" width='100' align='left' type='ro'
+			sort='server'>청구상태
+		</column>
+		<column id="dealTime" width='100' align='left' type='ro' sort='server'>청구일(거래일)
+		</column>
+		<column id="itemPkName" width='100' align='left' type='ro'
+			sort='server'>청구항목
+		</column>
+		<column id="amount" width='100' align='left' type='ro'
+			sort='server'>청구금액
+		</column>
+		<column id="remain" width='100' align='left' type='ro' sort='server'>원장잔액
+		</column>
+		<column id="van" width='80' align='left' type='ro' sort='server'>
+			계약밴사
+		</column>
+		<column id="vanCnt" width='70' align='left' type='ro' sort='server'>계약건수
+		</column>
+		<column id="beforeVanCnt" width='70' align='center' type='ro'
+			sort='server'>
+			이전달건수
+		</column>
+		<column id="amount" width='100' align='center' type='ro' sort='server'>
+			금액계산
+		</column>
+		<column id="contractDate" width='60' align='center' type='ro'
+			sort='server'>계약년월
+		</column>
+
+		<column id="contractEndDate" width='60' align='center' type='ro'
+			sort='server'>종료년월
+		</column>
+		<column id="mPk" width='70' align='center' type='ro' sort='str'>회원코드</column>
+		<column id="ledgerPk" width='70' align='center' type='ro' sort='str'>청구코드</column>
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,,,,#select_filter,,,,#select_filter,,,,,,,</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

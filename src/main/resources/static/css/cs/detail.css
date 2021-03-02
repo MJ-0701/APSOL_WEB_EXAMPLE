@@ -1,0 +1,39 @@
+
+    .box_cs_detail {width:100%; height:auto; }
+    .box_cs_detail2 {width:1200px; height:100%; padding:0 10px; margin:20px auto; }
+    .box_cs_detail .main_title {width:100%; height:60px; line-height:60px; border-bottom:2px solid #333; 
+    	font-size:21px; font-weight:bold; }
+
+    .rightContent {width:890px; float:right; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .box_cs_detail2 {width:100%; }
+      .rightContent {width:100%; }
+    }
+
+    .post {margin-top:30px; }
+    .post .title {/* height:40px; */ line-height:38px; padding:0 20px; border-bottom:1px solid #ccc; 
+    	border-top:2px solid #103E93; font-weight:bold; font-size:16px; }
+    .post .subTitle {/*height:40px; */line-height:40px; padding:0 20px; border-bottom:1px solid #ccc; font-size:13px; }
+    .post .subTitle .post_info {margin-right:13px; }
+    .post .content {min-height:65px; line-height:35px; padding:30px 20px; border-bottom:1px solid #aaa; 
+    	word-wrap:break-word; }
+    .post .other {height:40px; line-height:40px; border-bottom:1px solid #aaa; }
+    .post .other0 {width:100px; height:40px; float:left; padding:0 20px; border-right:1px solid #ccc; 
+    	text-align:center; font-weight:bold; }
+    .post .other1 {width:100%; height:40px; float:left; padding:0 20px 0 120px; margin-left:-100px; cursor:pointer; }
+    .post .other1:hover {text-decoration:underline; }
+
+    .goList {width:70px; height:35px; line-height:35px; margin:20px 10px 40px 0; float:right; text-align:center; 
+    	font-weight:bold; cursor:pointer; background:#ddd; }
+    .goList:hover {background:#ccc; }
+
+    .answer {margin-bottom:50px; }
+    .answer .title {height:40px; line-height:38px; padding:0 20px; border-bottom:1px solid #ccc; 
+    	border-top:2px solid #103E93; font-weight:bold; font-size:16px; }
+    .answer .subTitle {height:40px; line-height:40px; padding:0 20px; border-bottom:1px solid #ccc; font-size:13px; }
+    .answer .subTitle .post_info {margin-right:15px; }
+    .answer .content {min-height:65px; line-height:35px; padding:30px 20px; border-bottom:1px solid #aaa; 
+    	word-wrap:break-word; }
+

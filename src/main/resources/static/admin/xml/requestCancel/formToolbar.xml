@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnUpdate" type="button" text="배출 취소"/>
+</toolbar>

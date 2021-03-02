@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="date" width='140' align='center' type='ro' sort='str' color=''>일 자</column>
+		<column id="kindName" width='140' align='left' type='ro' sort='str' color=''>구 분</column>
+		<column id="customerName" width='140' align='left' type='ro' sort='str' color=''>거래처</column> 
+		<column id="count" width='100' align='left' type='ro' sort='str'	color=''>시리얼 넘버</column>
+		<beforeInit>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

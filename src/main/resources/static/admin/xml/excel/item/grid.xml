@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="label" width='110' align='left' type='ro' sort='str'>명 칭</column>
+		<column id="field" width='40' align='center' type='ed' sort='str'>행</column>
+		<column id="defaultVal" width='100' align='left' type='ro' sort='str'>기본값</column>
+		<column id="desc" width='300' align='left' type='ro' sort='str'>설 명</column>	
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#select_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+				<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="username" width='80' align='center' type='ro' sort='str' color=''>아이디</column>
+		<column id="name" width='80' align='center' type='ro' sort='str' color=''>사용자명</column>
+		<column id="content" width='180' align='left' type='ro' sort='na' color=''>내용</column>		
+		<column id="queryString" width='180' align='left' type='ro' sort='na' color=''>상세</column>		
+		<column id="ip" width='100' align='center' type='ro' sort='server' color=''>접속 IP</column>
+		<column id="registeredDate" width='140' align='center' type='ro' sort='server' color=''>일 시</column>
+		
+
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableHeaderMenu">
+			</call>
+			<call command="enableColumnMove">
+				<param>1</param>
+			</call>	
+
+		</afterInit>
+	</head>
+</rows>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>순 번
+		</column>
+		<column id="date" width='100' align='center' type='ro' sort='na'>발급년월일
+		</column> 
+		<column id="writeDate" width='100' align='center' type='ro' sort='na'>작성년월일
+		</column>
+		<column id="sendDate" width='100' align='center' type='ro' sort='na'>전송년월일
+		</column>
+		<column id="state" width='100' align='center' type='ro' sort='na'>발급진행상태
+		</column>
+		
+		<column id="businessNumber" width='100' align='center' type='ro' sort='na'>사업자등록번호
+		</column>
+		
+		<column id="name" width='100' align='left' type='ro' sort='na'>상호명
+		</column>
+		
+		<column id="itemName" width='150' align='left' type='ro' sort='na'>대표품목명
+		</column>
+		
+		<column id="total" width='90' align='right' type='ron' sort='na' format="0,000">합계금액
+		</column>
+		
+		<column id="amount" width='90' align='right' type='ron' sort='na' format="0,000">공급가액
+		</column>
+		
+		<column id="tax" width='90' align='right' type='ron' sort='na' format="0,000">산출세액
+		</column>
+		
+		<column id="kind" width='70' align='center' type='ro' sort='na'>종 류
+		</column>
+		
+		<column id="type" width='70' align='center' type='ro' sort='na'  >구분
+		</column>
+		
+		<column id="taxNo" width='120' align='center' type='ro' sort='na'>전자세금계산서번호
+		</column>  
+		
+		<column id="customerName" width='120' align='left' type='ro' sort='na'>공급자 상호명
+		</column>
+		
+		<column id="customerBusinessNumber" width='100' align='center' type='ro' sort='na' format="0,000">공급자 사업자 번호
+		</column>
+		
+		
+				
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

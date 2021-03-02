@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<toolbar>
+	
+	<item id="btnRefresh" type="button" text="새로고침" img="redo.gif"  imgdis="redo_dis.gif">
+		<userdata name="kind">search</userdata>
+	</item>	
+	<item  type="separator"/>
+	<item id="btnAdd" type="button" text="추 가" />
+	<item id="btnDelete" type="button" text="삭 제" />
+	<item id="btnCopy" type="button" text="복 사" />
+	<item  type="separator"/>
+	<item type="buttonSelect" text="엑 셀" renderSelect="false" openAll="true" >
+		<item id="btnExcel" type="button" text="내역 출력"/>
+	</item>
+		
+</toolbar>

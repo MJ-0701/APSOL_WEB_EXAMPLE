@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<toolbar>
+
+	
+	<item id="searchInput" type="buttonInput" text="" />
+
+	<item id="btnSearch" type="button" text="조 회"></item>
+	<!-- <item type="separator" /> -->
+
+
+	
+	<item id="btnFax" type="button" text="FAX발송" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" />
+	<item id="btnEmail" type="button" text="이메일전송" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" /> 
+</toolbar>

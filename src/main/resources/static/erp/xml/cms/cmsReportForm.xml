@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="500" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0">
+				<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+					<item type="input" value="" label="정상회원" name="normalMember"
+						inputWidth="140" labelWidth="70" readonly='true' className="form_readonly" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="총 청구금" name="amountTotal"
+						inputWidth="140" labelWidth="90" readonly='true' className="form_readonly" />
+				</item>
+				<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+					<item type="input" value="" label="보류회원" name="pauseMember"
+						inputWidth="140" labelWidth="70" readonly='true' className="form_readonly" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="총 납입금" name="paymentTotal"
+						inputWidth="140" labelWidth="90" readonly='true' className="form_readonly" />
+				</item>
+				<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+					<item type="input" value="" label="해지회원" name="terminateMember"
+						inputWidth="140" labelWidth="70" readonly='true' className="form_readonly" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="총 미납금" name="misuTotal"
+						inputWidth="140" labelWidth="90" readonly='true' className="form_readonly" />
+				</item>
+			</item>
+
+		</item>
+	</item>
+</items>
+

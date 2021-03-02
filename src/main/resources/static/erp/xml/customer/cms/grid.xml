@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="hostCode" width='80' align='center' type='ro' sort='na'>
+			관리코드
+		</column>
+		<column id="joinDate" width='80' align='center' type='ro'
+			sort='server'>
+			가입일
+		</column>
+		<column id="accountState" width='60' align='center' type='ro'
+			sort='server'>
+			상태
+		</column>
+		<column id="pauseDate" width='80' align='center' type='ro'
+			sort='server'>
+			보류/해지일
+		</column>
+		<column id="memberName" width='60' align='center' type='ro'
+			sort='server'>
+			회원명
+		</column>
+		<column id="bankName" width='60' align='center' type='ro' sort='server'>
+			은행명
+		</column>
+		<column id="account" width='120' align='center' type='ro' sort='server'>
+			계좌번호
+		</column>
+		<column id="name" width='60' align='left' type='ro' sort='server'>예금주
+		</column>
+		<column id="remarks" width='150' align='left' type='ro' sort='server'>비고
+		</column>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

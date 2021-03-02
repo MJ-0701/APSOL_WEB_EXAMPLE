@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		
+		<column id="no" width='50' align='center' type='ro' sort='na' color=''>순 번</column>
+		<column id="depositDate" width='130' align='center' type='ro' sort='na' color=''>입금 일시</column>
+		<column id="depositor" width='100' align='center' type='ro' sort='na' color=''>입금자명</column>
+		<column id="amount" width='80' align='right' type='ron' sort='na' color='' format="0,000">금 액</column>
+				
+		<column id="message" width='500' align='left' type='ro' sort='na' color=''>원 문</column> 
+
+		<beforeInit>
+			 <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,(3.85% 부가세 포함),#text_filter</param>
+			</call> 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='center' type='ro'>
+			순번
+		</column>
+		<column id="businessNumber" width='90' align='center' type='ro'
+			color=''>사업자번호
+		</column>
+		<column id="customerName" width='100' align='center' type='ro'>가맹점명
+		</column>
+		<column id="misu" width='70' align='right' type='ro' color=''
+			format="0,000">미납금
+		</column>
+		<column id="mobile" width='100' align='center' type='ro' color=''>
+			휴대전화
+		</column>
+		<column id="phone" width='100' align='center' type='ro' color=''>
+			전화번호
+		</column>
+		<column id="manager" width='70' align='center' type='ro' color=''>
+			담당자
+		</column>
+
+	</head>
+</rows>

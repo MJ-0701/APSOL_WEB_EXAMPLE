@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="registeredDate" name="no" width='150' align='center' type='ro'>수정일시</column>
+		<column id="name" name="name" width='120' align='left' type='ed'>대리점(가맹점)명</column>
+		<column id="data" name="data" width='230' align='left' type='ed'>내용</column>
+
+	</head>
+</rows>

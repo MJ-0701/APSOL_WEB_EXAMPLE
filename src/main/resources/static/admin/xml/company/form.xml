@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="업체명" name="name"
+				inputWidth="263" />
+				<item type="newcolumn" />
+				<item type="checkbox" value="1" label="활 성" name="activated" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="담당자" name="manager"
+				inputWidth="140" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="전화번호" name="phone"
+				inputWidth="140" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="주 소" name="address"
+				inputWidth="363" />
+		</item>
+
+	</item>
+	<item type="block" blockOffset="0" offsetLeft="20">
+		<item type="block" blockOffset="0">
+			<item type="checkbox" value="1" label="용신동" name="AE_용신동"
+				inputWidth="100" labelWidth="60" />
+			<item type="newcolumn" />
+			<item type="checkbox" value="1" label="제기동" name="AE_제기동"
+				inputWidth="100" labelWidth="60" />
+			<item type="newcolumn" />
+			<item type="checkbox" value="1" label="전농제1동" name="AE_전농제1동"
+				inputWidth="100" labelWidth="60" />
+			<item type="newcolumn" />
+			<item type="checkbox" value="1" label="전농제2동" name="AE_전농제2동"
+				inputWidth="100" labelWidth="60" />
+			<item type="newcolumn" />
+			<item type="checkbox" value="1" label="청량리동" name="AE_청량리동"
+				inputWidth="100" labelWidth="60" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="checkbox" value="1" label="회기동" name="AE_회기동"
+				inputWidth="100" labelWidth="60" />
+			<item type="newcolumn" />
+			<item type="checkbox" value="1" label="휘경제1동" name="AE_휘경제1동"
+				inputWidth="100" labelWidth="60" />
+			<item type="newcolumn" />
+			<item type="checkbox" value="1" label="휘경제2동" name="AE_휘경제2동"
+				inputWidth="100" labelWidth="60" />
+			<item type="newcolumn" />
+			<item type="checkbox" value="1" label="이문제1동" name="AE_이문제1동"
+				inputWidth="100" labelWidth="60" />
+			<item type="newcolumn" />
+			<item type="checkbox" value="1" label="이문제2동" name="AE_이문제2동"
+				inputWidth="100" labelWidth="60" />
+		</item>
+		<item type="block" blockOffset="0">
+            <item type="checkbox" value="1" label="답십리제1동" name="AE_답십리제1동"
+                inputWidth="100" labelWidth="60" />
+            <item type="newcolumn" />
+            <item type="checkbox" value="1" label="답십리제2동" name="AE_답십리제2동"
+                inputWidth="100" labelWidth="60" />
+            <item type="newcolumn" />
+            <item type="checkbox" value="1" label="장안제1동" name="AE_장안제1동"
+                inputWidth="100" labelWidth="60" />
+            <item type="newcolumn" />
+            <item type="checkbox" value="1" label="장안제2동" name="AE_장안제2동"
+                inputWidth="100" labelWidth="60" /> 
+        </item>
+
+	</item>
+
+
+
+</items>
+

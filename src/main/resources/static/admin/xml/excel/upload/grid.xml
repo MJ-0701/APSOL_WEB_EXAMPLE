@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+
+		<column id="beginTime" width='100' align='center' type='ro' sort='na' color=''>일 시</column>
+		<column id="fileName" width='120' align='left' type='ro' sort='na' color=''>파일명</column>
+		<column id="stateName" width='70' align='center' type='ro' sort='na' color=''>상 태</column>
+		<column id="totalRecords" width='70' align='right' type='ro' sort='na' color=''>엑셀 라인</column>
+		<column id="uploadRecords" width='70' align='right' type='ro' sort='na' color=''>작업 수</column>	
+		<column id="updateTime" width='100' align='center' type='ro' sort='na' color=''>갱신 일시</column>		
+		<column id="stopTime" width='100' align='center' type='ro' sort='na' color=''>종료 일시</column>		
+		<column id="uploadLine" width='50' align='center' type='ro' sort='na' color=''>행</column>		
+		<column id="message" width='250' align='left' type='ro' sort='na' color=''>메세지</column>
+				
+		<afterInit>			
+			<call command="enableSmartRendering">
+				<param>true</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

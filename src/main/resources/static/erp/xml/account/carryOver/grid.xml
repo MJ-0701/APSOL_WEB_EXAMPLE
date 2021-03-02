@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="account" width='70' align='center' type='ro' sort='server'>계정 과목</column>
+		<column id="accountName" width='130' align='left' type='ed' sort='server'>#cspan</column>
+		<column id="debit" width='100' align='right' type='edn' sort='server'>차 변</column>
+		<column id="credit" width='100' align='right' type='edn' sort='server'>대 변</column>
+		<column id="customer" width='70' align='center' type='ro' sort='server'>거래처</column>
+		<column id="customerName" width='130' align='left' type='ed' sort='server'>#cspan</column>
+		<column id="memo" width='250' align='left' type='ed' sort='na'>비 고</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>코 드,과목명,#rspan,#rspan,코 드,상 호,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<!-- <param>50</param> -->
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

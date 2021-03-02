@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="vanName" width='60' align='center' type='ro' sort='na' color=''>VAN사</column>
+		<column id="cardName" width='90' align='center' type='ro' sort='na' color=''>매입사</column>
+		
+		<column id="vanName" width='120' align='center' type='ro' sort='na' color=''>가맹점명</column>
+		<column id="businessNumber" width='90' align='center' type='ro' sort='na' color=''>사업자번호</column>
+		
+		<column id="cnt" width='55' align='right' type='ron' sort='na' color='' format="0,000">건수</column>
+		<column id="amount" width='70' align='right' type='ron' sort='na' color='' format="0,000">금 액</column>
+		
+		<column id="cancelCnt" width='55' align='right' type='ron' sort='na' color='' format="0,000">반송 건수</column>
+		<column id="cancelAmount" width='70' align='right' type='ron' sort='na' color='' format="0,000">반송 금액</column>
+
+		<beforeInit>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

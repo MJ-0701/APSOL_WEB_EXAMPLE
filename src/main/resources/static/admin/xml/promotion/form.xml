@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드" name="code"
+		inputWidth="120" labelWidth="70" />
+
+	<item type="block" blockOffset="0">
+
+
+
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="명 칭" name="name" inputWidth="180" />
+			<item type="input" value="" label="노출 명칭" name="shopName" inputWidth="180" />
+			<item type="input" value="" label="노출 순위" name="no" inputWidth="180" >
+				<note>노출 순위가 높은 항목 우선</note>	
+			</item>
+			
+			<item type="input" value="" label="WEB 할인율(%)" name="discountRate" inputWidth="180" ></item>
+			<item type="input" value="" label="APP 할인율(%)" name="appDiscountRate" inputWidth="180" ></item>
+			
+			<item type="checkbox" label="기간 사용" name="useTime">
+			<item type="block" blockOffset="0">
+				<item type="calendar" value="" label="시작일시" name="fromDate"
+					inputWidth="140" />
+				<item type="newcolumn" />
+				<item type="select" label="" name="fromTime" labelWidth="0">
+					<option value="01" text="01" />
+					<option value="02" text="02" />
+					<option value="03" text="03" />
+					<option value="04" text="04" />
+					<option value="05" text="05" />
+					<option value="06" text="06" />
+					<option value="07" text="07" />
+					<option value="08" text="08" />
+					<option value="09" text="09" />
+					<option value="10" text="10" />
+					<option value="11" text="11" />
+					<option value="12" text="12" />
+					<option value="13" text="13" />
+					<option value="14" text="14" />
+					<option value="15" text="15" />
+					<option value="16" text="16" />
+					<option value="17" text="17" />
+					<option value="18" text="18" />
+					<option value="19" text="19" />
+					<option value="20" text="20" />
+					<option value="21" text="21" />
+					<option value="22" text="22" />
+					<option value="23" text="23" />
+				</item>
+			</item>
+
+			<item type="block" blockOffset="0">
+				<item type="calendar" value="" label="종료일시" name="toDate"
+					inputWidth="140" />
+				<item type="newcolumn" />
+				<item type="select" label="" name="toTime" labelWidth="0">
+					<option value="01" text="01" />
+					<option value="02" text="02" />
+					<option value="03" text="03" />
+					<option value="04" text="04" />
+					<option value="05" text="05" />
+					<option value="06" text="06" />
+					<option value="07" text="07" />
+					<option value="08" text="08" />
+					<option value="09" text="09" />
+					<option value="10" text="10" />
+					<option value="11" text="11" />
+					<option value="12" text="12" />
+					<option value="13" text="13" />
+					<option value="14" text="14" />
+					<option value="15" text="15" />
+					<option value="16" text="16" />
+					<option value="17" text="17" />
+					<option value="18" text="18" />
+					<option value="19" text="19" />
+					<option value="20" text="20" />
+					<option value="21" text="21" />
+					<option value="22" text="22" />
+					<option value="23" text="23" />
+				</item>
+			</item>
+			</item>
+		</item>
+		<item type="checkbox" label="상 태" name="activated" /> 
+		
+		<item type="image" name="image" inputWidth="316" label="썸네일"
+				inputHeight="176"  imageWidth='316' imageHeight='176'
+				url="../fileData/formImage" >
+			<note>600 * 360</note>		
+		</item>
+				
+				
+		<item type="image" name="topImage" inputWidth="416" label="상단 이미지"
+				inputHeight="276" imageWidth='416' imageHeight='276'
+				url="../fileData/formImage" >
+				
+			<note>1920*750</note>		
+		</item>
+	</item>
+
+
+</items>
+

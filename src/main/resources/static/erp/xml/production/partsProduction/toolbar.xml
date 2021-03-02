@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<toolbar>
+
+	<item id="btnRefresh" type="button" text="새로 고침" img="new.gif"  imgdis="new_dis.gif"/>
+	<item id="btnExcel" type="button" text="엑셀 출력" img="icon_grid.gif"  imgdis="icon_grid.gif" />
+	<item  type="separator"/>
+	<item type="buttonSelect" text="제조지시서" renderSelect="false" openAll="true" img="paste.gif"  imgdis="paste_dis.gif">
+		<item id="btnOrderFilter" type="button" text="검색 항목 제조" />
+		<item id="btnOrder" type="button" text="선택 항목 제조" />		
+	</item>
+	
+</toolbar>

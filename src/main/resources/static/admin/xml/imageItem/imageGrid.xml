@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		
+		<column id="no" width='60' align='center' type='edn' sort='na'>순번</column>
+		<column id="product" width='60' align='left' type='ro' sort='server' color=''>품목코드</column>
+		<column id="productName" width='250' align='left' type='ed' sort='server' color=''>품목명</column>
+		
+		<column id="imageView" width='260' align='center' type='ro' sort='na'>이미지</column>
+		<beforeInit>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

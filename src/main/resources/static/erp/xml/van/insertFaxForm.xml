@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="10" />
+	<item type="hidden" label="가맹점" name="code" inputWidth="180" />
+	<item type="hidden" label="년" name="year" inputWidth="180" />
+	<item type="hidden" label="월" name="month" inputWidth="180" />
+	<item type="hidden" label="t년" name="tyear" inputWidth="180" />
+	<item type="hidden" label="t월" name="tmonth" inputWidth="180" />
+	<item type="hidden" label="타입" name="type" inputWidth="180" />
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="팩스번호" name="fax" inputWidth="180" />
+		<item type="button" value="팩스 전송" name="btnApply" inputWidth="180"
+			offsetLeft="90" />
+	</item>
+</items>
+

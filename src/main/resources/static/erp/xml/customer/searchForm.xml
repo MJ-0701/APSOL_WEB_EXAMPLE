@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="100" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="사업자 번호 or 가맹점 명" name="businessNumberName"
+			inputWidth="160" required="true" />
+	</item>
+</items>
+

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="date" width='80' align='right' type='ro' sort='str'
+			color=''>일 자</column>
+		<column id="remarks" width='220' align='left' type='ro' sort='str'
+			color=''>업무 내용</column>
+		<column id="amount" width='80' align='right' type='ron' sort='int'
+			color='' format="0,000">금 액</column>
+		<column id="tax" width='70' align='right' type='ron' sort='int'
+			color='' format="0,000">세 액</column>
+		<column id="total" width='80' align='right' type='ron' sort='int'
+			color='' format="0,000">합 계</column>
+		<column id="memo" width='250' align='left' type='ro' sort='str'
+			color=''>비 고</column>
+		<column id="uuid" width='100' align='left' type='ro' sort='str'
+			color=''>전표 번호</column>
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,#text_filter</param>
+			</call>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

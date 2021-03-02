@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnRefresh" type="button" text="새로고침" img="redo.gif"
+		imgdis="redo_dis.gif">
+		<userdata name="kind">search</userdata>
+	</item>
+
+	<!-- <item id="btnDetailSearch" type="button" text="추가 검색" img="redo.gif"
+		imgdis="redo_dis.gif">
+		<userdata name="kind">search</userdata>
+	</item> -->
+
+	<item type="separator" />
+
+	<item id="btnContract" type="button" text="계약 정보" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" />
+	<item id="btnCustomer" type="button" text="가맹점 정보" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" />
+		
+	<item type="separator" />
+	<item id="btnExcel" type="button" text="엑셀 출력" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" />
+
+
+
+</toolbar>

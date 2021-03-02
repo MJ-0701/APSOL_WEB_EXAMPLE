@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="department" width='100' align='left' type='ed'
+			sort='na' color=''>작업 구분</column>
+		<column id="name" width='120' align='center' type='ed' sort='str'
+			color=''>방문 내용</column>
+		<column id="phone" width='120' align='left' type='ed' sort='str'
+			color=''>작업자</column>
+		<column id="registratedDate" width='100' align='center' type='ro'
+			sort='str' color=''>작업일자</column>
+		<column id="before" width='80' align='left' type='ed' sort='na'
+			color=''>경과 시간</column>
+		<beforeInit>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+	</head>
+</rows>

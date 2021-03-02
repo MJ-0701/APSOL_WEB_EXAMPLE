@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="username" width='130' align='left' type='ro' sort='server'>아이디</column>
+		<column id="name" width='130' align='left' type='ed' sort='server'>이 름</column>
+		<column id="phone" width='130' align='left' type='ed' sort='server'>전화번호</column>
+		<column id="activated" width='60' align='center' type='ed' sort='server'>상 태</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

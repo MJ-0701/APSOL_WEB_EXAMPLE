@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="levelName" width='80' align='center' type='ro' sort='str'>등급명</column>
+		<column id="unitPrice" width='100' align='right' type='edn' sort='int'>단 가</column>		
+		<column id="qty" width='100' align='right' type='ron' sort='int'>수 량</column>
+
+		<beforeInit>
+
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>순 번
+		</column>
+		<column id="depositDate" width='120' align='center' type='ro' sort='na'>입금년월일
+		</column> 
+		<column id="cardName" width='100' align='center' type='ro' sort='na'>카드사명
+		</column>
+		<column id="bankName" width='80' align='center' type='ro' sort='na'>은행명
+		</column>
+		<column id="bankAccount" width='100' align='center' type='ro' sort='na'>결제계좌번호
+		</column>
+		
+		<column id="salesCnt" width='100' align='right' type='ron' sort='na' format="0,000">매출건수
+		</column>
+		
+		<column id="salesAmount" width='100' align='right' type='ron' sort='na' format="0,000">매출금액
+		</column>
+		
+		<column id="holdAmount" width='100' align='right' type='ron' sort='na' format="0,000">지급보류금액
+		</column>
+		
+		<column id="etcAmount" width='120' align='right' type='ron' sort='na' format="0,000">기타금액
+		</column>
+		
+		<column id="depositAmount" width='120' align='right' type='ron' sort='na' format="0,000">입금금액
+		</column>
+				
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

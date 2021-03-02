@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="10"/>
+	<item type="block" blockOffset="0">
+
+		<item type="hidden"  name="id"/>
+		<item type="input" value="" label="시작 문자" name="prefix" inputWidth="180"/>
+		<item type="input" value="" label="시작 번호" name="num" inputWidth="180"/>
+		<item type="input" value="" label="채워넣기" name="padding" inputWidth="180"/>
+		<item type="button" value="시리얼 생성" name="btnApply" inputWidth="180" offsetLeft="90"/>
+
+	</item>
+
+</items>
+

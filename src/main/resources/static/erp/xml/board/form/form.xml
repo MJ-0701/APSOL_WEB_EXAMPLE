@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="60" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="block" blockOffset="0" offsetTop="0">
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="제 목" name="title"
+					inputWidth="350" />
+				<item type="newcolumn" />
+				<item type="checkbox" label="공지사항" name="notice" />
+			</item>
+			<item type="block" blockOffset="0">
+				<item type="editor" value="" label="내 용" name="content"
+					inputWidth="450" inputHeight="370" />
+			</item>
+
+		</item>
+	</item>
+</items>
+

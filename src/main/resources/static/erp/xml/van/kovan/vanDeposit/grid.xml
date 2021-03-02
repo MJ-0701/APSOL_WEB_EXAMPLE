@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<rows>
+	<head> 
+		<column id="cardNumber" width='120' align='center' type='ro' sort='str' color=''>카드 번호</column>
+		<column id="admissionNumber" width='90' align='center' type='ro' sort='str' color=''>승인번호</column>
+		<column id="sellDate" width='100' align='center' type='ro' sort='str' color=''>거래일</column>
+		<column id="claimDate" width='100' align='center' type='ro' sort='str' color=''>청구일</column>
+		<column id="paymentDate" width='100' align='center' type='ro' sort='str' color=''>입금일</column>
+		<column id="acquirerName" width='80' align='center' type='ro' sort='str' color=''>매입사</column>
+		<!-- <column id="customerNumber" width='80' align='center' type='ro' sort='str' color=''>가맹점 번호</column> -->
+		<column id="fees" width='60' align='right' type='ron' sort='na' color='' format="0,000">수수료</column>
+		<column id="deposit" width='80' align='right' type='ron' sort='na' color='' format="0,000">입금금액</column>
+		
+		<column id="cardDenyCode" width='80' align='right' type='ron' sort='str' color=''>카드 반송</column>
+		<column id="kovanResponseCode" width='80' align='right' type='ron' sort='str' color=''>KOVAN 반송</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		<!-- 	<call command="enableMultiline">
+				<param>1</param>
+			</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

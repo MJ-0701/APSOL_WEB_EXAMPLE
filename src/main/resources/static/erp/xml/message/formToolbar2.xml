@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnSend" type="button" text="새 연락"/>
+	<item id="btnReturn" type="button" text="답 장"/>
+</toolbar>

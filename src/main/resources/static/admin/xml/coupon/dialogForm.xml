@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+
+	<item type="block" blockOffset="0">
+		<item type="select" label="쿠 폰" name="coupon" connector="coupon/select"
+					inputWidth="180" />
+	</item>
+
+</items>
+

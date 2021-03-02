@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+
+		<column id="fileName" width='200' align='left' type='ed' sort='str'
+			color=''>파일명</column>
+			
+		<column id="name" width='130' align='left' type='ro' sort='str'
+			color=''>일 시</column>
+
+		<column id="name" width='80' align='center' type='link' sort='na'
+			color=''>열기</column>
+
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>true</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

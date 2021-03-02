@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="kindName" width='70' align='center' type='ro' sort='server'>구 분
+		</column>	
+		<column id="name" width='130' align='left' type='ro' sort='server'>상 호
+		</column>
+		<column id="ceo" width='100' align='center' type='ro' sort='server'>대표자
+		</column>
+		<column id="businessNumber" width='100' align='center' type='ro' sort='server'>사업자번호
+		</column>
+		<column id="phone" width='100' align='left' type='ro' sort='server'>전화번호
+		</column>		
+		<column id="managerName" width='100' align='left' type='ro' sort='server'>담당자
+		</column>		
+		<column id="stateName" width='70' align='center' type='ro' sort='server'>상 태
+		</column>	
+		<column id="memo" width='300' align='left' type='ro' sort='na'>메 모
+		</column>
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

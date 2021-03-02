@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<toolbar>
+	
+	<item id="btnNew" type="button" text="신 규" img="new.gif"  imgdis="new_dis.gif"/>
+	<item id="btnEdit" type="button" text="편 집" />
+	
+</toolbar>

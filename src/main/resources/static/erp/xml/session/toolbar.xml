@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnRefresh" type="button" text="새로고침" >
+	</item>
+	<!--<item id="btnAdd" type="button" text="추 가" />		
+	<item id="btnDelete" type="button" text="삭 제" />
+	<item type="separator"/> -->
+	<item id="btnClose" type="button" text="회기 마감" />
+	<item id="btnOpen" type="button" text="마감 취소" />
+</toolbar>

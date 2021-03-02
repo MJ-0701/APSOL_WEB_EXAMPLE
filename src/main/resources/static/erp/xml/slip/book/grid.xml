@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="year" width='40' align='right' type='ed' sort='int' color=''>년</column>
+		<column id="month" width='25' align='right' type='ed' sort='int' color=''>월</column>
+		<column id="day" width='25' align='right' type='ed' sort='int' color=''>일</column>
+		<column id="typeName" width='35' align='center' type='ro' sort='str' color=''>작성</column>
+		<column id="kindName" width='55' align='center' type='ro' sort='str' color=''>구분</column>
+		<column id="profitStateName" width='55' align='center' type='ro' sort='str' color=''>손익확정</column>
+		<column id="remarks" width='220' align='left' type='ed' sort='str' color=''>업무 내용</column>
+		<column id="total" width='90' align='right' type='edn' sort='int' color='' format="0,000">금 액</column>
+		<!-- <column id="tax" width='80' align='right' type='edn' sort='int' color='' format="0,000">세 액</column>
+		<column id="total" width='90' align='right' type='edn' sort='int' color='' format="0,000">합 계</column>		 -->
+		<column id="bookName" width='65' align='center' type='ro' sort='str' color=''>결제수단</column>
+		<column id="docKindName" width='65' align='center' type='ro' sort='str' color=''>증빙자료</column>
+		<column id="managerName" width='80' align='center' type='ro' sort='int' color=''>작성자</column>
+		<column id="approvalerName" width='80' align='center' type='ro' sort='int' color=''>결재자</column>
+		<column id="approvalTime" width='100' align='center' type='ro' sort='int' color=''>결재 시간</column>
+		<column id="memo" width='200' align='left' type='ro' sort='str' color=''>비 고</column>
+		<column id="uuid" width='130' align='left' type='ro' sort='str' color=''>전표 번호</column>
+		<beforeInit>
+			<!-- <call command="attachHeader">
+				<param>년,월,일,#rspan,#rspan,상 호,등록번호,#rspan,금 액,세 액,합 계,#rspan,#rspan,코드,장부명,#rspan,#rspan,#rspan</param>
+			</call> -->
+			<!-- <call command="attachHeader">
+				<param>#select_filter,,,,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#numeric_filter,#numeric_filter,#numeric_filter,#select_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call> -->
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+				<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

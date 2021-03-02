@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<items id="addGroupForm">
+	<item type="block" blockOffset="0">
+		<item id="price" name="price" type="input" inputWidth="150" label="금액" labelWidth="50" position="label-left" offsetLeft="70" offsetTop="20"/>
+		<item id="name" name="name" type="input" inputWidth="150" label="입금자명" labelWidth="50" position="label-left" offsetLeft="70" offsetTop="10"/>
+	</item>
+	<item type="block" blockOffset="0">
+		<item id="bank" name="bank" type="select" inputWidth="150" label="입금은행" labelWidth="50" position="label-left" offsetLeft="70" offsetTop="10">
+			<option value="XXXX" text="선택" />
+			<option value="BK03" text="기업은행" />
+			<option value="BK04" text="국민은행" />
+			<option value="BK07" text="수협은행" />
+			<option value="BK11" text="농협중앙회" />
+			<option value="BK20" text="우리은행" />
+			<option value="BK26" text="신한(조흥)은행" />
+			<option value="BK71" text="우체국" />
+			<option value="BK81" text="KEB하나은행" />
+		</item>
+		<item id="expireLabel" name="expireLabel" type="label" label="" labelWidth="200" position="label-left" offsetLeft="70" offsetTop="10"/>
+		<item id="expire" name="expire" type="hidden"/>
+	</item>
+</items>
+

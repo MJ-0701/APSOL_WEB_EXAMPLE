@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<toolbar>
+
+	<item id="btnRefresh" type="button" text="새로 고침" img="redo.gif"  imgdis="redo_dis.gif"/>
+	
+	<item  type="separator"/>
+	
+	<item type="buttonSelect" text="발주서 발행" renderSelect="false" openAll="true" img="paste.gif"  imgdis="paste_dis.gif">
+		<item id="btnOrderFilter" type="button" text="검색 항목 발행" />
+		<item id="btnOrder" type="button" text="선택 항목 발행" />		
+	</item>
+	
+	<item  type="separator"/>
+	<item id="btnExcel" type="button" text="엑셀 출력" img="icon_grid.gif"  imgdis="icon_grid.gif" />
+	<item  type="separator"/>
+	<item type="text" text="[구매예상액 ] = [품목 매입가 ] x [부족 재고량]"/>
+
+</toolbar>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="hidden" value="" label="" name="company" />
+	
+	<item type="block" blockOffset="0">
+		<item type="calendar" value="" label="일 자" name="date"			inputWidth="140" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="운전자" name="driver"			inputWidth="140" />
+	</item>
+	
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="운행시작" name="beginTime"			inputWidth="140" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="시작계기판" name="beginPanel"			inputWidth="140" />
+	</item>
+	
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="운행종료" name="endTime"			inputWidth="140" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="종료계기판" name="endPanel"			inputWidth="140" />
+	</item>
+	
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="주행 거리" name="driveDistance"			inputWidth="140" /> 
+	</item>
+	  	
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="메 모" name="memo" inputWidth="363" />
+	</item>
+
+
+
+
+</items>
+

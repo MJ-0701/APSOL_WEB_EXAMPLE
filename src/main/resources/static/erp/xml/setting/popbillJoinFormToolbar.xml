@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnJoin" type="button" text="신규회원등록" img="new.gif"  imgdis="new_dis.gif" >
+		<userdata name="kind">insert</userdata>
+	</item>	
+	<item id="btnAuth" type="button" text="공인인증서 관리" img="save.gif"  imgdis="save_dis.gif"/>
+	<item id="btnPoint" type="button" text="포인트 관리" img="save.gif"  imgdis="save_dis.gif"/>
+	<item id="btnLogin" type="button" text="로그인" img="save.gif"  imgdis="save_dis.gif"/>
+</toolbar>

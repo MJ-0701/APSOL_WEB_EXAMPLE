@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+
+		<column id="name" width='180' align='left' type='ro' sort='server' color=''>명칭</column>
+		<column id="bussinessNumber" width='120' align='left' type='ro' sort='server' color=''>연락처</column>
+		<column id="ceo" width='100' align='left' type='ro' sort='server' >주 소</column>
+		<column id="type" width='180' align='left' type='ro' sort='server' >상세 주소</column>
+		
+		<afterInit>			
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+				
+			</call>
+		</afterInit>
+	</head>
+</rows>

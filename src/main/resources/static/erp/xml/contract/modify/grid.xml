@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+
+		<column id="modifiedDate" width='90' align='center' type='ro'
+			sort='na' color=''>수정 일자</column>
+		<column id="name" width='80' align='center' type='ro' sort='na'
+			color=''>항 목</column>
+
+		<column id="oldData" width='255' align='left' type='ro' sort='na'
+			color=''>변경 전</column>
+
+		<column id="newData" width='255' align='left' type='ro' sort='na'
+			color=''>변경 후</column>
+
+		<column id="updatedDate" width='100' align='center' type='ro'
+			sort='na' color=''>수정 시간</column>
+
+		<column id="editorName" width='80' align='center' type='ro'
+			sort='na' color=''>수정자</column>
+
+		<beforeInit>
+		<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

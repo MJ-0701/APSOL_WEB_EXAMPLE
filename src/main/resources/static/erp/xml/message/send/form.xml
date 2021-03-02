@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" name="work" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="calendar" value="" label="예정 일자" name="workDate" />
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="input" value="" label="가맹점" name="customerName" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="사업자 번호" name="customerBusinessNumber" />
+			</item>
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="수신자" name="receivers"
+					required="true" inputWidth="350" />
+				<item type="newcolumn" />
+				<item type="button" value="..." name="btnReceiver" required="true"
+					width="40" />
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="editor" label="내 용" name="content" inputWidth="390"
+					inputHeight="250" rows="8" value="" />
+			</item>
+		</item>
+	</item>
+
+</items>
+

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		
+		<column id="year" width='40' align='center' type='ed' sort='server' color=''>일 자</column>
+		<column id="month" width='25' align='center' type='ed' sort='na' color=''>#cspan</column>
+		<column id="day" width='25' align='center' type='ed' sort='na' color=''>#cspan</column>
+		<column id="item" width='50' align='center' type='ro' sort='server' color=''>품 목</column>
+		<column id="itemName" width='110' align='left' type='ed' sort='server' color=''>#cspan</column>
+		<column id="serialNumber" width='100' align='left' type='ed' sort='server' color=''>제조번호</column>
+		<column id="standard" width='100' align='left' type='ro' sort='server' color='' hidden='1'>규 격</column>
+		<column id="unitName" width='55' align='left' type='ro' sort='server' color='' hidden='1'>단 위</column>
+		<column id="qty" width='70' align='right' type='edn' sort='server' color=''>이동 수량</column>
+		
+		<column id="outWarehouse" width='55' align='center' type='ro' sort='server' color=''>출고 창고</column>
+		<column id="outWarehouseName" width='120' align='left' type='ed' sort='server' color=''>#cspan</column>
+		
+		<column id="inWarehouse" width='55' align='center' type='ro' sort='server' color=''>입고 창고</column>
+		<column id="inWarehouseName" width='120' align='left' type='ed' sort='server' color=''>#cspan</column>
+		<column id="memo" width='200' align='left' type='ed'	 sort='na' color=''>비 고</column>
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>년,월,일,코 드,품목명,#rspan,#rspan,#rspan,#rspan,코 드,창고명,코 드,창고명,#rspan</param>
+			</call>
+			  <call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<!-- <param>50</param> -->
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			
+
+		</afterInit>
+	</head>
+
+</rows>

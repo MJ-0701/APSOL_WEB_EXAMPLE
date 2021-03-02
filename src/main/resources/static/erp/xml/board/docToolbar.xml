@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnAdd" type="button" text="신 규" img="new.gif"  imgdis="new_dis.gif" >
+		<userdata name="kind">insert</userdata>
+	</item>	
+	<item id="btnEdit" type="button" text="수 정" img="save.gif"  imgdis="save_dis.gif"/>
+</toolbar>

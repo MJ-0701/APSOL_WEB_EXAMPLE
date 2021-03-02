@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="60" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="아이디" name="username"
+				inputWidth="90" labelWidth="65" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="이 름" name="name"
+				inputWidth="90" labelWidth="65" />
+		</item>
+		
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="연락처" name="phone"
+				inputWidth="90" labelWidth="65" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="이메일" name="email"
+				inputWidth="90" labelWidth="65" />
+		</item>
+
+		<item type="button" value="계정 생성" name="btnApply" inputWidth="180"
+			offsetLeft="62" />
+
+	</item>
+
+</items>
+

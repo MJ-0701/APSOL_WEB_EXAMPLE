@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<toolbar>
+	
+	<item id="btnAddLevel" type="button" text="추가" img="save.gif" imgdis="save_dis.gif" />
+	<item id="btnDelLevel" type="button" text="삭제" img="close.gif"  imgdis="close_dis.gif"/>
+	<item id="btnShowModified" type="button" text="변경이력" img="icon_grid.gif"  imgdis="icon_grid.gif"/>
+	
+	<!-- <item  type="separator"/>
+	<item id="btnExcel" type="button" text="엑셀 출력" img="icon_grid.gif"  imgdis="icon_grid_dis.gif"/> -->
+</toolbar>

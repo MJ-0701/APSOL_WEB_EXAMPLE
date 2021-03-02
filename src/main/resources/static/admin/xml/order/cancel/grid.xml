@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="orderNumber" width='110' align='left' type='ro'
+			sort='server' color=''>주문</column>
+		<column id="customerName" width='70' align='center' type='ro'
+			sort='server' color=''>#cspan</column>
+		<column id="customerUsername" width='90' align='left' type='ro'
+			sort='server' color=''>#cspan</column>
+
+		<column id="orderDate" width='130' align='center' type='ro'
+			sort='server'>#cspan</column>
+
+		<column id="orderStateName" width='80' align='center' type='ro'
+			sort='server'>
+			#cspan
+		</column>
+		<column id="paymentStateName" width='80' align='center' type='ro'
+			sort='server'>
+			#cspan
+		</column>
+
+		<column id="productName" width='90' align='right' type='ro'
+			sort='na' color=''>품 목</column>
+
+		<column id="amount" width='70' align='right' type='ro' sort='na' format="0,000" 
+			color=''>#cspan</column>
+
+		<column id="paymentKindName" width='100' align='center' type='ro'
+			sort='server' color=''>결제방법</column>
+
+		<column id="accountNumber" width='90' align='left' type='ro'
+			sort='na' color=''>계좌</column>
+			<column id="bankName" width='90' align='center' type='ro'
+			sort='na' color=''>#cspan</column>
+			<column id="accountName" width='90' align='center' type='ro'
+			sort='na' color=''>#cspan</column>
+
+		<column id="cancelDate" width='130' align='center' type='ro'
+			sort='server'>취소</column>
+
+		<column id="message" width='150' align='center' type='ro' sort='server'>
+			#cspan
+		</column>
+
+		<column id="cancelState" width='80' align='center' type='combo'
+			sort='server' editable="false" xmlcontent="1">
+			#cspan
+			<option value="CS0001">취소 대기</option>
+			<option value="CS0002">취소 완료</option>
+		</column>
+		<column id="refundState" width='80' align='center' type='combo'
+			sort='server' editable="false" xmlcontent="1">
+			#cspan
+			<option value="CR0001">환불 대기</option>
+			<option value="CR0002">환불 완료</option>
+			<option value="CR0003">환불 실패</option>
+		</column>
+		<column id="payment" width='110' align='center' type='ro' sort='server'>
+			결제번호
+		</column>
+		<column id="memo" width='250' align='left' type='ed' sort='server'>
+			비고
+		</column>
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>주문번호,이
+					름,아이디,주문일시,주문상태,결제상태,품목명,총결제금액,#rspan,환불계좌,은행명,예금주,취소일시,사유,취소상태,환불상태,#rspan,#rspan,
+				</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,,,,,,#text_filter,#text_filter,,,,
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

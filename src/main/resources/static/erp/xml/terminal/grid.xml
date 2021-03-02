@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='60' align='center' type='ro' sort='na' color=''>순번</column>	
+		<column id="agencyName" width='70' align='center' type='ro' sort='na' color=''>통신사</column>	
+		<column id="modemNo" width='80' align='center' type='ro' sort='na' color=''>모뎀번호</column>	
+		<column id="admissionNo" width='100' align='center' type='ro' sort='na' color=''>개통 번호</column>
+		
+		<column id="billNo" width='120' align='center' type='ro' sort='na' color=''  >청구서 번호</column>
+		<column id="serviceNo" width='120' align='center' type='ro' sort='na' color=''  >서비스 가입번호 / ID</column>
+		
+		<column id="amount" width='70' align='right' type='ro' sort='na' color=''  >납부금액</column>
+		<column id="paymentKindName" width='70' align='center' type='ro' sort='na' color=''  >납부구분</column>
+		<column id="customerName" width='150' align='left' type='ro' sort='na' color=''  >상호</column>
+		<column id="customerBusinessNumber" width='100' align='left' type='ro' sort='na' color=''  >사업자번호</column>
+		<column id="customerManagerName" width='100' align='left' type='ro' sort='na' color=''  >담당자</column>
+		<column id="date" width='110' align='center' type='ro' sort='na' color=''  >출고 일자</column>
+		<column id="openDate" width='110' align='center' type='ro' sort='na' color=''  >개통 일자</column>
+		<column id="releaseDate" width='110' align='center' type='ro' sort='na' color=''  >해지 일자</column>
+		<column id="stateName" width='80' align='center' type='ro' sort='na' color=''  >상 태</column>
+				
+		<beforeInit>
+			 <call command="attachHeader">
+				<param>,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,#text_filter,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>			
+		</afterInit>
+
+	</head>
+</rows>

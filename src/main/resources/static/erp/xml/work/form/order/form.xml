@@ -1,0 +1,90 @@
+﻿<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="60" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="hidden" name="code" />
+	<item type="hidden" name="customer" />
+	<item type="hidden" name="customer2" />
+	<item type="hidden" name="project" />
+
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="제 목" name="title" inputWidth="250" />
+		<item type="newcolumn" />
+		<item type="select" label="구 분" name="slipKind">
+		</item>
+
+	</item>
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="calendar" value="" label="주문 일자" name="date" />
+			<item type="input" value="" label="거래처" name="customerName" />
+			<item type="input" value="" label="프로젝트" name="projectName" />
+		</item>
+		<item type="newcolumn" />
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="담당자" name="staffName" />
+			<item type="input" value="" label="연락처" name="staffPhone" />
+			<item type="input" value="" label="이메일" name="staffEmail" />
+		</item>
+	</item>
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="주문 금액" name="orderAmount"
+				className="amount" />
+			<item type="input" value="" label="할인율(%)" name="discountRate"
+				className="amount" />
+			<item type="calendar" value="" label="납기 예정" name="deliveryDate" />
+		</item>
+		<item type="newcolumn" />
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="금 액" name="amount" className="amount"
+				readonly='true' />
+			<item type="input" value="" label="세 액" name="tax" className="amount"
+				readonly='true' />
+			<item type="input" value="" label="합 계" name="total" className="amount"
+				readonly='true' />
+		</item>
+	</item>
+	<item type="block" blockOffset="0" id="deliveryForm">
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="현 장" name="customer2Name" />
+			<item type="newcolumn" />
+			<item type="select" label="배송 구분" name="deliveryType" connector="bascode/select/DT?empty=true" />
+		</item>
+		<item type="input" value="" label="배송지" name="address" inputWidth="370" />
+	</item>
+	<item type="block" blockOffset="0" id="paymentForm">
+		<item type="checkbox" label="결제 처리" checked="false" name="prePayment">
+			<item type="select" label="결제 장부" name="book" connector="bascode/select/WB" />
+			<item type="select" label="업무 구분" name="account" connector="bascode/select/WA" />
+
+			<item type="select" label="영수증" name="invoice">
+				<option value="IV0000" text="없음" />
+				<option value="IV0002" text="카드" />
+				<option value="IV0003" text="현금" />
+			</item>
+		</item>
+	</item>
+	<item type="block" blockOffset="0">
+
+		<item type="calendar" value="" label="수금 예정" name="collectDate"
+			inputWidth="120" />
+		<item type="newcolumn" />
+		<item type="calendar" value="" label="계산서 발행 예정일" name="publishDate"
+			inputWidth="120" labelWidth="127" />
+
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="비 고" name="memo" inputWidth="370" />
+	</item>
+	<item type="block" blockOffset="0" id="orderWorkSettingForm">
+		<item type="select" label="선결재" name="ignoreStep">
+			<option value="BL0001" text="1.허용" />
+			<option value="BL0002" text="2.불가" />
+		</item>
+	</item>
+</items>
+

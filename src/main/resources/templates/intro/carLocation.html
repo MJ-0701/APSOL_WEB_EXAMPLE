@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Object-based init</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/dhtmlx/codebase/dhtmlx.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}" />
+
+<script th:src="@{/vendor/dhtmlx/codebase/dhtmlx.js}"></script>
+<script th:src="@{/vendor/jquery/jquery-1.11.1.min.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/jquery.form.min.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/json2/json2.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/js/common.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+
+<script th:src="@{/js/popup/gridCell.js}"></script>
+<script th:src="@{/js/popup/bascodeCell.js}"></script>
+<script th:src="@{/js/popup/authCell.js}"></script>
+<script th:src="@{/js/popup/customerCell.js}"></script>
+
+<script th:src="@{/js/dialog.js}"></script>
+ 
+ <script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    function initMap() {
+    }
+    /*]]>*/
+</script>
+	
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=geometry&amp;sensor=false&amp;key=AIzaSyAkJ8fFEGfkEBbjc7NNDhLNMkel0n0aW5I&amp;callback=initMap"></script>
+<script async="async" defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js?spiderfier_callback=mapLibReadyHandler"></script>
+
+
+
+<script th:src="@{/erp/js/data/dataGrid.js}"></script>
+<script th:src="@{/erp/js/location/carGrid.js}"></script>
+<script th:src="@{/erp/js/location/historyGrid.js}"></script>
+<style>
+</style>
+
+<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/   freeTier = /*[[${freeTier}]]*/0;
+
+	var imageUrl = /*[[@{/vendor/dhtmlx/codebase/imgs/}]]*/"../../../codebase/imgs/";
+	var GMaps;
+	var markers = [];
+	var flightPaths = [];
+
+	function doOnLoad() {
+
+		var carGrid = new CarGrid();
+
+		var layout = new dhtmlXLayoutObject({
+			parent : document.body,
+			pattern : "1C"
+		});
+
+		setupToolbar(layout.cells("a"), function(from, to) {
+
+			for (i = 0; i < markers.length; ++i) {
+				markers[i].setMap(null);
+			}
+
+			for (i = 0; i < flightPaths.length; ++i) {
+				flightPaths[i].setMap(null);
+			}
+
+			markers = [];
+			flightPaths = [];
+
+			if (flightPath) {
+				flightPath.setMap(null);
+				flightPath = null;
+			}
+
+			carGrid.from = from;
+			carGrid.to = to;
+
+			if (carGrid.grid)
+				carGrid.reload();
+
+			historyGrid.from = from;
+			historyGrid.to = to;
+
+			historyGrid.clear();
+		});
+
+		layout.cells("a").hideHeader();
+
+		var layout = layout.cells("a").attachLayout('3L');
+		layout.cells("a").hideHeader();
+		layout.cells("b").hideHeader();
+		layout.cells("c").hideHeader();
+
+		layout.cells("a").setWidth(400);
+
+		carGrid.init(layout.cells("a"), {
+			iconsPath : "img/18/",
+			imageUrl : imageUrl
+		});
+
+		carGrid.addProgressCell('layout', layout.cells("a"));
+
+		carGrid.setOnRowSelect(function(rId, ind, grid, colName) {
+			console.log(rId);
+			historyGrid.username = rId;
+			historyGrid.reload();
+		});
+
+		carGrid.setOnAfterLoaded(function(num, grid) {
+			showAllMarker(carGrid.from, carGrid.to);
+		});
+
+		var historyGrid = new HistoryGrid();
+		historyGrid.init(layout.cells("c"), {
+			iconsPath : "img/18/",
+			imageUrl : imageUrl
+		});
+
+		historyGrid.addProgressCell('layout', layout.cells("c"));
+
+		historyGrid.setOnRowSelect(function(rId, ind, grid, colName) {
+			var lat = historyGrid.getData('lat', rId);
+			var lng = historyGrid.getData('lng', rId);
+
+			// GMaps.setCenter(new google.maps.LatLng(lat, lng));
+			
+			GMaps.setCenter(new google.maps.LatLng(lat, lng));
+		});
+
+		var flightPath;
+
+		historyGrid.setOnBeforeLoaded(function() {
+
+			for (i = 0; i < markers.length; ++i) {
+				markers[i].setMap(null);
+			}
+
+			for (i = 0; i < flightPaths.length; ++i) {
+				flightPaths[i].setMap(null);
+			}
+
+			markers = [];
+			flightPaths = [];
+
+			if (flightPath) {
+				flightPath.setMap(null);
+				flightPath = null;
+			}
+		});
+
+		historyGrid.setOnAfterLoaded(function(num) {
+
+			var flightPlanCoordinates = [];
+
+			var center = undefined;
+			var grid = historyGrid.grid;
+			
+			for (i = 0; i < grid.getRowsNum(); ++i) {
+				var rowId = grid.getRowId(i);
+
+				var lat = historyGrid.getData('lat', rowId);
+				var lng = historyGrid.getData('lng', rowId);
+				var position = new google.maps.LatLng(lat, lng);
+								
+				var marker = new google.maps.Marker({
+					position : position,
+				// map : GMaps
+				});
+
+				marker.setMap(GMaps);
+
+				markers.push(marker);
+
+				if (position != undefined)
+					center = position;
+
+				flightPlanCoordinates.push(position);
+			}
+			
+			GMaps.setCenter(center);
+
+			flightPath = new google.maps.Polyline({
+				path : flightPlanCoordinates,
+				strokeColor : "#FF0000",
+				strokeOpacity : 1.0,
+				strokeWeight : 2
+			});
+
+			flightPath.setMap(GMaps);
+
+			grid.selectRow(0, true);
+		});
+		
+		// 맵 초기화
+
+		/* var mapParams = {
+			// center : position,
+			zoom : 14,
+			mapTypeId : google.maps.MapTypeId.ROADMAP
+		};
+		GMaps = layout.cells("b").attachMap(mapParams); */
+		
+		layout.cells("b").attachObject('map');
+		
+		var container = document.getElementById('map');
+		var options = {
+				center: new google.maps.LatLng(0, 0),
+			// level: 3
+				zoom : 14,
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+		};
+
+		GMaps = new google.maps.Map(container, options);
+		
+		console.log(GMaps);
+
+		//
+
+	}
+
+	function showPath(data, color) {
+		
+		console.log(data);
+
+		var flightPlanCoordinates = [];
+
+		for (i = 0; i < data.length; ++i) {
+
+			var position = new google.maps.LatLng(data[i].lat, data[i].lng);
+
+			var marker = new google.maps.Marker({
+				position : position,
+				strokeColor : color,
+				
+				/*   icon: {
+				        path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+				        strokeColor: "red",
+				        scale: 3
+				    }, */
+				    
+			// map : GMaps
+			});
+
+			marker.setMap(GMaps);
+
+			markers.push(marker);
+
+			flightPlanCoordinates.push(position);
+		}
+
+		var path = new google.maps.Polyline({
+			path : flightPlanCoordinates,
+			strokeColor : color,
+			strokeOpacity : 1.0,
+			strokeWeight : 2
+		});
+
+		path.setMap(GMaps);
+
+		flightPaths.push(path);
+	}
+	
+	function randomColor() {
+	    return "#" + Math.random().toString(16).slice(2,8);
+	}
+
+	function showAllMarker(from, to) {
+		$.get('carLocation/all', {
+			from : from,
+			to : to
+		}, function(data) {
+			
+			for ( var car in data) {
+				if( car == 'center')
+					continue;
+								
+				showPath(data[car].positions, data[car].color);
+			}
+									
+			GMaps.setCenter(new google.maps.LatLng(data.center.lat, data.center.lng));
+
+		});
+	}
+
+	function setupToolbar(container, onChangedDate) {
+		var toolbar = container.attachToolbar();
+		toolbar.setIconsPath("img/18/");
+		var calendar;
+		toolbar.loadStruct('../erp/xml/location/toolbar.xml', function() {
+			setToolbarStyle(toolbar);
+
+			calendar = buildToolbarDateRange(toolbar, 'from', 'to', onChangedDate);
+
+			calendar.setLastDay(1);
+
+			setupDateRangeBtns(toolbar, calendar);
+
+		});
+
+		toolbar.attachEvent("onClick", function(id) {
+
+			switch (id) {
+
+			case 'btnRefresh':
+			case 'btnSearch':
+				var range = calendar.getRange();
+				onChangedDate(range.from, range.to);
+				break;
+
+			}
+		});
+
+		return toolbar;
+	}
+
+	/*]]>*/
+</script>
+</head>
+<body onload="doOnLoad();">
+<div id="map" style="width:100%;height:100%"></div>
+</body>
+</html>

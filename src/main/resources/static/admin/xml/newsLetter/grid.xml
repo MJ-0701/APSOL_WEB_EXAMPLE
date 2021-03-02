@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		 
+		<column id="email" width='120' align='left' type='ro' sort='server' color=''>이메일</column>	
+		
+		<column id="activated" width='65' align='center' type='combo' sort='server' editable="false"  xmlcontent="1">
+			활성화
+			<option value="AT0001">비활성</option>
+			<option value="AT0002">활 성</option> 
+		</column>
+		
+		<column id="registeredDate" width='130' align='center' type='ro' sort='server' color=''>등록일시</column>				
+			
+		<column id="memo" width='200' align='left' type='ed'	 sort='na' color=''>비 고</column>
+				
+		<beforeInit> 
+			<call command="attachHeader">
+				<param>#text_filter,#select_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			
+
+		</afterInit>
+	</head>
+
+</rows>

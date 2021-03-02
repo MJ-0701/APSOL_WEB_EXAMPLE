@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		
+		<column id="kindName" width='60' align='center' type='ro' sort='server' color=''>품 목</column>	
+		<column id="name" width='110' align='left' type='ed' sort='server' color=''>#cspan</column>
+		<column id="part" width='110' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="standard" width='100' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="unitName" width='60' align='left' type='ro' sort='server' color=''>#cspan</column>
+		<column id="qty" width='50' align='right' type='edn' sort='server' color=''>수량</column>		
+		<column id="unitPrice" width='70' align='right' type='edn' sort='server' color=''>단가</column>
+		<column id="amount" width='80' align='right' type='ron' sort='server' color=''>금액</column>
+		<beforeInit>
+			<call command="attachHeader">
+				<param>구 분,이 름,파트넘버,규 격,단 위,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+	</head>
+
+</rows>

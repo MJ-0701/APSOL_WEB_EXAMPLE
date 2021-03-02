@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드"
+		name="code" inputWidth="120" labelWidth="70" />
+				
+		<item type="hidden"  value="" label="코 드"
+		name="kind" inputWidth="120" labelWidth="70" />  
+
+	<item type="block" blockOffset="0">
+	
+		<item type="input" value="" label="이 름" name="name"
+						inputWidth="180" />
+						
+		<item type="input" value="" label="순 번" name="no"
+						inputWidth="180" />
+						
+		<item type="input" value="" label="연결 링크" name="itemUrl"
+						inputWidth="180" />
+		
+		<item type="image" name="image" inputWidth="380" label="이미지"
+				inputHeight="360" imageWidth='380' imageHeight='360'
+				url="../fileData/formImage" >
+				<note>380 * 360</note>
+		</item>  			
+		
+	</item>
+	
+
+</items>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="exhaustNo" width='100' align='left' type='ro' sort='str'>배출번호</column>
+		<column id="exhaustDate" width='100' align='left' type='ro' sort='str'>배출 예정일</column>
+		<column id="name" width='100' align='left' type='ro' sort='str'>이름</column>
+		<column id="phone" width='100' align='left' type='ro' sort='str'>전화번호</column>
+		<column id="address" width='130' align='left' type='ro' sort='str'>주소</column>
+		<column id="dong" width='60' align='center' type='ro' sort='str'>행정동</column>
+		<column id="itemName" width='80' align='left' type='ro' sort='str'>품목</column>
+		<column id="qty" width='60' align='right' type='ro' sort='str'>수량</column>
+		<column id="total" width='80' align='right' type='ro' sort='str'>가격</column> 		
+		<column id="cancelTime" width='120' align='center' type='ro' sort='str'>취소일시</column>
+		<column id="accountOwner" width='80' align='left' type='ed' sort='str'>예금주</column>
+		<column id="bank" width='70' align='left' type='ed' sort='str'>은행</column>
+		<column id="accountNumber" width='120' align='left' type='ed' sort='str'>계좌번호</column>	
+		
+		<column id="state" width='80' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			상 태			
+			<option value="READY_CANCEL">취소 대기</option>
+			<option value="CANCELED">취소 완료</option>
+		</column>
+		
+		<column id="completedTime" width='130' align='center' type='ro' sort='str'>완료일시</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#text_filter,,,,#text_filter,#select_filter,,#select_filter,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

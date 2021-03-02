@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<rows>
+	<head>				
+		<column id="itemKindName" width='50' align='center' type='ro' sort='str' color=''>구 분</column>
+		<column id="name" width='100' align='left' type='ed' sort='str' color=''>품 목</column>
+		<column id="standard" width='90' align='left' type='ed' sort='str' color=''>#cspan</column>
+		<column id="unitName" width='50' align='center' type='ed' sort='str' color=''>#cspan</column>
+		<column id="part" width='90' align='left' type='ed' sort='str' color=''>#cspan</column>
+		
+		<column id="serialNumber" width='100' align='left' type='ed' sort='str' color=''>제조번호</column>
+		
+		<column id="qty" width='50' align='right' type='edn' sort='int' color=''>수량</column>		
+		<column id="unitPrice" width='70' align='right' type='edn' sort='int' color=''>단가</column>
+		<column id="amount" width='80' align='right' type='edn' sort='int' color=''>금    액</column>
+		<column id="tax" width='70' align='right' type='edn' sort='int' color=''>#cspan</column>
+		<column id="total" width='80' align='right' type='ron' sort='int' color=''>#cspan</column>
+		<column id="warehouseName" width='80' align='center' type='ed' sort='na' color=''>창 고</column>
+		<column id="memo" width='220' align='left' type='ed'	 sort='na' color=''>비 고</column>
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,품목명,규 격,단 위,파트넘버,#rspan,#rspan,#rspan,금 액,세 액,합 계,#rspan,#rspan</param>
+			</call>
+			<!--<call command="attachHeader">
+				<param>#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#numeric_filter,#text_filter,#text_filter,#text_filter</param>
+		</call> -->
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+	</head>
+
+</rows>

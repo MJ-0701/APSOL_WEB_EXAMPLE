@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드"
+		name="code" inputWidth="120" labelWidth="70" />
+		<item type="hidden" readonly='true' value="" label="코 드"		name="mananger" inputWidth="120" labelWidth="70" />
+
+	<item type="hidden" value="" label="" name="content"
+		inputHeight="400" inputWidth="560" rows="10" offsetLeft="0"
+		labelWidth="0" />
+
+	<item type="block" blockOffset="0"> 
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="상 호" name="name"
+				inputWidth="363" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="사업자번호" name="businessNumber"
+				inputWidth="140" /> 
+				 
+		</item> 
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="대표자" name="ceo" inputWidth="140" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="이메일" name="email" inputWidth="140" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="담당자" name="managerName"			inputWidth="140" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="업종" name="jobType" inputWidth="140" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="업태" name="jobCategory" inputWidth="140" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="전화" name="tel" inputWidth="140" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="FAX" name="fax" inputWidth="140" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="핸드폰" name="phone" inputWidth="140" />
+			<item type="newcolumn" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="우편 번호" name="zipcode" inputWidth="140" />
+			<item type="newcolumn" />
+				<item type="button" value="주소 검색" name="btnSearchAddress" required="true" width="60" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="주 소" name="address"  inputWidth="363"    />
+			<item type="newcolumn" />
+			<item type="input" value="" label="상세 주소" name="addressDetail" inputWidth="140" />
+		</item>
+
+	</item>
+
+
+
+
+</items>
+

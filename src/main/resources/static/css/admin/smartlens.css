@@ -1,0 +1,39 @@
+
+.bt_register {width:110px; height:35px; line-height:35px; margin:7px 0 0 0; float:right; color:#0073AA; 
+	cursor:pointer; text-align:center; font-size:16px; }
+.bt_register:hover {background:#dfdfdf; }
+	
+.search {width:100%; display:none; }
+.search .split {float:left; }
+.search .type {width:50px; height:50px; float:left; text-align:center; font-size:15px; }
+.search .select {width:130px; height:50px; float:left; }
+.search select {width:100%; height:35px; padding:0 5px; background:white; border:1px solid #999; }
+.search input {width:100%; height:35px; border:1px solid #999; background:white; font-weight:bold; color:#666; }
+.search .bt_search {width:70px; height:35px; line-height:35px; margin:7px 0 0 20px; float:left; background:#0085BA; 
+	color:white; cursor:pointer; text-align:center; }
+	
+.box_sl {width:100%; margin:auto; }
+.box_sl .sl_item {width:20%; height:auto; float:left; margin-bottom:20px; }
+.sl_item .sl_item2 {width:90%; height:auto; margin:auto; background:white; border:1px solid #ddd; }
+.sl_item .sl_img {width:90%; height:150px; line-height:150px; margin:auto; overflow:hidden; text-align:center; }
+.sl_item .sl_img img {height:130px; vertical-align:middle; border:1px solid #ddd; }
+.sl_item .sl_label {width:100%; height:40px; line-height:20px; padding:0 15px; margin-bottom:10px; word-wrap:break-word; 
+	overflow:hidden; }
+.sl_item .sl_keyword {width:100%; height:30px; line-height:20px; padding:10px 10px 0 10px; word-wrap:break-word; 
+	overflow:hidden; border-top:1px solid #ddd; font-weight:bold; }
+.sl_item .bt_product {width:90%; height:35px; line-height:33px; margin:10px auto; border:1px solid #0085BA; 
+	text-align:center; cursor:pointer; border-radius:7px; background:#0085BA; color:white; }
+.sl_item .bt_done {background:#fff; color:#0085BA; cursor:pointer; }
+.box_sl .none {width:100%; height:100px; line-height:100px; clear:both; }
+
+/* 태블릿 */
+@media (min-width:500px) and (max-width:1200px) {	
+	.box_sl .sl_item {width:33.3%; }
+}
+
+/* 모바일 */
+@media (max-width:500px) {	
+	.box_sl .sl_item {width:50%; }
+	.sl_item .sl_label {height:60px; }
+}
+

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		
+		<column id="vanName" width='60' align='center' type='ro' sort='na' color=''>순 번</column>
+		<column id="vanName" width='140' align='center' type='ro' sort='na' color=''>상 호</column>
+		<column id="businessNumber" width='120' align='center' type='ro' sort='na' color=''>사업자번호</column>
+		<column id="publishCnt" width='80' align='right' type='ron' sort='na' color='' format="0,000">발행건수</column>
+		<column id="publishAmount" width='100' align='right' type='ron' sort='na' color='' format="0,000">발행금액</column>
+		<column id="notPublishCnt" width='80' align='right' type='ron' sort='na' color='' format="0,000">미발행건수</column>
+		<column id="notPublishAmount" width='100' align='right' type='ron' sort='na' color='' format="0,000">미발행금액</column> 
+		<column id="taxKind"  width='110' align='center' type='ron' sort='na' color=''>계산서 구분</column>
+		
+
+		<beforeInit>
+			 <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,</param>
+			</call> 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

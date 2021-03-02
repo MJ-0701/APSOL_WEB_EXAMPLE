@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="workTypeName" width='65' align='center' type='ro' sort='na'>문서구분</column>
+		<column id="docDate" width='80' align='center' type='ro' sort='na' >기안일자</column>
+		
+		<column id="kindName" width='60' align='center' type='ro' sort='na' >유 형</column>
+		<column id="slipKindName" width='60' align='center' type='ro' sort='na' >구 분</column>	
+		<column id="date" width='80' align='center' type='ro' sort='na' >거래일자</column>
+		<column id="title" width='300' align='left' type='ro' sort='na'>제 목</column>
+		<column id="customerName" width='100' align='left' type='ro' sort='na'>거래처</column>		
+		<column id="managerName" width='60' align='center' type='ro' sort='na' >기안자</column>
+		<column id="stateName" width='60' align='center' type='ro' sort='na'>결 재</column>		
+		<column id="approvalerName" width='60' align='center' type='ro' sort='na'>결재자</column>
+		<column id="approvalTime" width='100' align='center' type='ro' sort='na'>결재 일시</column>
+		
+		<!-- <column id="registeredDate" width='100' align='center' type='ro' sort='server'>작성 일시</column>
+		<column id="updatedDate" width='100' align='center' type='ro' sort='server'>수정 일시</column> -->
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,
+				</param>
+			</call>
+			
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

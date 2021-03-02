@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnAdd" type="button" text="새 문서" img="new.gif"  imgdis="new_dis.gif"/>
+	<item  type="separator"/>
+	<item id="btnUpdate" type="button" text="저 장" img="save.gif"  imgdis="save_dis.gif"/>
+	<item  type="separator"/>
+	<item id="btnSend" type="button" text="결재/전송" img="save.gif"  imgdis="save_dis.gif"/>
+	<item  type="separator"/>
+	<item id="btnSendAndAdd" type="button" text="결재/전송 후 새문서" img="save.gif"  imgdis="save_dis.gif"/>
+</toolbar>

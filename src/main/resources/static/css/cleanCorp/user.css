@@ -1,0 +1,39 @@
+
+.bt_register {width:110px; height:35px; line-height:35px; margin:-35px 0 0 0; float:right; color:#0073AA; 
+	cursor:pointer; text-align:center; font-size:16px; }
+.bt_register:hover {background:#dfdfdf; }
+
+.search {width:100%; min-height:50px; line-height:50px; }
+.search .split {float:left; }
+.search .type {width:50px; height:50px; float:left; text-align:center; font-size:15px; }
+.search .select {width:130px; height:50px; float:left; }
+.search select {width:100%; height:35px; padding:0 5px; background:white; border:1px solid #999; }
+.search input {width:100%; height:35px; border:1px solid #999; background:white; font-weight:bold; color:#666; }
+.search .bt_search {width:70px; height:35px; line-height:35px; margin:7px 0 0 20px; float:left; background:#0085BA; 
+	color:white; cursor:pointer; text-align:center; }
+
+.tb_user {width:100%; }
+.tb_user table {width:100%; border-collapse:collapse; border:1px solid #ddd; }
+.tb_user table .title {border-bottom:2px solid #eee; }
+.tb_user table .title td {height:35px; font-weight:bold; }
+.tb_user table .odd {background:#FBF8FB; }
+.tb_user table td {height:45px; line-height:25px; padding:5px 20px; box-sizing:border-box; }
+.tb_user table .none {border:none; padding:0 15px; }
+.tb_user table .bt_active {color:#0085BA; padding:5px 3px; cursor:pointer; }
+.tb_user table .bt_inactive {color:#aaa; padding:5px 3px; cursor:pointer; }
+.tb_user table .no { }
+.tb_user table .type {min-width:40px; }
+.tb_user table .id {min-width:50px; }
+.tb_user table .name {min-width:40px; }
+.tb_user table .address2 {min-width:55px; }
+.tb_user table .status {min-width:40px; }
+.tb_user table .bt_save{color:#0085BA; display:none;}
+.tb_user table .bt_delete {color:#0085BA; cursor:pointer; }
+.tb_user table .editInput2 {width:150px; height:30px; background:white; border:1px solid #ddd; display:none; }
+
+/* 모바일 */
+@media (max-width:1200px) {	
+	.tb_user table td {padding:5px 6px; font-size:11px; }
+	.tb_user table td:nth-child(3) {display:none; }
+	.tb_user table td:nth-child(6) {display:none; }
+}

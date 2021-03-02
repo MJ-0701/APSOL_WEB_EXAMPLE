@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='30' align='center' type='ro' sort='na'>
+			순번
+		</column>
+		<column id="cidStateName" width='80' align='center' type='ro' sort='str'
+			color=''>cid상태</column>
+		<column id="callingNumber" width='90' align='left' type='ro'
+			sort='str' color=''>발신번호</column>
+		
+		<column id="staffName" width='100' align='center' type='ro' sort='str'>
+			발신자
+		</column>
+		<column id="calledDate" width='130' align='left' type='ro'
+			sort='server'>발신일시
+		</column>
+		
+		<column id="calledNumber" width='90' align='left' type='ro'
+			sort='server'>수신번호
+		</column>
+		<column id="customerName" width='100' align='left' type='ro'
+			sort='server'>수신거래처
+		</column>
+		<column id="employeeName" width='100' align='center' type='ro'
+			sort='str'>수신자
+		</column>
+		<column id="startTime" width='130' align='left' type='ro' sort='server'>
+			통화시작시간
+		</column>
+		<column id="endTime" width='130' align='left' type='ro' sort='server'>통화종료시간
+		</column>
+		<column id="absTime" width='130' align='center' type='ro' sort='server'>
+			부재중 수신시간
+		</column>
+		<column id="content" width='500' align='left' type='ro' sort='server'>
+			상담내역
+		</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,,,#text_filter,,,,,,
+				</param>
+			</call>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

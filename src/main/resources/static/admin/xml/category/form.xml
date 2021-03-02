@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드" name="code"
+		inputWidth="120" labelWidth="70" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="카테고리명" name="name"
+						inputWidth="180" required="true" />
+				</item>
+
+			</item>
+
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="상위카테고리" name="step"
+						className="step" inputWidth="180" labelWidth="80" />
+				</item>
+			</item>
+
+
+
+		</item>
+
+		<item type="fieldset" blockOffset="5" offsetTop="0" offsetLeft="3"
+			label="비 고">
+			<item type="input" value="" label="" name="memo" inputWidth="250"
+				rows="5" offsetLeft="0" labelWidth="0" />
+		</item>
+	</item>
+
+
+</items>
+

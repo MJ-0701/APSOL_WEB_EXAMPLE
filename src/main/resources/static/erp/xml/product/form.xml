@@ -1,0 +1,141 @@
+﻿<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드" name="code" inputWidth="120" labelWidth="70" />
+		<item type="hidden" readonly='true' value="" label="단 위" name="stockUnit" inputWidth="120" labelWidth="70" />
+		<item type="hidden" readonly='true' value="false" label="즐겨찾기" name="favorited"
+		inputWidth="120" labelWidth="70" />
+		
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+
+			<item type="fieldset" blockOffset="0">
+				<item type="block" blockOffset="0">
+					<item type="select" label="구 분" name="kind" inputWidth="140">
+						<option value="PT0001" text="1.상 품" />
+						<option value="PT0002" text="2.제 품" />
+						<option value="PT0003" text="3.부 품" />
+						<option value="PT0004" text="4.반제품" />
+						<option value="PT0005" text="5.세 트" />
+					</item>
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="품목명" name="name"
+						inputWidth="180" required="true" />
+					<item type="input" value="" label="바코드" name="barcode"
+						inputWidth="180" />
+					<item type="input" value="" label="파트넘버" name="part"
+						inputWidth="180" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="분 류1" name="category"
+						inputWidth="60" readonly='true' />
+					<item type="newcolumn" />
+					<item type="input" value="" label="" name="categoryName"
+						inputWidth="115" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="분 류2" name="category1"
+						inputWidth="60" readonly='true' />
+					<item type="newcolumn" />
+					<item type="input" value="" label="" name="category1Name"
+						inputWidth="115" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="분 류3" name="category2"
+						inputWidth="60" readonly='true' />
+					<item type="newcolumn" />
+					<item type="input" value="" label="" name="category2Name"
+						inputWidth="115" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="옵션" name="options"
+						inputWidth="140" readonly="true" className="form_readonly" />
+					<item type="newcolumn" />
+					<item type="button" value="..." name="btnOption" required="true"
+						width="40" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="기본창고" name="warehouse"
+						inputWidth="60" readonly='true' />
+					<item type="newcolumn" />
+					<item type="input" value="" label="" name="warehouseName"
+						inputWidth="115" />
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+
+
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="매입 단가" name="unitCost"
+						className="amount" inputWidth="100" />
+					<!-- <item type="newcolumn" /> <item type="input" value="" label="매입 
+						수량" name="inQty" inputWidth="70" labelWidth="70" /> -->
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="매출 단가" name="unitPrice"
+						className="amount" inputWidth="100" labelWidth="80" />
+					<!-- <item type="newcolumn" /> <item type="input" value="" label="매출 
+						수량" name="outQty" inputWidth="70" labelWidth="70" /> -->
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<!-- <item type="block" blockOffset="0"> <item type="input" value="" 
+					label="입고 단위" name="inUnit" inputWidth="100" /> <item type="newcolumn" /> 
+					<item type="input" value="" label="환산률" name="inRate" inputWidth="70" labelWidth="70" 
+					/> </item> <item type="block" blockOffset="0"> <item type="input" value="" 
+					label="출고 단위" name="outUnit" inputWidth="100" /> <item type="newcolumn" /> 
+					<item type="input" value="" label="환산률" name="outRate" inputWidth="70" labelWidth="70" 
+					/> </item> -->
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="규 격" name="standard"
+						inputWidth="180" />
+					<item type="input" value="" label="단 위" name="stockUnitName"
+						inputWidth="100" />
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetLeft="0">
+				<item type="select" label="과세 구분" name="taxType" inputWidth="140">
+					<option value="TX0001" text="1.과 세" />
+					<option value="TX0002" text="2.과 세(포함)" />
+					<option value="TX0003" text="3.비과세(면세)" />
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetLeft="0">
+				<item type="select" label="입고 구분" name="inKind" inputWidth="140">
+					<option value="IN0001" text="1.매 입" />
+					<option value="IN0002" text="2.제 조" />
+					<option value="IN0003" text="3.기 타" />
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetLeft="0">
+				<!-- <item type="checkbox" value="true" label="즐겨찾기" offsetLeft="70"
+					position="label-right" name="favorited" inputWidth="70" labelWidth="auto" />
+				<item type="newcolumn" /> -->
+				<item type="checkbox" label="숨기기" offsetLeft="70" position="label-right"
+					name="hidden" inputWidth="70" labelWidth="auto" />
+			</item>
+			
+
+		</item>
+		<item type="newcolumn" />
+		<item type="block" blockOffset="0">
+
+			<item type="image" name="image" inputWidth="300" labelWidth="20"
+				imageWidth='290' imageHeight='290' url="fileData/formImage" />
+				
+			</item>
+			<item type="fieldset" blockOffset="5" offsetTop="0" offsetLeft="3" label="비 고">
+				<item type="input" value="" label="" name="memo" inputWidth="250" rows="17" offsetLeft="0" labelWidth="0"  />
+			</item>
+	</item>
+
+
+</items>
+

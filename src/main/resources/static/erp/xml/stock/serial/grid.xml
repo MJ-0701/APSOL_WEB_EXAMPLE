@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		
+		<column id="serial_no" width='200' align='center' type='ro' sort='server' color=''>제조번호</column>
+		<column id="qty" width='70' align='right' type='ron' sort='server' color=''>수량</column> 
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan</param>
+			</call>
+			  <call command="attachHeader">
+				<param>#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<!-- <param>50</param> -->
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+			
+
+		</afterInit>
+	</head>
+
+</rows>

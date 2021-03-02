@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="name" width='150' align='left' type='ed' sort='str'>항목명</column>
+		<column id="option2" width='70' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			과세 구분
+			<option value="GT0001">과세</option>
+			<option value="GT0002">비과세</option>
+		</column>
+		<column id="option1" width='70' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			필수 구분
+			<option value="SO0001">필수항목</option>
+			<option value="SO0002">선택항목</option>
+		</column>	
+		<column id="option3" width='250' align='left' type='combo' sort='str' editable="false" source="bascode/combo/KK?empty=true" >
+			비과세 구분
+		</column>	
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

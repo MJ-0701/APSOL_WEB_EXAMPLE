@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="date" width='120' align='center' type='ro' sort='server' color=''>일 자</column>		
+		<column id="driver" width='100' align='center' type='ro' sort='server' color=''>운전자</column>
+		<column id="beginTime" width='100' align='center' type='ro' sort='server' >운행시작</column>
+		<column id="beginPanel" width='120' align='left' type='ro' sort='server' color=''>시작 계기판</column>
+				
+		<column id="endTime" width='100' align='left' type='ro' sort='server' color=''>운행종료</column>
+		<column id="endPanel" width='120' align='left' type='ro' sort='server' color=''>종료 계기판</column> 
+		
+		<column id="driveDistance" width='180' align='left' type='ro'	 sort='na' color=''>주행거리</column>
+			
+		<column id="memo" width='200' align='left' type='ro'	 sort='na' color=''>비 고</column>
+				
+		<beforeInit> 
+			<call command="attachHeader">
+				<param>,#text_filter,,,,,,,,,,,,,,,,,,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call> 
+			
+
+		</afterInit>
+	</head>
+
+</rows>

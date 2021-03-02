@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드" name="code"
+		inputWidth="120" labelWidth="70" />
+
+	<item type="hidden" value="" label="" name="youtubeLink"
+		inputWidth="560" rows="1" offsetLeft="0" labelWidth="0" />
+
+	<item type="hidden" readonly='true' value="" label="기본 게임" name="parent"
+		inputWidth="120" labelWidth="70" />
+
+	<item type="hidden" value="" label="" name="content" inputHeight="400"
+		inputWidth="560" rows="10" offsetLeft="0" labelWidth="0" />
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+
+			<item type="image" name="image" inputWidth="316" inputHeight="176"
+				labelWidth="20" imageWidth='316' imageHeight='176' url="../fileData/formImage">
+				<note>320 * 180</note>
+			</item>
+
+			<item type="fieldset" blockOffset="0" offsetTop="0" label="판매 정보">
+				<item type="block" blockOffset="0">
+					<item type="radio" label="가격" name="showTextPrice" value="0"
+						inputWidth="120" />
+					<item type="newcolumn" />
+					<item type="radio" label="가격대체문구" name="showTextPrice" value="1"
+						inputWidth="120" />
+				</item>
+				<item type="input" value="" label="단가" name="unitPrice"
+					className="amount" inputWidth="170" />
+				<item type="input" value="" label="할인률(%)" name="discount"
+					className="amount" inputWidth="170" />
+					<item type="input" value="" label="적립률(%)" name="savingRate"
+					className="amount" inputWidth="170" />
+				<item type="input" value="" label="가격대체문구" name="textPrice"
+					className="amount" inputWidth="170" />
+			</item>
+
+			<item type="fieldset" blockOffset="0" offsetTop="0" label="판매 구분">
+				<item type="radio" label="일반 판매" name="salesKind" value="SK0000"
+					inputWidth="120" />
+				<item type="radio" label="예약 판매" name="salesKind" value="SK0001"
+					inputWidth="120" />
+				<item type="radio" label="프로모션" name="salesKind" value="SK0002"
+					inputWidth="120">
+
+					<item type="select" label="적용 프로모션" name="promotion"
+						connector="promotion/select" inputWidth="120" />
+
+				</item>
+
+			</item>
+
+			<item type="fieldset" blockOffset="0" offsetTop="0" label="등급 정보">
+				<item type="block" blockOffset="0">
+					<item type="select" label="등 급" name="level" connector="bascode/select/PL"
+						inputWidth="120" />
+					<item type="block" blockOffset="0">
+						<item type="checkbox" label="공 포" name="PA0001" value="1"
+							inputWidth="120" />
+						<item type="newcolumn" />
+						<item type="checkbox" label="범 죄" name="PA0002" value="1"
+							inputWidth="120" />
+					</item>
+					<item type="block" blockOffset="0">
+						<item type="checkbox" label="사행성" name="PA0003" value="1"
+							inputWidth="120" />
+						<item type="newcolumn" />
+						<item type="checkbox" label="선정성" name="PA0004" value="1"
+							inputWidth="120" />
+					</item>
+					<item type="block" blockOffset="0">
+						<item type="checkbox" label="약 물" name="PA0005" value="1"
+							inputWidth="120" />
+						<item type="newcolumn" />
+						<item type="checkbox" label="언어의 부적절성" name="PA0006" value="1"
+							inputWidth="120" />
+					</item>
+					<item type="block" blockOffset="0">
+						<item type="checkbox" label="폭력성" name="PA0007" value="1"
+							inputWidth="120" />
+					</item>
+
+				</item>
+			</item>
+
+		</item>
+		<item type="newcolumn" />
+		<item type="block" blockOffset="0">
+
+			<item type="fieldset" blockOffset="0" offsetTop="0" label="품목정보">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="품목명" name="name"
+						inputWidth="180" />
+					<item type="input" value="" label="품목명(영문)" name="engName"
+						inputWidth="180" />
+
+					<item type="input" value="0" label="메타크리틱" name="metacritic"
+						inputWidth="180" />
+
+					<item type="checkbox" value="1" label="상점 노출 숨김" name="hidden"
+						inputWidth="180" />
+						
+					<item type="select" label="상 태" name="state" connector="bascode/select/TS"
+						inputWidth="120" />
+
+				</item>
+			</item>
+
+			<item type="fieldset" blockOffset="0" offsetTop="0" label="품목 구분">
+				<item type="radio" label="일반 게임" name="kind" value="PK0001"
+					inputWidth="120" />
+				<item type="radio" label="패키지" name="kind" value="PK0003"
+					inputWidth="120" />
+				<item type="radio" label="DLC" name="kind" value="PK0002"
+					inputWidth="120">
+					<item type="input" value="" label="기본 게임" name="parentName"
+						inputWidth="160" />
+				</item>
+
+			</item>
+
+			<item type="fieldset" blockOffset="0" offsetTop="0" label="출시정보">
+				<item type="block" blockOffset="0">
+					<item type="calendar" value="" label="출시일" name="releaseDate" />
+
+					<item type="input" label="모 드" name="mode" />
+
+					<item type="select" label="플랫폼" name="platform"
+						connector="bascode/select/PF?empty=true" inputWidth="120" />
+					<item type="select" label="장 르" name="genre"
+						connector="bascode/select/GK?empty=true" inputWidth="120" />
+					<item type="select" label="개발사" name="developer"
+						connector="bascode/select/DV?empty=true" inputWidth="120" />
+					<item type="select" label="퍼블리셔" name="publisher"
+						connector="bascode/select/GP?empty=true" inputWidth="120" />
+					<item type="select" label="언 어" name="language"
+						connector="bascode/select/LG?empty=true" inputWidth="120" />
+					<item type="select" label="게임패드" name="gamepad" connector="bascode/select/SP"
+						inputWidth="120" />
+				</item>
+			</item>
+
+			<item type="fieldset" blockOffset="5" offsetTop="0" offsetLeft="3"
+				label="지톰 연동">
+				<item type="input" value="" label="지톰 품목 코드" name="ztormId"
+					inputWidth="170" offsetLeft="0" />
+			</item>
+
+
+
+		</item>
+
+	</item>
+
+	<item type="checkbox" label="에디션" name="edition" value="1"
+		inputWidth="120">
+
+		<item type="input" value="" label="에디션 명칭" name="editionName"
+			inputWidth="170" />
+
+		<item type="image" name="editionImage" inputWidth="316" label="에디션 이미지"
+			inputHeight="176" imageWidth='316' imageHeight='176'
+			url="../fileData/formImage" />
+
+	</item>
+
+	<item type="checkbox" label="구매 제한" name="limitedOrder" value="1"
+		inputWidth="120">
+
+		<item type="input" value="" label="제한 기간(일)" name="limitedOrderDay"
+			inputWidth="170" className="amount" />
+		<item type="input" value="" label="제한 수량" name="limitedOrderQty"
+			inputWidth="170" className="amount" />
+
+	</item>
+
+
+
+	<item type="block" blockOffset="0">
+		<item type="fieldset" blockOffset="5" offsetTop="0" offsetLeft="3"
+			label="비 고">
+			<item type="input" value="" label="" name="memo" inputWidth="560"
+				rows="5" offsetLeft="0" labelWidth="0" />
+		</item>
+	</item>
+
+
+</items>
+

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Object-based init</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css" th:href="@{/vendor/dhtmlx/codebase/dhtmlx.css?v=vank3323222212}" />
+<link rel="stylesheet" type="text/css" th:href="@{/admin/common.css}" />
+
+<script th:src="@{/vendor/dhtmlx/codebase/dhtmlx.js}"></script>
+<script th:src="@{/vendor/jquery/jquery-1.11.1.min.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/jquery.form.min.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/json2/json2.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/admin/js/common.js}" src="vendor/jquery/jquery-1.11.1.min.js"></script>
+
+<script th:src="@{/erp/js/popup/dataPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formPopup.js}"></script>
+<script th:src="@{/erp/js/popup/form/formProductPopup.js}"></script>
+
+<script th:src="@{/erp/js/popup/grid/cellPopup.js}"></script>
+<script th:src="@{/erp/js/popup/grid/productCell.js}"></script>
+
+
+
+<script th:src="@{/erp/js/data/dataGrid.js}"></script>
+<script th:src="@{/erp/js/data/dataForm.js}"></script>
+
+
+
+<script th:src="@{/admin/js/product/eventGrid.js}"></script>
+<script th:src="@{/admin/js/product/productGrid.js}"></script>
+<script th:src="@{/admin/js/product/productForm.js}"></script>
+
+
+<script th:src="@{/admin/js/product/productItem.js}"></script>
+
+<script th:src="@{/admin/js/imageItem/imageItem.js}"></script>
+<script th:src="@{/admin/js/imageItem/imageItemForm.js}"></script>
+
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<style>
+.validate_magenta .dhxform_label, .validate_magenta .dhxform_select {
+	color: magenta !important;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs {
+	background-color: #ED878A;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tab {
+	background-color: #2589ce;
+	border-left: 2px solid #ED878A;
+	border-right: 2px solid #ED878A;
+}
+</style>
+
+<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+
+	var imageUrl = /*[[@{/vendor/dhtmlx/codebase/imgs/}]]*/"../../../codebase/imgs/";
+
+	var grid;
+	var tabbar;
+
+	var days = 7;
+
+	var gridMap = {};
+	function doOnLoad() {
+
+		var layout = new dhtmlXLayoutObject({
+			parent : document.body,
+			pattern : "2U"
+		});
+
+		layout.cells("a").hideHeader();
+		layout.cells("b").setWidth(520);
+		layout.cells("b").setText("매장 등록");
+
+		tabbar = layout.cells('b').attachTabbar({
+			tabs : [ {
+				id : "a1",
+				text : "업체 정보",
+				active : true
+			}, {
+				id : "a2",
+				text : "직원 관리",
+			}, ]
+		});
+
+		var grid = new CompanyGrid();
+		grid.addProgressCell('a', layout.cells("a"));
+		grid.init(layout.cells('a'), {
+			iconsPath : "../img/18/",
+			imageUrl : imageUrl
+		});
+
+		var empGrid = new EmployeeGrid();
+		empGrid.addProgressCell('a', tabbar.cells("a2"));
+		empGrid.init(tabbar.cells('a2'), {
+			iconsPath : "../img/18/",
+			imageUrl : imageUrl
+		});
+
+		grid.setOnRowSelect(function(rowId) {
+			empGrid.company = rowId;
+			empGrid.reload();
+		});
+
+		var form = new CompanyForm();
+
+		form.setGrid(grid);
+
+		form.init(tabbar.cells("a1"));
+		form.addProgressCell('layout2', tabbar.cells("a1"));
+
+		form.setOnClearListener(function() {
+			// grid.clearSelection();
+		});
+
+		form.setOnClickToolbarButton(function(id, toolbar) {
+			if (id == 'btnAdd') {
+				grid.clearSelection();
+			}
+		});
+
+	}
+
+	function CompanyGrid(config) {
+		DataGrid.call(this);
+
+		this.setUrlPrefix('company2');
+
+		this.setSelectFilterData('shown', [ '보이기', '숨기기' ]);
+
+	}
+	CompanyGrid.prototype = Object.create(DataGrid.prototype);
+	CompanyGrid.prototype.constructor = CompanyGrid;
+
+	CompanyGrid.prototype.init = function(container, config) {
+
+		this.initToolbar(container, {
+			iconsPath : config.iconsPath,
+			xml : "xml/company/toolbar.xml",
+		});
+
+		this.initGrid(container, {
+			imageUrl : config.imageUrl,
+			xml : "xml/company/grid.xml",
+		}, 'server');
+
+	};
+
+	CompanyGrid.prototype.onInitedGrid = function(grid) {
+
+		DataGrid.prototype.onInitedGrid.call(this, grid);
+
+		// 즉시 로딩
+		this.loadRecords();
+	};
+
+	CompanyGrid.prototype.onBeforeParams = function(param) {
+	};
+
+	CompanyGrid.prototype.onAfterLoadRow = function(result) {
+		DataGrid.prototype.onAfterLoadRow.call(this, result);
+	}
+
+	function CompanyForm() {
+
+		DataForm.call(this);
+
+		this.setUrlPrefix('company2');
+
+		var me = this;
+
+		this.id = 0;
+	}
+
+	CompanyForm.prototype = Object.create(DataForm.prototype);
+	CompanyForm.prototype.constructor = CompanyForm;
+
+	CompanyForm.prototype.onInitedForm = function(form) {
+		DataForm.prototype.onInitedForm.call(this, form);
+
+		form.attachEvent("onButtonClick", function(name) {
+			if (name == 'btnSearchAddress') {
+				new daum.Postcode({
+					oncomplete : function(data) {
+						console.log(data);
+
+						form.setItemValue('zipcode', data.zonecode);
+						form.setItemValue('address', data.address);
+						form.setItemValue('addressDetail', data.addressDetail);
+					}
+				}).open();
+			}
+		});
+	}
+
+	CompanyForm.prototype.init = function(container) {
+		this.initToolbar(container, {
+			iconsPath : "../img/18/",
+			xml : 'xml/company/formToolbar.xml',
+		});
+
+		this.initForm(container, {
+			xml : 'xml/company/form2.xml',
+		});
+	}
+
+	CompanyForm.prototype.onBeforeUpdate = function(json) {
+		DataForm.prototype.onBeforeUpdate.call(this, json);
+		console.log(json);
+		return true;
+	};
+
+	CompanyForm.prototype.onClickAdded = function() {
+		DataForm.prototype.onClickAdded.call(this);
+		this.form.setItemFocus('name');
+	};
+
+	function EmployeeGrid(config) {
+		DataGrid.call(this);
+
+		this.setUrlPrefix('companyEmployee');
+
+		this.setSelectFilterData('shown', [ '보이기', '숨기기' ]);
+
+		this.company;
+
+	}
+	EmployeeGrid.prototype = Object.create(DataGrid.prototype);
+	EmployeeGrid.prototype.constructor = EmployeeGrid;
+
+	EmployeeGrid.prototype.init = function(container, config) {
+
+		this.initToolbar(container, {
+			iconsPath : config.iconsPath,
+			xml : "xml/company/employee/toolbar.xml",
+		});
+
+		this.initGrid(container, {
+			imageUrl : config.imageUrl,
+			xml : "xml/company/employee/grid.xml",
+		}, 'server');
+
+	};
+
+	EmployeeGrid.prototype.onBeforeInsertParams = function(param) {
+		console.log(param);
+
+		param.company = this.company;
+	}
+
+	EmployeeGrid.prototype.onInitedGrid = function(grid) {
+
+		DataGrid.prototype.onInitedGrid.call(this, grid);
+
+		// 즉시 로딩
+		// this.loadRecords();
+	};
+
+	EmployeeGrid.prototype.onBeforeParams = function(param) {
+		console.log(param);
+
+		param.company = this.company;
+	};
+
+	EmployeeGrid.prototype.onAfterLoadRow = function(result) {
+		DataGrid.prototype.onAfterLoadRow.call(this, result);
+	}
+
+	EmployeeGrid.prototype.insertRow = function() {
+
+		DataGrid.prototype.insertRow.call(this);
+	}
+
+	/*]]>*/
+</script>
+</head>
+<body onload="doOnLoad();"></body>
+</html>

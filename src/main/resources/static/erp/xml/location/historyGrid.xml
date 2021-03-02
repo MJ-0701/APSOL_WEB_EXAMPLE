@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='60' align='right' type='ron' sort='na' color=''>순 번</column>
+		<column id="time" width='130' align='center' type='ro' sort='na' color=''>일 시</column>		
+		<column id="lat" width='70' align='right' type='ro' sort='na' color='' hidden="1">lat</column>		
+		<column id="lng" width='70' align='right' type='ro' sort='na' color='' hidden="1">lng</column>		 
+		<column id="address" width='200' align='left' type='ro' sort='na' color=''>주 소</column>
+ 		<beforeInit>
+			</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableHeaderMenu">
+			</call>
+
+		</afterInit>
+	</head>
+</rows>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		
+		<column id="vanName" width='50' align='center' type='ro' sort='na' color=''>순 번</column>
+				<column id="vanName" width='100' align='center' type='ro' sort='na' color=''>상 호</column>
+		<column id="businessNumber" width='80' align='center' type='ro' sort='na' color=''>사업자번호</column>
+		<column id="vanName" width='50' align='center' type='ro' sort='na' color=''>카드사</column>
+		
+		<column id="cnt" width='60' align='right' type='ron' sort='na' color='' format="0,000">승인 건수</column>
+		<column id="amount" width='80' align='right' type='ron' sort='na' color='' format="0,000">승인 금액</column>
+		
+		<column id="cancelCnt" width='55' align='right' type='ron' sort='na' color='' format="0,000">취소 건수</column>
+		<column id="cancelAmount" width='70' align='right' type='ron' sort='na' color='' format="0,000">취소 금액</column> 
+		
+		<column id="failedCnt" width='55' align='right' type='ron' sort='na' color='' format="0,000">실패 건수</column>
+		
+		<column id="fees" width='70' align='right' type='ron' sort='na' color='' format="0,000">리셀러 수수료</column> 
+		<column id="fees2" width='70' align='right' type='ron' sort='na' color='' format="0,000">수수료</column> 
+		
+
+		<beforeInit>
+			 <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,(3.85% 부가세 포함),(0.99% 부가세 포함)</param>
+			</call> 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

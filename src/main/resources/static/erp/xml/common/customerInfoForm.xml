@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0"/>
+	<item type="block" blockOffset="0" >
+
+		<item type="block" blockOffset="0">
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="상호명" name="name" inputWidth="180" readonly = "true" />
+					<item type="newcolumn"/>
+					<item type="input" value="" label="대표자" name="ceo" inputWidth="120" labelWidth="70" readonly = "true" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="사업자 번호" name="businessNumber" inputWidth="180" readonly = "true" />
+					<item type="newcolumn"/>
+					<item type="input" value="" label="종사업자" name="businessNumberJ" inputWidth="120" labelWidth="70" readonly = "true" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="사업장 주소" name="address" inputWidth="372" readonly = "true" />
+					
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="업 태" name="jobType"  inputWidth="180" readonly = "true"  />
+					<item type="newcolumn"/>
+					<item type="input" value="" label="종 목" name="jobCategory"  inputWidth="120" labelWidth="70" readonly = "true" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="은행" name="bankName" inputWidth="70" readonly = "true"  />
+					<item type="newcolumn"/>
+					<item type="input" value="" label="계좌번호" name="bankAccountNumber" inputWidth="130" labelWidth="55" readonly = "true" />
+					<item type="newcolumn"/>
+					<item type="input" value="" label="예금주" name="bankAccountOwner" inputWidth="60" labelWidth="50" readonly = "true" />
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="대표 전화" name="phone" inputWidth="180" readonly = "true" />
+					<item type="newcolumn"/>
+					<item type="input" value="" label="대표 팩스" name="fax" inputWidth="120" labelWidth="70" readonly = "true" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="이메일" name="email" inputWidth="300" readonly = "true" />
+					<item type="input" value="" label="핸드폰" name="mobile" inputWidth="180" readonly = "true" />
+				</item>
+			</item>
+			</item>
+			<item type="newcolumn"/>
+			<item type="block" blockOffset="0">
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="우편번호" name="postNumber" inputWidth="120" readonly = "true" className="form_readonly"/>
+					<item type="input" value="" label="배송지 주소" name="address2" inputWidth="372" readonly = "true"  />
+					<item type="input" value="" label="배송지 상세" name="address2Detail" inputWidth="372" readonly = "true"  />
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="input" value="" label="비 고" name="memo" inputWidth="372" rows="10" readonly = "true" />
+			</item>
+		</item>
+	</item>
+	
+
+</items>
+

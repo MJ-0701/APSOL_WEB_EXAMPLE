@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<toolbar>
+	 
+	<item id="btnClose" type="button" text="완 료"  />
+	
+	<item id="btnSendMe" type="button" text="나에게 보내기"  />
+	
+	<item id="btnSendManager" type="button" text="담당자에게 보내기"  />
+		
+</toolbar>

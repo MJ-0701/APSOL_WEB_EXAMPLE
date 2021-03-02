@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="select" label="취소 사유" name="cancelReason" inputWidth="120">
+			<option value="EX0000" text="폐기 취소" />
+			<option value="EX0001" text="품목/수량 변경" />
+			<option value="EX0002" text="재활용" />
+			<option value="EX0003" text="기 타" />
+		</item>
+
+	</item>
+
+
+
+</items>
+

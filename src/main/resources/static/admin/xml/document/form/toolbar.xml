@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnAdd" type="button" text="신 규">
+		<userdata name="kind">insert</userdata>
+	</item>
+	<item id="btnSend" type="button" text="발 주">
+		<userdata name="kind">insert</userdata>
+	</item>
+</toolbar>

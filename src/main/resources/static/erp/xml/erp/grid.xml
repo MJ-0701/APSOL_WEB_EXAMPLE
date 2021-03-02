@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='center' type='ro' sort='na'>순번
+		</column>
+		<column id="name" width='130' align='left' type='ro' sort='server'>업체명
+		</column>
+		<column id="state" width='90' align='center' type='combo' sort='str'  editable="false"  xmlcontent="1">
+			계약상태
+			<option value="CS0001">계약상담</option>
+			<option value="CS0002">계약대기</option>
+			<option value="CS0003">계약완료</option>
+			<option value="CS0004">계약해지</option>
+			<option value="CS0005">체험이용</option>
+		</column>
+		<column id="contractDate" width='100' align='center' type='ed' sort='server'>계약일
+		</column>
+		<column id="amount" width='80' align='right' type='edn' sort='int' color='' format="0,000">기본료</column>
+
+		<column id="activatedUsers" width='80' align='right' type='ron'
+			sort='server'>사용자수
+		</column>
+		
+		<column id="userAmount" width='80' align='right' type='edn' sort='int' color='' format="0,000">유저당 금액</column>
+		
+		<column id="registeredDate" width='100' align='center' type='ro'
+			sort='server'>생성일시
+		</column>
+		<column id="lastLogin" width='100' align='center' type='ro'
+			sort='server'>접속일시
+		</column>
+		<column id="freeTier" width='100' align='center' type='ro'
+			sort='server'>유료/무료
+		</column>
+		<column id="remarks" width='120' align='left' type='ed' sort='server'>비
+			고
+		</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,#text_filter,,,,,,,,,</param>
+			</call>
+		</beforeInit>
+		<!-- <afterInit> <call command="enableSmartRendering"> <param>1</param> 
+			<param>50</param> </call> </afterInit> -->
+
+	</head>
+</rows>

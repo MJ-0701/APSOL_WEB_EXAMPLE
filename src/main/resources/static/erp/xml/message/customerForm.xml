@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" name="work" />
+	<item type="hidden" value="" label="수신자" name="receivers" />
+	<item type="hidden" value="" label="수신자" name="customer" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+
+				<item type="input" value="" labelWidth="60" label="가맹점"
+					className="formLabel" name="customerName" />
+			</item>
+
+			<item type="newcolumn" />
+
+			<item type="block" blockOffset="0" offsetLeft="25" offsetTop="0">
+				<item type="input" value="" offsetLeft="0" labelWidth="70"
+					className="formLabel" label="사업자 번호" inputWidth="160"
+					name="customerBusinessNumber" />
+			</item>
+
+			<item type="newcolumn" />
+
+			<item type="block" blockOffset="0" offsetLeft="45">
+				<item type="input" value="" label="수신자" name="receiverNames"
+					labelWidth="70" required="true" inputWidth="113" readonly="true"
+					className="form_readonly formLabel" />
+				<item type="newcolumn" />
+				<item type="button" value="..." name="btnReceiver" required="true"
+					width="40" />
+
+			</item>
+
+
+		</item>
+		
+	</item>
+
+</items>
+

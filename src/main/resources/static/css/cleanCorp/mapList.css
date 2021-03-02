@@ -1,0 +1,53 @@
+	
+html,body {background:#F1F1F1; }
+body {overflow-y:scroll; }
+	
+/* 검색조건 */
+.search {width:96%; min-height:45px; line-height:45px; margin:5px auto; }
+.search .split {width:31%; height:45px; float:left; margin:0 1%; position:relative; z-index:1; }
+.search input[type=text] {width:100%; height:35px; border:1px solid #999; background:white; font-weight:bold; 
+	color:#666; }
+.search .calendar {width:50px; height:35px; line-height:35px; margin:4px 0 0 -50px; float:left; cursor:pointer; 
+	text-align:center; position:relative; z-index:2; }
+.search .wave {width:6%; height:45px; margin:auto; text-align:center; }
+.search .calendar img {height:20px; vertical-align:middle; }
+.search select {width:100%; height:35px; padding:0 5px; background:white; border:1px solid #999; }
+.search .checkbox {width:31%; height:20px; line-height:20px; float:right; margin:2px 1%; text-align:center; 
+	font-size:13px; }
+.search .checkbox input {width:18px; height:18px; vertical-align:middle; }
+	
+/* 배출신청목록 */
+.requestList2 {width:100%; }
+.requestList2 .lookup {width:96%; height:40px; line-height:40px; margin:15px auto; }
+.requestList2 .qrcode {width:40px; height:40px; line-height:38px; float:left; position:relative; z-index:2; 
+	background:white; color:#777; border:1px solid #aaa; font-size:18px; font-weight:bold; text-align:center; 
+	cursor:pointer; display:none; }
+.requestList2 .qrcode img {height:25px; vertical-align:middle; }
+.requestList2 .lookupInput {width:100%; height:40px; position:relative; z-index:1; float:right; 
+	margin:0 -40px 0 0; padding:0 40px 0 0; }
+.requestList2 .lookupInput input {width:100%; height:40px; background:white; border:1px solid #ddd; }
+.requestList2 .bt_lookup {width:40px; height:40px; position:relative; z-index:2; float:right; text-align:center; 
+	background:#0E3B64; border:1px solid #ddd; cursor:pointer; }
+.requestList2 .bt_lookup img {height:20px; vertical-align:middle; }
+.requestList2 .mainTitle {width:100%; height:40px; line-height:40px; padding:0 15px; background:#0073AA; color:#f1f1f1;
+	font-weight:bold; }
+.requestList2 .refresh {height:20px; padding:10px; vertical-align:middle; cursor:pointer; }
+.tb_request {width:98%; margin:5px auto; }
+.tb_request table {width:95%; margin:auto; border-collapse:collapse; }
+.tb_request table td {height:30px; line-height:20px; padding:0 10px; font-size:13px; background:white; }
+.tb_request table .top {padding-top:10px; }
+.tb_request table .bottom {padding-bottom:10px; }
+.tb_request table .rid {font-weight:bold; }
+.tb_request table .spanDivide {padding:0 5px; color:#aaa; }
+.tb_request table .ems {padding:2px 4px; margin-left:10px; background:#EB4132; color:white; border:1px solid #ddd; }
+.tb_request table .emsDone {background:#18AFA3; }
+.tb_request table .emsCancel {background:#f1f1f1; color:#777; }
+.tb_request table .status {min-width:40px; text-align:center; cursor:pointer; }
+.tb_request table .sbj {color:#777; font-weight:bold; }
+.tb_request table .bottomLine {border-bottom:1px solid #ddd; }
+.tb_request table .none {background:none; text-align:center; }
+	
+/* 모바일 */
+@media (max-width:1200px) {
+	.tb_request table td {height:25px; font-size:12px; }
+}

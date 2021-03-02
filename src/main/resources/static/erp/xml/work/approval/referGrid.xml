@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<rows>
+	<head>		
+		<column id="employeeName" width='110' align='left' type='ro' sort='str' color=''>이 름</column>
+		<column id="departmentName" width='100' align='left' type='ro' sort='str' color=''>부 서</column>
+		<column id="positionName" width='60' align='left' type='ro' sort='int' color=''>직 책</column>		
+		<beforeInit>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+
+</rows>

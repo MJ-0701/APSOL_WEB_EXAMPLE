@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="replyCount" width='30' align='left' type='tree'
+			sort='na' color=''></column>
+
+		<column id="customerName" width='120' align='left' type='ro'
+			sort='str' color=''>가맹점명</column>
+		
+		<column id="date" width='120' align='center' type='ro' sort='na'
+			color=''>작성일자</column>
+			
+		<column id="customerManagerName" width='80' align='center'
+			type='ro' sort='str' color=''>담당자명</column>
+			
+					<column id="writerName" width='70' align='center' type='ro'
+			sort='na' color=''>작성자</column>
+			
+			<column id="kindName" width='40' align='center' type='ro'
+			sort='str' color=''>구분</column>
+
+		<column id="workName" width='40' align='center' type='ro'
+			sort='str' color=''>업무</column>
+			
+		<column id="workName" width='80' align='center' type='ro'
+			sort='str' color=''>상세 구분</column>
+			
+				<column id="amt" width='60' align='right' type='ron' sort='na'
+			format="0,000" color=''>금 액</column>
+			
+					<column id="customerBusinessNumber" width='80' align='center'
+			type='ro' sort='na' color=''>사업자번호</column>
+			
+			<column id="workState" width='60' align='center' type='ro'
+			sort='str' color=''>상 태</column>
+			
+			<column id="approvalState" width='40' align='center' type='ro'
+			sort='str' color=''>결 재</column>
+			
+			
+			<column id="transferName" width='80' align='center' type='ro'
+			sort='str' color=''>업무 이관</column>
+
+		<column id="readerName" width='80' align='center' type='ro'
+			sort='na' color=''>업무일자</column>
+			
+			<column id="readerName" width='70' align='center' type='ro'
+			sort='na' color=''>수신/결재자</column>
+			
+			
+			<column id="registeredDate" width='80' align='center' type='ro'
+			sort='na' color=''>확인일시</column>
+			
+					
+		<column id="readTime" width='50' align='center' type='ro'
+			sort='na' color=''>플랫폼</column>
+
+		<beforeInit>
+			 <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#select_filter,#select_filter,#select_filter,#select_filter,#text_filter,#text_filter,#select_filter,#select_filter,#text_filter,#text_filter,#select_filter,#text_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+
+			</call>  
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

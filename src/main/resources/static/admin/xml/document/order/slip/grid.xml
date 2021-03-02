@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='right' type='ro' sort='na' color=''>번 호</column> 
+		
+		<column id="sendTime" width='120' align='left' type='ro' sort='server' color=''>발주일자</column>
+		
+		<column id="writerName" width='120' align='left' type='ro' sort='server' color=''>발주자</column>		
+		
+		<column id="customerName" width='100' align='left' type='ro' sort='server' color=''>발주처</column>
+		
+		<column id="phone" width='100' align='left' type='ro' sort='server' color=''>연락처</column>
+				 
+		<column id="state" width='100' align='center' type='ro' sort='na' color=''>상태</column> 
+		
+		<column id="remarks" width='80' align='left' type='ro' sort='na' color=''>적 요</column>		
+		
+		<column id="amount" width='80' align='right' type='ron' sort='server' color=''>금 액</column>
+		<column id="tax" width='80' align='right' type='ron' sort='server' color=''>세 액</column>
+		<column id="total" width='80' align='right' type='ron' sort='server' color=''>합계액</column> 
+		
+		<beforeInit> 
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,,,,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

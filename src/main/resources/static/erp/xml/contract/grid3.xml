@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="ept" width='90' align='left' type='tree' sort='na' color=''></column>
+		<column id="date" width='40' align='center' type='ro' sort='str' color=''>변경 일자</column>	
+		<column id="vans" width='150' align='left' type='ro' sort='str' color=''  >밴 사</column>	
+		<column id="content" width='55' align='center' type='ro' sort='str' color=''  >계약 내용</column>
+		<column id="fromYear" width='55' align='center' type='ro' sort='str' color=''  >계약 번호</column>
+		
+		<column id="date" width='40' align='center' type='ro' sort='str' color=''>계약 일자</column>		
+		
+		<column id="toYear" width='55' align='center' type='ro' sort='str' color=''  >계약 월</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >종료 월</column>
+		
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >계약 기간</column>
+		
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >계약서</column>		
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >밴 계약서</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >물품임대계약서</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >계약 건수</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >재계약</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >제품총액(지원)</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >현금지원</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >판매품목</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >판매</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >지원품목</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >부가장비내역</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >POS프로그램</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >전용선</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >전용선ID</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >싸인패드</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >무상</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >자동이체</column>
+		
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >CMS계약기간</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >CMS최초출금월</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >CMS금액</column>
+		
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >POS관리비</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >ASP비용</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >할부금융최초출금월</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >할부금융금액</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >할부금융계약기간</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >신세이브</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >OK캐시백</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >계약자</column>
+		
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >비용</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >이전사업자</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >약정기간</column>
+		
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >명의변경</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >추가</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >기변</column>
+		<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >기변약정</column>
+		
+			<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >지원업체</column>
+				<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >완결월</column>
+				
+				<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >계약서 상태</column>
+				<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >소모품</column>
+				<column id="toMonth" width='55' align='center' type='ro' sort='str' color=''  >비 고</column>
+				
+		 <beforeInit>
+			<!--  <call command="attachHeader">
+				<param>#rspan,#rspan,상 호,사업자번호,영업담당자,개월,계약년,계약월,종료년,종료월,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>,,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,</param>
+			</call> -->
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+				<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+			<call command="enableAccessKeyMap">
+				<param>1</param>
+			</call>		
+			<call command="enableTreeCellEdit">
+				<param>0</param>
+			</call>			
+			
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="bomItem" width='70' align='center' type='ro' sort='str'>코 드</column>
+		<column id="bomItemName" width='130' align='left' type='ed' sort='str'>품목명</column>
+		<column id="qty" width='60' align='right' type='edn' sort='int'>수량</column>		
+		<column id="unitPrice" width='80' align='right' type='edn' sort='int'>단가</column>
+		<column id="memo" width='250' align='left' type='ro' sort='str'>비 고</column>
+
+		<beforeInit>
+
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

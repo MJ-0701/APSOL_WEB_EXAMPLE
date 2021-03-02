@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+		
+	<item type="hidden" name="state" />
+	<item type="hidden" name="work" />
+	<item type="hidden" name="sender" />
+	<item type="hidden" value="" label="수신자" name="receiver" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="input" value="" label="발신자" name="senderName"
+					readonly="true" className="form_readonly" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="예정 일자" name="workDate"
+					readonly="true" className="form_readonly" />
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="input" value="" label="가맹점" name="customerName"
+					readonly="true" className="form_readonly" />
+				<item type="newcolumn" />
+				<item type="input" value="" label="사업자 번호" name="customerBusinessNumber"
+					readonly="true" className="form_readonly" />
+			</item>
+		</item>
+	</item>
+
+</items>
+

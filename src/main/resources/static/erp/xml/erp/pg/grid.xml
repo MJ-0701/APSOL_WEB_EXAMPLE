@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='center' type='ro' sort='na'>순번
+		</column>
+		<column id="agencyId" width='90' align='left' type='ro' sort='str'>아이디
+		</column>
+		<column id="agencyName" width='130' align='left' type='ro' sort='str'>업체명
+		</column>
+		
+		<column id="authAmount" width='80' align='right' type='ron' sort='int' format="0,000">승인 금액
+		</column>
+		
+		<column id="cancelAmount" width='80' align='right' type='ron' sort='int' format="0,000">취소 금액
+		</column>
+		
+		<column id="amount" width='80' align='right' type='ron' sort='int' format="0,000">확정 금액
+		</column>
+		
+		<column id="customerFee" width='70' align='right' type='ron' sort='int' format="0,000">영업 수수료(부가세 포함)
+		</column>
+		
+		<column id="agencyFee" width='70' align='right' type='ron' sort='int' format="0,000">#cspan</column>
+		
+		<column id="ApsolFee" width='70' align='right' type='ron' sort='int' format="0,000">#cspan</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,합 계,대리점,Apsol</param>
+			</call>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,,,,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

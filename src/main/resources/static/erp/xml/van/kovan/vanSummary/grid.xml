@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<rows>
+	<head>				
+	<column id="no" width='50' align='center' type='ro' sort='na' color=''>순 번</column>
+	<column id="paymentType" width='70' align='center' type='ro' sort='str' color=''>구 분</column>
+		<column id="sellDate" width='80' align='center' type='ro' sort='str' color=''>거래일</column>
+		<column id="sellTime" width='70' align='center' type='ro' sort='str' color=''>거래시간</column>	
+		<column id="acquirerName" width='60' align='center' type='ro' sort='str' color=''>매입사</column>
+		<column id="cardNumber" width='100' align='center' type='ro' sort='str' color=''>카드 번호</column>
+		<column id="admissionNumber" width='80' align='center' type='ro' sort='str' color=''>승인 번호</column>
+		<column id="admissionType" width='80' align='center' type='ro' sort='str' color=''>승인 구분</column>
+		
+		<column id="installmentPeriod" width='70' align='center' type='ro' sort='str' color=''>할부</column>
+		<column id="serviceCharge" width='80' align='right' type='ron' sort='int' color='' format="0,000">봉사료</column>
+		<column id="tax" width='70' align='right' type='ron' sort='int' color='' format="0,000">세액</column>		
+		<column id="amount" width='70' align='right' type='ron' sort='int' color='' format="0,000">금액</column> 
+		
+		<column id="serviceType" width='75' align='center' type='ro' sort='str' color=''>서비스 구분</column>
+		
+		<column id="claimDate" width='80' align='center' type='ro' sort='str' color=''>청구일</column>		
+		<column id="sellAmount" width='70' align='right' type='ron' sort='int' color='' format="0,000">순매출액</column>		
+		<column id="amountTotal" width='80' align='right' type='ron' sort='int' color='' format="0,000">총금액</column>
+		
+		<column id="paymentDate" width='100' align='center' type='ro' sort='str' color=''>입금일</column>		
+		<column id="fees" width='60' align='right' type='ron' sort='int' color='' format="0,000">수수료</column>
+		<column id="feesRate" width='60' align='right' type='ron' sort='int' color='' format="0,000.000">수수료율</column>
+		<column id="deposit" width='80' align='right' type='ron' sort='int' color='' format="0,000">입금금액</column>
+		
+		<beforeInit>
+			 <call command="attachHeader">
+				<param>#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call> 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

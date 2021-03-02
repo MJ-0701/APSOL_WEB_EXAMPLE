@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" labelWidth="140" inputWidth="auto" noteWidth="auto" offsetLeft="0"/>
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="관리자 휴대폰" name="SC0001" required="true"/>					
+				</item>	
+				<item type="block" blockOffset="0">
+					<item type="checkbox" value="1" label="ZTORM IPA 활성화" name="SC0002"/>					
+				</item>	
+				
+				<item type="block" blockOffset="0">
+					<item type="checkbox" value="1" label="ZTORM 품목 품절 정보 갱신" name="SC0003"/>					
+				</item>	
+				
+				<item type="block" blockOffset="0">
+					<item type="checkbox" value="1" label="ZTORM 품목 가격 정보 갱신" name="SC0004"/>					
+				</item>	
+				
+				<item type="block" blockOffset="0">
+					<item type="checkbox" value="1" label="ZTORM 품목 할인 정보 갱신" name="SC0005"/>					
+				</item>	
+						
+			</item>
+		</item>
+	</item>
+</items>
+

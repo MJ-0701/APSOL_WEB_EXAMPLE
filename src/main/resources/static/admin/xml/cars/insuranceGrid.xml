@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+	
+		<column id="kind" width='100' align='left' type='ed' sort='server'>구 분</column>
+		<column id="name" width='100' align='left' type='ed' sort='server'>이 름</column>
+		<column id="date" width='120' align='left' type='dhxCalendarA' sort='server'>계약일자</column>
+		<column id="period" width='70' align='left' type='edn' sort='server'>기 간</column>
+
+		<beforeInit>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param> 
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

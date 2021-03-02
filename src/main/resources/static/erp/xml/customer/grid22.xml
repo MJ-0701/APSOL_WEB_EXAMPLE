@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>번호
+		</column>
+		<column id="businessNumber" width='100' align='left' type='ro'
+			sort='server'>사업자번호
+		</column>
+		<column id="name" width='130' align='left' type='ro' sort='server'>가맹점명
+		</column>
+		<column id="modifiedDate" width='90' align='center' type='ro'
+			sort='server'>
+			변경일자
+		</column>
+		<column id="stateName" width='70' align='center' type='ro'
+			sort='server'>상 태
+		</column>
+		<column id="kindName" width='70' align='center' type='ro' sort='server'>
+			신규 구분
+		</column>
+		<column id="customerKindName" width='70' align='center' type='ro' sort='server'>
+			구 분
+		</column> 
+
+		<column id="activatedName" width='70' align='center' type='ro'
+			sort='server'>활성화
+		</column>
+
+		<column id="address" width='150' align='left' type='ro' sort='na'>주
+			소
+		</column>
+		
+		<column id="vanCnt" width='70' align='right' type='ron'
+			sort='na'>8월
+		</column>
+		
+		<column id="vanCnt1" width='70' align='right' type='ron'
+			sort='na'>7월
+		</column>
+		
+		<column id="vanCnt2" width='70' align='right' type='ron'
+			sort='na'>6월
+		</column>
+		
+		<column id="contManager" width='100' align='center' type='ro'
+			sort='na'>계약자
+		</column>
+
+		<column id="contNumber" width='100' align='center' type='ro'
+			sort='na'>계약 번호
+		</column>
+
+		<column id="contractContent" width='100' align='left' type='ro'
+			sort='na'>계약 내용
+		</column>
+		<column id="managerName" width='100' align='left' type='ro'
+			sort='server'>담당자
+		</column>
+		
+		<column id="officeName" width='100' align='left' type='ro'
+			sort='server'>관리업체
+		</column>
+		
+		<column id="jobType" width='80' align='left' type='ro'
+			sort='server'>업 태
+		</column>
+		
+		<column id="jobCategory" width='80' align='left' type='ro'
+			sort='server'>종 목
+		</column>
+		
+		<column id="phone" width='100' align='left' type='ro'
+			sort='server'>전화번호
+		</column>
+		
+		<column id="homePhone" width='100' align='left' type='ro'
+			sort='server'>자택번호
+		</column>
+		
+		<column id="mobile" width='100' align='left' type='ro'
+			sort='server'>휴대폰
+		</column>
+		
+		<column id="bankName" width='80' align='left' type='ro'
+			sort='server'>은행
+		</column>
+		
+		<column id="accountNumber" width='130' align='left' type='ro'
+			sort='server'>계좌번호
+		</column>
+		
+		<column id="accountOwner" width='100' align='left' type='ro'
+			sort='server'>예금주
+		</column>
+		
+		<column id="email" width='100' align='left' type='ro'
+			sort='server'>이메일
+		</column>
+
+		<column id="memo" width='300' align='left' type='ro' sort='na'>비 고
+		</column>
+		<column id="code" width='40' align='center' type='ro' sort='na'>코 드
+		</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#select_filter,#select_filter,#select_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,,#text_filter,#text_filter,,
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnRefresh" type="button" text="새로고침">
+	<userdata name="kind">search</userdata>
+	</item>	
+	<item id="btnAdd" type="button" text="추 가">	
+	<userdata name="kind">insert</userdata>
+	</item>	
+	<item id="btnDelete" type="button" text="삭 제"/>
+</toolbar>

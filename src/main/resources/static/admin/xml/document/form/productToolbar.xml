@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnAdd" type="button" text="아이스크림 추가">
+		<userdata name="kind">insert</userdata>
+	</item>		
+	<item id="btnAddExtra" type="button" text="부자재 추가">
+		<userdata name="kind">insert</userdata>
+	</item>		
+	<item id="btnDelete" type="button" text="삭 제"/>
+</toolbar>

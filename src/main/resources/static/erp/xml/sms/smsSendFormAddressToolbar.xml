@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item type="separator" />
+	<item id="btnRefresh" type="button" text="새로고침" img="redo.gif"
+		imgdis="redo_dis.gif">
+		<userdata name="kind">search</userdata>
+	</item>
+	
+	<!-- <item id="btnMoveAll" type="button" text="일괄 이동" >
+	</item> -->
+
+</toolbar>

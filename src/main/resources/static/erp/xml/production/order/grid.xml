@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="name" width='100' align='left' type='ro' sort='server' color=''>품목 </column>	
+		<column id="kindName" width='70' align='center' type='ro' sort='str' color=''>#cspan</column>
+		<column id="barcode" width='90' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="standard" width='90' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="unitName" width='60' align='left' type='ro' sort='str' color=''>#cspan</column>
+		<column id="part" width='70' align='left' type='ro' sort='str' color=''>#cspan</column>		
+		<column id="inKindName" width='70' align='center' type='ron' sort='int' color=''>입고구분</column>	
+		<column id="stockSum" width='90' align='right' type='ron' sort='int' color=''>재고량</column>
+		<column id="partQty" width='90' align='right' type='ron' sort='int' color=''>소요량</column>
+		<column id="orderSum" width='90' align='right' type='ron' sort='int' color=''>발주 수량</column>
+		<column id="productionQty" width='90' align='right' type='ron' sort='int' color=''>지시 수량</column>
+		<column id="lackQty" width='90' align='right' type='ron' sort='int' color=''>부족 재고량</column>
+		<column id="lackAmt" width='100' align='right' type='ron' sort='int' color=''>구매예상액</column>
+		<column id="customerName" width='90' align='left' type='ro' sort='int' color=''>발주처</column>
+				
+		<beforeInit>
+			<call command="attachHeader">
+				<param>품목명,구분,관리번호,규 격,단 위,파트넘버,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call>
+			<call command="attachHeader">
+				<param>#text_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

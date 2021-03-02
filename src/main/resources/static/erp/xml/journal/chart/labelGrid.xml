@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="itemCheck" width='40' align='center' type='ch' sort='na'>#master_checkbox</column>
+		<column id="customerName" width='140' align='left' type='ro' sort='str' color=''>구 분</column>
+		<column id="content" width='50' align='right' type='ro' sort='int'	color=''>건 수</column>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+</rows>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="100" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="block" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="아이디" name="id" inputWidth="160" />
+					<item type="newcolumn" />
+					<item type="password" value="" label="비밀번호" name="pwd"
+						inputWidth="140" labelWidth="70" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="링크아이디" name="linkId"
+						inputWidth="140" labelWidth="70" />
+				</item>
+
+
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="사업자 번호" name="businessNumber"
+						inputWidth="160" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="대표자" name="ceo" inputWidth="140"
+						labelWidth="70" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="상호" name="name" inputWidth="140"
+						labelWidth="70" />
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="주 소" name="address"
+						inputWidth="373" />
+
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="업 태" name="jobType"
+						inputWidth="160" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="종 목" name="jobCategory"
+						inputWidth="140" labelWidth="70" />
+				</item>
+
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="담당자" name="manager"
+						inputWidth="160" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="이메일" name="email"
+						inputWidth="140" labelWidth="70" />
+					<item type="newcolumn" />
+					<item type="input" value="" label="휴대폰" name="mobile"
+						inputWidth="140" labelWidth="70" />
+				</item>
+
+			</item>
+		</item>
+	</item>
+</items>
+

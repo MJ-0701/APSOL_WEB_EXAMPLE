@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="itemCheck" width='40' align='center' type='ch'
+			sort='int'>사 용
+		</column> 
+			
+		<column id="name" width='150' align='left' type='ro' sort='str'>
+			이 름
+		</column>
+		
+		<column id="username" width='120' align='left' type='ro' sort='str'>
+			아이디
+		</column>
+	
+		<beforeInit>
+		 	<call command="attachHeader"> 
+			<param>,#text_filter,#text_filter</param> 
+				</call>
+		</beforeInit>
+
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<!-- <param>50</param> -->
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

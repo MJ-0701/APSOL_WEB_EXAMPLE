@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="btn" width='80' align='center' type='ro'
+			sort='na'>
+		</column>
+		<column id="managerUsername" width='100' align='left' type='ro'
+			sort='server'>담당자 아이디
+		</column>
+		<column id="managerName" width='100' align='left' type='ro'
+			sort='server'>담당자
+		</column>
+		<column id="businessNumber" width='100' align='left' type='ro'
+			sort='server'>사업자번호
+		</column>
+		<column id="name" width='130' align='left' type='ro' sort='server'>가맹점명
+		</column>
+		<column id="modifiedDate" width='90' align='center' type='ro'
+			sort='server'>
+			변경일자
+		</column>
+		<column id="stateName" width='70' align='center' type='ro'
+			sort='server'>상 태
+		</column>
+		<column id="kindName" width='70' align='center' type='ro' sort='server'>
+			신규 구분
+		</column>
+
+		<!-- <column id="misu" width='70' align='right' type='ron' sort='server'>미수금
+		</column> -->
+
+		<column id="activatedName" width='70' align='center' type='ro'
+			sort='server'>활성화
+		</column>
+
+		<column id="address" width='150' align='left' type='ro' sort='na'>주
+			소
+		</column>
+
+
+
+		<column id="memo" width='300' align='left' type='ro' sort='na'>메 모
+		</column>
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#select_filter,#select_filter,#text_filter,,,,,
+				</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,1233 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<!-- Page title -->
+<title>앱솔</title>
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!--<link rel="shortcut icon" type="image/ico" th:href="@{/favicon.ico" />-->
+
+<!-- Vendor styles -->
+<link rel="stylesheet" href="/vendor/fontawesome/css/font-awesome.css" />
+<link rel="stylesheet" href="/vendor/metisMenu/dist/metisMenu.css" />
+<link rel="stylesheet" href="/vendor/animate.css/animate.css" />
+<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.css" />
+
+<link rel="stylesheet" href="/js/plugins/toastr/toastr.min.css" />
+
+<!-- App styles -->
+<link rel="stylesheet"
+	href="/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+<link rel="stylesheet" href="/fonts/pe-icon-7-stroke/css/helper.css" />
+<link rel="stylesheet" href="/styles/style.css" />
+
+<link rel="stylesheet" type="text/css"
+	href="/vendor/dhtmlx/codebase/dhtmlx.css?v=vank3231568822" />
+
+<style>
+html, body {
+	height: 100%;
+	padding: 0;
+}
+
+input {
+	ime-mode: active !important;
+}
+
+.content {
+	padding: 0 0 0 0px;
+}
+
+body.light-skin #wrapper .content {
+	padding-top: 0;
+}
+
+body.light-skin #logo {
+	width: 220px;
+}
+/* body.light-skin #side-menu {
+    margin-right: 10px;
+} */
+#wrapper {
+	margin: 0 0 0 220px;
+	height: calc(100% - 87px);
+	min-height: calc(100% - 87px);
+}
+
+body.light-skin #wrapper .content {
+	padding-top: 0;
+}
+
+.xhdr table {
+	border-spacing: 0;
+	border-collapse: separate;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.dhx_popup_dhx_web * {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.dhxtabbar_base_dhx_web div.dhx_cell_tabbar div.dhx_cell_cont_tabbar {
+	padding: 0;
+}
+
+div.dhx_popup_dhx_web div.dhx_popup_area td.dhx_popup_td * {
+	white-space: nowrap;
+}
+
+.nav>li>.item {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+.nav>li>.item:HOVER {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+#side-menu li .item {
+	color: #6a6c6f;
+	text-transform: uppercase;
+	font-weight: 700;
+	padding: 15px 20px;
+}
+
+body.light-skin #side-menu li.active>.item {
+	border: 0;
+	font-weight: 700;
+	color: #6a6c6f;
+}
+
+#side-menu li .nav-second-level li .item {
+	padding: 10px 10px 10px 30px;
+	color: #6a6c6f;
+	text-transform: none;
+	font-weight: 600;
+}
+
+body.light-skin #side-menu li .item {
+	text-transform: none;
+	font-weight: 600;
+	padding: 10px 10px;
+	padding-left: 5px;
+	color: #e4e8ef;
+}
+
+body.light-skin #side-menu li .item:HOVER {
+	color: #000000;
+}
+
+body.light-skin #side-menu li .nav-second-level li .item {
+	padding: 6px 10px 6px 20px;
+}
+
+.text-success {
+	color: #11a4d2;
+}
+
+.full .progress-bar-success {
+	background-color: #11a4d2;
+	border-right: 4px solid #0e637d;
+}
+
+body.light-skin .small-header {
+	padding: 0 0 0 0 !important;
+}
+
+.data-val {
+	font-size: 90%;
+	padding-top: 5px;
+}
+
+@
+keyframes blink { 0% {
+	background-color: #f0ad4e;
+}
+
+50%
+{
+background-color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#f7f9fa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+}
+}
+
+/* for Chrome, Safari */
+@
+-webkit-keyframes blink { 0% {
+	background-color: #f0ad4e;
+}
+
+50%
+{
+background-color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#f7f9fa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+}
+}
+
+/* blink CSS 브라우저 별로 각각 애니메이션을 지정해 주어야 동작한다. */
+.blinkcss {
+	font-weight: bold;
+	animation: blink 1s step-end infinite;
+	-webkit-animation: blink 1s step-end infinite;
+}
+
+body .toast-bottom-right .toast-message {
+	text-align: right;
+}
+
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 24px;
+	vertical-align: middle;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	display: none;
+}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+	left: 4px;
+	bottom: 2px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked+.slider {
+	background-color: #2196F3;
+}
+
+input:focus+.slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+p {
+	margin: 0px;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/* body.light-skin{ 
+background: linear-gradient(to bottom, #33466f, #6f7684)
+} */
+body.light-skin {
+	background-color: #e9eaea;
+}
+
+body.light-skin #side-menu li .item, body.light-skin #side-menu li a {
+	color: #777777;
+}
+
+body.light-skin #logo.light-version {
+	background-color: #374971;
+}
+
+body.light-skin #logo.light-version span {
+	color: #cccccc;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs {
+	background-color: #33466f;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tabs_base div.dhxtabbar_tabs_cont_left,
+	.dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tabs_base div.dhxtabbar_tabs_cont_right
+	{
+	background-color: #33466f;
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tab {
+	background-color: #33466f;
+	border-left: 2px solid #33466f;
+	border-right: 2px solid #33466f;
+}
+
+.dhx_toolbar_dhx_web {
+	background-color: #ffffff;
+}
+
+/* .dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tabs_base div.dhxtabbar_tabs_cont_left, .dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tabs_base div.dhxtabbar_tabs_cont_right{
+background : linear-gradient(to bottom, #33466f, #7784a0)
+}
+
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tab {
+    background : linear-gradient(to bottom, #9599a2, #535761);
+}
+ 
+.dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tab.dhxtabbar_tab_actv, .dhxtabbar_base_dhx_web div.dhxtabbar_tabs div.dhxtabbar_tab.dhxtabbar_tab_actv_dis {
+    background-color: #ffffff;
+    color: #000000;
+    height: 27px;
+    z-index: 3;
+     background : linear-gradient(to bottom, #ffffff, #ffffff);
+} */
+body.light-skin #side-menu li a:hover, body.light-skin #side-menu li a:focus
+	{
+	color: #fbf9c2;
+}
+
+body.light-skin #side-menu li.active>a {
+	border: 0;
+	font-weight: 700;
+	color: #6a6c6f;
+}
+
+body.light-skin #side-menu li.active>.item {
+	text-transform: none;
+	font-weight: 600;
+	padding: 10px 10px;
+	color: #e4e8ef;
+}
+
+.menu_item {
+	width: 20px;
+	height: 19px;
+	margin-right: 5px;
+	display: inline-block;
+}
+
+body.light-skin #menu {
+	width: 220px;
+	background: linear-gradient(to bottom, #33466f, #6f7684);
+	overflow: auto;
+}
+
+body.light-skin #side-menu li .nav-second-level li .item {
+	padding: 6px 10px 6px 50px;
+}
+
+.dhxtabbar_tabs_ar_left, .dhxtabbar_tabs_ar_right {
+	background-color: #777777;
+}
+
+.btn-success {
+	background-color: #415174;
+	border-color: #415174;
+	color: #fff;
+}
+
+body.light-skin #side-menu li.active>.item {
+	border: 0;
+	font-weight: 700;
+	color: #6a6c6f;
+}
+
+#side-menu li .nav-second-level li .item {
+	padding: 10px 10px 10px 30px;
+	color: #6a6c6f;
+	text-transform: none;
+	font-weight: 600;
+}
+
+body.light-skin #side-menu li .item {
+	text-transform: none;
+	font-weight: 600;
+	padding: 10px 10px;
+	color: #e4e8ef;
+}
+
+body.light-skin #side-menu li .item:HOVER {
+	color: #fbf9c2;
+}
+
+body.light-skin #side-menu li .nav-second-level li.active .item:HOVER {
+	color: #3c3939;
+}
+
+body.light-skin #side-menu li .nav-second-level li .item {
+	padding: 6px 10px 6px 20px;
+}
+
+body.light-skin #side-menu li.active>.item {
+	color: #3c3939;
+	background-color: white;
+}
+
+body.light-skin #side-menu li .item, body.light-skin #side-menu li a {
+	color: #f3f3f3;
+}
+
+body.light-skin #side-menu li .nav-second-level li .item {
+	padding: 6px 10px 6px 50px;
+}
+
+body.light-skin #side-menu li.active>.item {
+	color: #3c3939;
+	background-color: white;
+}
+
+body.light-skin #side-menu li.active>a {
+	color: #ffffff;
+}
+
+#header {
+	background: #374971;
+}
+
+.navbar-nav>li:last-child>a:HOVER {
+	background: #374971;
+	border: 0px;
+}
+</style>
+
+</head>
+<body class="light-skin">
+
+	<!-- Simple splash screen-->
+	<div class="splash">
+		<div class="color-line"></div>
+		<div class="splash-title">
+			<h1>Homer - Responsive Admin Theme</h1>
+			<p>Special AngularJS Admin Theme for small and medium webapp with
+				very clean and aesthetic style and feel.</p>
+			<div class="spinner">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+			</div>
+		</div>
+	</div>
+	<!--[if lt IE 7]>
+<p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="/http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+	<!-- Header -->
+	<div id="header">
+		<div class="color-line"></div>
+		<div id="logo" class="light-version">
+			<span style="font-size: 4em; color: #ded8d8; margin-left: -15px">APSOL</span>
+			<!-- <img src="img/ice/logo_white2.png" style="height: 75px;" /> -->
+		</div>
+		<nav role="navigation">
+			<div class="small-logo">
+				<span class="text-primary">재활용</span>
+			</div>
+			<div class="navbar-right">
+				<ul class="nav navbar-nav no-borders">
+					<!-- 
+					<li class="dropdown"><a class="dropdown-toggle" href="#"
+						data-toggle="dropdown"> <i class="pe-7s-speaker"></i>
+					</a>
+						<ul class="dropdown-menu hdropdown notification animated flipInX">
+							<li><a> <span class="label label-success">NEW</span> It
+									is a long established.
+							</a></li>
+							<li><a> <span class="label label-warning">WAR</span>
+									There are many variations.
+							</a></li>
+							<li><a> <span class="label label-danger">ERR</span>
+									Contrary to popular belief.
+							</a></li>
+							<li class="summary"><a href="#">See all notifications</a></li>
+						</ul></li>
+					<li class="dropdown"><a class="dropdown-toggle" href="#"
+						data-toggle="dropdown"> <i class="pe-7s-keypad"></i>
+					</a>
+
+						<div class="dropdown-menu hdropdown bigmenu animated flipInX">
+							<table>
+								<tbody>
+									<tr>
+										<td><a href="projects.html"> <i
+												class="pe pe-7s-portfolio text-info"></i>
+												<h5>Projects</h5>
+										</a></td>
+										<td><a href="mailbox.html"> <i
+												class="pe pe-7s-mail text-warning"></i>
+												<h5>Email</h5>
+										</a></td>
+										<td><a href="contacts.html"> <i
+												class="pe pe-7s-users text-success"></i>
+												<h5>Contacts</h5>
+										</a></td>
+									</tr>
+									<tr>
+										<td><a href="forum.html"> <i
+												class="pe pe-7s-comment text-info"></i>
+												<h5>Forum</h5>
+										</a></td>
+										<td><a href="analytics.html"> <i
+												class="pe pe-7s-graph1 text-danger"></i>
+												<h5>Analytics</h5>
+										</a></td>
+										<td><a href="file_manager.html"> <i
+												class="pe pe-7s-box1 text-success"></i>
+												<h5>Files</h5>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div></li>
+					<li class="dropdown"><a
+						class="dropdown-toggle label-menu-corner" href="#"
+						data-toggle="dropdown"> <i class="pe-7s-mail"></i> <span
+							class="label label-success">4</span>
+					</a>
+						<ul class="dropdown-menu hdropdown animated flipInX">
+							<div class="title">You have 4 new messages</div>
+							<li><a> It is a long established. </a></li>
+							<li><a> There are many variations. </a></li>
+							<li><a> Lorem Ipsum is simply dummy. </a></li>
+							<li><a> Contrary to popular belief. </a></li>
+							<li class="summary"><a href="#">See All Messages</a></li>
+						</ul></li>
+					<li><a href="#" id="sidebar" class="right-sidebar-toggle">
+							<i class="pe-7s-upload pe-7s-news-paper"></i>
+					</a></li> -->
+					<li class="dropdown"><a href="/admin/logout"> <i
+							class="pe-7s-upload pe-rotate-90"></i>
+					</a></li>
+				</ul>
+			</div>
+
+		</nav>
+	</div>
+
+	<!-- Navigation -->
+	<aside id="menu">
+		<div id="navigation" style="height: calc(100% - 80px);">
+			<ul class="nav" id="side-menu">
+
+
+				<li sec:authorize="hasAnyRole('ROLE_REQUEST_EMP')">
+					<div class="item" href="/admin/requestTempPage">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">배출 예약</span>
+					</div>
+				</li>
+
+				<li sec:authorize="hasAnyRole('ROLE_REQUEST_EMP')">
+					<div class="item" href="/admin/requestTemp">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">배출 예약 관리</span>
+					</div>
+				</li>
+
+				<li
+					sec:authorize="hasAnyRole('ROLE_REQUEST'   ,  'ROLE_REQUEST_LOCAL',  'ROLE_COMPANY')">
+					<div class="item" href="/admin/requestPage">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">배출 신청</span>
+					</div>
+				</li>
+
+				<li
+					sec:authorize="hasAnyRole('ROLE_REQUEST'   ,  'ROLE_GOVERMENT',  'ROLE_COMPANY')">
+					<div class="item" href="/admin/request">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">배출 관리(지자체)</span>
+					</div>
+				</li>
+
+				<li
+					sec:authorize="hasAnyRole( 'ROLE_REQUEST_LOCAL', 'ROLE_CITIZEN' )">
+					<div class="item" href="/admin/requestLocal">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">배출 관리(주민)</span>
+					</div>
+				</li>
+
+				<li
+					sec:authorize="hasAnyRole('ROLE_COMPANY'  , 'ROLE_REQUEST_REPORT')">
+					<div class="item" href="/admin/requestReport">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">배출현황조회</span>
+					</div>
+				</li>
+
+				<li sec:authorize="hasAnyRole( 'ROLE_DISPOSAL' , 'ROLE_ADMIN'  )">
+					<div class="item" href="/admin/disposal">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">무단 폐기</span>
+					</div>
+				</li>
+
+				<li
+					sec:authorize="hasAnyRole('ROLE_GOVERMENT' , 'ROLE_RETURN_REPORT')">
+					<div class="item" href="/admin/returnReport">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">환불대기조회</span>
+					</div>
+				</li>
+				<!-- <li sec:authorize="hasAnyRole('ROLE_ADMIN')">
+					<div class="item" href="/board">
+						<div class="menu_item" style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">사진 조회</span>
+					</div>
+				</li> -->
+				<li sec:authorize="hasAnyRole('ROLE_SLIP', 'ROLE_ADMIN'  )">
+					<div class="item" href="/admin/slip">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">입금 출금</span>
+					</div>
+				</li>
+				<li sec:authorize="hasAnyRole('ROLE_COMPANY', 'ROLE_EMPLOYEE_1')">
+					<div class="item" href="/admin/employee2">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">수거자 계정관리</span>
+					</div>
+				</li>
+				<li sec:authorize="hasAnyRole('ROLE_COMPANY', 'ROLE_CARS')">
+					<div class="item" href="/admin/cars">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">차량 관리</span>
+					</div>
+				</li>
+				<li sec:authorize="hasAnyRole('ROLE_COMPANY', 'ROLE_DRIVE_HISTORY')">
+					<div class="item" href="/admin/driveHistory">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">차량 운행 정보</span>
+					</div>
+				</li>
+				<li sec:authorize="hasAnyRole('ROLE_GOVERMENT', 'ROLE_COMPANY')">
+					<div class="item" href="/admin/company">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">수거업체 관리</span>
+					</div>
+				</li>
+				<li sec:authorize="hasAnyRole('ROLE_GOVERMENT', 'ROLE_COMPANY')">
+					<div class="item" href="/admin/company2">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">지자체 관리</span>
+					</div>
+				</li>
+				<li sec:authorize="hasAnyRole('ROLE_GOVERMENT', 'ROLE_PRODUCT')">
+					<div class="item" href="/admin/product">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">수수료 관리</span>
+					</div>
+				</li>
+				<li
+					sec:authorize="hasAnyRole('ROLE_GOVERMENT' , 'ROLE_CITIZEN', 'ROLE_COMPANY', 'ROLE_EMPLOYEE', 'ROLE_MAP')">
+					<div class="item" href="/admin/map">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">지 도</span>
+					</div>
+				</li>
+				<li
+					sec:authorize="hasAnyRole('ROLE_GOVERMENT' , 'ROLE_CITIZEN', 'ROLE_COMPANY', 'ROLE_EMPLOYEE', 'ROLE_MAP')">
+					<div class="item" href="/admin/carLocation">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">경로관리</span>
+					</div>
+				</li>
+				<!-- <li sec:authorize="hasAnyRole('ROLE_EMPLOYEE', 'ROLE_COLLECT')">
+					<div class="item" href="/board">
+						<div class="menu_item" style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">당일 수거 내역</span>
+					</div>
+				</li> -->
+				<li
+					sec:authorize="hasAnyRole('ROLE_GOVERMENT' , 'ROLE_CITIZEN', 'ROLE_COMPANY', 'ROLE_BOARD')">
+					<div class="item" href="/admin/board">
+						<div class="menu_item"
+							style="background-image: url(&#39;img/icons/a11.png&#39;);"></div>
+						<span class="nav-label">전달 사항</span>
+					</div>
+				</li>
+				<li
+					sec:authorize="hasAnyRole('ROLE_GOVERMENT', 'ROLE_NOTICE', 'ROLE_FAQ')"><a
+					href="#"> <span class="nav-label">고객 민원</span><span
+						class="fa arrow"></span>
+				</a>
+					<ul class="nav nav-second-level">
+						<li sec:authorize="hasAnyRole('ROLE_NOTICE' )">
+							<div class="item" href="/admin/notice">
+								<span class="nav-label">공지사항</span>
+							</div>
+						</li>
+						<li sec:authorize="hasAnyRole('ROLE_FAQ' )">
+							<div class="item" href="/admin/fnq">
+								<span class="nav-label">자주 묻는 질문</span>
+							</div>
+						</li>
+					</ul></li>
+				<li
+					sec:authorize="hasAnyRole('ROLE_BASCODE', 'ROLE_EMPLOYEE', 'ROLE_AUTH')"><a
+					href="#"> <span class="nav-label">환경 설정</span><span
+						class="fa arrow"></span>
+				</a>
+					<ul class="nav nav-second-level">
+						<ul class="nav nav-second-level">
+							<li sec:authorize="hasAnyRole('ROLE_BASCODE' )">
+								<div class="item" href="/admin/bascode">
+									<span class="nav-label">기초 코드</span>
+								</div>
+							</li>
+							<li sec:authorize="hasAnyRole('ROLE_EMPLOYEE' )">
+								<div class="item" href="/admin/employee">
+									<span class="nav-label">직원 관리</span>
+								</div>
+							</li>
+							<li sec:authorize="hasAnyRole('ROLE_AUTH' )">
+								<div class="item" href="/admin/auth">
+									<span class="nav-label">권한 관리</span>
+								</div>
+							</li>
+
+						</ul>
+					</ul></li>
+			</ul>
+		</div>
+	</aside>
+
+	<!-- Main Wrapper -->
+	<div id="wrapper">
+
+		<div class="content animate-panel" id="contentWarpper"
+			style="height: 100%; width: 100%; position: relative;">
+
+			<div id="contentFrame"
+				style="height: 100%; width: 100%; position: relative;"></div>
+
+		</div>
+
+		<!-- Right sidebar -->
+		<div id="right-sidebar" class="animated fadeInRight">
+
+			<div class="p-m">
+				<button id="sidebar-close"
+					class="right-sidebar-toggle sidebar-button btn btn-default m-b-md">
+					<i class="pe pe-7s-close"></i>
+				</button>
+				<div>
+					<span class="font-bold no-margins"> Analytics </span> <br /> <small>
+						Lorem Ipsum is simply dummy text of the printing simply all dummy
+						text.</small>
+				</div>
+				<div class="row m-t-sm m-b-sm">
+					<div class="col-lg-6">
+						<h3 class="no-margins font-extra-bold text-success">300,102</h3>
+
+						<div class="font-bold">
+							98% <i class="fa fa-level-up text-success"></i>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<h3 class="no-margins font-extra-bold text-success">280,200</h3>
+
+						<div class="font-bold">
+							98% <i class="fa fa-level-up text-success"></i>
+						</div>
+					</div>
+				</div>
+				<div class="progress m-t-xs full progress-small">
+					<div style="width: 25%" aria-valuemax="100" aria-valuemin="0"
+						aria-valuenow="25" role="progressbar"
+						class=" progress-bar progress-bar-success">
+						<span class="sr-only">35% Complete (success)</span>
+					</div>
+				</div>
+			</div>
+			<div class="p-m bg-light border-bottom border-top">
+				<span class="font-bold no-margins"> Social talks </span> <br /> <small>
+					Lorem Ipsum is simply dummy text of the printing simply all dummy
+					text.</small>
+				<div class="m-t-md">
+					<div class="social-talk">
+						<div class="media social-profile clearfix">
+							<a class="pull-left"> <img src="img/a1.jpg"
+								alt="profile-picture" />
+							</a>
+
+							<div class="media-body">
+								<span class="font-bold">John Novak</span> <small
+									class="text-muted">21.03.2015</small>
+								<div class="social-content small">Injected humour, or
+									randomised words which don't look even slightly believable.</div>
+							</div>
+						</div>
+					</div>
+					<div class="social-talk">
+						<div class="media social-profile clearfix">
+							<a class="pull-left"> <img src="img/a3.jpg"
+								alt="profile-picture" />
+							</a>
+
+							<div class="media-body">
+								<span class="font-bold">Mark Smith</span> <small
+									class="text-muted">14.04.2015</small>
+								<div class="social-content">Many desktop publishing
+									packages and web page editors.</div>
+							</div>
+						</div>
+					</div>
+					<div class="social-talk">
+						<div class="media social-profile clearfix">
+							<a class="pull-left"> <img src="img/a4.jpg"
+								alt="profile-picture" />
+							</a>
+
+							<div class="media-body">
+								<span class="font-bold">Marica Morgan</span> <small
+									class="text-muted">21.03.2015</small>
+
+								<div class="social-content">There are many variations of
+									passages of Lorem Ipsum available, but the majority have</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="p-m">
+				<span class="font-bold no-margins"> Sales in last week </span>
+				<div class="m-t-xs">
+					<div class="row">
+						<div class="col-xs-6">
+							<small>Today</small>
+							<h4 class="m-t-xs">
+								$170,20 <i class="fa fa-level-up text-success"></i>
+							</h4>
+						</div>
+						<div class="col-xs-6">
+							<small>Last week</small>
+							<h4 class="m-t-xs">
+								$580,90 <i class="fa fa-level-up text-success"></i>
+							</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6">
+							<small>Today</small>
+							<h4 class="m-t-xs">
+								$620,20 <i class="fa fa-level-up text-success"></i>
+							</h4>
+						</div>
+						<div class="col-xs-6">
+							<small>Last week</small>
+							<h4 class="m-t-xs">
+								$140,70 <i class="fa fa-level-up text-success"></i>
+							</h4>
+						</div>
+					</div>
+				</div>
+				<small> Lorem Ipsum is simply dummy text of the printing
+					simply all dummy text. Many desktop publishing packages and web
+					page editors. </small>
+			</div>
+
+		</div>
+
+		<!-- Footer-->
+		<!-- <footer class="footer">
+        <span class="pull-right">
+            Example text
+        </span>
+        Company 2016
+    </footer> -->
+
+	</div>
+
+	<!-- Vendor scripts -->
+	<script src="/vendor/jquery/dist/jquery.min.js"></script>
+	<script src="/vendor/slimScroll/jquery.slimscroll.min.js"></script>
+	<script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/vendor/metisMenu/dist/metisMenu.min.js"></script>
+
+	<script src="/vendor/jquery-flot/jquery.flot.js"></script>
+	<script src="/vendor/jquery-flot/jquery.flot.resize.js"></script>
+	<script src="/vendor/jquery-flot/jquery.flot.pie.js"></script>
+	<script src="/vendor/flot.curvedlines/curvedLines.js"></script>
+	<script src="/vendor/jquery.flot.spline/index.js"></script>
+
+	<script src="/js/plugins/toastr/toastr.min.js?v=1234"></script>
+
+	<!-- App scripts -->
+	<script src="/scripts/homer.js"></script>
+
+	<script src="/vendor/dhtmlx/codebase/dhtmlx.js?v=1234"></script>
+
+	<script src="/js/common.js"></script>
+	<script src="/erp/js/searchCustomer.js"></script>
+	<script src="/erp/js/searchPopup.js"></script>
+
+	<script src="/erp/js/popup/dataPopup.js"></script>
+	<script src="/erp/js/popup/form/formPopup.js"></script>
+	<script src="/erp/js/popup/form/formCustomerPopup.js"></script>
+	<script src="/erp/js/popup/grid/cellPopup.js"></script>
+	<script src="/js/gridCell.js"></script>
+	<script src="/js/customerCell.js"></script>
+	<script src="/erp/js/dialog/dialog.js"></script>
+	<script src="/erp/js/dialog/cidConsultDialog.js"></script>
+
+
+	<script th:inline="javascript" type="text/javascript">
+		/*<![CDATA[*/freeTier = 0;
+
+		toastr.options = {
+			"progressBar" : true,
+			"timeOut" : -1,
+		}
+
+		function test() {
+			console.log("test");
+		}
+
+		$.ajaxSetup({
+			beforeSend : function(xhr) {
+				xhr.setRequestHeader("AJAX", true);
+			},
+			error : function(xhr, status, err) {
+				if (xhr.status == 401) {
+					// alert("401");
+				} else if (xhr.status == 403) {
+					// alert("403");
+				} else {
+					// alert("예외가 발생했습니다. 관리자에게 문의하세요.");
+				}
+			}
+		});
+
+		var imageUrl = '/vendor/dhtmlx/codebase/imgs/';
+		var tabbar;
+		var root = '/';
+		var notices = [[${notice}]];
+		$(document).ready(
+				function() {
+					
+			
+					notices.forEach(function(notice){
+						dhtmlx.message({
+							title : notice.title,
+							type : "alert-error",
+							text : notice.content,
+							width : "50%",
+							position : "center",
+							ok : "확인"
+						});
+					});
+				
+
+					
+
+					$("#msgAlert").hide();
+
+					$("#logo").click(function() {
+						// document.location.href = root;
+						tabbar.clearAll();
+						$("li.active").removeClass('active');
+						$(".collapse").removeClass('in');
+
+						$(".dhxtabbar_cont").hide();
+						$("#contentFrame .content_el").show();
+					});
+
+					// var search = new SearchPopup();
+					// search.init($("#customerSearch"), 700, 300);
+
+					setTimeout(check, 1000);
+					// Infocheck();
+					// MessageCheck();
+
+					tabbar = new dhtmlXTabBar("contentFrame");
+					tabbar.enableAutoReSize(true);
+					tabbar.enableTabCloseButton(true);
+
+					$("#contentFrame").resize(function() {
+						if (tabbar)
+							tabbar.setSizes();
+					});
+
+					// HideTabber();
+
+					$("#wrapper").resize(function() {
+						console.log("B");
+					});
+
+					$("#contentWarpper").resize(function() {
+						console.log("C");
+					});
+
+					$("#hide").click(function() {
+						setTimeout(function() {
+
+							if (tabbar)
+								tabbar.setSizes();
+
+						}, 450);
+
+					});
+
+					tabbar.attachEvent("onTabClick", function(id, lastId) {
+						activeMenuItemById(id);
+					});
+
+					tabbar.attachEvent("onTabClose", function(id) {
+						$("li.active").removeClass('active');
+						$(".collapse").removeClass('in');
+						HideTabber();
+						return true;
+					});
+
+					$(".menuItem").click(
+							function() {
+								activeMenuItem(this);
+								tab = createTab(tabbar, $(this).attr("href"),
+										$(this).find('.nav-label').text());
+							});
+
+					$(".item").click(
+							function() {
+
+								activeMenuItem(this);
+								tab = createTab(tabbar, $(this).attr("href"),
+										$(this).find('.nav-label').text());
+							});
+
+					tabbar.attachEvent("onContentLoaded", function(id) {
+						if (id == 'companyBoard') {
+
+							// 여기서 함수 호출
+							$(tabbar.tabs(id).getFrame())[0].contentWindow
+									.selectRow(boardCode);
+							boardCode = 0;
+						}
+					});
+
+					tabbar.attachEvent("onSelect", function(id, lastId) {
+						return true;
+					});
+
+					// tab = createTab(tabbar, 'customer', '가맹점 관리');
+
+					// setupChart();
+
+				});
+
+		function activeMenuItemById(text) {
+			$(".menuItem[href='" + text + "']").each(function() {
+				activeMenuItem(this);
+			});
+		}
+
+		function activeMenuItem(obj) {
+			$("li.active").removeClass('active');
+			$(".has-sub.active").removeClass('active');
+
+			$(obj).parents('li').addClass('active');
+			$(obj).parents('.has-sub').addClass('active');
+
+			$(obj).parents('.collapse').css("height", "");
+
+			ShowTabber();
+		}
+
+		function createTab(tabbar, url, title) {
+
+			tabbar.clearAll();
+
+			tabbar.addTab(url, title, null, null, true);
+			tab = tabbar.tabs(url);
+
+			tab.setActive();
+			tab.attachURL(url);
+
+			return tab;
+		}
+
+		function check() {
+			$.post("/admin/login/check", function(val) {
+				if (val)
+					setTimeout(check, 1000);
+				else
+					document.location.href = "logout";
+			}).done(function() {
+			}).fail(function() {
+				document.location.href = "logout";
+			}).always(function() {
+			});
+
+		}
+
+		function HideTabber() {
+
+			var tabsCount = tabbar.getNumberOfTabs();
+
+			if (tabsCount == 0) {
+				$(".dhxtabbar_cont").hide();
+				$("#contentFrame .content_el").show();
+			} else {
+				setTimeout(HideTabber, 50);
+			}
+
+		}
+
+		function ShowTabber() {
+
+			$(".dhxtabbar_cont").show();
+			$("#contentFrame .content_el").hide();
+
+		}
+
+		/*]]>*/
+	</script>
+
+
+
+</body>
+</html>

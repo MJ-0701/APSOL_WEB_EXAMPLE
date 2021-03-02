@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='center' type='ro' sort='na'>순번
+		</column>
+		<column id="uuid" width='150' align='left' type='ro' sort='str'
+			color=''>대리점명</column>
+		<!-- <column id="businessNumber" width='120' align='right' type='ro' sort='str' 
+			color=''>관리가맹점수</column> -->
+		<column id="modifiedDate" width='80' align='right' type='ro'
+			sort='str' color=''>직원 수</column>
+		<column id="usedAppCustomer" width='80' align='right' type='ro'
+			sort='str' color=''>가맹점 수</column>
+		<column id="usedAppEmployees" width='100' align='right' type='ro'
+			sort='str' color=''>가맹점 직원 수</column>
+		<column id="pgAgree" width='150' align='right' type='ro' sort='str'
+			color=''>pg결제 동의 가맹점 수</column>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+			<call command="enableMultiselect">
+				<param>1</param>
+			</call>
+		</afterInit>
+	</head>
+
+</rows>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<toolbar>
+ <item id="btnExcel" type="button" text="엑셀 출력" img="icon_grid.gif"
+		imgdis="icon_grid.gif" />
+</toolbar>

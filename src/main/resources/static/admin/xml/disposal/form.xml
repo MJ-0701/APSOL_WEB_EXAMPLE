@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	
+	<item type="hidden"   name="employee" /> 
+	<item type="hidden"   name="receiptEmployee" />
+	
+	
+	 
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="일 시" name="date" inputWidth="263" readonly="true"/>
+			<item type="select" label="상 태" name="state" inputWidth="263">
+                    <option value="DS0001" text="대 기" />
+                    <option value="DS0002" text="접 수" />
+                    <option value="DS0003" text="완 료" />
+            </item>
+                
+			<item type="input" value="" label="신고자" name="employeeName" inputWidth="263" />
+			<item type="input" value="" label="접수자" name="receiptEmployeeName" inputWidth="263" />
+			<item type="input" value="" label="완료자" name="completeEmployeeName" inputWidth="263" />
+		</item>
+
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="주 소" name="address" inputWidth="560" /> 
+		</item>   
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="내 용" name="content" inputWidth="560"  rows="5"/> 
+		</item>
+		 <item type="block" blockOffset="0">
+			<item type="image" name="photo" label="처리 전" inputWidth="560" inputHeight="560"
+				url="../fileData/formImageDetail">
+			</item>
+			<item type="image" name="afterPhoto" label="처리 후" inputWidth="560" inputHeight="560"
+                url="../fileData/formImageDetail">
+            </item>
+		</item>
+		 
+
+	</item>
+
+
+
+</items>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<rows>
+	<head> 
+		<column id="name" width='120' align='center' type='ro' sort='str'
+			color=''>이 름</column>
+		<column id="phone" width='120' align='left' type='ro' sort='str'
+			color=''>전화번호</column>
+		<column id="terminal" width='120' align='left' type='ro' sort='str'
+			color=''>단말기</column>
+		 <column id="password" width='100' align='center' type='ro'
+			sort='str' color=''>인증번호</column> 
+		<column id="mac" width='100' align='center' type='ro'
+			sort='str' color=''>MAC</column>
+		<column id="memo" width='220' align='left' type='ro' sort='na'
+			color=''>비 고</column>
+		<beforeInit>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableEditTabOnly">
+				<param>1</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

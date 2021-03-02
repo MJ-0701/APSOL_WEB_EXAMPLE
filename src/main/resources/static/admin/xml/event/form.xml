@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="100" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="fieldset" blockOffset="0" offsetTop="0" label="회원가입 시 적립금">
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="적립금액" name="saving" />
+			</item>
+			<item type="block" blockOffset="0">
+				<item type="calendar" value="" label="시작일" name="from" />
+				<item type="calendar" value="" label="종료일" name="to" />
+			</item>
+		</item>
+
+	</item>
+
+
+</items>
+

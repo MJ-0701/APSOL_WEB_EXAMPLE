@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="replyCount" width='15' align='center' type='tree' sort='str' color=''></column>
+		<column id="state" width='35' align='center' type='ro' sort='str'>
+			결재
+		</column>
+		<column id="registeredDate" width='130' align='center' type='ro' sort='na'	color=''>작성 일시</column>
+		<column id="customerName" width='100' align='left' type='ro' sort='str' color=''>가맹점명</column>
+		<column id="content" width='300' align='left' type='ro' sort='na'	color=''>업무 내용</column>
+		<column id="managerName" width='70' align='center' type='ro' sort='na' color=''>작성자</column>			
+		<column id="date" width='80' align='center' type='ro' sort='na' color=''>업무 일자</column>				
+		<column id="workName" width='70' align='center' type='ro' sort='str' color=''>작업구분</column>
+		<column id="workStateName" width='60' align='center' type='ro' sort='str' color=''>작업 상태</column>	
+<!-- 		<column id="customerBusinessNumber" width='80' align='center' type='ro' sort='na' color=''>사업자번호</column> -->
+		
+		<column id="platformName" width='60' align='center' type='ro' sort='na'	color=''>구 분</column>
+		
+		<beforeInit>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+			<!-- <call command="attachHeader">
+				<param>#rspan,상 태,구 분,시 간,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call> -->
+			
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableHeaderMenu">
+			</call>
+		</afterInit>
+	</head>
+</rows>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드"
+		name="code" inputWidth="120" labelWidth="70" />
+	<item type="hidden" readonly='true' value="" label="코 드"
+		name="kind" inputWidth="120" labelWidth="70" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="input" value="" label="제 목" name="title"
+			inputWidth="560" />
+	</item>
+
+	<item type="block" blockOffset="0">
+		<item type="select" label="구 분" name="kind" inputWidth="238">
+			<option value="NOTICE" text="메인" />
+			<option value="ADMIN_NOTICE" text="관리자" />
+		</item>
+		<item type="newcolumn" />
+		<item type="checkbox" value="1" label="보이기/숨김" name="popup" />
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="calendar" value="" label="시작일" name="fromDate"
+			inputWidth="238" />
+		<item type="newcolumn" />
+		<item type="calendar" value="" label="종료일" name="toDate"
+			inputWidth="238" />
+	</item>
+</items>
+

@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="100" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="0" label="코 드" name="code"
+		inputWidth="120" labelWidth="100" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="fieldset" blockOffset="0" offsetTop="0" label="기본정보">
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="가입일" name="joinTime"
+					inputWidth="180" readonly='true' />
+			</item>
+			<item type="block" blockOffset="0">
+				<!-- <item type="select" label="유 형" name="type" connector="bascode/select/MT" 
+					inputWidth="120"/> -->
+				<item type="select" label="승 인" name="state" connector="bascode/select/MS" inputWidth="120" />
+			</item>
+		</item>
+
+		<item type="fieldset" blockOffset="0" offsetTop="0" label="개인정보">
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="아이디" name="username"
+					readonly='true' inputWidth="180" />
+				<item type="input" value="" label="이름" name="name" inputWidth="180" />
+			</item>
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="이메일 / 수신여부" name="email"
+					inputWidth="180" />
+				<item type="newcolumn" />
+				<item type="select" label=" / " name="emailRecv" labelWidth="10">
+					<option value="RS0001" text="수신 거부" />
+					<option value="RS0002" text="수신" />
+				</item>
+
+			</item>
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="핸드폰 / 수신여부" name="sms"
+					inputWidth="180" />
+				<item type="newcolumn" />
+				<item type="select" label=" / " name="smsRecv" labelWidth="10">
+					<option value="RS0001" text="수신 거부" />
+					<option value="RS0002" text="수신" />
+				</item>
+
+			</item>
+			
+			
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="광고문자 / 수신여부" name="smsAd"
+					inputWidth="180" />
+				<item type="newcolumn" />
+				<item type="select" label=" / " name="smsAdRecv" labelWidth="10">
+					<option value="RS0001" text="수신 거부" />
+					<option value="RS0002" text="수신" />
+				</item>
+				<item type="newcolumn" />
+				<item type="button" value="SMS발송" name="smsSend" inputWidth="180" />
+			</item>
+			
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="우편번호" name="zipcode"
+					inputWidth="120" readonly="true" className="form_readonly" />
+				<item type="input" value="" label="주 소" name="address"
+					inputWidth="372" />
+				<item type="input" value="" label="주소 상세" name="addressDetail"
+					inputWidth="372" />
+			</item>
+
+		</item>
+
+		<item type="fieldset" blockOffset="0" offsetTop="0" label="활동정보">
+
+			<item type="block" blockOffset="0">
+				<item type="input" value="" label="최근 로그인" name="lastloginDate"
+					inputWidth="180" readonly="true" className="form_readonly" />
+
+			</item>
+
+			<item type="block" blockOffset="0">
+
+				<item type="input" value="" label="쿠폰 보유수량" name="couponCnt" numberFormat="0,000"
+					inputWidth="180" readonly="true" className="form_readonly" />
+
+			</item>
+
+			<item type="block" blockOffset="0">
+
+				<item type="input" value="" label="총 구매금액" name="totalPayment" numberFormat="0,000"
+					inputWidth="180" readonly="true" className="form_readonly" />
+
+			</item>
+
+			<item type="block" blockOffset="0">
+
+				<item type="input" value="" label="총 방문횟수" name="visitCnt" numberFormat="0,000"
+					inputWidth="180" readonly="true" className="form_readonly" />
+
+			</item>
+
+			<item type="block" blockOffset="0">
+
+				<item type="input" value="" label="문의글 작성 수" name="contactQty" numberFormat="0,000"
+					inputWidth="180" readonly="true" className="form_readonly" />
+
+			</item>
+		</item>
+
+		<!-- <item type="newcolumn" /> <item type="block" blockOffset="0"> <item 
+			type="input" value="" label="최근 로그인" name="postNumber" inputWidth="180" readonly="true" 
+			className="form_readonly" /> </item> -->
+
+	</item>
+
+	<!-- <item type="fieldset" blockOffset="0" offsetTop="0" label="처리해야할 주문"> 
+		<item type="block" blockOffset="0"> <item type="input" value="" label="출고 
+		완료" name="postNumber" inputWidth="180" readonly="true" className="form_readonly" 
+		/> <item type="input" value="" label="반품 접수" name="postNumber" inputWidth="180" 
+		readonly="true" className="form_readonly" /> </item> <item type="newcolumn" 
+		/> <item type="block" blockOffset="0"> <item type="input" value="" label="결제 
+		확인" name="postNumber" inputWidth="180" readonly="true" className="form_readonly" 
+		/> <item type="input" value="" label="부분 출고 완료" name="postNumber" inputWidth="180" 
+		readonly="true" className="form_readonly" /> <item type="input" value="" 
+		label="부분 배송 완료" name="postNumber" inputWidth="180" readonly="true" className="form_readonly" 
+		/> <item type="input" value="" label="환불 접수" name="postNumber" inputWidth="180" 
+		readonly="true" className="form_readonly" /> </item> </item> -->
+
+
+
+</items>
+

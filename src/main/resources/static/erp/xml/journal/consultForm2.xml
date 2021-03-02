@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" name="item" />
+	<item type="hidden" name="customer" />
+	<item type="hidden" name="customerManager" />
+	<item type="hidden" name="kind" value="JK0008" />
+	<item type="hidden" value="" label="일 자" name="date" />
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+			<item type="input" value="" label="가맹점" name="customerName" />
+			<item type="newcolumn" />
+			<item type="input" value="" label="사업자 번호" name="customerBusinessNumber" readonly = "true"/>
+		</item>
+		<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+			<item type="input" value="" label="담당자" name="customerManagerName"  readonly = "true" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="select" label="구분" name="work" inputWidth="153"
+				connector="bascode/select/CU?empty=true" />
+			<item type="newcolumn" />
+			<item type="checkbox" label="배 정" name="pickable" />
+		</item>
+	</item>
+
+</items>
+

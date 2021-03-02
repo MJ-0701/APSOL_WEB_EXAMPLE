@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<items id="addGroupForm">
+
+	<item type="block" width="400" blockOffset="0">
+		<item id="groupName" name="groupName" type="input" inputWidth="200" label="그룹명" position="label-left" offsetLeft="70" offsetTop="50"/>
+		<item id="btnSaveAddGroup" name="btnSaveAddGroup" type="button" value="저장하기" width="100" offsetLeft="150" offsetTop="30"/>
+	</item>
+</items>
+

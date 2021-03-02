@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='50' align='center' type='ro' sort='na'>순 번
+		</column>
+		<column id="authTime" width='120' align='center' type='ro' sort='na'>사용일시
+		</column> 
+		<column id="tradingName" width='100' align='center' type='ro' sort='na'>거래구분명
+		</column>
+		<column id="cardName" width='80' align='center' type='ro' sort='na'>카드사명
+		</column>
+		<column id="cardNumber" width='100' align='left' type='ro' sort='na'>카드번호
+		</column>
+		
+		<column id="amount" width='100' align='right' type='ron' sort='na' format="0,000">이용금액
+		</column>
+		
+		<column id="authNumber" width='100' align='center' type='ro' sort='na'>승인번호
+		</column>
+		
+		<column id="intmmocnt" width='100' align='center' type='ro' sort='na'>할부개월수
+		</column>
+				
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

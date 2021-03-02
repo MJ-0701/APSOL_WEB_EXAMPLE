@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="empy" width='80' align='left' type='tree' sort='na'></column>
+		<column id="kindName" width='80' align='center' type='ro' sort='na'>구 분</column>
+		<column id="name" width='180' align='left' type='ro' sort='na'>품목명</column>
+		<column id="standard" width='100' align='left' type='ro' sort='na'>규 격</column>		
+		<column id="part" width='140' align='left' type='ro' sort='na' >파트넘버</column>		
+		<column id="prevQty" width='70' align='right' type='ro' sort='na' >소모 수량</column>		
+		<column id="qty" width='70' align='right' type='ro' sort='na' >단위 수량</column>
+		<column id="stockUnitName" width='70' align='center' type='ro' sort='na' >단위</column>
+				
+		<column id="categoryName" width='90' align='left' type='ro' sort='na' >분 류1</column>
+		<column id="category1Name" width='90' align='left' type='ro' sort='na' >분 류2</column>
+		<column id="category2Name" width='90' align='left' type='ro' sort='na' >분 류3</column>
+		
+		<column id="inKindName" width='80' align='center' type='ro' sort='na' >입고 구분</column>
+		<column id="options" width='140' align='left' type='ro' sort='na' >옵 션</column>
+		
+		 <beforeInit>
+			<call command="attachHeader">
+				<param>,,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#select_filter,#text_filter,#text_filter,#text_filter</param> 
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<!-- <param>50</param> -->
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="replyCount" width='15' align='center' type='tree' sort='str' color=''></column>
+		<column id="state" width='35' align='center' type='ro' sort='str'>
+			결재
+		</column>
+		<column id="registeredDate" width='130' align='center' type='ro' sort='na'	color=''>작성 일시</column>
+		<column id="workState" width='65' align='center' type='combo' sort='str' editable="false" xmlcontent="1" >
+			작업 상태
+			<option value="WS0002">진행중</option>			
+			<option value="WS0003">완료</option>
+		</column>
+		
+		<column id="extraKindName" width='70' align='center' type='ro' sort='na'	color=''>계산서</column>
+		
+		<column id="book" width='65' align='center' type='combo' sort='str' editable="false" xmlcontent="1" >
+			결제수단
+			<option value="102">1.예금</option>
+			<option value="101">2.현금 </option>			
+			<option value="202">3.신용카드</option>			
+		</column>
+		
+		<column id="customerName" width='100' align='left' type='ro' sort='str' color=''>가맹점명</column>
+		<column id="content" width='200' align='left' type='ro' sort='na'	color=''>업무 내용</column>
+		<column id="managerName" width='100' align='center' type='ro' sort='na' color=''>작성자</column>			
+		<column id="date" width='100' align='center' type='ro' sort='na' color=''>업무 일자</column>				
+		<column id="amount" width='80' align='right' type='ron' sort='int' color='' format="0,000">금 액</column>
+		
+		<!-- <column id="customerBusinessNumber" width='80' align='center' type='ro' sort='na' color=''>사업자번호</column> -->
+		
+		<column id="platformName" width='60' align='center' type='ro' sort='na'	color=''>구 분</column>
+		
+		<beforeInit>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+			<!-- <call command="attachHeader">
+				<param>#rspan,상 태,구 분,시 간,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan,#rspan</param>
+			</call> -->
+			
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableHeaderMenu">
+			</call>
+		</afterInit>
+	</head>
+</rows>

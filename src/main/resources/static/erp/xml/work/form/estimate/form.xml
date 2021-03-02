@@ -1,0 +1,55 @@
+﻿<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="60" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="hidden" name="code" />
+	<item type="hidden" name="customer" />
+	<item type="hidden" name="project" />
+	<item type="hidden" name="slipKind" />
+
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="제 목" name="title" inputWidth="250" />
+		<item type="newcolumn" />
+		<item type="select" label="선결재" name="ignoreStep">
+			<option value="BL0001" text="1.허용" />
+			<option value="BL0002" text="2.불가" />
+		</item>
+	</item>
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="calendar" value="" label="견적 일자" name="date" />
+			<item type="input" value="" label="거래처" name="customerName" />
+			<item type="input" value="" label="프로젝트" name="projectName" />
+		</item>
+		<item type="newcolumn" />
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="담당자" name="staffName" />
+			<item type="input" value="" label="연락처" name="staffPhone" />
+			<item type="input" value="" label="이메일" name="staffEmail" />
+		</item>
+	</item>
+
+	<item type="block" blockOffset="0">
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="견적 금액" name="orderAmount"
+				className="amount" />
+			<item type="input" value="" label="할인율(%)" name="discountRate"
+				className="amount" />
+		</item>
+		<item type="newcolumn" />
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="금 액" name="amount" className="amount"
+				readonly='true' />
+			<item type="input" value="" label="세 액" name="tax" className="amount"
+				readonly='true' />
+			<item type="input" value="" label="합 계" name="total" className="amount"
+				readonly='true' />
+		</item>
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="비 고" name="memo" inputWidth="370" />
+	</item>
+</items>
+

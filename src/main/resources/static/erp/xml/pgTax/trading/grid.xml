@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<rows>
+	<head>				
+		<column id="no" width='50' align='center' type='ro' sort='str' color=''>순번</column>  
+		
+		<column id="taxPublishName" width='70' align='center' type='ro' sort='str' color=''>계산서</column>		
+		<column id="taxPublishDate" width='120' align='center' type='ron' sort='int' color=''>#cspan</column>
+		
+		
+		<column id="paymentStateName" width='80' align='center' type='ro' sort='str' color=''>승인 상태</column>		
+		 
+		<column id="depositDate" width='125' align='center' type='ro' sort='str' color=''>지 급</column>		
+		<column id="depositAmount" width='70' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>  
+
+ 		<column id="bankAccount" width='100' align='left' type='ro' sort='na' color='' >#cspan</column>   
+ 		
+ 		<column id="cancelDate" width='100' align='center' type='ro' sort='str' color=''>승인 취소</column>		
+		<column id="cancelAmount" width='110' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column>  
+
+		
+ 		<column id="depositDate2" width='100' align='center' type='ro' sort='str' color=''>#cspan</column>		
+ 		<column id="depositAmount2" width='110' align='right' type='ron' sort='int' color='' format="0,000">#cspan</column> 
+ 		
+		<column id="resMessage" width='80' align='center' type='ro' sort='str' color=''>결 과</column>
+		
+		<beforeInit>
+			<call command="attachHeader">
+
+				<param>#rspan,발행유무,발행일자,#rspan,지급 일시,지급 금액,입금 계좌,취소 일시,취소 금액,PG사 환불 일자,PG사 환불 금액,#rspan</param>
+
+			</call>
+			 <call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call> 
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableSmartXMLParsing">
+				<param>1</param>
+			</call>
+
+
+		</afterInit>
+	</head>
+</rows>

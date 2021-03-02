@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="10" />
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="hidden" name="ids" />
+			<item type="checkbox" blockOffset="0" label="수납 일자 사용" checked ="false" name="useSlipDate">
+				<item type="calendar" value="" label="수납 일자" name="date"
+					inputWidth="90" />
+			</item>
+			<item type="newcolumn" />
+			<item type="block" blockOffset="0">
+				<item type="button" value="수 납" name="btnApply" inputWidth="180"
+					offsetLeft="90" />
+				<item type="button" value="취 소" name="btnCancel" inputWidth="180"
+					offsetLeft="90" />
+			</item>
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="label" label="* 수납되지 않거나 수납이 진행중인 항목만 처리됩니다."
+				labelWidth="250" offsetLeft="45" />
+			<item type="label" label="* 수납 일자를 사용하지 않으면 각 주문서의 일자별로 전표가 생성됩니다."
+				labelWidth="250" offsetLeft="45" />
+		</item>
+	</item>
+
+</items>
+

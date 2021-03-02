@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnAdd" type="button" text="추 가" />
+	<item id="btnDelete" type="button" text="삭 제" />
+	<item type="separator"/>
+	<item id="btnSerial" type="button" text="제조 번호 전환" />
+	
+</toolbar>

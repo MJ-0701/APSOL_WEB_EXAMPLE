@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+
+		<column id="companyName" width='120' align='left' type='ro' sort='str'>소속</column>		
+		<column id="username" width='100' align='left' type='ro' sort='str'>아이디</column>
+		<column id="name" width='100' align='left' type='ro' sort='str'>이 름</column>
+		
+		<column id="mobile" width='100' align='center' type='ro' sort='str'>연락처</column>
+		<column id="email" width='160' align='left' type='ro' sort='str'>이메일</column>
+		 	
+		<column id="activated" width='70' align='center' type='ro' sort='str'>활성화</column>	
+		
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#select_filter,#text_filter,#text_filter,#text_filter,,,,,,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+
+		</afterInit>
+
+	</head>
+</rows>

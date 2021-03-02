@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnAdd" type="button" text="추 가" />	
+	<item id="btnDelete" type="button" text="삭 제" />
+</toolbar>

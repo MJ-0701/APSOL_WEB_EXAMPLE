@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="10" />
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="hidden" name="ids" />
+			<item type="block" blockOffset="0">
+				<item type="button" value="마 감" name="btnApply" inputWidth="180"
+					offsetLeft="90" />
+					<item type="newcolumn" />
+				<item type="button" value="취 소" name="btnCancel" inputWidth="180" />
+			</item>
+		</item>
+		<item type="block" blockOffset="0">
+		<item type="label" label="* 마감된 회기의 자료는 수정할 수 없습니다." labelWidth="250" offsetLeft="45"/>
+		</item>
+	</item>
+
+</items>
+

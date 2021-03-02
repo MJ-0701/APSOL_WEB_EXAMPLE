@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<title>Object-based init</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/vendor/dhtmlx/codebase/dhtmlx.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/admin/common.css}" />
+
+<script th:src="@{/vendor/dhtmlx/codebase/dhtmlx.js}"></script>
+<script th:src="@{/vendor/jquery/jquery-1.11.1.min.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/jquery.form.min.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/vendor/json2/json2.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+<script th:src="@{/admin/js/common.js}"
+	src="vendor/jquery/jquery-1.11.1.min.js"></script>
+
+<script th:src="@{/erp/js/dialog/dialog.js}"></script>
+<script th:src="@{/erp/js/data/dataGrid.js}"></script>
+
+<script th:src="@{/admin/js/bascode/bascode.js}"></script>
+<script th:src="@{/admin/js/bascode/bascodeCategory.js}"></script>
+
+
+<style>
+</style>
+
+<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+
+	var imageUrl = /*[[@{/vendor/dhtmlx/codebase/imgs/}]]*/"../../../codebase/imgs/";
+	var customerGridCell;
+	var groupCell;
+	var customerFormCell;
+
+	var scale = /*[[${scale}]]*/0;
+	var round = /*[[${round}]]*/'';
+	var numberFormat = /*[[${numberFormat}]]*/"0,000";
+
+	function doOnLoad() {
+
+		var layout = new dhtmlXLayoutObject({
+			parent : document.body,
+			pattern : "2U"
+		});
+
+		layout.cells("a").hideHeader();
+		layout.cells("b").hideHeader();
+		layout.cells("a").setWidth(450);
+		
+		var category = new BascodeCategory();
+		category.addProgressCell("a", layout.cells("a"));
+
+		category.init(layout.cells("a"), {
+			iconsPath : "../img/18/",
+			imageUrl : imageUrl,
+		});
+
+		var bascode = new Bascode({
+			numberFormat : numberFormat
+		});
+
+		bascode.addProgressCell("b", layout.cells("b"));
+		bascode.setCategoryGrid(category);
+		bascode.init(layout.cells("b"), {
+			iconsPath : "../img/18/",
+			imageUrl : imageUrl,
+		});
+	}
+
+	/*]]>*/
+</script>
+</head>
+<body onload="doOnLoad();"></body>
+</html>

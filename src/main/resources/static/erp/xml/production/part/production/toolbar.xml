@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnRefresh" type="button" text="새로고침" img="redo.gif"
+		imgdis="redo_dis.gif">
+		<userdata name="kind">search</userdata>
+	</item>
+	<item id="btnExcel" type="button" text="엑셀 출력" img="icon_grid.gif"
+		imgdis="icon_grid_dis.gif" />
+	
+	<item type="buttonSelect" text="일괄 자재 불출" renderSelect="false" openAll="true" img="paste.gif"  imgdis="paste_dis.gif">
+		<userdata name="kind">insert</userdata>
+		<item id="btnBatchFilter" type="button" text="검색 항목 발행" />
+		<item id="btnBatch" type="button" text="선택 항목 발행" />		
+	</item>
+	
+</toolbar>

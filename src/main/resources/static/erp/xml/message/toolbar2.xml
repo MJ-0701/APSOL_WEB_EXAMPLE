@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<toolbar>
+	<item id="btnState0" type="buttonTwoState" text="신 규"  img="empty.jpg" imgdis="check.png"		>
+		<userdata name="uuid">MP0001</userdata>
+	</item>
+	<item id="btnState1" type="buttonTwoState" text="진행중"  img="empty.jpg" imgdis="check.png"		>
+		<userdata name="uuid">MP0002</userdata>
+	</item>
+	<item id="btnState2" type="buttonTwoState" text="완 료"  img="empty.jpg" imgdis="check.png"
+		>
+		<userdata name="uuid">MP0003</userdata>
+	</item>
+	<item id="btnState3" type="buttonTwoState" text="대 기"  img="empty.jpg" imgdis="check.png"
+		>
+		<userdata name="uuid">MP0004</userdata>
+	</item>
+</toolbar>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="select" label="상 태" name="state" inputWidth="120">
+			<option value="REQUESTED" text="수거 대기" />
+			<option value="READY_COMPLETE" text="완료 대기" />
+			<option value="COMPLETED" text="수거 완료" />
+			<option value="READY_REJECT" text="거부 대기" />
+			<option value="REJECTED" text="수거 거부" />
+			<option value="READY_CANCEL" text="취소 대기" />
+			<option value="CANCELED" text="배출 취소" />
+			<option value="READY_DEPOSIT" text="입금 대기" />
+			<option value="NON_EXHAUSTED" text="미배출" />
+			<option value="OVER_PERIOD" text="기간 경과" />
+		</item>
+
+	</item>
+
+
+
+</items>
+

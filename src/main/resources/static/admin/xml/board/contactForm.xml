@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드" name="code"
+		inputWidth="120" labelWidth="70" />
+	<item type="hidden" readonly='true' value="" label="코 드" name="kind"
+		inputWidth="120" labelWidth="70" />
+		
+	
+	<item type="hidden" readonly='true' value="" label="file2Url" name="file2Url" inputWidth="120" labelWidth="70" />
+	<item type="hidden" readonly='true' value="" label="file3Url" name="file3Url" inputWidth="120" labelWidth="70" />
+	<item type="hidden" readonly='true' value="" label="file1Url" name="file1Url" inputWidth="120" labelWidth="70" />
+	
+	<item type="hidden" readonly='true' value="" label="file2Option" name="file2Option" inputWidth="120" labelWidth="70" />
+	<item type="hidden" readonly='true' value="" label="file3Option" name="file3Option" inputWidth="120" labelWidth="70" />
+	<item type="hidden" readonly='true' value="" label="file1Option" name="file1Option" inputWidth="120" labelWidth="70" />
+
+	<item type="block" blockOffset="0">
+
+		<!-- <item type="select" label="분 류" name="category" connector="bascode/select/CN" 	inputWidth="120" /> -->
+		<item type="select" label="분 류" name="category" inputWidth="120" >
+				<option value="CN0001" text="문의사항" /> 
+			</item>
+		<item type="template" value="" label="제 목" name="title" inputWidth="560" format="format_content"/>
+		<item type="template" value="" label="내 용" name="content" inputWidth="560" format="format_content" />
+		<!-- inputWidth="560" -->
+		<item type="editor" value="" label="답 변" name="reply"
+			inputWidth="560" inputHeight="400" rows="20" />
+					
+		<item type="block" blockOffset="0">	
+			<item type="input" value="" label="파일1" name="file1Name" inputWidth="360"   readonly='true'   /><item type="newcolumn"/><item type="button" value="보 기"  name="file1Btn" />			
+		</item> 
+		<item type="block" blockOffset="0">	
+			<item type="input" value="" label="파일2" name="file2Name" inputWidth="360"   readonly='true'   /><item type="newcolumn"/><item type="button" value="보 기"  name="file2Btn" />			
+		</item> 
+		<item type="block" blockOffset="0">	
+			<item type="input" value="" label="파일3" name="file3Name" inputWidth="360"   readonly='true'   /><item type="newcolumn"/><item type="button" value="보 기"  name="file3Btn" />			
+		</item> 
+
+	</item>
+</items>
+

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="code" align='left' type='ro' sort='na' width='30' hidden="true">코드
+		</column>
+		<column id="name" align='left' type='ro' sort='na' width='150'>그룹명
+		</column>
+		<column id="total" align='right' type='ro' width='150'>연락처수
+		</column>
+	</head>
+</rows>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="hidden" value="" label="" name="company" />
+	<item type="hidden"  name="driver" inputWidth="140" />
+	
+	<item type="block" blockOffset="0">
+        <item type="input" value="" label="명 칭" name="carName"          inputWidth="140" />
+        <item type="newcolumn" />
+        <item type="select" label="분 류" name="category" inputWidth="140">
+            <option value="CK0001" text="일반쓰레기" />
+            <option value="CK0002" text="수거차량" />
+            <option value="CK0003" text="음식물쓰레기" />
+        </item>
+        
+    </item>
+	
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="차 종" name="carType"			inputWidth="140" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="차량번호" name="carNumber"			inputWidth="140" />
+	</item>
+	
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="운전자" name="driverName" inputWidth="140" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="연락처" name="phone" inputWidth="140" />
+	</item>
+	
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="운행기록" name="driveDistance"
+			inputWidth="140" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="총운행거리" name="totalDistance"
+			 inputWidth="140" />
+	</item> 
+
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="주유 기록" name="oiling" inputWidth="363" />
+	</item>
+		<item type="block" blockOffset="0">
+		<item type="input" value="" label="정비 기록" name="repaired" inputWidth="363" />
+	</item>
+	<item type="block" blockOffset="0">
+		<item type="select" label="상 태" name="state" inputWidth="140">
+			<option value="DRIVE" text="운행" />
+			<option value="REPAIRING" text="정비" />
+			<option value="SCRAPPED" text="폐차" />
+		</item>
+		<item type="newcolumn" /> 
+	</item>
+	
+	<item type="block" blockOffset="0">
+		<item type="calendar" value="" label="취득일자" name="joinDate"
+			inputWidth="140" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="취득가액" name="cost"
+			inputWidth="140" />
+	</item>   
+	
+	<item type="block" blockOffset="0">
+		<item type="input" value="" label="메 모" name="memo" inputWidth="363" />
+	</item>
+
+
+
+
+</items>
+

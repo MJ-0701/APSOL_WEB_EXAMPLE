@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Summernote</title>
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+  
+  
+<style type="text/css">
+	.note-editor img { max-width: 100%; height: auto; }
+	.note-editor iframe { max-width: 100%; }
+</style>
+
+</head>
+<body style="height:100%;">
+  <div id="summernote" style="height:100%;"></div>
+  <script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+        	 height: $(window).height(),
+
+        	 toolbar: [ ['insert', ['picture', 'link', 'video']], ['misc', ['codeview']] ],
+        });
+    });
+    
+    function getContent(){
+    	var markupStr = $('#summernote').summernote('code');
+    	console.log(markupStr);
+    	return markupStr;
+    };
+    
+    function setContent(str){
+    	console.log(str);
+    	$('#summernote').summernote('code', str);
+    }
+  </script>
+</body>
+</html>

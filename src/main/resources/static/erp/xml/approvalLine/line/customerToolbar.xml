@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<toolbar>	
+	<item id="btnRefresh" type="button" text="새로고침" img="redo.gif"  imgdis="redo_dis.gif"/>
+	
+	<item id="btnClearLine" type="button" text="결재라인 초기화" img="close.gif"  imgdis="close_dis.gif"/>
+	<item id="btnPutLine" type="button" text="결재라인 일괄설정" img="new.gif"  imgdis="new_dis.gif"/>
+	
+</toolbar>

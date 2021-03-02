@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="no" width='40' align='center' type='ro' sort='na'>순번
+		</column>
+		<column id="id" width='90' align='left' type='ro' sort='server'>ERP ID
+		</column>
+		<column id="erpName" width='130' align='left' type='ro' sort='server'>이 름
+		</column> 
+		<column id="contractDate" width='90' align='center' type='ro' sort='server'>계약일자
+		</column> 
+		<column id="pgAmount" width='80' align='right' type='ron' sort='server' format="0,000">PG 
+		</column>
+		
+		<column id="pgFees" width='80' align='right' type='ron' sort='server' format="0,000">#cspan</column>
+		
+		<column id="pgAgencyFees" width='80' align='right' type='ron' sort='server' format="0,000">#cspan</column>
+		
+		<column id="pgApsolFees" width='80' align='right' type='ron' sort='server' format="0,000">#cspan</column>
+		
+		<column id="confirmPg" width='80' align='center' type='ch' sort='server' format="0,000">#cspan</column>
+		
+		<column id="sms" width='80' align='right' type='ron' sort='server' format="0,000">부가서비스</column>
+		<column id="taxInvoices" width='90' align='right' type='ron' sort='server' format="0,000">#cspan</column>
+		<column id="fileSize" width='110' align='right' type='ron' sort='server' format="0,000">#cspan</column> 
+		<column id="users" width='80' align='right' type='edn' sort='server' format="0,000">비용 청구
+		</column>
+		<column id="activatedUsers" width='80' align='right' type='edn' sort='server' format="0,000">#cspan</column>
+		
+		<column id="userUnitCost" width='80' align='right' type='edn' sort='server' format="0,000">#cspan</column>
+		
+		<column id="userCost" width='80' align='right' type='edn' sort='server' format="0,000">#cspan</column>
+		
+		<column id="serverCost" width='80' align='right' type='edn' sort='server' format="0,000">#cspan</column>
+		
+		<column id="billPrice" width='80' align='right' type='ron' sort='server' format="0,000">#cspan</column>
+		
+		<column id="confirmBill" width='80' align='center' type='ch' sort='server' format="0,000">#cspan</column>
+		
+		<column id="traffic" width='90' align='right' type='ron' sort='server' format="0,000">서버 사용량
+		</column>
+		
+		<column id="mobileTraffic" width='90' align='right' type='ron' sort='server' format="0,000">#cspan
+		</column>
+		
+		<column id="memorySize" width='80' align='right' type='ron' sort='server' format="0,000">#cspan
+		</column>
+		
+		<column id="employeeApps" width='100' align='right' type='ron' sort='server' format="0,000">APPS
+		</column>
+		
+		<column id="customerApps" width='100' align='right' type='ron' sort='server' format="0,000">#cspan
+		</column> 
+
+		<beforeInit> 
+			<call command="attachHeader">
+				<param>#rspan,#rspan,#rspan,#rspan,매출금액,가맹점수수료,대리점수수료,밴코수수료,결재,문자(건),세금계산서(건),누적 첨부파일(MB),계약유저,활성화 유저,유저당요금,유저 합계,서버요금,청구금액(VAT),결재,웹 접속량,모바일 접속량,누적 용량(MB),직원(누적),가맹점(누적)</param>
+			</call>
+			<call command="attachHeader">
+				<param>,#text_filter,#text_filter,#text_filter,,3.5%(VAT),0.9%(VAT),0.2%(VAT),,,,,,,,,,,,,,,,</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+				<param>50</param>
+			</call>
+		</afterInit>
+
+	</head>
+</rows>

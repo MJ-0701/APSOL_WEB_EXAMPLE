@@ -1,0 +1,123 @@
+
+    .box_banner {width:100%; height:240px; background:#E5F5FF; }
+    .box_banner2 {width:1200px; height:100%; margin:auto; }
+
+    /* 배너 */
+    .banner_left {width:65%; height:100%; padding-left:50px; float:left; word-wrap:break-word; }
+    .banner_left .title {width:100%; line-height:50px; margin-top:40px; font-size:25px; font-weight:bold; }
+    .banner_left .desc {font-size:35px; font-weight:bold; }
+    .banner_left .bt {width:170px; height:38px; line-height:38px; margin-top:10px; background:#0054A6; color:white; 
+    	border-radius:19px; text-align:center; font-size:15px; font-weight:bold; cursor:pointer; }
+    .banner_left .bt img {height:17px; vertical-align:middle; margin-left:10px; }
+    .banner_left .bt:hover {text-decoration:underline; }
+    .banner_right {width:35%; height:100%; line-height:240px; float:right; text-align:left; }
+    .banner_right img {height:75%; vertical-align:middle; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {
+      .box_banner2 {width:100%; }
+      .banner_left {padding-left:5%; }
+      .banner_left .title {line-height:40px; margin-top:40px; font-size:17px; }
+      .banner_left .desc {font-size:22px; }
+      .banner_right {text-align:center; }
+      .banner_right img {width:65%; max-width:180px; height:auto; }
+    }
+
+    /* 본문 */
+    .box_index {width:100%; height:auto; background:#F2F2F2; }
+    .box_index2 {width:1200px; height:auto; margin:auto; padding-top:30px; }
+    .box_index .frame {width:370px; height:auto; float:left; margin:0 15px 30px 15px; }
+    .box_index .frame2 {width:100%; height:205px; background:white; margin-bottom:30px; overflow:hidden; }
+    .box_index .frame2 .title {line-height:50px; float:left; padding:0 20px; font-size:20px; font-weight:bold; }
+    .box_index .frame2 .content {line-height:25px; padding:0px 30px; margin-top:10px; font-size:14px; }
+    .box_index .frame2 .more {line-height:50px; float:right; padding:0 20px; cursor:pointer; text-align:center; }
+    .box_index .frame2 .more img {height:20px; vertical-align:middle; }
+    .box_index .frame_intro {border:1px solid #ddd; }
+    .box_index .frame2 .bt_intro {width:100%; height:90px; line-height:89px; padding-right:30px; 
+    	border-bottom:1px solid #ddd; font-size:20px; text-align:center; cursor:pointer; }
+    .box_index .frame2 .bt_intro:hover {text-decoration:underline; }
+    .box_index .frame2 .bt_intro img {height:55%; vertical-align:middle; margin-right:40px; }
+
+    /* 배출신청 */
+    .box_index .frame_h {width:100%; height:240px; margin-bottom:30px; background:#C2DC6F; color:white; 
+    	overflow:hidden; cursor:pointer; }
+    .box_index .frame_h:hover .home1 {text-decoration:underline; }
+    .box_index .frame_h .title {line-height:45px; padding:0 30px; margin-top:20px; font-size:35px; font-weight:bold; 
+    	color:#4B5B5C; }
+    .box_index .frame_h .content {width:65%; line-height:30px; padding-left:30px; margin-top:20px; font-size:17px; 
+    	color:white; }
+    .box_index .frame_h .home {width:90%; height:150px; margin:3px auto; }
+    .box_index .frame_h .home0 {width:150px; height:150px; line-height:150px; float:left; text-align:center; 
+    	background-image:url('/img/home.png'); background-repeat:no-repeat; background-position:center center; }
+    .box_index .frame_h .home1 {width:130px; height:30px; line-height:30px; margin-top:80px; float:right; color:#555; 
+    	font-size:20px; }
+    .box_index .frame_h .home1 img {height:30px; vertical-align:middle; margin-left:10px; }
+
+    /* 수수료조회 */
+    .box_index .frame_u {width:100%; height:220px; background:white; margin-bottom:30px; overflow:hidden; 
+    	background:#31AAA3; color:white; }
+    .box_index .frame_u .content {color:white; }
+    .box_index .frame_u .bt_detail {width:90%; height:30px; margin:20px auto; }
+    .box_index .frame_u .bt_detail2 {width:150px; height:30px; line-height:30px; float:right; border:1px solid white; 
+    	border-radius:15px; font-size:14px; text-align:center; cursor:pointer;  margin-top:40px;}
+    .box_index .frame_u .bt_detail2:hover {text-decoration:underline; }
+
+    /* 배출 장소, 주변 판매점*/
+    .box_index .frame_n {height:155px !important; }
+    .box_index .frame_n .content {color:#777; }
+    .box_index .frame_n .bt_detail2 {width:200px; height:35px; line-height:35px; float:right; margin:15px 20px 0 0; 
+    	border-radius:17px; cursor:pointer; text-align:center; background:#898A8A; color:white; }
+    .box_index .frame_n .bt_detail2:hover {text-decoration:underline; }
+
+    /* 모바일 */   
+    @media (max-width:1200px) {
+      .box_index2 {width:100%; }
+      .box_index .frame {width:95%; margin:0 auto 30px auto; float:none; }
+    }
+
+    /* 공지사항 */
+    .frame_notice {height:190px !important; overflow:hidden; }
+    .box_notice {width:95%; height:320px; margin:auto; }
+    .table_notice {width:100%; border-collapse:collapse; }
+    .table_notice .date {width:100px; text-align:center; }
+    .table_notice td {height:40px; padding:0 3px; border-bottom:1px solid #ddd; font-size:14px; }
+
+    /* 모바일 */
+    @media (max-width:1200px) {
+    
+    }
+
+    /* 신청결과조회 */
+    .frame_l {height:140px !important; }
+    .frame_l .box_opt {width:100%; min-height:80px; line-height:40px; margin-top:50px; padding:10px 20px; }
+    .frame_l .box_opt0 {width:25%; height:40px; float:left; text-align:center; font-weight:bold; font-size:15px; }
+    .frame_l .box_opt1 {width:75%; height:40px; float:left; background:white; }
+    .frame_l .box_opt1 input {width:95%; height:40px; border:1px solid #ccc; }
+    .frame_l .box_opt2 {width:100%; height:40px; float:left; margin-top:10px; background:#0E3B64; color:white; 
+    	cursor:pointer; text-align:center; font-weight:bold; }
+    .frame_l .box_opt2 img {vertical-align:middle; margin-right:10px; }
+
+    /* Q&A */
+    .box_qna {width:95%; height:155px; margin:auto; overflow:hidden; }
+    .table_qna {width:100%; border-collapse:collapse; }
+    .table_qna .date {width:100px; text-align:center; }
+    .table_qna td {height:50px; padding:0 3px; border-bottom:1px solid #ddd; font-size:14px; }
+    
+
+    /* 1:1문의 */
+    .frame_t .content {color:#777; }
+    .frame_t .bt_consult {width:200px; height:35px; line-height:35px; float:right; margin:80px 30px 0 0; 
+    	border-radius:17px; cursor:pointer; text-align:center; background:#898A8A; color:white; }
+    .frame_t .bt_consult:hover {text-decoration:underline; }
+    
+    .bbsLine {
+    	text-decoration: none;
+    	color : black;
+    	font-size: small;
+    }
+    
+    .bbsLine:hover {
+    	/* text-decoration: underline; */
+    	color: gray;
+    }
+ 

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<toolbar> 			
+	<item id="btnUpdate" type="button" text="반 려"/> 
+	
+	<!-- <item id="btnClose" type="button" text="취 소"/> -->
+</toolbar>

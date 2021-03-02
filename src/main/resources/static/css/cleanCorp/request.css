@@ -1,0 +1,52 @@
+
+.search {width:100%; min-height:50px; line-height:50px; }
+.search .split {float:left; }
+.search .type {width:50px; height:50px; float:left; text-align:center; font-size:15px; }
+.search .select {width:120px; height:50px; float:left; }
+.search select {width:100%; height:35px; padding:0 5px; background:white; border:1px solid #999; }
+.search input {width:100%; height:35px; border:1px solid #999; background:white; font-weight:bold; color:#666; }
+.search .wave {width:25px; height:50px; float:left; text-align:center; }
+.search .calendar {width:35px; height:35px; line-height:35px; margin:7px 0 0 -35px; float:left; cursor:pointer; 
+	text-align:center; }
+.search .calendar img {height:20px; vertical-align:middle; }
+.search .bt_search {width:70px; height:35px; line-height:35px; margin:7px 0 0 20px; float:left; background:#0085BA; 
+	color:white; cursor:pointer; text-align:center; }
+.search .period {float:left; height:30px; line-height:30px; margin:7px 10px 0 0; background:white; 
+	border:1px solid #ccc; }
+.search .period .item {float:left; padding:0 10px; cursor:pointer; font-size:13px; border-right:1px solid #ccc; }
+
+.desc {line-height:40px; padding:0 15px; font-size:15px; }
+.desc .desc2 {float:left; margin:0 30px 0 0; }
+.desc .descTitle {font-weight:bold; cursor: pointer;}
+.desc .descNum {float:right; }
+
+.tb_request {width:100%; }
+.tb_request table {width:100%; border-collapse:collapse; border:1px solid #ddd; }
+.tb_request table .title {border-bottom:2px solid #eee; }
+.tb_request table .title td {height:35px; font-weight:bold; }
+.tb_request table .odd {background:#FBF8FB; }
+.tb_request table td {height:45px; line-height:25px; padding:5px 5px; box-sizing:border-box; }
+.tb_request table .none {border:none; padding:0 15px; }
+
+.tb_request table .no { }
+.tb_request table .rid {min-width:45px; }
+.tb_request table .ridBr {display:none; }
+.tb_request table .price {min-width:50px;/*  text-align:right;  */}
+.tb_request table .status {min-width:55px; text-align:center; }
+
+.tb_request table .bt_qrcode {padding:5px 10px; border:1px solid #c2c2c2; font-size:11px; cursor:pointer; }
+.tb_request table .bt_qrcode:hover {text-decoration:underline; }
+
+  .excelBtn{
+	  width:120px; height:35px; line-height:35px; background:#0085BA; 
+	color:white; cursor:pointer; text-align:center; font-size: 14px; float: right; margin-top: 0px; margin-right:7px; 
+  }
+
+/* 모바일 */
+@media (max-width:1200px) {	
+	.tb_request table td {padding:5px 5px; font-size:11px; }
+	.tb_request table td:nth-child(3) {display:none; }
+	.tb_request table td:nth-child(4) {display:none; }
+	.tb_request table td:nth-child(5) {display:none; }
+	.tb_request table td:nth-child(6) {display:none; }
+}

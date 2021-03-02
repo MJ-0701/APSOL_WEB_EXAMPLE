@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, 
+    	minimum-scale=1.0" />
+<title>대형폐기물 : 온라인신청</title>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+
+<style>
+@import url(/css/nanumgothic.css);
+
+@import url(/css/jejugothic.css);
+
+@import url(/css/hanna.css);
+
+html, body {
+	width: 100%;
+	min-width: 300px;
+	margin: 0;
+	padding: 0;
+	font-family: 'Nanum Gothic' !important;
+	background: white;
+	color: #555;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+div {
+	box-sizing: border-box;
+} /* height:100%;  */
+form {
+	box-sizing: border-box;
+}
+
+.slow {
+	transition: all .2s;
+	-webkit-transition: all .2s;
+	-moz-transition: all .2s;
+	-o-transition: all .2s;
+}
+
+.rm_slow {
+	transition: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: color 0 ease-in;
+}
+
+input {
+	font-family: 'Nanum Gothic';
+	background: none;
+	border: none;
+	box-sizing: border-box;
+	padding: 0 10px;
+}
+
+textarea {
+	line-height: 20px;
+	box-sizing: border-box;
+	padding: 10px;
+	font-family: 'Nanum Gothic';
+	border: none;
+	resize: none;
+}
+
+.non_draggable {
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.clear_both {
+	height: 1px;
+	clear: both;
+}
+
+.cb {
+	display: none;
+}
+
+.cb_label {
+	padding: 0 9px;
+	background: url(/img/cb.png) no-repeat;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+input[type="checkbox"]:checked+.cb_label {
+	background: url(/img/cb_on.png) no-repeat;
+}
+
+#paging {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	margin: 20px 0 80px 0;
+	text-align: center;
+}
+
+#paging .page {
+	padding: 5px 8px;
+	margin: 0 1px;
+	background: white;
+	border: 1px solid #ccc;
+	cursor: pointer;
+}
+
+#paging .page_on {
+	background: #103E93;
+	color: white;
+	cursor: default;
+}
+
+/* 모바일 */
+@media ( max-width :1200px) {
+	.cb_label {
+		padding: 2px 9px;
+	}
+}
+</style>
+
+<script>/*<![CDATA[*/
+
+
+	// 날짜 간격 사이 날짜 목록 구하기
+	function getDateRange(startDate, endDate, listDate){
+
+		var dateMove = new Date(startDate);
+		var strDate = startDate;
+		if (startDate == endDate)
+		{
+			var strDate = dateMove.toISOString().slice(0, 10);
+			listDate.push(strDate);
+		}
+
+		else
+		{
+			while (strDate < endDate)
+			{
+				var strDate = dateMove.toISOString().slice(0, 10);
+				listDate.push(strDate);
+				dateMove.setDate(dateMove.getDate() + 1);
+			}
+		}
+
+		return listDate;
+	};
+
+	// 위경도좌표 얻기
+	function getLatLng(coordiX, coordiY) {
+		if (!coordiX || !coordiY)
+			return [ 127.09304875538659, 37.60626176888083 ];
+
+		var utm = "+proj=tmerc +lat_0=38 +lon_0=127.5 +k=0.9996 +x_0=1000000 +y_0=2000000 +ellps=GRS80 +units=m +no_defs";
+		var wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
+		return proj4(utm, wgs84, [ coordiX, coordiY ]);
+	}
+
+	// 내일날짜부터 선택가능
+	function setNotPrev(t) {
+		$(t).bind(
+				'change',
+				function() {
+					var v = $(t).val();
+					var date = new Date(v.substring(0, 4) * 1, v
+							.substring(5, 7) * 1 - 1, v.substring(8) * 1);
+					date.setDate(date.getDate() + 1);
+					if (date.getTime() < new Date().getTime()) {
+						alert('배출예약일을 과거로 설정할 수 없습니다.');
+						$(t).val(getFuture(0));
+					}
+				});
+	}
+
+	// 전화번호 자동 하이픈 입력
+	function autoHypenPhone(t) {
+		str = $(t).val().replace(/[^0-9]/g, '');
+		var tmp = '';
+		if (str.length < 4) {
+			$(t).val(str);
+			return;
+		} else if (str.length < 7) {
+			tmp = str.substr(0, 3) + '-' + str.substr(3);
+			$(t).val(tmp);
+			return;
+		} else if (str.length < 11) {
+			tmp += str.substr(0, 3) + '-' + str.substr(3, 3) + '-'
+					+ str.substr(6);
+			$(t).val(tmp);
+			return;
+		} else {
+			tmp += str.substr(0, 3) + '-' + str.substr(3, 4) + '-'
+					+ str.substr(7);
+			$(t).val(tmp);
+			return;
+		}
+	}
+
+	function getIsMobile() {
+		var isMobile = {
+			Android : function() {
+				return navigator.userAgent.match(/Android/i) == null ? false
+						: true;
+			},
+			BlackBerry : function() {
+				return navigator.userAgent.match(/BlackBerry/i) == null ? false
+						: true;
+			},
+			IOS : function() {
+				return navigator.userAgent.match(/iPhone|iPad|iPod/i) == null ? false
+						: true;
+			},
+			Opera : function() {
+				return navigator.userAgent.match(/Opera Mini/i) == null ? false
+						: true;
+			},
+			Windows : function() {
+				return navigator.userAgent.match(/IEMobile/i) == null ? false
+						: true;
+			},
+			any : function() {
+				return (isMobile.Android() || isMobile.BlackBerry()
+						|| isMobile.IOS() || isMobile.Opera() || isMobile
+						.Windows());
+			}
+		};
+		return isMobile;
+	}
+
+	function getPhoneForm(str) {
+		var str = str.replace(/[^0-9]/g, '');
+		var tmp = '';
+		if (str.substring(0, 2) == '02') {
+			if (str.length < 3) {
+				return str;
+			} else if (str.length < 6) {
+				tmp = str.substr(0, 2) + '-' + str.substr(2);
+				return tmp;
+			} else if (str.length < 10) {
+				tmp += str.substr(0, 2) + '-' + str.substr(2, 3) + '-'
+						+ str.substr(5);
+				return tmp;
+			} else {
+				tmp += str.substr(0, 2) + '-' + str.substr(2, 4) + '-'
+						+ str.substr(6);
+				return tmp;
+			}
+		} else {
+			if (str.length < 4) {
+				return str;
+			} else if (str.length < 7) {
+				tmp = str.substr(0, 3) + '-' + str.substr(3);
+				return tmp;
+			} else if (str.length < 11) {
+				tmp += str.substr(0, 3) + '-' + str.substr(3, 3) + '-'
+						+ str.substr(6);
+				return tmp;
+			} else {
+				tmp += str.substr(0, 3) + '-' + str.substr(3, 4) + '-'
+						+ str.substr(7);
+				return tmp;
+			}
+		}
+	}
+
+	// 숫자만 입력
+	function onlyNumber(t) {
+		$(t).val($(t).val().replace(/[^0-9]/g, ''));
+	}
+
+	function nonHangul(t) {
+		$(t).val($(t).val().replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, ''));
+	}
+
+	function getFirstDate() {
+		var date = new Date();
+		//date.setMonth(0);
+		date.setDate(1);
+		date = date.getFullYear() + '.'
+				+ String('0' + (date.getMonth() + 1)).slice(-2) + '.'
+				+ String('0' + date.getDate()).slice(-2);
+		return date;
+	}
+
+	function getTodayDate() {
+		var date = new Date();
+		date = date.getFullYear() + '.'
+				+ String('0' + (date.getMonth() + 1)).slice(-2) + '.'
+				+ String('0' + date.getDate()).slice(-2);
+		return date;
+	}
+
+	function getFuture(days) {
+		var date = new Date();
+		date.setDate(date.getDate() + days);
+		date = date.getFullYear() + '.'
+				+ String('0' + (date.getMonth() + 1)).slice(-2) + '.'
+				+ String('0' + date.getDate()).slice(-2);
+		return date;
+	}
+
+	function setDatePicker(t) {
+		$(t).datepicker(
+				{
+					dateFormat : 'yy.mm.dd',
+					prevText : '이전 달',
+					nextText : '다음 달',
+					monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+							'8월', '9월', '10월', '11월', '12월' ],
+					monthNamesShort : [ '1월', '2월', '3월', '4월', '5월', '6월',
+							'7월', '8월', '9월', '10월', '11월', '12월' ],
+					dayNames : [ '일', '월', '화', '수', '목', '금', '토' ],
+					dayNamesShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+					dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ],
+					showMonthAfterYear : true,
+					yearSuffix : '년',
+					setDate : new Date()
+				});
+	}
+
+	function calculus(end_ymd){    
+		
+		 
+	    var yyyy = end_ymd.substring(0,4);
+	    var mm = end_ymd.substring(4,6);
+	    var dd = end_ymd.substring(6);              
+	    return new Date(yyyy, mm-1, dd, 23, 59, 59);
+	    
+	}
+
+	
+	/**
+	 * 두 날짜의 차이를 일자로 구한다.(조회 종료일 - 조회 시작일)
+	 *
+	 * @param val1 - 조회 시작일(날짜 ex.2002-01-01)
+	 * @param val2 - 조회 종료일(날짜 ex.2002-01-01)
+	 * @return 기간에 해당하는 일자
+	 */
+	function calDateRange(exhaustDate) {
+
+		// FORMAT을 포함한 길이 체크
+		/* if (val1.length != 10 || val2.length != 10)
+		    return null;
+
+
+
+		// FORMAT이 있는지 체크
+		if (val1.indexOf(FORMAT) < 0 || val2.indexOf(FORMAT) < 0)
+		    return null; */
+		var date = new Date();
+		var year = exhaustDate.substring(0, 4);
+		var month = exhaustDate.substring(4, 6);
+		var day = exhaustDate.substring(6, 8);
+
+		// 년도, 월, 일로 분리
+		var start_dt = [ year, month, day ];
+		var end_dt = [ date.getFullYear(), date.getMonth() + 1, date.getDate() ];
+
+		// 월 - 1(자바스크립트는 월이 0부터 시작하기 때문에...)
+		// Number()를 이용하여 08, 09월을 10진수로 인식하게 함.
+		start_dt[1] = (Number(start_dt[1]) - 1) + "";
+		end_dt[1] = (Number(end_dt[1]) - 1) + "";
+
+		var from_dt = new Date(start_dt[0], start_dt[1], start_dt[2]);
+		var to_dt = new Date(end_dt[0], end_dt[1], end_dt[2]);
+
+		return (to_dt.getTime() - from_dt.getTime()) / 1000 / 60 / 60 / 24;
+	}
+
+	function getToday() {
+		var date = new Date();
+		var todayDate = date.getFullYear()
+				+ String('0' + (date.getMonth() + 1)).slice(-2)
+				+ String('0' + date.getDate()).slice(-2);
+		return todayDate;
+	}
+
+	function alertError(jqXHR, exception) {
+		var msg = '';
+		if (jqXHR.status === 0) {
+			msg = 'Not connect.\n Verify Network.';
+		} else if (jqXHR.status == 404) {
+			msg = 'Requested page not found. [404]';
+		} else if (jqXHR.status == 500) {
+			msg = 'Internal Server Error [500].';
+		} else if (exception === 'parsererror') {
+			msg = 'Requested JSON parse failed.';
+		} else if (exception === 'timeout') {
+			msg = 'Time out error.';
+		} else if (exception === 'abort') {
+			msg = 'Ajax request aborted.';
+		} else {
+			msg = 'Uncaught Error.\n' + jqXHR.responseText;
+		}
+		alert(msg);
+	}
+
+	// checkbox 폼
+	function getCbForm(id, onclick, padding, checked) {
+		if (!onclick)
+			onclick = '';
+		if (!padding)
+			padding = 0;
+		if (!checked)
+			checked = '';
+		return '<input class="cb" type="checkbox" id="'+id+'" name="'+id+'" onchange="'+onclick+'" '+checked+'>'
+				+ '<label class="cb_label" style="padding:'+padding+'px 9px;" for="'+id+'"></label>';
+	}
+
+	// 세자리마다 콤마
+	function comma(x) {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
+	//이미지용량 확인
+	function getImageSize(target) {
+		var browser = '';
+		var ieName = navigator.appName;
+		var agent = navigator.userAgent.toLowerCase();
+
+		if (ieName == 'Microsoft Internet Explorer') { // ie 10 or lower
+			browser = 'msie';
+		} else {
+			if (agent.search('trident') > -1)
+				browser = 'ie11'; // trident/.*rv:
+			else if (agent.search('edge/') > -1)
+				browser = 'ie12'; // edge/
+		}
+
+		// 브라우저 확인
+		var fileSize = 0;
+		if (browser == 'msie') {
+			var oas = new ActiveXObject("Scripting.FileSystemObject");
+			fileSize = oas.getFile(target.value).size;
+		} else {
+			fileSize = target.files[0].size;
+		}
+
+		return fileSize;
+	}
+
+	/* 쿠키설정관련 */
+	function createCookie(name, value, days) {
+		var expires;
+		if (days) {
+			var date = new Date();
+			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+			expires = "; expires=" + date.toGMTString();
+		} else
+			expires = "";
+		document.cookie = name + "=" + value + expires + "; path=/";
+	}
+
+	function readCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ')
+				c = c.substring(1, c.length);
+			if (c.indexOf(nameEQ) == 0)
+				return c.substring(nameEQ.length, c.length);
+		}
+		return null;
+	}
+
+	function eraseCookie(name) {
+		createCookie(name, "", -1);
+	}
+
+	function areCookiesEnabled() {
+		var r = false;
+		createCookie("testing", "Hello", 1);
+		if (readCookie("testing") != null) {
+			r = true;
+			eraseCookie("testing");
+		}
+		return r;
+	}
+	/* 쿠키설정관련 */
+
+	function isNullOrEmpty(val) {
+		if (val == undefined || val == null || val == '')
+			return true;
+
+		return false;
+	}
+/*]]>*/ </script>
+
+<link type="text/css" rel="stylesheet"
+	href="/css/online/lookup.css?v=54" />
+<!-- 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"></link>
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap/bootstrap.css"></link> -->
+<style>
+.filebox label {
+	display: inline-block;
+	padding: .5em .75em;
+	color: #fff;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #5cb85c;
+	cursor: pointer;
+	border: 1px solid #4cae4c;
+	border-radius: .25em;
+	-webkit-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+}
+
+.filebox label:hover {
+	background-color: #6ed36e;
+}
+
+.filebox label:active {
+	background-color: #367c36;
+}
+
+.filebox input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+</style>
+
+</head>
+<body>
+
+	<!-- 헤더 -->
+
+
+
+
+
+	<style>
+.subHeader {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	background: #f5f5f5;
+	display: none;
+}
+
+.subHeader2 {
+	width: 100%;
+	height: 30px;
+	padding: 0 10px;
+	margin: auto;
+	text-align: right;
+}
+
+.navbar-light {
+	font-family: 'Nanum Gothic' !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+
+.kdl-navbar-button-list {
+	padding-left: 4.563rem;
+}
+
+.kdl-button-white {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 1.2rem;
+	padding-right: 1.2rem;
+	background-color: white;
+	font-size: 0.9rem;
+	color: #333333;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 1rem;
+	border: 1px solid #dddddd;
+	cursor: pointer;
+}
+
+.navbar-collapse .dropdown-menu {
+	margin: 0;
+	border-radius: 0;
+	box-shadow: inset 0px -1px 0 0 #dddddd;
+}
+
+.navbar-collapse .dropdown-menu>.dropdown-item {
+	padding-top: 1.25rem;
+	padding-bottom: 1.25rem;
+	border-bottom: 1px solid #dddddd;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover {
+	color: #009c7f !important;
+}
+
+@media ( min-width : 992px) {
+	.navbar-brand {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+	.navbar-collapse .dropdown-menu {
+		margin: 0;
+		border-radius: 0;
+		box-shadow: inset 0px -1px 0 0 #dddddd;
+	}
+	.navbar-collapse .dropdown-menu>.dropdown-item {
+		padding-top: 1.25rem;
+		padding-bottom: 1.25rem;
+		border-bottom: 1px solid #dddddd;
+	}
+	.navbar-collapse {
+		/* height: 3.625rem; */
+		height: 5rem;
+	}
+	.navbar-collapse ul, .navbar-collapse li, .navbar-collapse li a.nav-link
+		{
+		height: 100%;
+	}
+	.navbar-collapse li a.nav-link {
+		display: inline-flex;
+		align-items: center;
+	}
+	.navbar-collapse li a.nav-link:hover {
+		border-bottom: 1px solid #009c7f;
+	}
+}
+
+@media ( max-width : 991px) {
+	.dropdown-menu {
+		display: block !important;
+	}
+	.navbar-collapse .dropdown-menu {
+		border-left: none;
+		border-right: none;
+	}
+	.navbar-brand {
+		position: absolute;
+		top: 1rem;
+		left: 32.5%;
+		margin: 0;
+		padding: 0;
+	}
+	.navbar-brand>.img-fluid {
+		height: 40px;
+	}
+	.navbar-light .navbar-toggler {
+		border-color: transparent !important;
+	}
+	.masthead {
+		padding-top: 8rem !important;
+		background: url("../img/img-backmain-mo@3x.png") !important;
+		background-position: 58% 50% !important;
+		background-repeat: no-repeat !important;
+		background-attachment: scroll !important;
+		background-size: cover !important;
+	}
+	.kdl-main-title-wrapper, .kdl-main-banner-button-wrapper {
+		padding-left: 2.5rem !important;
+	}
+	.kdl-main-title {
+		font-size: 1.813rem !important;
+		margin: 0 !important;
+	}
+	.kdl-button-primary, .kdl-button-primary:hover {
+		color: white;
+		border-radius: 5rem;
+		padding: 0.8rem 1.5rem;
+		font-size: 1.438rem;
+		font-weight: bold;
+		box-shadow: inset 0px -4px 0 0 rgba(0, 0, 0, 0.08);
+		font-weight: 500;
+		font-size: 1.1rem !important;
+	}
+}
+
+.routeBrowserSetting {
+	color: blue;
+}
+
+.routeBrowserSetting:hover, .routeBrowserSetting:focus {
+	color: red;
+}
+</style>
+
+
+	<!-- Theme CSS - Includes Bootstrap -->
+	<link href="/css/creative.css" rel="stylesheet" />
+
+	<!-- Noto Sans CJK KR Font -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,500,700&amp;display=swap&amp;subset=korean"
+		rel="stylesheet" />
+
+
+	<!-- <link href="/css/main.css" rel="stylesheet"/> -->
+
+	<!-- Font Awesome Icons -->
+	<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+		type="text/css" />
+
+	<!-- Noto Sans CJK KR Font -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,500,700&amp;display=swap&amp;subset=korean"
+		rel="stylesheet" />
+
+	<!-- <link href="/css/main.css" rel="stylesheet"/> -->
+
+	<!-- Bootstrap core JavaScript -->
+	<!-- <script src="/vendor/jquery/jquery.min.js"></script> -->
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+
+
+
+	<!-- Plugin JavaScript -->
+	<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Navigation -->
+
+	<!-- 상단바 인터넷 익스플로러 호환성 안내 -->
+	<div id="topbar-IE"
+		style="width: 100%; background: #fafad2; height: 30px; position: fixed; z-index: 1030; text-align: center; padding-top: 5px;">
+		<span class="routeBrowserSetting" onclick="routeBrowserSetting()"
+			style="cursor: pointer; font-family: 'Nanum Gothic', sans-serif;">
+			[안내] Internet Explorer로 접속하셨습니다. 원활한 결제 기능을 이용하시기 위해 호환성 설정이 필요합니다.
+			(자세히) </span>
+	</div>
+	<!-- 상단바 인터넷 익스플로러 호환성 안내 END  -->
+
+	<nav class="navbar navbar-expand-lg navbar-light py-3 py-lg-0"
+		id="mainNav">
+		<div class="container">
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="/"> <img src="/img/logo-header.png"
+				alt="logo" class="img-fluid"
+				srcset="/img/logo-header.png 1x, /img/logo-header@2x.png 2x, /img/logo-header@3x.png 3x" />
+			</a>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto my-2 my-lg-0">
+					<li class="nav-item">
+						<div class="dropdown h-100">
+							<a class="nav-link" href="javascript:;" id="dropdownMenuButton"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">이용안내</a>
+							<div class="dropdown-menu py-0"
+								aria-labelledby="dropdownMenuButton">
+								<!-- <a class="dropdown-item" onclick="goTarget('intro','intro')">서비스 소개</a> -->
+								<a class="dropdown-item" onclick="goTarget('intro','guide')">이용방법</a>
+								<a class="dropdown-item" onclick="goTarget('intro','fees')">품목별
+									수수료</a> <a class="dropdown-item"
+									onclick="goTarget('intro','center')">재활용센터</a>
+							</div>
+						</div>
+					</li>
+					<li class="nav-item">
+						<!--  <a class="nav-link" href="#">온라인신청</a> -->
+						<div class="dropdown h-100">
+							<a class="nav-link" href="javascript:;" id="dropdownMenuButton"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">온라인신청</a>
+							<div class="dropdown-menu py-0"
+								aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" onclick="goTarget('online','request')">배출신청</a>
+								<a class="dropdown-item"
+									onclick="goTarget('online','reqCancel')">배출취소</a> <a
+									class="dropdown-item" onclick="goTarget('online','lookup')">신청결과조회</a>
+							</div>
+						</div>
+					</li>
+
+					<!-- <li class="nav-item d-lg-none">
+            <div onclick="location.href='/imageViewer.do'" class="nav-link kdl-button-white rounded-0">실시간 폐기물 현황</div>
+          </li> -->
+				</ul>
+			</div>
+			<div
+				class="d-none d-lg-flex kdl-navbar-button-list align-items-center">
+
+				<!-- <div class="kdl-button-white" onclick="location.href='/imageViewer.do'">실시간 폐기물 현황</div> -->
+			</div>
+		</div>
+	</nav>
+	<div class="subHeader" id="subNav">
+		<div class="subHeader2"></div>
+	</div>
+
+
+
+	<!-- Custom scripts for this template -->
+	<script src="/js/creative.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+	<script>/*<![CDATA[*/
+
+var userAgent = window.navigator.userAgent;
+var isChrome = userAgent.indexOf('Chrome');
+var isChromeMobile = userAgent.indexOf('CriOS');
+var isSamsungBrowser = userAgent.indexOf('SamsungBrowser');
+var isWindows = userAgent.indexOf('Windows NT');
+var isEdge = userAgent.indexOf('Edge');
+var isIE = userAgent.indexOf('Trident');
+
+
+var is_show = false;
+
+init_mheader();
+
+
+
+// 초기화
+function init_mheader() {
+	$('.pop_menu2').bind('click', function(e) { e.stopPropagation(); });
+	$('.addr_sgg').html('동대문구');
+	
+	
+	// 상단바 익스플로러 호환성 안내
+	var getTopBar = document.getElementById('topbar-IE');
+	var getMainNav = document.getElementById('mainNav');
+	
+	if(isIE > -1){
+		// 익스플로러인 경우
+		getMainNav.style.top = "30px";
+		$('#subNav').css('margin-top', '30px');
+		
+	}else{
+		getTopBar.style.display = "none"; // 익스플로러가 아닌 경우
+		getMainNav.style.top = "0px";
+	}
+
+}
+
+// 페이지명
+function init_subHeader(subTitle) {
+  $('.subHeader2').html(subTitle);
+  $('.subHeader').show();
+}
+
+// 메뉴 보이기
+function show_pop_menu() {
+  if(! is_show) {
+    $('.pop_menu').show();
+    setTimeout(function() { $('.pop_menu').css({'opacity':1}); }, 200);
+  } else {
+    $('.pop_menu').css({'opacity':0});
+    $('.pop_menu').hide();
+  }
+
+  is_show = !is_show;
+}
+
+// 해당 페이지로 이동
+function goTarget(base, url) {
+	if(base != 'cs') {
+		location.href = '/'+base+'/'+url+'.do';
+	} else {
+		location.href = '/bbs.do?t='+url;
+	}
+}
+
+function routeBrowserSetting(){
+	var win = window.open("https://www.allatpay.com/servlet/AllatBizV2/support/SupportNoticeCL?menu_id=m040600&amp;type=detail&amp;page=1&amp;seq_no=7508", '_blank');
+	win.focus();
+}
+
+/*]]>*/ </script>
+
+	<!-- 본문 -->
+	<div class="box_lookup">
+		<div class="box_lookup2">
+
+			<style>
+.leftMenu {
+	width: 250px;
+	min-height: 600px;
+	line-height: 60px;
+	float: left;
+}
+
+.leftMenu .title {
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	background: #1A3C70;
+	color: white;
+	font-size: 26px;
+}
+
+.leftMenu .list {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.leftMenu .list .item {
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 20px;
+	border-bottom: 1px solid #E3E4E5;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.leftMenu .list .item:hover {
+	text-decoration: underline;
+}
+
+.leftMenu .list .item_on {
+	background: #EFF0F4;
+	color: #103E9F;
+	font-weight: bold;
+}
+
+@media ( max-width :1200px) {
+	.leftMenu {
+		display: none;
+	}
+}
+</style>
+
+			<div class="leftMenu">
+				<div class="title"></div>
+				<div class="list"></div>
+			</div>
+
+			<script>/*<![CDATA[*/
+
+function init_leftMenu(n, now) {
+  var title;
+  var menus;
+  var base;
+  var urls;
+  if(n == 0) {
+    title = '이용안내';
+    menus = [/* '서비스 소개', */'이용방법','품목별 수수료','재활용센터'];
+    base = 'intro';
+    urls = [/* 'intro', */'guide','fees','center'];
+  } else if(n == 1) {
+    title = '온라인신청';
+    menus = ['배출신청','배출취소','신청결과조회'];
+    base = 'online';
+    urls = ['request','reqCancel','lookup'];
+  } else if(n == 2) {
+    title = '고객민원';
+    menus = ['공지사항','FAQ'];
+    base = 'cs';
+    urls = ['notice','qna'];
+  }
+
+  $('.leftMenu .title').html(title);
+  var tmp = '';
+  for(var i=0; i<menus.length; i++) {
+    var selected = ''; if(urls[i].indexOf(now)>-1) selected = 'item_on';
+    tmp += '<div class="item '+selected+'" id="leftMenu'+i+'" onclick="goTarget(\''+base+'\',\''+urls[i]+'\');">'+menus[i]+'</div>';
+  }
+  $('.leftMenu .list').html(tmp);
+}
+
+/*]]>*/ </script>
+
+
+
+			<div class="rightContent">
+				<div class="guide">
+					<p>
+						<img class="checkedBox" src="/img/checkedbox.png" /> <strong
+							style="color: orange; text-decoration: underline;">수거관련
+							문의</strong>는 아래의 연락처(대행업체 혹은 청소행정과 도시청결팀)로 연락바랍니다.
+					</p>
+					<div class="tableDiv">
+						<table class="table-striped">
+							<tr>
+								<th></th>
+								<th>관할구역</th>
+								<th>연락처</th>
+								<th>동대문구청<br />청소행정과
+								</th>
+							</tr>
+							<tr>
+								<td>제일환경</td>
+								<td>용신동, 전농1동, 제기동, 청량리동, 회기동</td>
+								<td><span class="glyphicon glyphicon-phone-alt"></span>02-963-3795</td>
+								<td><span class="glyphicon glyphicon-phone-alt"></span>02-2127-4729</td>
+							</tr>
+							<tr>
+								<td>용마산업</td>
+								<td>답십리1·2동, 장안1·2동</td>
+								<td><span class="glyphicon glyphicon-phone-alt"></span>02-968-1966</td>
+								<td><span class="glyphicon glyphicon-phone-alt"></span>02-2127-4721</td>
+							</tr>
+							<tr>
+								<td>동양용역</td>
+								<td>휘경1·2동, 전농2동, 이문1·2동</td>
+								<td><span class="glyphicon glyphicon-phone-alt"></span>02-2242-0807</td>
+								<td><span class="glyphicon glyphicon-phone-alt"></span>02-2127-4727</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="main_title">신청결과조회</div>
+				<form id="requestDefaultVO" class="box_opt form_rid"
+					action="/online/lookupSearch.do" method="post"
+					onsubmit="return checkSearch()">
+					<div class="method">
+						<input type="radio" name="searchMethod" value="phone"
+							onchange="oc_searchMethod(this.value)" checked="checked" /> <span
+							class="methodTxt"
+							onclick="$('.form_rid input[value=req_phone]').click();">휴대전화번호</span>
+					</div>
+					<div class="method">
+						<input type="radio" name="searchMethod"
+							onchange="oc_searchMethod(this.value)" value="req_num" /> <span
+							class="methodTxt"
+							onclick="$('.form_rid input[value=req_num]').click();">배출번호</span>
+					</div>
+					<div class="clear_both"></div>
+					<div id="methodPhone">
+						<div class="box_opt0">배출자 이름</div>
+						<div class="box_opt1">
+							<input id="req_name" name="req_name" type="text" value="" th:value="${req_name}"
+								maxlength="20" />
+						</div>
+						<div class="clear_both"></div>
+						<div class="box_opt0">휴대전화번호</div>
+						<div class="box_opt1 uphone">
+							<input id="input_phone" name="req_phone"
+								onkeyup="autoHypenPhone(this)" type="text" value="" th:value="${req_phone}"
+								maxlength="13" />
+						</div>
+						<div class="clear_both search_clear"></div>
+						<div class="box_opt2" onclick="clickSearch()">검색</div>
+
+						<div class="clear_both"></div>
+					</div>
+					<div id="methodRid">
+						<div class="box_opt0">배출번호</div>
+						<div class="box_opt1 rid2">
+							<input id="req_num" name="req_num" onkeyup="onlyNumber(this)"
+								type="text" value="" maxlength="12" />
+						</div>
+						<div class="clear_both search_clear"></div>
+						<div class="box_opt2" onclick="fn_egov_link_page(1)">검색</div>
+
+						<div class="clear_both"></div>
+					</div>
+					<div class="clear_both"></div>
+					<input id="req_status" name="req_status" type="hidden" value="" />
+					<input id="pageIndex" name="pageIndex" type="hidden" value="1" />
+					<input type="submit" style="display: none;" />
+				</form>
+
+				<!-- 배출 취소 -->
+				<form id="command" class="form_cancel"
+					action="/online/reqCancelSearch.do" method="post">
+					<input type="hidden" name="req_name" /> <input type="hidden"
+						name="req_phone" /> <input type="hidden" name="searchMethod"
+						value="phone" />
+				</form>
+
+				<!-- 메뉴 -->
+				<div class="lookup_menu">
+					<div class="menu" id="lookup_menu0" onclick="click_lookup_menu(0)">
+						전체 <span class="num_lookup"></span>
+					</div>
+					<div class="menu" id="lookup_menu1" onclick="click_lookup_menu(1)">
+						수거대기 <span class="num_lookup"></span>
+					</div>
+					<div class="menu" id="lookup_menu2" onclick="click_lookup_menu(2)">
+						수거완료 <span class="num_lookup"></span>
+					</div>
+					<div class="menu" id="lookup_menu3" onclick="click_lookup_menu(3)">
+						배출취소 <span class="num_lookup"></span>
+					</div>
+				</div>
+
+				<!-- 검색 결과 -->
+				<div class="box_tb_lookup">
+					<span style="color: red; font-size: 0.9em; font-weight: bolder;">※직접
+						배출증 출력을 원하는 경우 <a style="color: blue;"
+						href="https://www.google.com/intl/ko/chrome/">구글 크롬</a>을 사용하십시오.
+					</span>
+					<table class="tb_lookup">
+						<colgroup>
+							<col width="5%" />
+							<col width="15%" />
+							<col width="15%" />
+							<col width="25%" />
+							<col width="10%" />
+							<col width="12%" />
+							<col width="8%" />
+							<col width="10%" />
+						</colgroup>
+						<tr class="title">
+							<td>No</td>
+							<td>배출번호</td>
+							<td>배출증출력</td>
+							<td>배출품목</td>
+							<td>수량</td>
+							<td>결제금액</td>
+							<td>사진</td>
+							<td>처리상태</td>
+						</tr>
+				
+						<tr th:if="${listSize > 0}" th:each="item : ${requests}">
+							<td><span th:inline="text">[[${itemStat.count}]]</span></td>
+							<td><span th:inline="text">[[${item.exhaustNo}]]</span></td>
+							<td><span th:inline="text"><a th:href="'javascript: printBill(' +  ${item.exhaustNo} + ');'">출력</a></span></td>
+							<td><span th:inline="text">[[${item.item.name}]]([[${item.item.standard}]])</span></td>
+							<td><span th:inline="text">[[${#numbers.formatInteger(item.qty, 0, 'COMMA')}]]</span></td>
+							<td><span th:inline="text">[[${#numbers.formatInteger(item.total, 0, 'COMMA')}]]</span></td>
+							<td><span th:inline="text"><a th:if="${item.photo} != null" th:href="@{/api/fileData/download} + '?username=admin&amp;code=' + ${item.photo.code}">다운</a></span></td>
+							<td><span th:inline="text">[[${item.stateName}]]</span></td>
+						</tr>
+
+						<tr th:if="${listSize == 0}">
+							<td style="border: none;" colspan="8">표시할 내용이 없습니다.</td>
+						</tr>
+
+					</table>
+				</div>
+
+
+				<!-- paging -->
+				 <div class="position_relative display_inline_block left" id="paging">
+					<div class="position_relative display_inline_block box">
+					
+						<a
+							th:href="@{'lookupSearch.do?pageIndex=' + ${pagination.prevPage} + '&amp;searchMethod=' + ${searchMethod} + '&amp;req_name=' + ${req_name} + '&amp;req_phone=' + ${req_phone} + '&amp;req_num=' + ${req_num} }"
+							href=""
+							class="position_relative display_inline_block left border border_op_color02 slow prev"><i
+							class="position_absolute display_inline_block icofont-curved-left color03 size06"></i></a>
+						<div class="position_relative display_inline_block left num_box">
+							현재 페이지
+							<a th:each="pageIdx : ${pagination.prevList}"
+								th:text="${pageIdx}"
+								th:href="@{'lookupSearch.do?pageIndex=' + ${pageIdx} + '&amp;searchMethod=' + ${searchMethod} + '&amp;req_name=' + ${req_name} + '&amp;req_phone=' + ${req_phone} + '&amp;req_num=' + ${req_num} }"
+								href=""
+								class="position_relative display_inline_block left color03 size06">1</a>
+							<a th:text="${pagination.currentPage}" href=""
+								class="position_relative display_inline_block left color03 size06 active">2</a>
+							<a th:each="pageIdx : ${pagination.nextList}"
+								th:text="${pageIdx}"
+								th:href="@{'lookupSearch.do?pageIndex=' + ${pageIdx} + '&amp;searchMethod=' + ${searchMethod} + '&amp;req_name=' + ${req_name} + '&amp;req_phone=' + ${req_phone} + '&amp;req_num=' + ${req_num} }"
+								href=""
+								class="position_relative display_inline_block left color03 size06">3</a>
+								<a th:remove="all" href=""
+									class="position_relative display_inline_block left color03 size06">4</a>
+								<a th:remove="all" href=""
+									class="position_relative display_inline_block left color03 size06">5</a>
+								<a th:remove="all" href=""
+									class="position_relative display_inline_block left color03 size06">6</a>
+								<a th:remove="all" href=""
+									class="position_relative display_inline_block left color03 size06">7</a>
+								<a th:remove="all" href=""
+									class="position_relative display_inline_block left color03 size06">8</a>
+								<a th:remove="all" href=""
+									class="position_relative display_inline_block left color03 size06">9</a>
+								<a th:remove="all" href=""
+									class="position_relative display_inline_block left color03 size06">10</a>
+							<span
+								class="position_relative display_inline_block color03 size06">
+								/ <span th:text="${pagination.totalPage}"
+								class="position_relative display_inline_block color03 size06">50</span>
+							</span>
+						</div>
+						<a
+							th:href="@{'lookupSearch.do?pageIndex=' + ${pagination.nextPage} + '&amp;searchMethod=' + ${searchMethod} + '&amp;req_name=' + ${req_name} + '&amp;req_phone=' + ${req_phone} + '&amp;req_num=' + ${req_num} }"
+							href=""
+							class="position_relative display_inline_block left border border_op_color02 slow next"><i
+							class="position_absolute display_inline_block icofont-curved-right color03 size06"></i></a>
+						<a
+							th:href="@{'lookupSearch.do?pageIndex=' + ${pagination.totalPage} + '&amp;searchMethod=' + ${searchMethod} + '&amp;req_name=' + ${req_name} + '&amp;req_phone=' + ${req_phone} + '&amp;req_num=' + ${req_num} }"
+							href=""
+							class="position_relative display_inline_block left border border_op_color02 slow d_next"><i
+							class="position_absolute display_inline_block icofont-curved-double-right color03 size06"></i></a>
+					</div>
+				</div> 
+
+			</div>
+			<!-- rightContent -->
+
+			<div class="clear_both"></div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="imageModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">촬영 사진</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<img class="modal-img" src="" width="100%;" />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 푸터 -->
+
+	<!-- <style>
+
+.footer {width:100%; height:190px; border-top:1px solid #DFDFDF; }
+.footer2 {width:1200px; height:100%; margin:auto; }
+
+/* 모바일 */
+@media (max-width:1200px) {
+  .footer2 {width:100%; }
+}
+
+.footer .menu {width:100%; height:50px; line-height:50px; font-size:10px; border-bottom:1px solid #ddd; }
+.footer .menu .item {padding:3px 15px; font-size:15px; cursor:pointer; }
+
+.footer .logo {width:300px; height:140px; line-height:140px; float:left; text-align:center; font-weight:bold; font-size:20px; }
+.footer .content {width:900px; height:90px; line-height:30px; float:left; margin-top:25px; font-size:14px; }
+
+/* 모바일 */
+@media (max-width:1200px) {
+  .footer .menu {text-align:center; }
+  .footer .menu .item {font-size:12px; }
+  .footer .logo {width:100%; height:60px; line-height:60px; float:none; font-size:15px; }
+  .footer .content {width:100%; height:75px; line-height:25px; padding:0 10px; margin-bottom:20px; float:none; margin-top:0px; font-size:11px; text-align:center; }
+}
+
+</style> -->
+
+	<style>
+
+/* Footer */
+.kdl-footer {
+	padding-top: 1.875rem;
+	padding-bottom: 1.875rem;
+}
+
+.kdl-footer-logo-wrapper {
+	text-align: center;
+	padding-bottom: 1.188rem;
+}
+
+.kdl-footer-terms {
+	padding-bottom: 1.75rem;
+	font-size: 0.875rem;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+}
+
+.kdl-footer-contact {
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	font-size: 0.75rem;
+}
+
+.bg-primary {
+	background-color: #009c7f !important;
+}
+
+footer {
+	display: block;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
+}
+</style>
+
+
+
+
+
+	<!-- Footer -->
+	<footer class="bg-primary kdl-footer">
+		<div class="container">
+			<div class="kdl-footer-logo-wrapper">
+				<img src="/img/logo-footer.png" alt="logo-footer" class="img-fluid"
+					srcset="/img/logo-footer.png 1x, /img/logo-footer@2x.png 2x, /img/logo-footer@3x.png 3x" />
+			</div>
+			<div class="kdl-footer-terms">
+				<!-- <span class="item" onclick="location.href='/policy/use.do'" style=" cursor: pointer;">이용약관</span>&emsp;|&emsp;
+      <span class="item" onclick="location.href='/policy/info.do'" style=" cursor: pointer;">개인정보처리방침</span>&emsp;|&emsp;
+      <span class="item" onclick="location.href='/bbs.do?t=qna'" style=" cursor: pointer;">고객센터</span> -->
+				&emsp;|&emsp;<span class="item"
+					onclick="location.href='http://www.ddm.go.kr/etc/infoProtect.jsp'"
+					style="cursor: pointer;">개인정보처리방침</span>&emsp;|&emsp;
+
+			</div>
+			<div class="kdl-footer-contact">
+				<!-- Copyright © (주)앱솔. 사업자번호 : 391-87-01186 대표자 : 이승원  All Rights reserved.<br/><br/> -->
+				Copyright© 2019 DONGDAEMUN-GU all rights reserved.<br /> <br />
+				02565 서울시 동대문구 천호대로 145(용두동) 동대문구청 3층 청소행정과<br /> 대표번호 :
+				02-2127-4620 / 팩스번호 : 02-3299-2629<br /> 145, Cheonhodae-ro,
+				Dongdaemun-gu, Seoul, Republic of Korea
+			</div>
+		</div>
+	</footer>
+	<script>/*<![CDATA[*/
+
+  init_mfooter();
+
+  // 초기화
+  function init_mfooter() {
+
+    
+  }
+  
+  function printBill(str) {
+		console.log('str : '+str);
+
+		
+		var ieName = navigator.appName;
+		var agent = navigator.userAgent.toLowerCase();
+
+		if (ieName == 'Microsoft Internet Explorer') { // ie 10 or lower
+			var printWindow = window.open("/tool/printAll2.do?str=" + str
+					+ "&browser=ie", "print");
+		} else {
+			if (agent.search('trident') > -1) { // ie 11
+				var printWindow = window.open("/tool/printAll2.do?str=" + str
+						+ "&browser=ie", "print");
+			} else { // Edge,Chrome 등 기타 브라우저
+				//document.getElementById('iframe_print').src = "/tool/print.do?rid="+rid+"&amp;browser=etc";
+				var printWindow = window.open("/tool/printAll2.do?str=" + str
+						+ "&browser=etc", "print");
+			}
+		}
+	}
+
+  /*]]>*/ </script>
+
+
+	<!-- QR코드 팝업창 -->
+
+
+	<style>
+.pop_qrcode {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 8000;
+	display: none;
+}
+
+.pop_qrcode2 {
+	width: 712px;
+	height: 520px;
+	background: white;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: -260px -361px;
+	border: 1px solid #333;
+}
+
+.pop_qrcode .top {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	background: #1A3C70;
+}
+
+.pop_qrcode .top .close {
+	width: 30px;
+	height: 30px;
+	float: right;
+	margin-right: 10px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.pop_qrcode .top .close img {
+	height: 17px;
+	vertical-align: middle;
+}
+
+.pop_qrcode .content {
+	width: 100%;
+	height: 100%;
+	padding: 30px 20px;
+	margin-top: -30px;
+}
+
+.pop_qrcode .pop_title {
+	width: 100%;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 17px;
+	border-bottom: 1px solid #333;
+	overflow: hidden;
+}
+
+.pop_qrcode .qrcode {
+	width: 240px;
+	height: 240px;
+	line-height: 240px;
+	margin: 50px auto;
+	border: 1px solid #ddd;
+	text-align: center;
+}
+
+.pop_qrcode .qrcode img {
+	height: 200px;
+	vertical-align: middle;
+}
+
+/* 버튼 */
+.pop_qrcode .box_bt {
+	width: 220px;
+	height: 35px;
+	line-height: 35px;
+	margin: 50px auto;
+}
+
+.pop_qrcode .box_bt .bt {
+	width: 100px;
+	height: 35px;
+	float: left;
+	background: #0E3B64;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+}
+
+.pop_qrcode .box_bt .bt2 {
+	float: right;
+	background: #616161;
+}
+
+.pop_qrcode .box_bt .onlyOne {
+	float: none;
+	margin: auto;
+}
+
+/* 모바일 */
+@media ( max-width :1200px) {
+	.pop_qrcode2 {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		margin: 0;
+	}
+	.pop_qrcode .content {
+		padding: 30px 10px;
+	}
+}
+</style>
+
+	<!-- QR코드팝업 -->
+	<!-- QR코드팝업 -->
+	<div class="pop_qrcode">
+		<div class="pop_qrcode2">
+			<div class="top">
+				<div class="close" onclick="show_pop_qrcode(false)">
+					<img src="/img/close.png" />
+				</div>
+			</div>
+			<div class="content">
+				<div class="pop_title">QR코드</div>
+				<div class="qrcode">
+					<img />
+				</div>
+				<div class="box_bt">
+					<div class="bt bt2 onlyOne" onclick="show_pop_qrcode(false)">닫기</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- QR코드팝업 -->
+	<!-- QR코드팝업 -->
+
+	<script>/*<![CDATA[*/
+  
+  // qr코드 불러오기
+  function loadQRCode(req_num) {
+	    var sendData = {'req_num':req_num};
+	    $.ajax({
+	        url:'/online/lookupQR.do',
+	        type:'post',
+	        data:sendData,
+	        contentType:'application/x-www-form-urlencoded',
+	        dataType:'text',
+	        success:function(data) { callback_qr(data); },
+	        error:function(jqXHR, exception) { alertError(jqXHR, exception); }
+	    });
+  }
+
+  // 콜백
+  function callback_qr(imageUrl) { 
+  	if(imageUrl == null || imageUrl == '') { alert('처리중에 오류가 발생했습니다.'); return; }
+  		
+  	show_pop_qrcode(true, imageUrl);
+  }
+  
+  // QR코드창 보이기
+  function show_pop_qrcode(is_show, imageUrl) {
+    if(! is_show) {
+    	$('.pop_qrcode').hide();
+    	$('body').css('overflow','auto');
+    } else {
+    	$('.pop_qrcode .qrcode img').prop('src', "data:image/png;base64,"+imageUrl);
+    	
+    	$('.pop_qrcode').show();
+    	$('body').css('overflow','hidden');
+    }
+	
+  }
+
+  /*]]>*/ </script>
+
+
+	<!-- 크롬에서 새창 안띄우고 바로 출력시
+    <iframe id="iframe_print" style="width:378px; height:378px; position:fixed; left:100%; top:100%; "></iframe>
+     -->
+
+</body>
+
+<script type="text/javascript" th:inline="javascript">/*<![CDATA[*/
+	
+var menuName = /*[[${req_status}]]*/"";
+
+menuName = decodeURI(menuName); 
+	console.log(menuName);
+	init_lookup();
+
+	// 초기화
+	function init_lookup() {
+		init_subHeader('Home > 온라인신청 > 신청결과조회');
+		init_leftMenu(1, 'lookup');
+
+		set_lookup_menu(menuName);
+
+		oc_searchMethod('');
+		$('.form_rid input[name=req_phone]').trigger('keyup');
+	}
+
+	function clickSearch() {
+		$('.form_rid input[name=pageIndex]').val(1);
+		$('.form_rid').submit();
+	}
+	
+	//배출쉬소
+function cancelGO(){
+	var req_name = "";
+	var req_phone = "";
+	
+	if(req_name!=null&&req_phone!=null&&req_name!=''&&req_phone!=''){
+		$('.form_cancel input[name=req_name]').val(req_name);
+		$('.form_cancel input[name=req_phone]').val(req_phone);
+		$('.form_cancel').submit();
+	}else{
+		alert('핸드폰 번호로 검색한 경우에만 가능합니다.'); return;
+	}
+}
+
+	//검색방법 - onchange
+	function oc_searchMethod(method) {
+		if (method == 'phone') {
+			$('.form_rid input[value=req_phone]').prop('checked', true);
+			$('#methodPhone').show();
+			$('#methodRid').hide();
+			$('.form_rid input[name=req_num]').val('');
+		} else if (method == 'req_num') {
+			$('.form_rid input[value=req_num]').prop('checked', true);
+			$('#methodPhone').hide();
+			$('.form_rid input[name=req_name]').val('');
+			$('.form_rid input[name=req_phone]').val('');
+			$('#methodRid').show();
+		}
+	}
+
+	$("input[name='uploaded']").change(function() {
+		var num = $(this).next().val();
+		var formData = new FormData($('#uploadImg' + num)[0]);
+		var sendData = formData.get('uploaded');
+
+		var req_seq = $('#req_seq' + num).val();
+
+		$.ajax({
+			type : 'post',
+			url : '/online/fileUpload.do',
+			data : formData,
+			processData : false,
+			contentType : false,
+			success : function(data) { // 저장 파일 명 가져옴
+				if (data.indexOf('fail') < 0) {
+					file_update(req_seq, data);
+				} else {
+					alert("파일 업로드에 실패하였습니다.");
+				}
+
+			},
+			error : function(error) {
+				console.log("파일 업로드에 실패하였습니다.");
+				console.log(error);
+				console.log(error.status);
+			}
+		});
+	});
+
+	function file_update(req_seq, filename) {
+		var sendData = {
+			req_seq : req_seq,
+			filename : filename
+		}
+
+		$.ajax({
+			type : 'post',
+			url : '/online/updateFilename.do',
+			data : sendData,
+			contentType : 'application/x-www-form-urlencoded',
+			success : function(data) {
+
+				alert("사진 업로드가 완료 되었습니다.");
+
+				$('.form_rid').submit();
+
+			},
+			error : function(jqXHR, exception) {
+				alertError(jqXHR, exception);
+			}
+		});
+
+	}
+
+	// 메뉴 세팅
+	function set_lookup_menu(s) {
+		$('.lookup_menu .menu').removeClass('menu_on');
+
+		var n = 0;
+		if (s == '수거대기')
+			n = 1;
+		else if (s == '수거완료')
+			n = 2;
+		else if (s == '배출취소')
+			n = 3;
+		$('#lookup_menu' + n).addClass('menu_on');
+	}
+
+	// 메뉴 선택
+	function click_lookup_menu(n) {
+		var status = "";
+		if (n == 1)
+			status = '수거대기';
+		else if (n == 2)
+			status = '수거완료';
+		else if (n == 3)
+			status = '배출취소';
+		$('.form_rid input[name=pageIndex]').val(1);
+		$('.form_rid input[name=req_status]').val(status);
+		$('.form_rid').submit();
+	}
+
+	// 검색어 확인
+	function checkSearch() {
+
+		if ($('.form_rid input[name=searchMethod]:checked').val() == 'phone') {
+			if ($('.form_rid input[name=req_name]').val() == '') {
+				alert('이름을 입력해주세요.');
+				return false;
+			}
+			if ($('.form_rid input[name=req_phone]').val() == '') {
+				alert('휴대전화번호를 입력해주세요.');
+				return false;
+			}
+			if ($('.form_rid input[name=req_phone]').val().length != 13) {
+				alert('휴대폰 번호가 올바르지 않습니다.');
+				return false;
+			}
+		} else {
+			if ($('.form_rid input[name=req_num]').val() == '') {
+				alert('배출번호를 입력 해 주세요.');
+				return false;
+			}
+			if ($('.form_rid input[name=req_num]').val().length < 12) {
+				alert('배출번호 12자리를 모두 입력해주세요.');
+				return false;
+			}
+		}
+		return true;
+	}
+
+	function btnClick(req_filename) {
+
+		var filePath = "/imgs" + req_filename;
+
+		$('.modal-img').attr('src', filePath);
+	}
+	// 페이지 선택
+	function fn_egov_link_page(pageNo) {
+		$('.form_rid input[name=pageIndex]').val(pageNo);
+		$('.form_rid').submit();
+	}
+
+	// 수거취소
+	function cancel(req_seq) {
+
+		var bool = confirm('해당 배출신청을 취소하시겠습니까?');
+
+		if (!bool)
+			return;
+
+		var sendData = {
+			req_seq : req_seq
+		};
+		$.ajax({
+			url : '/online/cancel.do',
+			type : 'post',
+			data : sendData,
+			contentType : 'application/x-www-form-urlencoded',
+			dataType : 'text',
+			success : function(data) {
+				callback_cancel(data);
+			},
+			error : function(jqXHR, exception) {
+				alertError(jqXHR, exception);
+			}
+		});
+	}
+
+	// 수거취소 후
+	function callback_cancel(data) {
+
+		if (data.indexOf('success') > -1) {
+			/* payContCancel(); */
+			alert('배출신청이 취소되었습니다.');
+			location.reload();
+		} else if (data.indexOf('0505') > -1) {
+			/* payContCancel(); */
+			alert('이미 취소된 배출건입니다.');
+			location.reload();
+		}
+	}
+
+	function payContCancel(lgd_tid) {
+		var sendData = {
+			lgd_tid : lgd_tid
+		};
+		$.ajax({
+			url : '/pc/cancel.do',
+			type : 'post',
+			data : sendData,
+			contentType : 'application/x-www-form-urlencoded',
+			dataType : 'text',
+			success : function(data) {
+				callback_payContCancel(data);
+			},
+			error : function(jqXHR, exception) {
+				alertError(jqXHR, exception);
+			}
+		});
+	}
+
+	function callback_payContCancel(data) {
+
+		if (data.indexOf('success') > -1) {
+			alert('배출신청이 취소되었습니다.');
+			location.reload();
+		}
+	}
+
+	var is_check_phone = false;
+
+	function sms(req_phone, req_name, req_seq) {
+
+		var sendData = {
+			req_phone : req_phone,
+			req_name : req_name
+		};
+		$.ajax({
+			context : this,
+			url : '/online/phoneChk.do',
+			type : 'post',
+			data : sendData,
+			contentType : 'application/x-www-form-urlencoded',
+			dataType : 'json',
+			success : function(data) {
+				callback_sms(req_seq);
+				var number = data["tran_etc1"];
+				$('#codenum').val(number);
+			},
+			error : function(jqXHR, exception) {
+				alert("fail");
+				alertError(jqXHR, exception);
+			}
+		});
+	}
+
+	function callback_sms(req_seq) {
+
+		window
+				.open(
+						"/online/smsPopup.do?req_seq=" + req_seq,
+						"SMS본인인증",
+						"width=335, height=108, left=500, top=150, scrollbars=no, location=no, resizable=no");
+
+	}
+
+	// 프린트 출력
+	function printBill(req_num) {
+		var ieName = navigator.appName;
+		var agent = navigator.userAgent.toLowerCase();
+		var option = "width=500, height=500, left=50, top=50, menubar=no, resizable=yes, location=no";
+		var option2 = "width=750, height=400, left=50, top=50, menubar=no, resizable=yes, location=no";
+
+		if (ieName == 'Microsoft Internet Explorer') { // ie 10 or lower
+			var printWindow = window.open("/tool/printAll2.do?str=" + req_num
+					+ "&browser=ie", "print");
+		} else {
+			if (agent.search('trident') > -1) { // ie 11
+				var printWindow = window.open("/tool/printAll2.do?str="
+						+ req_num + "&browser=ie", "print");
+			} else { // Edge,Chrome 등 기타 브라우저
+				//document.getElementById('iframe_print').src = "/tool/print.do?rid="+rid+"&browser=etc";
+				var printWindow = window.open("/tool/printAll2.do?str="
+						+ req_num + "&browser=etc", "print", option2);
+			}
+		}
+	}
+
+	function printBtnClick(req_orderno) {
+		var urls = "http://www.allatpay.com/servlet/AllatBizPop/member/pop_card_receipt.jsp?shop_id=ecopass_ddm&order_no="
+				+ req_orderno;
+
+		window.open(urls, "app", "width=410,height=650,scrollbars=0");
+	}
+/*]]>*/ </script>
+
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="username" width='80' align='center' type='ro' sort='str' color=''>차 량</column>	
+		<column id="username" width='80' align='center' type='ro' sort='str' color=''>구 분</column>
+		<column id="time" width='70' align='center' type='ro' sort='str' color=''>시 간</column>		
+		<column id="address" width='180' align='center' type='ro' sort='str' color=''>주 소</column>			
+
+		<beforeInit>
+			<call command="attachHeader">
+				<param>#text_filter,#select_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<call command="enableHeaderMenu">
+			</call>
+
+		</afterInit>
+	</head>
+</rows>

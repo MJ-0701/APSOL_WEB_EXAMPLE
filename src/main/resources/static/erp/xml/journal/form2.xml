@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" name="work" />
+	<item type="hidden" name="item" />
+	<item type="hidden" name="customer" />
+	<item type="hidden" name="workEmployee" />
+
+	<item type="hidden" name="lat" />
+	<item type="hidden" name="lng" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+					<item type="select" label="업무구분" className="formLabel" name="kind"
+						labelWidth="60" position="label-left" inputWidth="153">
+						<option value="JK0002" text="방문계획  &amp; 예정사항" />
+						<option value="JK0005" text="계약(신규,명변,기변)" />
+						<option value="JK0003" text="가맹점 방문" />
+						<!-- <option value="JK0001" text="상 담" /> -->
+						<option value="JK0004" text="가맹점 출고" />
+						<option value="JK0006" text="입금/출금" />
+						<option value="JK0007" text="폐업/타사교체" />
+						<option value="JK0008" text="요청 사항" />
+					</item>
+				</item>
+				<item type="newcolumn" />
+				<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+					<item type="calendar" value="" label="일자" className="formLabel" inputWidth="153"
+						labelWidth="70" name="date" />
+				</item>
+			</item>
+
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="calendar" value="" label="예정일자" className="formLabel"
+					name="workDate" />
+
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+					<item type="input" value="" label="가맹점" className="formLabel" inputWidth="153"
+						labelWidth="60" name="customerName" />
+				</item>
+				<item type="newcolumn" />
+				<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+					<item type="input" value="" label="사업자번호" className="formLabel" inputWidth="153"
+						labelWidth="70" name="customerBusinessNumber" />
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="button" value="인근 가맹점 검색" name="btnCustomerLocation" width="153"
+					required="true" offsetLeft="60" />
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+					<item type="input" value="" label="금액" className="formLabel" inputWidth="153"
+						labelWidth="60" name="amount" />
+				</item>
+				<item type="newcolumn" />
+				<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+					<item type="select" label="결제장부" labelWidth="70" name="book"
+						className="formLabel" inputWidth="153">
+						<option value="102" text="예금" />
+						<option value="101" text="현금" />
+						<option value="202" text="신용카드" />
+						<option value="1021" text="CMS" />
+						<option value="1022" text="자동이체" />
+						<option value="1024" text="지 로" />
+						<option value="1025" text="현금 영수증" />
+						<option value="119" text="합산청구"  />			
+					</item>
+				</item>
+			</item>
+		</item>
+		<item type="newcolumn" />
+
+		<item type="block" blockOffset="0">
+
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="select" label="계약구분" labelWidth="80" className="formLabel"
+					name="contractKind" inputWidth="153" connector="bascode/select/TK?empty=true">
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="select" label="방문구분" labelWidth="80" className="formLabel"
+					name="visitKind" inputWidth="153" connector="bascode/select/VK?empty=true">
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="select" label="출고구분" labelWidth="80" className="formLabel"
+					name="factoryKind" inputWidth="153">
+					<option value="S10004" text="출고" />
+					<option value="S10006" text="반품" />
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="select" label="구분" labelWidth="80" className="formLabel"
+					name="slipKind" inputWidth="153">
+
+					<option value="S10004" text="입금" />
+					<option value="S10003" text="출금" />
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="select" label="계정구분" labelWidth="80" className="formLabel"
+					name="account" inputWidth="153" connector="bascode/select/AN?empty=true">
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="select" label="폐업/타사구분" labelWidth="80" className="formLabel"
+					name="closeKind" inputWidth="153" connector="bascode/select/LK?empty=true">
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="select" label="계산서발행" labelWidth="80" className="formLabel"
+					name="taxInvoice" inputWidth="153">
+					<option value="IV0000" text="없음" />
+					<option value="IV0004" text="발행 예정" />
+					<option value="IV0003" text="영수증" />
+					<option value="IV0006" text="지로 영수증" />
+					<option value="IV0005" text="지출 후 계산서" />
+					<option value="IV0001" text="발행 완료" />
+					<option value="IV0007" text="현금 영수증" />
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="label" label="시간" labelWidth="77" className="formLabel" offsetLeft="0"
+					name="planLabel" />
+				<item type="newcolumn" />
+				<item type="select" label="시" name="planHour" inputWidth="55"
+					position="label-right" labelWidth="10">
+					<option value="" text="-" />
+					<option value="00" text="0" />
+					<option value="01" text="1" />
+					<option value="02" text="2" />
+					<option value="03" text="3" />
+					<option value="04" text="4" />
+					<option value="05" text="5" />
+					<option value="06" text="6" />
+					<option value="07" text="7" />
+					<option value="08" text="8" />
+					<option value="09" text="9" />
+					<option value="10" text="10" />
+					<option value="11" text="11" />
+					<option value="12" text="12" />
+					<option value="13" text="13" />
+					<option value="14" text="14" />
+					<option value="15" text="15" />
+					<option value="16" text="16" />
+					<option value="17" text="17" />
+					<option value="18" text="18" />
+					<option value="19" text="19" />
+					<option value="20" text="20" />
+					<option value="21" text="21" />
+					<option value="22" text="22" />
+					<option value="23" text="23" />
+				</item>
+				<item type="newcolumn" />
+				<item type="select" label="분" name="planMin" inputWidth="55"
+					position="label-right" offsetLeft="15" labelWidth="10">
+					<option value="" text="-" />
+					<option value="00" text="00" />
+					<option value="15" text="15" />
+					<option value="30" text="30" />
+					<option value="45" text="45" />
+
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="select" label="작업상태" className="formLabel"
+					labelWidth="80" name="workState" inputWidth="153">
+					<option value="" text="" />
+					<option value="WS0002" text="진행중" />
+					<option value="WS0003" text="완료" />
+					<option value="WS0001" text="대기" />
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="15" offsetTop="0">
+				<item type="select" label="반품구분" className="formLabel"
+					labelWidth="90" name="extraKind" inputWidth="153"
+					connector="bascode/select/TR?empty=true">
+				</item>
+			</item>
+		</item>
+
+		<item type="block" blockOffset="0" offsetLeft="15">
+			<item type="input" value="" label="결재자" labelWidth="80" name="receivers"
+				required="true" inputWidth="113" readonly="true" className="form_readonly formLabel" />
+			<item type="newcolumn" />
+			<item type="button" value="..." name="btnReceiver" required="true"
+				width="40" />
+		</item>
+
+		<!-- <item type="block" blockOffset="0" offsetLeft="0" offsetTop="0"> <item 
+			type="editor" label="비 고" name="content" inputWidth="390" inputHeight="250" 
+			rows="8" value="" /> </item> -->
+	</item>
+
+
+</items>
+

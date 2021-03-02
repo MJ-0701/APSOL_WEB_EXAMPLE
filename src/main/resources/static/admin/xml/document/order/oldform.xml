@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드" name="code" inputWidth="120" labelWidth="70" />
+	<item type="hidden" readonly='true' value="" label="거래처" name="customer" inputWidth="120" labelWidth="70" />
+	<item type="hidden" readonly='true' value="" label="구분" name="kind" inputWidth="120" labelWidth="70" />
+
+	<item type="block" blockOffset="0">		
+		<item type="block" blockOffset="0">
+			<item type="input" label="작성/기안" name="writerName" inputWidth="140" readonly="true"/>
+			<item type="newcolumn" />
+			<item type="input" label="발주처" name="customerName" inputWidth="140" readonly="true"/>
+			<item type="newcolumn" />
+			<item type="select" label="공 개" name="publicKind" inputWidth="140">
+				<option value="ALL" text="전체 공개" />
+				<option value="TEAM" text="팀 공개" /> 
+				<option value="NONE" text="비공개" />
+			</item>
+		</item> 
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="우편 번호" name="zipcode" inputWidth="140"  readonly="true" />
+			<item type="newcolumn" />
+				<item type="button" value="주소 검색" name="btnSearchAddress" required="true" width="60" />
+		</item>
+		<item type="block" blockOffset="0">
+			<item type="input" value="" label="배송지 주소" name="address"  inputWidth="363"  readonly="true"   />
+			<item type="newcolumn" />
+			<item type="input" value="" label="상세 주소" name="addressDetail" inputWidth="140" />
+		</item>
+	</item>
+</items>
+

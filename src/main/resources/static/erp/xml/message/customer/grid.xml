@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="replyCount" width='30' align='left' type='tree' sort='na' color=''></column>		
+		<column id="state" width='60' align='center' type='combo' sort='str' editable="false"  xmlcontent="1">
+			확 인
+			<option value="MP0001">신규</option>
+			<option value="MP0002">진행중</option>
+			<option value="MP0003">완료</option>
+			<option value="MP0004">대기</option>
+		</column>
+		<column id="registeredDate" width='90' align='center' type='ro' sort='na' color=''>일 시</column>	
+		<column id="senderName" width='100' align='left' type='ro' sort='na' color=''>발신자</column>		
+		<column id="customerName" width='120' align='left' type='ro' sort='na' color=''>가맹점명</column>			
+		<column id="customerAddress" width='150' align='left' type='ro' sort='na' color=''>주 소</column>	
+		<column id="content" width='400' align='left' type='ro' sort='na'	color=''>내 용</column>
+		<column id="receiverName" width='90' align='center' type='ro' sort='na' color=''>수신자</column>		
+		<column id="stateName" width='90' align='center' type='ro' sort='na' color=''>상 태</column>		
+		<column id="customerManagerName" width='80' align='center' type='ro' sort='na' color=''>영업담당자</column>	
+		<column id="customerBusinessNumber" width='90' align='center' type='ro' sort='na' color=''>사업자번호</column>
+		<column id="customerKindName" width='90' align='center' type='ro' sort='na' color=''>구 분</column>
+		<column id="customerCustomerKindName" width='90' align='center' type='ro' sort='na' color=''>거래처 구분</column>
+		
+		<beforeInit>
+			<call command="enableMultiline">
+				<param>1</param>
+			</call>
+			<call command="attachHeader">
+				<param>,#select_filter,,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter,#text_filter</param>
+			</call>
+		</beforeInit>
+		<afterInit>
+			<call command="enableSmartRendering">
+				<param>1</param>
+			</call>
+			<!-- <call command="enableHeaderMenu">
+			</call> -->
+			<call command="enableColumnMove">
+				<param>1</param>
+			</call>	
+
+		</afterInit>
+	</head>
+</rows>

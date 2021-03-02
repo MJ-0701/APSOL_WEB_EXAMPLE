@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" name="work" />
+	<item type="hidden" name="item" />
+	<item type="hidden" name="customer" />
+	<item type="hidden" name="workEmployee" />
+
+	<item type="hidden" name="lat" />
+	<item type="hidden" name="lng" />
+	<item type="hidden" name="kind" value="JK0002" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="calendar" value="" label="일 자" name="date" />
+				<item type="newcolumn" />
+				<item type="block" blockOffset="0" offsetLeft="85"
+					offsetTop="0">
+					<item type="select" label="시" name="planHour" inputWidth="60"
+						position="label-right" labelWidth="10">
+						<option value="" text="-" />
+						<option value="00" text="0" />
+						<option value="01" text="1" />
+						<option value="02" text="2" />
+						<option value="03" text="3" />
+						<option value="04" text="4" />
+						<option value="05" text="5" />
+						<option value="06" text="6" />
+						<option value="07" text="7" />
+						<option value="08" text="8" />
+						<option value="09" text="9" />
+						<option value="10" text="10" />
+						<option value="11" text="11" />
+						<option value="12" text="12" />
+						<option value="13" text="13" />
+						<option value="14" text="14" />
+						<option value="15" text="15" />
+						<option value="16" text="16" />
+						<option value="17" text="17" />
+						<option value="18" text="18" />
+						<option value="19" text="19" />
+						<option value="20" text="20" />
+						<option value="21" text="21" />
+						<option value="22" text="22" />
+						<option value="23" text="23" />
+					</item>
+					<item type="newcolumn" />
+					<item type="select" label="분" name="planMin" inputWidth="60"
+						position="label-right" offsetLeft="10" labelWidth="10">
+						<option value="" text="-" />
+						<option value="00" text="00" />
+						<option value="15" text="15" />
+						<option value="30" text="30" />
+						<option value="45" text="45" />
+
+					</item>
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="select" label="작업 상태" name="workState"
+					inputWidth="153">
+					<option value="" text="" />
+					<option value="WS0002" text="진행중" />
+					<option value="WS0003" text="완료" />
+					<option value="WS0001" text="대기" />
+				</item>
+				<item type="newcolumn" />
+				<item type="select" label="일정 반복" name="repeatWork" inputWidth="153">
+					<option value="RW0000" text="한번" />
+					<option value="RW0001" text="매주" />
+					<option value="RW0002" text="매월" />
+				</item>
+			</item>
+			<item type="block" blockOffset="0" offsetLeft="0" offsetTop="0">
+				<item type="checkbox" label="공식 일정" name="public" value="1"
+					checked="true">
+					<item type="block" blockOffset="0" offsetLeft="-10"
+						offsetTop="0">
+						<item type="input" value="" label="가맹점" name="customerName" />
+						<item type="newcolumn" />
+						<item type="input" value="" label="사업자 번호"
+							name="customerBusinessNumber" />
+					</item>
+					<item type="block" blockOffset="0" offsetLeft="0"
+						offsetTop="0">
+						<item type="button" value="인근 가맹점 검색"
+							name="btnCustomerLocation" required="true" offsetLeft="83" />
+						<item type="newcolumn" />
+						<item type="select" label="정기 업무" name="workState22"
+							offsetLeft="27" inputWidth="153">
+							<option value="RW0000" text="" />
+							<option value="RW0001" text="주간" />
+							<option value="RW0002" text="월간" />
+						</item>
+					</item>
+					<item type="block" blockOffset="0" offsetLeft="0"
+						offsetTop="0">
+						<item type="select" label="방문 구분" name="visitKind"
+							inputWidth="153" connector="bascode/select/VK?empty=true">
+						</item>
+						<item type="newcolumn" />
+						<item type="block" blockOffset="0">
+							<item type="input" value="" label="결재자" name="receivers"
+								required="true" inputWidth="113" readonly="true"
+								className="form_readonly" />
+							<item type="newcolumn" />
+							<item type="button" value="..." name="btnReceiver"
+								required="true" width="40" />
+						</item>
+					</item>
+
+				</item>
+
+			</item>
+		</item>
+	</item>
+</items>
+

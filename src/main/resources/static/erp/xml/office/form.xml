@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0" labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0"/>
+	<item type="hidden" label="즐겨찾기" name="favorited" inputWidth="180"/>
+	<item type="hidden" label="숨김" name="hidden" inputWidth="180"/>
+	<item type="block" blockOffset="0">
+
+		<item type="block" blockOffset="0">
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="상호명" name="name" inputWidth="180" required="true"/>
+					<item type="newcolumn"/>
+					<item type="input" value="" label="대표자" name="ceo" inputWidth="120" labelWidth="70" required="true"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="사업자 번호" name="businessNumber" inputWidth="180" required="true"/>
+					<item type="newcolumn"/>
+					<item type="input" value="" label="종사업자" name="businessNumberJ" inputWidth="120" labelWidth="70"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="우편번호" name="postNumber" inputWidth="120"/>
+					<item type="input" value="" label="주 소" name="address" inputWidth="372"/>
+					<item type="input" value="" label="업 태" name="jobType" inputWidth="120"/>
+					<item type="input" value="" label="종 목" name="jobCategory" inputWidth="120"/>
+				</item>
+			</item>
+			<item type="fieldset" blockOffset="0" offsetTop="0">
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="전 화" name="phone" inputWidth="180"/>
+					<item type="newcolumn"/>
+					<item type="input" value="" label="팩 스" name="fax" inputWidth="120" labelWidth="70"/>
+				</item>
+				<item type="block" blockOffset="0">
+					<item type="input" value="" label="이메일" name="email" inputWidth="300"/>
+					<item type="input" value="" label="핸드폰" name="mobile" inputWidth="180"/>
+				</item>
+			</item>
+			
+
+		</item>
+	</item>
+</items>
+

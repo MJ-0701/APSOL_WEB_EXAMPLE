@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="80" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+	<item type="hidden" readonly='true' value="" label="코 드" name="code"
+		inputWidth="120" labelWidth="70" />
+	<item type="hidden" readonly='true' value="" label="코 드" name="kind"
+		inputWidth="120" labelWidth="70" />
+
+	<item type="block" blockOffset="0">
+
+		<!-- <item type="select" label="분 류" name="category" connector="bascode/select/FQ" inputWidth="120" /> -->
+		 
+		
+		<item type="input" value="" label="질 문" name="title" inputWidth="560" />
+
+	</item>
+</items>
+

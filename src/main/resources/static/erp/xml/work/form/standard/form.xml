@@ -1,0 +1,49 @@
+﻿<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" offsetTop="0"
+		labelWidth="60" inputWidth="auto" noteWidth="auto" offsetLeft="0" />
+
+	<item type="hidden" readonly='true' value="" label="코 드" name="code"
+		inputWidth="120" labelWidth="70" />
+
+	<item type="hidden" name="code" />
+	<item type="hidden" name="customer" />
+	<item type="hidden" name="project" />
+
+	<item type="block" blockOffset="0">
+
+		<item type="select" label="업 무" name="workType">
+			<option value="DK0001" text="기안/품의" />
+			<option value="DK0002" text="보고서" />
+		</item>
+		<item type="newcolumn" />	
+		<item type="input" value="" label="제 목" name="title" inputWidth="560" />
+		<item type="newcolumn" />			
+		<item type="checkbox" label="공지사항" name="notice" />
+		
+	</item>
+
+
+	<item type="block" blockOffset="0" id="extraData">
+		
+		<item type="select" label="문서구분" name="slipKind" connector="bascode/select/WD" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="거래처" name="customerName"
+			inputWidth="150" />
+		<item type="newcolumn" />
+		<item type="input" value="" label="프로젝트" name="projectName"
+			inputWidth="150" />
+		<item type="newcolumn" />
+		<item type="calendar" value="" label="시행 일자" name="date" inputWidth="100"/>
+		
+		<item type="newcolumn" />		
+		<item type="select" label="선결재" name="ignoreStep">
+			<option value="BL0001" text="1.허용" />
+			<option value="BL0002" text="2.불가" />
+		</item>
+		
+	</item>
+
+
+</items>
+

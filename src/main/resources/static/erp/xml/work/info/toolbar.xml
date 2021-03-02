@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<toolbar>
+	
+	<item id="btnAdd" type="button" text="새 문서" img="new.gif"  imgdis="new_dis.gif">
+		<userdata name="kind">insert</userdata>
+		<!-- <userdata name="float">right</userdata> -->
+	</item>
+	
+	<item id="btnEdit" type="button" text="수 정" img="new.gif"  imgdis="new_dis.gif">
+		<!-- <userdata name="kind">insert</userdata> -->
+		<!-- <userdata name="float">right</userdata> -->
+	</item>
+	<item id="btnDelete" type="button" text="삭 제" img="close.gif"  imgdis="close_dis.gif">
+		<!-- <userdata name="float">right</userdata> -->
+	</item>
+	
+	
+	
+</toolbar>

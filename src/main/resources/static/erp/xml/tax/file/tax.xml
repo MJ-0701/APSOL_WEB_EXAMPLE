@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<items>
+	<item type="settings" position="label-left" labelWidth="50"
+		inputWidth="auto" noteWidth="auto" offsetLeft="10" />
+
+	<item type="file" name="excel" label="파일" required="true" />
+
+<item type="select" label="구분" name="type" inputWidth="140"
+		labelWidth="70">
+		<option value="TAX" text="계산서" />
+		<option value="ITEM" text="품목" />
+
+
+	</item>
+
+	<item type="button" name="btnUpload" value="업로드" offsetLeft="240" />
+	
+	<!--  <item type="button" name="btnDelete" value="일괄삭제" offsetLeft="240" /> -->
+</items>
+

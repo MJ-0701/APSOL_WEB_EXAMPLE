@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<rows>
+	<head>
+		<column id="code" align='left' type='ro' sort='na' width='30' hidden="true">코드
+		</column>
+		<column id="name" align='left' type='ed' width='150' sort='na'>가맹점명
+		</column>
+		<column id="ceo" align='left' type='ed' width='100'>대표자명
+		</column>
+		<column id="phone" align='left' type='ed' width='150'>Phone
+		</column>
+	</head>
+</rows>
